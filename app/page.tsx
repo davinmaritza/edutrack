@@ -129,8 +129,8 @@ export default function LandingPage() {
               {/* Main Headline */}
               <h1 className="text-4xl md:text-6xl lg:text-[70px] font-extrabold tracking-tight text-[#0F172A] leading-[1.1] font-serif max-w-3xl mx-auto">
                 {activeTab === 'individual'
-                  ? "Gain complete visibility into student progress"
-                  : "The EduTrack Solution for Modern Education"
+                  ? "Pantau kemajuan belajar siswa secara menyeluruh"
+                  : "Solusi EduTrack untuk Pendidikan Modern"
                 }
               </h1>
 
@@ -149,26 +149,17 @@ export default function LandingPage() {
                     Explore Product <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1.5 transition-transform" />
                   </Button>
                 </Link>
-                <Link href="#how-it-works" className="w-full sm:w-auto">
+                <Link href="/docs" className="w-full sm:w-auto">
                   <Button variant="outline" className="w-full sm:w-auto h-12 px-8 border-[#CBD5E1] bg-white hover:bg-[#F8FAFC] text-[#334155] font-bold text-xs rounded-full shadow-sm transition-all">
-                    Pelajari Fitur
+                    Cara Kerja
                   </Button>
                 </Link>
               </div>
             </motion.div>
           </AnimatePresence>
 
-          {/* Trusted logos (Monochrome styling) */}
-          <div className="pt-12 pb-16">
-            <p className="text-[10px] font-black uppercase tracking-widest text-[#94A3B8] mb-5">Dipercaya oleh institusi pendidikan</p>
-            <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-4 opacity-40">
-              <span className="font-serif font-bold text-lg text-[#1E293B]">SMK Negeri 13</span>
-              <span className="font-sans font-black tracking-tighter text-lg text-[#1E293B]">BANDUNG</span>
-              <span className="font-serif italic text-lg text-[#1E293B]">EduPartners</span>
-              <span className="font-sans font-bold tracking-widest text-sm text-[#1E293B]">ACADEMY</span>
-              <span className="font-serif font-black text-lg text-[#1E293B]">KEMENDIKBUD</span>
-            </div>
-          </div>
+          {/* Spacing adjustments */}
+          <div className="pt-6 pb-8" />
         </div>
 
         {/* Canyon Background Artwork Container */}
@@ -397,7 +388,7 @@ export default function LandingPage() {
             <div className="pt-8 border-t border-[#334155] flex flex-col sm:flex-row justify-between items-center gap-4">
                <p className="text-xs font-semibold text-[#64748B]">© {new Date().getFullYear()} EduTrack Inc. Hak Cipta Dilindungi.</p>
                <div className="text-xs font-semibold text-[#64748B]">
-                  Developed by <a href="https://davinn.net" target="_blank" rel="noopener noreferrer" className="text-white hover:underline font-bold">Davin</a>
+                  Developed by <a href="https://davinn.net" target="_blank" rel="noopener noreferrer" className="text-white hover:underline font-bold">Davin Maritza</a>
                </div>
             </div>
          </div>

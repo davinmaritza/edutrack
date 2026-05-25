@@ -3,9 +3,8 @@
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
-import Image from 'next/image'
 import { motion } from 'framer-motion'
-import { Mail, Lock, Loader2, ArrowRight, Eye, EyeOff, User, AlertTriangle } from 'lucide-react'
+import { Mail, Lock, Loader2, ArrowRight, Eye, EyeOff, User, AlertTriangle, GraduationCap } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
@@ -61,44 +60,49 @@ export default function RegisterPage() {
 
   if (isRegistrationDisabled) {
     return (
-      <div className="flex min-h-screen bg-[var(--background)]">
+      <div className="flex min-h-screen bg-[#FDFCF7]">
         {/* Left side - App Mockup/Branding */}
-        <div className="hidden lg:flex lg:w-1/2 bg-gradient-to-br from-[#5483B3] to-[#3B6FA0] relative overflow-hidden flex-col justify-between p-12 text-white">
+        <div className="hidden lg:flex lg:w-1/2 bg-[#1E293B] relative overflow-hidden flex-col justify-between p-12 text-white">
           <div className="absolute inset-0 bg-dot-pattern opacity-10 mix-blend-overlay" />
-          <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-br from-white/10 via-transparent to-transparent pointer-events-none" />
+          <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-br from-white/5 via-transparent to-transparent pointer-events-none" />
           
           <Link href="/" className="relative z-10 block">
-            <Image src="/logo.png" alt="EduTrack Logo" width={180} height={46} className="h-10 w-auto brightness-0 invert" />
+            <div className="flex items-center gap-3">
+              <div className="h-10 w-10 bg-white rounded-2xl flex items-center justify-center text-[#1E293B]">
+                <GraduationCap className="h-5.5 w-5.5" />
+              </div>
+              <span className="text-xl font-extrabold tracking-tight text-white">EduTrack</span>
+            </div>
           </Link>
   
-          <div className="relative z-10">
-            <h1 className="text-5xl font-extrabold tracking-tight leading-[1.1] mb-6">
+          <div className="relative z-10 space-y-4">
+            <h1 className="text-5xl font-bold tracking-tight leading-[1.1] font-serif">
               Mulai Perjalanan<br />
               Belajar Anda.
             </h1>
-            <p className="text-lg text-white/80 font-medium max-w-md leading-relaxed">
+            <p className="text-sm text-slate-300 font-medium max-w-sm leading-relaxed">
               Bergabunglah dengan ekosistem pendidikan digital terlengkap. Pantau progres, kelola tugas, dan tingkatkan performa akademik.
             </p>
           </div>
   
-          <div className="relative z-10 flex items-center gap-4 text-xs font-semibold uppercase tracking-wider text-white/60">
+          <div className="relative z-10 flex items-center gap-4 text-[10px] font-black uppercase tracking-widest text-slate-500">
             <span>Keamanan Data Terjamin</span>
-            <div className="h-px flex-1 bg-white/20" />
+            <div className="h-px flex-1 bg-white/10" />
           </div>
         </div>
   
         {/* Right side - Disabled Message */}
-        <div className="w-full lg:w-1/2 flex items-center justify-center p-8 bg-white">
-          <div className="w-full max-w-md text-center space-y-6">
+        <div className="w-full lg:w-1/2 flex items-center justify-center p-8 bg-[#FDFCF7]">
+          <div className="w-full max-w-md text-center space-y-6 bg-white border border-[#E2E8F0] p-8 md:p-10 rounded-3xl shadow-sm">
             <div className="inline-flex h-16 w-16 bg-rose-100 text-rose-600 rounded-full items-center justify-center">
               <AlertTriangle className="h-8 w-8" />
             </div>
-            <h2 className="text-3xl font-bold tracking-tight text-[#0F172A]">Pendaftaran Ditutup</h2>
-            <p className="text-[var(--muted-foreground)] font-medium text-sm leading-relaxed">
+            <h2 className="text-2xl font-bold tracking-tight text-[#0F172A] font-serif">Pendaftaran Ditutup</h2>
+            <p className="text-xs text-[#64748B] font-semibold leading-relaxed">
               Pendaftaran akun baru saat ini sedang dinonaktifkan oleh administrator sistem.
               Silakan hubungi administrator sekolah Anda untuk mendapatkan akun akses.
             </p>
-            <Button asChild className="w-full h-12 bg-[#5483B3] hover:bg-[#3B6FA0] text-white font-bold rounded-xl shadow-md">
+            <Button asChild className="w-full h-11 bg-[#1E293B] hover:bg-[#334155] text-white font-bold rounded-xl shadow-sm text-xs">
               <Link href="/login">Kembali ke Halaman Login</Link>
             </Button>
           </div>
@@ -108,67 +112,73 @@ export default function RegisterPage() {
   }
 
   return (
-    <div className="flex min-h-screen bg-[var(--background)]">
+    <div className="flex min-h-screen bg-[#FDFCF7]">
       {/* Left side - App Mockup/Branding */}
-      <div className="hidden lg:flex lg:w-1/2 bg-gradient-to-br from-[#5483B3] to-[#3B6FA0] relative overflow-hidden flex-col justify-between p-12 text-white">
+      <div className="hidden lg:flex lg:w-1/2 bg-[#1E293B] relative overflow-hidden flex-col justify-between p-12 text-white">
         <div className="absolute inset-0 bg-dot-pattern opacity-10 mix-blend-overlay" />
-        <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-br from-white/10 via-transparent to-transparent pointer-events-none" />
+        <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-br from-white/5 via-transparent to-transparent pointer-events-none" />
         
         <Link href="/" className="relative z-10 block">
-          <Image src="/logo.png" alt="EduTrack Logo" width={180} height={46} className="h-10 w-auto brightness-0 invert" />
+          <div className="flex items-center gap-3">
+            <div className="h-10 w-10 bg-white rounded-2xl flex items-center justify-center text-[#1E293B]">
+              <GraduationCap className="h-5.5 w-5.5" />
+            </div>
+            <span className="text-xl font-extrabold tracking-tight text-white">EduTrack</span>
+          </div>
         </Link>
 
-        <div className="relative z-10">
+        <div className="relative z-10 space-y-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
+            className="space-y-4"
           >
-            <h1 className="text-5xl font-extrabold tracking-tight leading-[1.1] mb-6">
+            <h1 className="text-5xl font-bold tracking-tight leading-[1.1] font-serif">
               Mulai Perjalanan<br />
               Belajar Anda.
             </h1>
-            <p className="text-lg text-white/80 font-medium max-w-md leading-relaxed">
+            <p className="text-sm text-slate-300 font-medium max-w-sm leading-relaxed">
               Bergabunglah dengan ekosistem pendidikan digital terlengkap. Pantau progres, kelola tugas, dan tingkatkan performa akademik.
             </p>
           </motion.div>
           
-          <div className="grid grid-cols-2 gap-8 mt-12 bg-white/10 backdrop-blur-sm p-6 rounded-2xl border border-white/10 inline-flex">
+          <div className="flex bg-white/5 border border-white/10 p-6 rounded-3xl gap-8 inline-flex">
             <div className="space-y-1">
-              <div className="text-3xl font-bold">10K+</div>
-              <div className="text-xs font-semibold uppercase tracking-wider text-white/70">Siswa Aktif</div>
+              <div className="text-3xl font-extrabold font-serif">10K+</div>
+              <div className="text-[10px] font-black uppercase tracking-wider text-slate-400">Siswa Aktif</div>
             </div>
             <div className="space-y-1">
-              <div className="text-3xl font-bold">500+</div>
-              <div className="text-xs font-semibold uppercase tracking-wider text-white/70">Guru Terdaftar</div>
+              <div className="text-3xl font-extrabold font-serif">500+</div>
+              <div className="text-[10px] font-black uppercase tracking-wider text-slate-400">Guru Terdaftar</div>
             </div>
           </div>
         </div>
 
-        <div className="relative z-10 flex items-center gap-4 text-xs font-semibold uppercase tracking-wider text-white/60">
+        <div className="relative z-10 flex items-center gap-4 text-[10px] font-black uppercase tracking-widest text-slate-500">
           <span>Keamanan Data Terjamin</span>
-          <div className="h-px flex-1 bg-white/20" />
+          <div className="h-px flex-1 bg-white/10" />
         </div>
       </div>
 
       {/* Right side - Register Form */}
-      <div className="w-full lg:w-1/2 flex items-center justify-center p-8 bg-white">
-        <div className="w-full max-w-md space-y-8">
+      <div className="w-full lg:w-1/2 flex items-center justify-center p-8 bg-[#FDFCF7]">
+        <div className="w-full max-w-md space-y-8 bg-white border border-[#E2E8F0] p-8 md:p-10 rounded-3xl shadow-sm">
           <div className="space-y-2 text-center lg:text-left">
-            <h2 className="text-3xl font-bold tracking-tight text-[#0F172A]">Buat Akun Baru</h2>
-            <p className="text-[var(--muted-foreground)] font-medium text-sm">Lengkapi data di bawah ini untuk bergabung dengan EduTrack.</p>
+            <h2 className="text-3xl font-bold tracking-tight text-[#0F172A] font-serif">Buat Akun Baru</h2>
+            <p className="text-xs text-[#64748B] font-semibold">Lengkapi data di bawah ini untuk bergabung dengan EduTrack.</p>
           </div>
 
           <form onSubmit={handleRegister} className="space-y-5">
             <div className="space-y-2">
               <Label htmlFor="name" className="text-xs font-bold text-[#0F172A]">Nama Lengkap</Label>
               <div className="relative">
-                <User className="absolute left-3.5 top-1/2 -translate-y-1/2 h-5 w-5 text-[var(--muted-foreground)]" />
+                <User className="absolute left-3.5 top-1/2 -translate-y-1/2 h-5 w-5 text-[#64748B]" />
                 <Input
                   id="name"
                   type="text"
                   placeholder="John Doe"
-                  className="pl-11 h-12 bg-[var(--muted)] border-transparent focus:bg-white focus:border-[#5483B3] focus:ring-2 focus:ring-[#5483B3]/20 rounded-xl transition-all"
+                  className="pl-11 h-11 bg-[#F8FAFC] border-[#E2E8F0] focus:bg-white focus:border-[#1E293B] focus:ring-2 focus:ring-[#1E293B]/5 rounded-xl transition-all text-xs"
                   value={formData.name}
                   onChange={(e) => setFormData({...formData, name: e.target.value})}
                   required
@@ -179,12 +189,12 @@ export default function RegisterPage() {
             <div className="space-y-2">
               <Label htmlFor="email" className="text-xs font-bold text-[#0F172A]">Alamat Email</Label>
               <div className="relative">
-                <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 h-5 w-5 text-[var(--muted-foreground)]" />
+                <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 h-5 w-5 text-[#64748B]" />
                 <Input
                   id="email"
                   type="email"
                   placeholder="nama@sekolah.sch.id"
-                  className="pl-11 h-12 bg-[var(--muted)] border-transparent focus:bg-white focus:border-[#5483B3] focus:ring-2 focus:ring-[#5483B3]/20 rounded-xl transition-all"
+                  className="pl-11 h-11 bg-[#F8FAFC] border-[#E2E8F0] focus:bg-white focus:border-[#1E293B] focus:ring-2 focus:ring-[#1E293B]/5 rounded-xl transition-all text-xs"
                   value={formData.email}
                   onChange={(e) => setFormData({...formData, email: e.target.value})}
                   required
@@ -195,12 +205,12 @@ export default function RegisterPage() {
             <div className="space-y-2">
               <Label htmlFor="password" className="text-xs font-bold text-[#0F172A]">Password</Label>
               <div className="relative">
-                <Lock className="absolute left-3.5 top-1/2 -translate-y-1/2 h-5 w-5 text-[var(--muted-foreground)]" />
+                <Lock className="absolute left-3.5 top-1/2 -translate-y-1/2 h-5 w-5 text-[#64748B]" />
                 <Input
                   id="password"
                   type={showPassword ? "text" : "password"}
                   placeholder="Minimal 8 karakter"
-                  className="pl-11 pr-11 h-12 bg-[var(--muted)] border-transparent focus:bg-white focus:border-[#5483B3] focus:ring-2 focus:ring-[#5483B3]/20 rounded-xl transition-all"
+                  className="pl-11 pr-11 h-11 bg-[#F8FAFC] border-[#E2E8F0] focus:bg-white focus:border-[#1E293B] focus:ring-2 focus:ring-[#1E293B]/5 rounded-xl transition-all text-xs"
                   value={formData.password}
                   onChange={(e) => setFormData({...formData, password: e.target.value})}
                   required
@@ -209,9 +219,9 @@ export default function RegisterPage() {
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-3.5 top-1/2 -translate-y-1/2 text-[var(--muted-foreground)] hover:text-[#0F172A] transition-colors focus:outline-none"
+                  className="absolute right-3.5 top-1/2 -translate-y-1/2 text-[#64748B] hover:text-[#0F172A] transition-colors focus:outline-none"
                 >
-                  {showPassword ? <EyeOff className="h-5 w-5" /> : <Eye className="h-5 w-5" />}
+                  {showPassword ? <EyeOff className="h-4.5 w-4.5" /> : <Eye className="h-4.5 w-4.5" />}
                 </button>
               </div>
             </div>
@@ -219,24 +229,24 @@ export default function RegisterPage() {
             <Button
               type="submit"
               disabled={isLoading}
-              className="w-full h-12 mt-4 bg-[#5483B3] hover:bg-[#3B6FA0] text-white font-bold rounded-xl transition-all group shadow-lg shadow-[#5483B3]/20"
+              className="w-full h-11 mt-4 bg-[#1E293B] hover:bg-[#334155] text-white font-bold rounded-xl transition-all group text-xs gap-2 shadow-sm"
             >
               {isLoading ? (
-                <Loader2 className="h-5 w-5 animate-spin" />
+                <Loader2 className="h-4 w-4 animate-spin" />
               ) : (
                 <>
                   Daftar Sekarang
-                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight className="h-4 w-4 group-hover:translate-x-0.5 transition-transform" />
                 </>
               )}
             </Button>
 
-            <div className="relative my-6">
+            <div className="relative my-4">
               <div className="absolute inset-0 flex items-center">
-                <div className="w-full border-t border-[var(--border)]" />
+                <div className="w-full border-t border-[#E2E8F0]" />
               </div>
-              <div className="relative flex justify-center text-xs font-semibold uppercase">
-                <span className="bg-white px-3 text-[var(--muted-foreground)]">Atau</span>
+              <div className="relative flex justify-center text-[10px] font-black uppercase">
+                <span className="bg-white px-3 text-[#94A3B8]">Atau</span>
               </div>
             </div>
 
@@ -244,9 +254,9 @@ export default function RegisterPage() {
               type="button"
               variant="outline"
               onClick={() => signIn('google', { callbackUrl: '/dashboard' })}
-              className="w-full h-12 border-[var(--border)] hover:bg-[var(--muted)] text-sm font-bold rounded-xl transition-all flex items-center justify-center gap-3 text-slate-700 hover:text-slate-900 shadow-sm"
+              className="w-full h-11 border-[#CBD5E1] hover:bg-[#F8FAFC] text-[#64748B] hover:text-[#1E293B] font-bold rounded-xl flex items-center justify-center gap-3 transition-all text-xs"
             >
-              <svg className="h-5 w-5 shrink-0" viewBox="0 0 24 24">
+              <svg className="h-4 w-4 shrink-0" viewBox="0 0 24 24">
                 <path
                   fill="#EA4335"
                   d="M12 5.04c1.67 0 3.2.58 4.38 1.69l3.27-3.27C17.67 1.54 14.98 1 12 1 7.35 1 3.37 3.67 1.39 7.56l3.85 2.99c.92-2.76 3.51-4.51 6.76-4.51z"
@@ -267,8 +277,8 @@ export default function RegisterPage() {
               Daftar dengan Google
             </Button>
 
-            <p className="text-center text-xs font-medium text-[var(--muted-foreground)] mt-8">
-              Sudah punya akun? <Link href="/login" className="font-bold text-[#5483B3] hover:underline">Masuk di sini</Link>
+            <p className="text-center text-[11px] font-semibold text-[#64748B] mt-6">
+              Sudah punya akun? <Link href="/login" className="font-bold text-[#1E293B] hover:underline">Masuk di sini</Link>
             </p>
           </form>
         </div>
