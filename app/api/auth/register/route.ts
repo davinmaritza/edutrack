@@ -6,10 +6,10 @@ export async function GET() {
   try {
     const settings = await prisma.settings.findUnique({
       where: { id: 'global' },
-      select: { disableRegistration: true }
+      select: { disableRegistration: true, maintenanceMode: true }
     })
     return NextResponse.json({
-      disableRegistration: settings?.disableRegistration || false
+      disableRegistration: settings?.disableRegistration || settings?.maintenanceMode || false
     })
   } catch (error) {
     return NextResponse.json({ disableRegistration: false })
@@ -22,9 +22,9 @@ export async function POST(req: Request) {
       where: { id: 'global' }
     })
 
-    if (settings?.disableRegistration) {
+    if (settings?.disableRegistration || settings?.maintenanceMode) {
       return NextResponse.json(
-        { error: "Pendaftaran dinonaktifkan oleh administrator." },
+        { error: "Pendaftaran dinonaktifkan oleh administrator atau sistem dalam perbaikan." },
         { status: 403 }
       )
     }
