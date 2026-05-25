@@ -194,7 +194,7 @@ export default function LoginPage() {
             <Button
               type="submit"
               disabled={isLoading}
-              className="w-full h-11 bg-[#1E293B] hover:bg-[#334155] text-white font-bold rounded-xl transition-all group text-xs gap-2 shadow-sm"
+              className="w-full h-11 bg-[#1E293B] hover:bg-[#0F172A] text-white font-bold rounded-xl transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-[#1E293B]/20 active:scale-[0.98] group text-xs gap-2"
             >
               {isLoading ? (
                 <Loader2 className="h-4 w-4 animate-spin" />
@@ -219,7 +219,7 @@ export default function LoginPage() {
               type="button"
               variant="outline"
               onClick={() => signIn('google')}
-              className="w-full h-11 border-[#CBD5E1] hover:bg-[#F8FAFC] text-slate-700 hover:text-slate-900 font-bold rounded-xl flex items-center justify-center gap-3 transition-all text-xs"
+              className="w-full h-11 border-[#CBD5E1] hover:border-[#1E293B] hover:bg-white text-slate-700 hover:text-[#1E293B] font-bold rounded-xl flex items-center justify-center gap-3 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md hover:shadow-slate-200 active:scale-[0.98] text-xs"
             >
               <svg className="h-4 w-4 shrink-0" viewBox="0 0 24 24">
                 <path
@@ -252,10 +252,10 @@ export default function LoginPage() {
             </div>
 
             <div className="grid grid-cols-2 gap-2.5">
-              <Button type="button" variant="outline" className="h-9 text-[10px] font-bold border-[#E2E8F0] hover:bg-[#F8FAFC] text-slate-700 rounded-lg" onClick={() => { setEmail('admin@demo.com'); setPassword('password123'); }}>Admin</Button>
-              <Button type="button" variant="outline" className="h-9 text-[10px] font-bold border-[#E2E8F0] hover:bg-[#F8FAFC] text-slate-700 rounded-lg" onClick={() => { setEmail('guru@demo.com'); setPassword('password123'); }}>Guru</Button>
-              <Button type="button" variant="outline" className="h-9 text-[10px] font-bold border-[#E2E8F0] hover:bg-[#F8FAFC] text-slate-700 rounded-lg" onClick={() => { setEmail('pelatih@demo.com'); setPassword('password123'); }}>Pelatih</Button>
-              <Button type="button" variant="outline" className="h-9 text-[10px] font-bold border-[#E2E8F0] hover:bg-[#F8FAFC] text-slate-700 rounded-lg" onClick={() => { setEmail('siswa@demo.com'); setPassword('password123'); }}>Siswa</Button>
+              <Button type="button" variant="outline" className="h-9 text-[10px] font-bold border-[#E2E8F0] hover:border-[#1E293B] hover:bg-white text-slate-700 hover:text-[#1E293B] rounded-lg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-sm active:scale-[0.97]" onClick={() => { setEmail('admin@demo.com'); setPassword('password123'); }}>Admin</Button>
+              <Button type="button" variant="outline" className="h-9 text-[10px] font-bold border-[#E2E8F0] hover:border-[#1E293B] hover:bg-white text-slate-700 hover:text-[#1E293B] rounded-lg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-sm active:scale-[0.97]" onClick={() => { setEmail('guru@demo.com'); setPassword('password123'); }}>Guru</Button>
+              <Button type="button" variant="outline" className="h-9 text-[10px] font-bold border-[#E2E8F0] hover:border-[#1E293B] hover:bg-white text-slate-700 hover:text-[#1E293B] rounded-lg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-sm active:scale-[0.97]" onClick={() => { setEmail('pelatih@demo.com'); setPassword('password123'); }}>Pelatih</Button>
+              <Button type="button" variant="outline" className="h-9 text-[10px] font-bold border-[#E2E8F0] hover:border-[#1E293B] hover:bg-white text-slate-700 hover:text-[#1E293B] rounded-lg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-sm active:scale-[0.97]" onClick={() => { setEmail('siswa@demo.com'); setPassword('password123'); }}>Siswa</Button>
             </div>
 
             <p className="text-center text-[11px] font-semibold text-[#64748B] mt-6">

@@ -116,7 +116,7 @@ export default function RegisterPage() {
               Pendaftaran akun baru saat ini sedang dinonaktifkan oleh administrator sistem.
               Silakan hubungi administrator sekolah Anda untuk mendapatkan akun akses.
             </p>
-            <Button asChild className="w-full h-11 bg-[#1E293B] hover:bg-[#334155] text-white font-bold rounded-xl shadow-sm text-xs">
+            <Button asChild className="w-full h-11 bg-[#1E293B] hover:bg-[#0F172A] text-white font-bold rounded-xl transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-[#1E293B]/20 active:scale-[0.98] text-xs">
               <Link href="/login">Kembali ke Halaman Login</Link>
             </Button>
           </motion.div>
@@ -252,7 +252,7 @@ export default function RegisterPage() {
             <Button
               type="submit"
               disabled={isLoading}
-              className="w-full h-11 mt-4 bg-[#1E293B] hover:bg-[#334155] text-white font-bold rounded-xl transition-all group text-xs gap-2 shadow-sm"
+              className="w-full h-11 mt-4 bg-[#1E293B] hover:bg-[#0F172A] text-white font-bold rounded-xl transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-[#1E293B]/20 active:scale-[0.98] group text-xs gap-2"
             >
               {isLoading ? (
                 <Loader2 className="h-4 w-4 animate-spin" />
@@ -277,7 +277,7 @@ export default function RegisterPage() {
               type="button"
               variant="outline"
               onClick={() => signIn('google', { callbackUrl: '/dashboard' })}
-              className="w-full h-11 border-[#CBD5E1] hover:bg-[#F8FAFC] text-[#64748B] hover:text-[#1E293B] font-bold rounded-xl flex items-center justify-center gap-3 transition-all text-xs"
+              className="w-full h-11 border-[#CBD5E1] hover:border-[#1E293B] hover:bg-white text-slate-700 hover:text-[#1E293B] font-bold rounded-xl flex items-center justify-center gap-3 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md hover:shadow-slate-200 active:scale-[0.98] text-xs"
             >
               <svg className="h-4 w-4 shrink-0" viewBox="0 0 24 24">
                 <path
