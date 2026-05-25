@@ -40,7 +40,7 @@ Sebelum menjalankan proyek ini, pastikan Anda telah menginstal:
 
 1. **Clone repositori ini:**
    ```bash
-   git clone https://github.com/username/edutrack.git
+   git clone https://github.com/davinmaritza/edutrack.git
    cd edutrack
    ```
 
