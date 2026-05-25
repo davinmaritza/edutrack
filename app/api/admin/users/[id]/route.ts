@@ -1,6 +1,7 @@
 import { auth } from "@/lib/auth"
 import prisma from "@/lib/prisma"
 import { NextResponse } from "next/server"
+import bcrypt from "bcryptjs"
 
 export async function PATCH(
   req: Request,
@@ -14,7 +15,7 @@ export async function PATCH(
 
   try {
     const body = await req.json()
-    const { name, email, role, school, classId, subjectId, image, nis, phone, gender, address } = body
+    const { name, email, role, school, classId, subjectId, image, nis, phone, gender, address, password } = body
 
     if (!userId) {
         return new NextResponse("User ID missing", { status: 400 })
@@ -33,25 +34,34 @@ export async function PATCH(
       }
     }
 
+    // Prepare update data
+    const updateData: any = {
+      name,
+      email,
+      role,
+      school,
+      classId: classId || null,
+      image: image !== undefined ? image : undefined,
+      nis: nis === "" ? null : (nis !== undefined ? nis : undefined),
+      noAbsen: body.noAbsen !== undefined ? (body.noAbsen ? parseInt(body.noAbsen) : null) : undefined,
+      phone: phone === "" ? null : (phone !== undefined ? phone : undefined),
+      gender: gender !== undefined ? gender : undefined,
+      address: address !== undefined ? address : undefined,
+      position: body.position !== undefined ? body.position : undefined,
+      affiliations: body.affiliations !== undefined ? body.affiliations : undefined,
+      canEditMaterials: body.canEditMaterials !== undefined ? body.canEditMaterials : undefined,
+      canEditAssignments: body.canEditAssignments !== undefined ? body.canEditAssignments : undefined
+    }
+
+    // If password is provided, hash it and update it
+    if (password && typeof password === 'string' && password.trim() !== '') {
+      updateData.password = await bcrypt.hash(password, 10)
+    }
+
     // Update user
     const user = await prisma.user.update({
       where: { id: userId },
-      data: {
-        name,
-        email,
-        role,
-        school,
-        classId: classId || null,
-        image: image !== undefined ? image : undefined,
-        nis: nis === "" ? null : (nis !== undefined ? nis : undefined),
-        phone: phone === "" ? null : (phone !== undefined ? phone : undefined),
-        gender: gender !== undefined ? gender : undefined,
-        address: address !== undefined ? address : undefined,
-        position: body.position !== undefined ? body.position : undefined,
-        affiliations: body.affiliations !== undefined ? body.affiliations : undefined,
-        canEditMaterials: body.canEditMaterials !== undefined ? body.canEditMaterials : undefined,
-        canEditAssignments: body.canEditAssignments !== undefined ? body.canEditAssignments : undefined
-      },
+      data: updateData,
       include: {
         class: true,
         teacherSubjects: true
@@ -97,10 +107,30 @@ export async function DELETE(
     if (!user) return new NextResponse("User not found", { status: 404 })
 
     // Delete related data first (Manual Cascade)
-    await prisma.progressLog.deleteMany({ where: { userId } })
-    await prisma.userSubject.deleteMany({ where: { userId } })
-    await prisma.notification.deleteMany({ where: { userId } })
-    await prisma.assignmentSubmission.deleteMany({ where: { studentId: userId } })
+    const ids = [userId]
+    await prisma.progressLog.deleteMany({ where: { userId: { in: ids } } })
+    await prisma.userSubject.deleteMany({ where: { userId: { in: ids } } })
+    await prisma.notification.deleteMany({ where: { userId: { in: ids } } })
+    await prisma.assignmentSubmission.deleteMany({ where: { studentId: { in: ids } } })
+    await prisma.account.deleteMany({ where: { userId: { in: ids } } })
+    await prisma.session.deleteMany({ where: { userId: { in: ids } } })
+    await prisma.calendarReminder.deleteMany({ where: { userId: { in: ids } } })
+    await prisma.attendance.deleteMany({ where: { userId: { in: ids } } })
+    await prisma.extracurricularMember.deleteMany({ where: { studentId: { in: ids } } })
+    await prisma.extracurricularAttendance.deleteMany({ where: { studentId: { in: ids } } })
+    await prisma.operator.deleteMany({ where: { userId: { in: ids } } })
+
+    // Cascade for teachers/notes/etc.
+    await prisma.comment.deleteMany({ where: { authorId: { in: ids } } })
+    await prisma.assignmentSubmission.deleteMany({ where: { assignment: { teacherId: { in: ids } } } })
+    await prisma.assignment.deleteMany({ where: { teacherId: { in: ids } } })
+    await prisma.material.deleteMany({ where: { teacherId: { in: ids } } })
+    await prisma.classSchedule.deleteMany({ where: { teacherId: { in: ids } } })
+    await prisma.userNote.deleteMany({ where: { authorId: { in: ids } } })
+    await prisma.userNote.deleteMany({ where: { userId: { in: ids } } })
+    await prisma.subject.updateMany({ where: { teacherId: { in: ids } }, data: { teacherId: null } })
+    await prisma.extracurricular.updateMany({ where: { leaderId: { in: ids } }, data: { leaderId: null } })
+    await prisma.extracurricular.updateMany({ where: { coachId: { in: ids } }, data: { coachId: null } })
     
     // Delete user
     await prisma.user.delete({ where: { id: userId } })

@@ -21,19 +21,13 @@ export const proxy = auth((req) => {
     })
   }
 
-  // 2. Block any database modifications (POST, PUT, DELETE, PATCH) for the demo admin account
-  const isDemoAdmin = email === "admin@demo.com"
+  // 2. Block any database modifications (POST, PUT, DELETE, PATCH) for all demo accounts
+  const isDemoAccount = typeof email === 'string' && (email.endsWith("@demo.com") || ["admin@demo.com", "guru@demo.com", "pelatih@demo.com", "siswa@demo.com"].includes(email))
   const isWriteRequest = ["POST", "PUT", "DELETE", "PATCH"].includes(req.method)
 
-  if (isLoggedIn && isDemoAdmin && isWriteRequest) {
-    if (nextUrl.pathname === "/api/upload") {
-      return NextResponse.json(
-        { error: "Aksi tidak diizinkan: Akun demo admin bersifat read-only." },
-        { status: 403 }
-      )
-    }
-    return new NextResponse(
-      "Aksi tidak diizinkan: Akun demo admin bersifat read-only.",
+  if (isLoggedIn && isDemoAccount && isWriteRequest) {
+    return NextResponse.json(
+      { error: "Aksi dibatasi: Akun demo ini hanya memiliki akses baca (Read-Only)." },
       { status: 403 }
     )
   }

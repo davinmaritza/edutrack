@@ -796,7 +796,14 @@ export function AdminClassesClient({ initialClasses, role, subjects, unassignedS
                                          <AvatarFallback className="bg-[var(--muted)] text-[var(--muted-foreground)] font-bold text-base">{student.name[0]}</AvatarFallback>
                                      </Avatar>
                                      <div className="min-w-0 flex-1">
-                                         <p className="text-sm font-bold text-[var(--foreground)] truncate group-hover:text-[#5483B3] transition-colors">{student.name}</p>
+                                         <div className="flex items-center gap-2">
+                                            <p className="text-sm font-bold text-[var(--foreground)] truncate group-hover:text-[#5483B3] transition-colors">{student.name}</p>
+                                            {student.noAbsen !== null && student.noAbsen !== undefined && (
+                                               <Badge variant="outline" className="text-[9px] font-extrabold px-1.5 py-0.5 bg-[#5483B3]/10 text-[#5483B3] border-none rounded">
+                                                  No. Absen {student.noAbsen}
+                                               </Badge>
+                                            )}
+                                         </div>
                                          <p className="text-xs font-medium text-[var(--muted-foreground)] truncate mt-0.5">{student.email}</p>
                                      </div>
                                    </div>

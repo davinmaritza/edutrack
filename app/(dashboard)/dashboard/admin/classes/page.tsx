@@ -20,6 +20,13 @@ export default async function AdminClassesPage() {
 
   const [classes, subjects, unassignedStudents] = await Promise.all([
     prisma.class.findMany({
+      where: role === 'TEACHER' ? {
+        schedules: {
+          some: {
+            teacherId: userId
+          }
+        }
+      } : {},
       include: {
         students: true,
         schedules: true,

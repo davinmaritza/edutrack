@@ -36,9 +36,7 @@ export default function LandingPage() {
           </Link>
           
           <div className="hidden md:flex items-center gap-10 text-[13px] font-semibold text-[var(--muted-foreground)]">
-            <a href="#features" className="hover:text-[#5483B3] transition-colors">Fitur</a>
-            <a href="#about" className="hover:text-[#5483B3] transition-colors">Solusi</a>
-            <a href="#stats" className="hover:text-[#5483B3] transition-colors">Statistik</a>
+            {/* Nav links removed as per user request */}
           </div>
 
           <div className="flex items-center gap-4">
@@ -109,11 +107,11 @@ export default function LandingPage() {
                         <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1.5 transition-transform" />
                       </Button>
                    </Link>
-                   <a href="#features" className="w-full sm:w-auto">
-                      <Button variant="outline" className="w-full h-14 px-8 border-[var(--border)] hover:bg-[var(--muted)] text-[#0F172A] font-bold text-base rounded-xl transition-all">
-                        Pelajari Fitur
-                      </Button>
-                   </a>
+                    <Link href="/login" className="w-full sm:w-auto">
+                       <Button variant="outline" className="w-full h-14 px-8 border-[var(--border)] hover:bg-[var(--muted)] text-[#0F172A] font-bold text-base rounded-xl transition-all">
+                         Masuk Akun
+                       </Button>
+                    </Link>
                 </div>
              </motion.div>
           </div>
@@ -121,7 +119,7 @@ export default function LandingPage() {
       </section>
 
       {/* Features Grid */}
-      <section id="features" className="py-24 bg-white border-y border-[var(--border)] relative z-10">
+      <section className="py-24 bg-white border-y border-[var(--border)] relative z-10">
          <div className="container mx-auto px-6">
             <div className="text-center max-w-2xl mx-auto mb-16">
                <h2 className="text-sm font-bold tracking-widest text-[#5483B3] mb-3 uppercase">Kenapa Memilih EduTrack?</h2>
@@ -150,7 +148,7 @@ export default function LandingPage() {
       </section>
 
       {/* Stats Section */}
-      <section id="stats" className="py-24 overflow-hidden relative">
+      <section className="py-24 overflow-hidden relative">
          <div className="container mx-auto px-6">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                <div>
@@ -207,7 +205,7 @@ export default function LandingPage() {
       </section>
 
       {/* CTA Section */}
-      <section id="about" className="py-24 relative overflow-hidden">
+      <section className="py-24 relative overflow-hidden">
          <div className="absolute inset-0 bg-[#5483B3]" />
          <div className="absolute inset-0 bg-[url('/noise.png')] opacity-10 mix-blend-overlay" />
          <div className="container mx-auto px-6 relative z-10 text-center">
@@ -243,12 +241,12 @@ export default function LandingPage() {
                
                <div className="grid grid-cols-2 md:grid-cols-3 gap-10">
                    <div className="space-y-4">
-                     <h5 className="text-xs font-bold uppercase tracking-wider text-[#0F172A]">Platform</h5>
-                     <div className="flex flex-col gap-3 text-sm font-medium text-[var(--muted-foreground)]">
-                        <a href="#features" className="hover:text-[#5483B3] transition-colors">Fitur Utama</a>
-                        <a href="#stats" className="hover:text-[#5483B3] transition-colors">Statistik</a>
-                        <Link href="#" className="hover:text-[#5483B3] transition-colors">Harga</Link>
-                     </div>
+                      <h5 className="text-xs font-bold uppercase tracking-wider text-[#0F172A]">Platform</h5>
+                      <div className="flex flex-col gap-3 text-sm font-medium text-[var(--muted-foreground)]">
+                         <span className="text-[var(--muted-foreground)]">Fitur Utama</span>
+                         <span className="text-[var(--muted-foreground)]">Statistik</span>
+                         <span className="text-[var(--muted-foreground)]">Harga</span>
+                      </div>
                   </div>
                   <div className="space-y-4">
                      <h5 className="text-xs font-bold uppercase tracking-wider text-[#0F172A]">Legal</h5>

@@ -48,7 +48,8 @@ export function DiscussionForumClient() {
         setIsCreating(false)
         mutate()
       } else {
-        toast.error('Gagal membuat diskusi')
+        const data = await res.json().catch(() => ({}))
+        toast.error(data.error || 'Gagal membuat diskusi')
       }
     } catch (error) {
       toast.error('Kesalahan sistem')
@@ -70,7 +71,8 @@ export function DiscussionForumClient() {
         setReplyContent('')
         mutate()
       } else {
-        toast.error('Gagal mengirim balasan')
+        const data = await res.json().catch(() => ({}))
+        toast.error(data.error || 'Gagal mengirim balasan')
       }
     } catch (error) {
       toast.error('Kesalahan sistem')

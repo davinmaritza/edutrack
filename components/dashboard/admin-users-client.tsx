@@ -89,6 +89,7 @@ export function AdminUsersClient({ initialUsers, classes, subjects = [], fixedRo
     subjectId: '',
     image: '',
     nis: '',
+    noAbsen: '',
     phone: '',
     gender: 'Laki-laki',
     address: '',
@@ -179,7 +180,7 @@ export function AdminUsersClient({ initialUsers, classes, subjects = [], fixedRo
         setUsers([newUser, ...users])
         toast.success('User berhasil ditambahkan')
         setIsAddOpen(false)
-        setFormData({ name: '', email: '', password: '', role: fixedRole || 'STUDENT', school: 'SMKN 13 Bandung', classId: '', subjectId: '', image: '', nis: '', phone: '', gender: 'Laki-laki', address: '', position: '', affiliations: '', canEditMaterials: false, canEditAssignments: false })
+        setFormData({ name: '', email: '', password: '', role: fixedRole || 'STUDENT', school: 'SMKN 13 Bandung', classId: '', subjectId: '', image: '', nis: '', noAbsen: '', phone: '', gender: 'Laki-laki', address: '', position: '', affiliations: '', canEditMaterials: false, canEditAssignments: false })
       } else {
         const err = await res.text()
         toast.error(err || 'Gagal menambahkan user')
@@ -394,6 +395,7 @@ export function AdminUsersClient({ initialUsers, classes, subjects = [], fixedRo
       subjectId: '',
       image: '',
       nis: '',
+      noAbsen: '',
       phone: '',
       gender: 'Laki-laki',
       address: '',
@@ -417,6 +419,7 @@ export function AdminUsersClient({ initialUsers, classes, subjects = [], fixedRo
       subjectId: user.teacherSubjects?.[0]?.id || '',
       image: user.image || '',
       nis: user.nis || '',
+      noAbsen: user.noAbsen?.toString() || '',
       phone: user.phone || '',
       gender: user.gender || 'Laki-laki',
       address: user.address || '',
@@ -619,13 +622,21 @@ export function AdminUsersClient({ initialUsers, classes, subjects = [], fixedRo
                           </div>
                         </div>
 
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                        <div className={cn("grid grid-cols-1 gap-5", formData.role === 'STUDENT' ? "md:grid-cols-3" : "md:grid-cols-2")}>
                           <div className="space-y-2">
                             <Label className="text-xs font-bold text-[var(--foreground)] flex items-center gap-2">
                               <Fingerprint className="h-3.5 w-3.5 text-[#5483B3]" /> {fixedRole === 'STUDENT' ? 'NIS' : 'NIP / ID'}
                             </Label>
                             <Input value={formData.nis} onChange={(e) => setFormData({...formData, nis: e.target.value})} className="bg-[var(--card)] border-[var(--border)] rounded-xl h-11 text-sm focus-visible:ring-[#5483B3]" placeholder={fixedRole === 'STUDENT' ? "Masukkan NIS" : "Masukkan NIP"} />
                           </div>
+                          {formData.role === 'STUDENT' && (
+                            <div className="space-y-2">
+                              <Label className="text-xs font-bold text-[var(--foreground)] flex items-center gap-2">
+                                <Fingerprint className="h-3.5 w-3.5 text-[#5483B3]" /> No Absen
+                              </Label>
+                              <Input type="number" value={formData.noAbsen} onChange={(e) => setFormData({...formData, noAbsen: e.target.value})} className="bg-[var(--card)] border-[var(--border)] rounded-xl h-11 text-sm focus-visible:ring-[#5483B3]" placeholder="No Absen" />
+                            </div>
+                          )}
                           <div className="space-y-2">
                             <Label className="text-xs font-bold text-[var(--foreground)] flex items-center gap-2">
                               <Phone className="h-3.5 w-3.5 text-[#5483B3]" /> Nomor Telepon
@@ -996,13 +1007,21 @@ export function AdminUsersClient({ initialUsers, classes, subjects = [], fixedRo
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                  <div className={cn("grid grid-cols-1 gap-5", selectedUser?.role === 'STUDENT' ? "md:grid-cols-3" : "md:grid-cols-2")}>
                     <div className="space-y-2">
                       <Label className="text-xs font-bold text-[var(--foreground)] flex items-center gap-2">
                         <Fingerprint className="h-3.5 w-3.5 text-[#5483B3]" /> {selectedUser?.role === 'STUDENT' ? 'NIS' : 'NIP / ID'}
                       </Label>
                       <Input value={formData.nis} onChange={(e) => setFormData({...formData, nis: e.target.value})} className="bg-[var(--card)] border-[var(--border)] rounded-xl h-11 text-sm focus-visible:ring-[#5483B3]" />
                     </div>
+                    {selectedUser?.role === 'STUDENT' && (
+                      <div className="space-y-2">
+                        <Label className="text-xs font-bold text-[var(--foreground)] flex items-center gap-2">
+                          <Fingerprint className="h-3.5 w-3.5 text-[#5483B3]" /> No Absen
+                        </Label>
+                        <Input type="number" value={formData.noAbsen} onChange={(e) => setFormData({...formData, noAbsen: e.target.value})} className="bg-[var(--card)] border-[var(--border)] rounded-xl h-11 text-sm focus-visible:ring-[#5483B3]" placeholder="No Absen" />
+                      </div>
+                    )}
                     <div className="space-y-2">
                       <Label className="text-xs font-bold text-[var(--foreground)] flex items-center gap-2">
                         <Phone className="h-3.5 w-3.5 text-[#5483B3]" /> Nomor Telepon

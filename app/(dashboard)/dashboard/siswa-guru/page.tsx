@@ -12,8 +12,22 @@ export default async function TeacherSiswaPage() {
 
   // Fetch all students in the school
   const school = (session.user as any).school
+  const userId = (session.user as any).id
+  
   const students = await prisma.user.findMany({
-    where: { school, role: 'STUDENT' },
+    where: { 
+      school, 
+      role: 'STUDENT',
+      ...(role === 'TEACHER' ? {
+        userSubjects: {
+          some: {
+            subject: {
+              teacherId: userId
+            }
+          }
+        }
+      } : {})
+    },
     include: { 
       class: true,
       progressLogs: {

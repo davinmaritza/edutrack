@@ -37,6 +37,7 @@ export async function POST(req: Request) {
         classId: classId || null,
         image: image || null,
         nis: nis || null,
+        noAbsen: body.noAbsen ? parseInt(body.noAbsen) : null,
         phone: phone || null,
         gender: gender || null,
         address: address || null,

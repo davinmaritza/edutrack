@@ -143,6 +143,21 @@ export type PasswordResetToken = $Result.DefaultSelection<Prisma.$PasswordResetT
  * 
  */
 export type CalendarReminder = $Result.DefaultSelection<Prisma.$CalendarReminderPayload>
+/**
+ * Model Document
+ * 
+ */
+export type Document = $Result.DefaultSelection<Prisma.$DocumentPayload>
+/**
+ * Model DiscussionThread
+ * 
+ */
+export type DiscussionThread = $Result.DefaultSelection<Prisma.$DiscussionThreadPayload>
+/**
+ * Model DiscussionReply
+ * 
+ */
+export type DiscussionReply = $Result.DefaultSelection<Prisma.$DiscussionReplyPayload>
 
 /**
  * Enums
@@ -589,6 +604,36 @@ export class PrismaClient<
     * ```
     */
   get calendarReminder(): Prisma.CalendarReminderDelegate<ExtArgs>;
+
+  /**
+   * `prisma.document`: Exposes CRUD operations for the **Document** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Documents
+    * const documents = await prisma.document.findMany()
+    * ```
+    */
+  get document(): Prisma.DocumentDelegate<ExtArgs>;
+
+  /**
+   * `prisma.discussionThread`: Exposes CRUD operations for the **DiscussionThread** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more DiscussionThreads
+    * const discussionThreads = await prisma.discussionThread.findMany()
+    * ```
+    */
+  get discussionThread(): Prisma.DiscussionThreadDelegate<ExtArgs>;
+
+  /**
+   * `prisma.discussionReply`: Exposes CRUD operations for the **DiscussionReply** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more DiscussionReplies
+    * const discussionReplies = await prisma.discussionReply.findMany()
+    * ```
+    */
+  get discussionReply(): Prisma.DiscussionReplyDelegate<ExtArgs>;
 }
 
 export namespace Prisma {
@@ -1055,7 +1100,10 @@ export namespace Prisma {
     Session: 'Session',
     VerificationToken: 'VerificationToken',
     PasswordResetToken: 'PasswordResetToken',
-    CalendarReminder: 'CalendarReminder'
+    CalendarReminder: 'CalendarReminder',
+    Document: 'Document',
+    DiscussionThread: 'DiscussionThread',
+    DiscussionReply: 'DiscussionReply'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -1071,7 +1119,7 @@ export namespace Prisma {
 
   export type TypeMap<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, ClientOptions = {}> = {
     meta: {
-      modelProps: "user" | "userNote" | "attendance" | "class" | "subject" | "topic" | "progressLog" | "userSubject" | "classSchedule" | "material" | "extracurricular" | "extracurricularMember" | "extracurricularSession" | "extracurricularAttendance" | "assignment" | "assignmentSubmission" | "comment" | "notification" | "announcement" | "operator" | "settings" | "account" | "session" | "verificationToken" | "passwordResetToken" | "calendarReminder"
+      modelProps: "user" | "userNote" | "attendance" | "class" | "subject" | "topic" | "progressLog" | "userSubject" | "classSchedule" | "material" | "extracurricular" | "extracurricularMember" | "extracurricularSession" | "extracurricularAttendance" | "assignment" | "assignmentSubmission" | "comment" | "notification" | "announcement" | "operator" | "settings" | "account" | "session" | "verificationToken" | "passwordResetToken" | "calendarReminder" | "document" | "discussionThread" | "discussionReply"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -2895,6 +2943,216 @@ export namespace Prisma {
           }
         }
       }
+      Document: {
+        payload: Prisma.$DocumentPayload<ExtArgs>
+        fields: Prisma.DocumentFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.DocumentFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DocumentPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.DocumentFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DocumentPayload>
+          }
+          findFirst: {
+            args: Prisma.DocumentFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DocumentPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.DocumentFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DocumentPayload>
+          }
+          findMany: {
+            args: Prisma.DocumentFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DocumentPayload>[]
+          }
+          create: {
+            args: Prisma.DocumentCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DocumentPayload>
+          }
+          createMany: {
+            args: Prisma.DocumentCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.DocumentCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DocumentPayload>[]
+          }
+          delete: {
+            args: Prisma.DocumentDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DocumentPayload>
+          }
+          update: {
+            args: Prisma.DocumentUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DocumentPayload>
+          }
+          deleteMany: {
+            args: Prisma.DocumentDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.DocumentUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.DocumentUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DocumentPayload>
+          }
+          aggregate: {
+            args: Prisma.DocumentAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateDocument>
+          }
+          groupBy: {
+            args: Prisma.DocumentGroupByArgs<ExtArgs>
+            result: $Utils.Optional<DocumentGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.DocumentCountArgs<ExtArgs>
+            result: $Utils.Optional<DocumentCountAggregateOutputType> | number
+          }
+        }
+      }
+      DiscussionThread: {
+        payload: Prisma.$DiscussionThreadPayload<ExtArgs>
+        fields: Prisma.DiscussionThreadFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.DiscussionThreadFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DiscussionThreadPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.DiscussionThreadFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DiscussionThreadPayload>
+          }
+          findFirst: {
+            args: Prisma.DiscussionThreadFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DiscussionThreadPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.DiscussionThreadFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DiscussionThreadPayload>
+          }
+          findMany: {
+            args: Prisma.DiscussionThreadFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DiscussionThreadPayload>[]
+          }
+          create: {
+            args: Prisma.DiscussionThreadCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DiscussionThreadPayload>
+          }
+          createMany: {
+            args: Prisma.DiscussionThreadCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.DiscussionThreadCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DiscussionThreadPayload>[]
+          }
+          delete: {
+            args: Prisma.DiscussionThreadDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DiscussionThreadPayload>
+          }
+          update: {
+            args: Prisma.DiscussionThreadUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DiscussionThreadPayload>
+          }
+          deleteMany: {
+            args: Prisma.DiscussionThreadDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.DiscussionThreadUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.DiscussionThreadUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DiscussionThreadPayload>
+          }
+          aggregate: {
+            args: Prisma.DiscussionThreadAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateDiscussionThread>
+          }
+          groupBy: {
+            args: Prisma.DiscussionThreadGroupByArgs<ExtArgs>
+            result: $Utils.Optional<DiscussionThreadGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.DiscussionThreadCountArgs<ExtArgs>
+            result: $Utils.Optional<DiscussionThreadCountAggregateOutputType> | number
+          }
+        }
+      }
+      DiscussionReply: {
+        payload: Prisma.$DiscussionReplyPayload<ExtArgs>
+        fields: Prisma.DiscussionReplyFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.DiscussionReplyFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DiscussionReplyPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.DiscussionReplyFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DiscussionReplyPayload>
+          }
+          findFirst: {
+            args: Prisma.DiscussionReplyFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DiscussionReplyPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.DiscussionReplyFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DiscussionReplyPayload>
+          }
+          findMany: {
+            args: Prisma.DiscussionReplyFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DiscussionReplyPayload>[]
+          }
+          create: {
+            args: Prisma.DiscussionReplyCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DiscussionReplyPayload>
+          }
+          createMany: {
+            args: Prisma.DiscussionReplyCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.DiscussionReplyCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DiscussionReplyPayload>[]
+          }
+          delete: {
+            args: Prisma.DiscussionReplyDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DiscussionReplyPayload>
+          }
+          update: {
+            args: Prisma.DiscussionReplyUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DiscussionReplyPayload>
+          }
+          deleteMany: {
+            args: Prisma.DiscussionReplyDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.DiscussionReplyUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.DiscussionReplyUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DiscussionReplyPayload>
+          }
+          aggregate: {
+            args: Prisma.DiscussionReplyAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateDiscussionReply>
+          }
+          groupBy: {
+            args: Prisma.DiscussionReplyGroupByArgs<ExtArgs>
+            result: $Utils.Optional<DiscussionReplyGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.DiscussionReplyCountArgs<ExtArgs>
+            result: $Utils.Optional<DiscussionReplyCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -3075,6 +3333,9 @@ export namespace Prisma {
     ekskulMembers: number
     ekskulAttendances: number
     teacherMaterials: number
+    documents: number
+    discussionThreads: number
+    discussionReplies: number
   }
 
   export type UserCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -3097,6 +3358,9 @@ export namespace Prisma {
     ekskulMembers?: boolean | UserCountOutputTypeCountEkskulMembersArgs
     ekskulAttendances?: boolean | UserCountOutputTypeCountEkskulAttendancesArgs
     teacherMaterials?: boolean | UserCountOutputTypeCountTeacherMaterialsArgs
+    documents?: boolean | UserCountOutputTypeCountDocumentsArgs
+    discussionThreads?: boolean | UserCountOutputTypeCountDiscussionThreadsArgs
+    discussionReplies?: boolean | UserCountOutputTypeCountDiscussionRepliesArgs
   }
 
   // Custom InputTypes
@@ -3243,6 +3507,27 @@ export namespace Prisma {
     where?: MaterialWhereInput
   }
 
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountDocumentsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: DocumentWhereInput
+  }
+
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountDiscussionThreadsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: DiscussionThreadWhereInput
+  }
+
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountDiscussionRepliesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: DiscussionReplyWhereInput
+  }
+
 
   /**
    * Count Type ClassCountOutputType
@@ -3253,6 +3538,7 @@ export namespace Prisma {
     schedules: number
     students: number
     materials: number
+    discussionThreads: number
   }
 
   export type ClassCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -3260,6 +3546,7 @@ export namespace Prisma {
     schedules?: boolean | ClassCountOutputTypeCountSchedulesArgs
     students?: boolean | ClassCountOutputTypeCountStudentsArgs
     materials?: boolean | ClassCountOutputTypeCountMaterialsArgs
+    discussionThreads?: boolean | ClassCountOutputTypeCountDiscussionThreadsArgs
   }
 
   // Custom InputTypes
@@ -3299,6 +3586,13 @@ export namespace Prisma {
    */
   export type ClassCountOutputTypeCountMaterialsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: MaterialWhereInput
+  }
+
+  /**
+   * ClassCountOutputType without action
+   */
+  export type ClassCountOutputTypeCountDiscussionThreadsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: DiscussionThreadWhereInput
   }
 
 
@@ -3583,6 +3877,68 @@ export namespace Prisma {
 
 
   /**
+   * Count Type DocumentCountOutputType
+   */
+
+  export type DocumentCountOutputType = {
+    subDocs: number
+  }
+
+  export type DocumentCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    subDocs?: boolean | DocumentCountOutputTypeCountSubDocsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * DocumentCountOutputType without action
+   */
+  export type DocumentCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DocumentCountOutputType
+     */
+    select?: DocumentCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * DocumentCountOutputType without action
+   */
+  export type DocumentCountOutputTypeCountSubDocsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: DocumentWhereInput
+  }
+
+
+  /**
+   * Count Type DiscussionThreadCountOutputType
+   */
+
+  export type DiscussionThreadCountOutputType = {
+    replies: number
+  }
+
+  export type DiscussionThreadCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    replies?: boolean | DiscussionThreadCountOutputTypeCountRepliesArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * DiscussionThreadCountOutputType without action
+   */
+  export type DiscussionThreadCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DiscussionThreadCountOutputType
+     */
+    select?: DiscussionThreadCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * DiscussionThreadCountOutputType without action
+   */
+  export type DiscussionThreadCountOutputTypeCountRepliesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: DiscussionReplyWhereInput
+  }
+
+
+  /**
    * Models
    */
 
@@ -3592,8 +3948,18 @@ export namespace Prisma {
 
   export type AggregateUser = {
     _count: UserCountAggregateOutputType | null
+    _avg: UserAvgAggregateOutputType | null
+    _sum: UserSumAggregateOutputType | null
     _min: UserMinAggregateOutputType | null
     _max: UserMaxAggregateOutputType | null
+  }
+
+  export type UserAvgAggregateOutputType = {
+    noAbsen: number | null
+  }
+
+  export type UserSumAggregateOutputType = {
+    noAbsen: number | null
   }
 
   export type UserMinAggregateOutputType = {
@@ -3611,6 +3977,7 @@ export namespace Prisma {
     updatedAt: Date | null
     image: string | null
     nis: string | null
+    noAbsen: number | null
     phone: string | null
     gender: string | null
     address: string | null
@@ -3635,6 +4002,7 @@ export namespace Prisma {
     updatedAt: Date | null
     image: string | null
     nis: string | null
+    noAbsen: number | null
     phone: string | null
     gender: string | null
     address: string | null
@@ -3660,6 +4028,7 @@ export namespace Prisma {
     updatedAt: number
     image: number
     nis: number
+    noAbsen: number
     phone: number
     gender: number
     address: number
@@ -3671,6 +4040,14 @@ export namespace Prisma {
     _all: number
   }
 
+
+  export type UserAvgAggregateInputType = {
+    noAbsen?: true
+  }
+
+  export type UserSumAggregateInputType = {
+    noAbsen?: true
+  }
 
   export type UserMinAggregateInputType = {
     id?: true
@@ -3687,6 +4064,7 @@ export namespace Prisma {
     updatedAt?: true
     image?: true
     nis?: true
+    noAbsen?: true
     phone?: true
     gender?: true
     address?: true
@@ -3711,6 +4089,7 @@ export namespace Prisma {
     updatedAt?: true
     image?: true
     nis?: true
+    noAbsen?: true
     phone?: true
     gender?: true
     address?: true
@@ -3736,6 +4115,7 @@ export namespace Prisma {
     updatedAt?: true
     image?: true
     nis?: true
+    noAbsen?: true
     phone?: true
     gender?: true
     address?: true
@@ -3785,6 +4165,18 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
+     * Select which fields to average
+    **/
+    _avg?: UserAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: UserSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
      * Select which fields to find the minimum value
     **/
     _min?: UserMinAggregateInputType
@@ -3815,6 +4207,8 @@ export namespace Prisma {
     take?: number
     skip?: number
     _count?: UserCountAggregateInputType | true
+    _avg?: UserAvgAggregateInputType
+    _sum?: UserSumAggregateInputType
     _min?: UserMinAggregateInputType
     _max?: UserMaxAggregateInputType
   }
@@ -3835,6 +4229,7 @@ export namespace Prisma {
     updatedAt: Date
     image: string | null
     nis: string | null
+    noAbsen: number | null
     phone: string | null
     gender: string | null
     address: string | null
@@ -3844,6 +4239,8 @@ export namespace Prisma {
     canEditMaterials: boolean
     canEditAssignments: boolean
     _count: UserCountAggregateOutputType | null
+    _avg: UserAvgAggregateOutputType | null
+    _sum: UserSumAggregateOutputType | null
     _min: UserMinAggregateOutputType | null
     _max: UserMaxAggregateOutputType | null
   }
@@ -3878,6 +4275,7 @@ export namespace Prisma {
     updatedAt?: boolean
     image?: boolean
     nis?: boolean
+    noAbsen?: boolean
     phone?: boolean
     gender?: boolean
     address?: boolean
@@ -3907,6 +4305,9 @@ export namespace Prisma {
     ekskulMembers?: boolean | User$ekskulMembersArgs<ExtArgs>
     ekskulAttendances?: boolean | User$ekskulAttendancesArgs<ExtArgs>
     teacherMaterials?: boolean | User$teacherMaterialsArgs<ExtArgs>
+    documents?: boolean | User$documentsArgs<ExtArgs>
+    discussionThreads?: boolean | User$discussionThreadsArgs<ExtArgs>
+    discussionReplies?: boolean | User$discussionRepliesArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["user"]>
 
@@ -3926,6 +4327,7 @@ export namespace Prisma {
     updatedAt?: boolean
     image?: boolean
     nis?: boolean
+    noAbsen?: boolean
     phone?: boolean
     gender?: boolean
     address?: boolean
@@ -3953,6 +4355,7 @@ export namespace Prisma {
     updatedAt?: boolean
     image?: boolean
     nis?: boolean
+    noAbsen?: boolean
     phone?: boolean
     gender?: boolean
     address?: boolean
@@ -3985,6 +4388,9 @@ export namespace Prisma {
     ekskulMembers?: boolean | User$ekskulMembersArgs<ExtArgs>
     ekskulAttendances?: boolean | User$ekskulAttendancesArgs<ExtArgs>
     teacherMaterials?: boolean | User$teacherMaterialsArgs<ExtArgs>
+    documents?: boolean | User$documentsArgs<ExtArgs>
+    discussionThreads?: boolean | User$discussionThreadsArgs<ExtArgs>
+    discussionReplies?: boolean | User$discussionRepliesArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type UserIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -4015,6 +4421,9 @@ export namespace Prisma {
       ekskulMembers: Prisma.$ExtracurricularMemberPayload<ExtArgs>[]
       ekskulAttendances: Prisma.$ExtracurricularAttendancePayload<ExtArgs>[]
       teacherMaterials: Prisma.$MaterialPayload<ExtArgs>[]
+      documents: Prisma.$DocumentPayload<ExtArgs>[]
+      discussionThreads: Prisma.$DiscussionThreadPayload<ExtArgs>[]
+      discussionReplies: Prisma.$DiscussionReplyPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -4032,6 +4441,7 @@ export namespace Prisma {
       updatedAt: Date
       image: string | null
       nis: string | null
+      noAbsen: number | null
       phone: string | null
       gender: string | null
       address: string | null
@@ -4425,6 +4835,9 @@ export namespace Prisma {
     ekskulMembers<T extends User$ekskulMembersArgs<ExtArgs> = {}>(args?: Subset<T, User$ekskulMembersArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ExtracurricularMemberPayload<ExtArgs>, T, "findMany"> | Null>
     ekskulAttendances<T extends User$ekskulAttendancesArgs<ExtArgs> = {}>(args?: Subset<T, User$ekskulAttendancesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ExtracurricularAttendancePayload<ExtArgs>, T, "findMany"> | Null>
     teacherMaterials<T extends User$teacherMaterialsArgs<ExtArgs> = {}>(args?: Subset<T, User$teacherMaterialsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MaterialPayload<ExtArgs>, T, "findMany"> | Null>
+    documents<T extends User$documentsArgs<ExtArgs> = {}>(args?: Subset<T, User$documentsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DocumentPayload<ExtArgs>, T, "findMany"> | Null>
+    discussionThreads<T extends User$discussionThreadsArgs<ExtArgs> = {}>(args?: Subset<T, User$discussionThreadsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DiscussionThreadPayload<ExtArgs>, T, "findMany"> | Null>
+    discussionReplies<T extends User$discussionRepliesArgs<ExtArgs> = {}>(args?: Subset<T, User$discussionRepliesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DiscussionReplyPayload<ExtArgs>, T, "findMany"> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -4469,6 +4882,7 @@ export namespace Prisma {
     readonly updatedAt: FieldRef<"User", 'DateTime'>
     readonly image: FieldRef<"User", 'String'>
     readonly nis: FieldRef<"User", 'String'>
+    readonly noAbsen: FieldRef<"User", 'Int'>
     readonly phone: FieldRef<"User", 'String'>
     readonly gender: FieldRef<"User", 'String'>
     readonly address: FieldRef<"User", 'String'>
@@ -5202,6 +5616,66 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: MaterialScalarFieldEnum | MaterialScalarFieldEnum[]
+  }
+
+  /**
+   * User.documents
+   */
+  export type User$documentsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Document
+     */
+    select?: DocumentSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DocumentInclude<ExtArgs> | null
+    where?: DocumentWhereInput
+    orderBy?: DocumentOrderByWithRelationInput | DocumentOrderByWithRelationInput[]
+    cursor?: DocumentWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: DocumentScalarFieldEnum | DocumentScalarFieldEnum[]
+  }
+
+  /**
+   * User.discussionThreads
+   */
+  export type User$discussionThreadsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DiscussionThread
+     */
+    select?: DiscussionThreadSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DiscussionThreadInclude<ExtArgs> | null
+    where?: DiscussionThreadWhereInput
+    orderBy?: DiscussionThreadOrderByWithRelationInput | DiscussionThreadOrderByWithRelationInput[]
+    cursor?: DiscussionThreadWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: DiscussionThreadScalarFieldEnum | DiscussionThreadScalarFieldEnum[]
+  }
+
+  /**
+   * User.discussionReplies
+   */
+  export type User$discussionRepliesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DiscussionReply
+     */
+    select?: DiscussionReplySelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DiscussionReplyInclude<ExtArgs> | null
+    where?: DiscussionReplyWhereInput
+    orderBy?: DiscussionReplyOrderByWithRelationInput | DiscussionReplyOrderByWithRelationInput[]
+    cursor?: DiscussionReplyWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: DiscussionReplyScalarFieldEnum | DiscussionReplyScalarFieldEnum[]
   }
 
   /**
@@ -7341,6 +7815,7 @@ export namespace Prisma {
     schedules?: boolean | Class$schedulesArgs<ExtArgs>
     students?: boolean | Class$studentsArgs<ExtArgs>
     materials?: boolean | Class$materialsArgs<ExtArgs>
+    discussionThreads?: boolean | Class$discussionThreadsArgs<ExtArgs>
     _count?: boolean | ClassCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["class"]>
 
@@ -7365,6 +7840,7 @@ export namespace Prisma {
     schedules?: boolean | Class$schedulesArgs<ExtArgs>
     students?: boolean | Class$studentsArgs<ExtArgs>
     materials?: boolean | Class$materialsArgs<ExtArgs>
+    discussionThreads?: boolean | Class$discussionThreadsArgs<ExtArgs>
     _count?: boolean | ClassCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type ClassIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -7376,6 +7852,7 @@ export namespace Prisma {
       schedules: Prisma.$ClassSchedulePayload<ExtArgs>[]
       students: Prisma.$UserPayload<ExtArgs>[]
       materials: Prisma.$MaterialPayload<ExtArgs>[]
+      discussionThreads: Prisma.$DiscussionThreadPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -7751,6 +8228,7 @@ export namespace Prisma {
     schedules<T extends Class$schedulesArgs<ExtArgs> = {}>(args?: Subset<T, Class$schedulesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ClassSchedulePayload<ExtArgs>, T, "findMany"> | Null>
     students<T extends Class$studentsArgs<ExtArgs> = {}>(args?: Subset<T, Class$studentsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findMany"> | Null>
     materials<T extends Class$materialsArgs<ExtArgs> = {}>(args?: Subset<T, Class$materialsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MaterialPayload<ExtArgs>, T, "findMany"> | Null>
+    discussionThreads<T extends Class$discussionThreadsArgs<ExtArgs> = {}>(args?: Subset<T, Class$discussionThreadsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DiscussionThreadPayload<ExtArgs>, T, "findMany"> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -8176,6 +8654,26 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: MaterialScalarFieldEnum | MaterialScalarFieldEnum[]
+  }
+
+  /**
+   * Class.discussionThreads
+   */
+  export type Class$discussionThreadsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DiscussionThread
+     */
+    select?: DiscussionThreadSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DiscussionThreadInclude<ExtArgs> | null
+    where?: DiscussionThreadWhereInput
+    orderBy?: DiscussionThreadOrderByWithRelationInput | DiscussionThreadOrderByWithRelationInput[]
+    cursor?: DiscussionThreadWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: DiscussionThreadScalarFieldEnum | DiscussionThreadScalarFieldEnum[]
   }
 
   /**
@@ -29919,6 +30417,3023 @@ export namespace Prisma {
 
 
   /**
+   * Model Document
+   */
+
+  export type AggregateDocument = {
+    _count: DocumentCountAggregateOutputType | null
+    _avg: DocumentAvgAggregateOutputType | null
+    _sum: DocumentSumAggregateOutputType | null
+    _min: DocumentMinAggregateOutputType | null
+    _max: DocumentMaxAggregateOutputType | null
+  }
+
+  export type DocumentAvgAggregateOutputType = {
+    position: number | null
+  }
+
+  export type DocumentSumAggregateOutputType = {
+    position: number | null
+  }
+
+  export type DocumentMinAggregateOutputType = {
+    id: string | null
+    title: string | null
+    content: string | null
+    userId: string | null
+    parentId: string | null
+    date: Date | null
+    position: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type DocumentMaxAggregateOutputType = {
+    id: string | null
+    title: string | null
+    content: string | null
+    userId: string | null
+    parentId: string | null
+    date: Date | null
+    position: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type DocumentCountAggregateOutputType = {
+    id: number
+    title: number
+    content: number
+    userId: number
+    parentId: number
+    date: number
+    position: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type DocumentAvgAggregateInputType = {
+    position?: true
+  }
+
+  export type DocumentSumAggregateInputType = {
+    position?: true
+  }
+
+  export type DocumentMinAggregateInputType = {
+    id?: true
+    title?: true
+    content?: true
+    userId?: true
+    parentId?: true
+    date?: true
+    position?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type DocumentMaxAggregateInputType = {
+    id?: true
+    title?: true
+    content?: true
+    userId?: true
+    parentId?: true
+    date?: true
+    position?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type DocumentCountAggregateInputType = {
+    id?: true
+    title?: true
+    content?: true
+    userId?: true
+    parentId?: true
+    date?: true
+    position?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type DocumentAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Document to aggregate.
+     */
+    where?: DocumentWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Documents to fetch.
+     */
+    orderBy?: DocumentOrderByWithRelationInput | DocumentOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: DocumentWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Documents from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Documents.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Documents
+    **/
+    _count?: true | DocumentCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: DocumentAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: DocumentSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: DocumentMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: DocumentMaxAggregateInputType
+  }
+
+  export type GetDocumentAggregateType<T extends DocumentAggregateArgs> = {
+        [P in keyof T & keyof AggregateDocument]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateDocument[P]>
+      : GetScalarType<T[P], AggregateDocument[P]>
+  }
+
+
+
+
+  export type DocumentGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: DocumentWhereInput
+    orderBy?: DocumentOrderByWithAggregationInput | DocumentOrderByWithAggregationInput[]
+    by: DocumentScalarFieldEnum[] | DocumentScalarFieldEnum
+    having?: DocumentScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: DocumentCountAggregateInputType | true
+    _avg?: DocumentAvgAggregateInputType
+    _sum?: DocumentSumAggregateInputType
+    _min?: DocumentMinAggregateInputType
+    _max?: DocumentMaxAggregateInputType
+  }
+
+  export type DocumentGroupByOutputType = {
+    id: string
+    title: string
+    content: string | null
+    userId: string
+    parentId: string | null
+    date: Date | null
+    position: number
+    createdAt: Date
+    updatedAt: Date
+    _count: DocumentCountAggregateOutputType | null
+    _avg: DocumentAvgAggregateOutputType | null
+    _sum: DocumentSumAggregateOutputType | null
+    _min: DocumentMinAggregateOutputType | null
+    _max: DocumentMaxAggregateOutputType | null
+  }
+
+  type GetDocumentGroupByPayload<T extends DocumentGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<DocumentGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof DocumentGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], DocumentGroupByOutputType[P]>
+            : GetScalarType<T[P], DocumentGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type DocumentSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    title?: boolean
+    content?: boolean
+    userId?: boolean
+    parentId?: boolean
+    date?: boolean
+    position?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    parent?: boolean | Document$parentArgs<ExtArgs>
+    subDocs?: boolean | Document$subDocsArgs<ExtArgs>
+    _count?: boolean | DocumentCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["document"]>
+
+  export type DocumentSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    title?: boolean
+    content?: boolean
+    userId?: boolean
+    parentId?: boolean
+    date?: boolean
+    position?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    parent?: boolean | Document$parentArgs<ExtArgs>
+  }, ExtArgs["result"]["document"]>
+
+  export type DocumentSelectScalar = {
+    id?: boolean
+    title?: boolean
+    content?: boolean
+    userId?: boolean
+    parentId?: boolean
+    date?: boolean
+    position?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type DocumentInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    parent?: boolean | Document$parentArgs<ExtArgs>
+    subDocs?: boolean | Document$subDocsArgs<ExtArgs>
+    _count?: boolean | DocumentCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type DocumentIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    parent?: boolean | Document$parentArgs<ExtArgs>
+  }
+
+  export type $DocumentPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Document"
+    objects: {
+      user: Prisma.$UserPayload<ExtArgs>
+      parent: Prisma.$DocumentPayload<ExtArgs> | null
+      subDocs: Prisma.$DocumentPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      title: string
+      content: string | null
+      userId: string
+      parentId: string | null
+      date: Date | null
+      position: number
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["document"]>
+    composites: {}
+  }
+
+  type DocumentGetPayload<S extends boolean | null | undefined | DocumentDefaultArgs> = $Result.GetResult<Prisma.$DocumentPayload, S>
+
+  type DocumentCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<DocumentFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: DocumentCountAggregateInputType | true
+    }
+
+  export interface DocumentDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Document'], meta: { name: 'Document' } }
+    /**
+     * Find zero or one Document that matches the filter.
+     * @param {DocumentFindUniqueArgs} args - Arguments to find a Document
+     * @example
+     * // Get one Document
+     * const document = await prisma.document.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends DocumentFindUniqueArgs>(args: SelectSubset<T, DocumentFindUniqueArgs<ExtArgs>>): Prisma__DocumentClient<$Result.GetResult<Prisma.$DocumentPayload<ExtArgs>, T, "findUnique"> | null, null, ExtArgs>
+
+    /**
+     * Find one Document that matches the filter or throw an error with `error.code='P2025'` 
+     * if no matches were found.
+     * @param {DocumentFindUniqueOrThrowArgs} args - Arguments to find a Document
+     * @example
+     * // Get one Document
+     * const document = await prisma.document.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends DocumentFindUniqueOrThrowArgs>(args: SelectSubset<T, DocumentFindUniqueOrThrowArgs<ExtArgs>>): Prisma__DocumentClient<$Result.GetResult<Prisma.$DocumentPayload<ExtArgs>, T, "findUniqueOrThrow">, never, ExtArgs>
+
+    /**
+     * Find the first Document that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DocumentFindFirstArgs} args - Arguments to find a Document
+     * @example
+     * // Get one Document
+     * const document = await prisma.document.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends DocumentFindFirstArgs>(args?: SelectSubset<T, DocumentFindFirstArgs<ExtArgs>>): Prisma__DocumentClient<$Result.GetResult<Prisma.$DocumentPayload<ExtArgs>, T, "findFirst"> | null, null, ExtArgs>
+
+    /**
+     * Find the first Document that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DocumentFindFirstOrThrowArgs} args - Arguments to find a Document
+     * @example
+     * // Get one Document
+     * const document = await prisma.document.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends DocumentFindFirstOrThrowArgs>(args?: SelectSubset<T, DocumentFindFirstOrThrowArgs<ExtArgs>>): Prisma__DocumentClient<$Result.GetResult<Prisma.$DocumentPayload<ExtArgs>, T, "findFirstOrThrow">, never, ExtArgs>
+
+    /**
+     * Find zero or more Documents that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DocumentFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Documents
+     * const documents = await prisma.document.findMany()
+     * 
+     * // Get first 10 Documents
+     * const documents = await prisma.document.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const documentWithIdOnly = await prisma.document.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends DocumentFindManyArgs>(args?: SelectSubset<T, DocumentFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DocumentPayload<ExtArgs>, T, "findMany">>
+
+    /**
+     * Create a Document.
+     * @param {DocumentCreateArgs} args - Arguments to create a Document.
+     * @example
+     * // Create one Document
+     * const Document = await prisma.document.create({
+     *   data: {
+     *     // ... data to create a Document
+     *   }
+     * })
+     * 
+     */
+    create<T extends DocumentCreateArgs>(args: SelectSubset<T, DocumentCreateArgs<ExtArgs>>): Prisma__DocumentClient<$Result.GetResult<Prisma.$DocumentPayload<ExtArgs>, T, "create">, never, ExtArgs>
+
+    /**
+     * Create many Documents.
+     * @param {DocumentCreateManyArgs} args - Arguments to create many Documents.
+     * @example
+     * // Create many Documents
+     * const document = await prisma.document.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends DocumentCreateManyArgs>(args?: SelectSubset<T, DocumentCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Documents and returns the data saved in the database.
+     * @param {DocumentCreateManyAndReturnArgs} args - Arguments to create many Documents.
+     * @example
+     * // Create many Documents
+     * const document = await prisma.document.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Documents and only return the `id`
+     * const documentWithIdOnly = await prisma.document.createManyAndReturn({ 
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends DocumentCreateManyAndReturnArgs>(args?: SelectSubset<T, DocumentCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DocumentPayload<ExtArgs>, T, "createManyAndReturn">>
+
+    /**
+     * Delete a Document.
+     * @param {DocumentDeleteArgs} args - Arguments to delete one Document.
+     * @example
+     * // Delete one Document
+     * const Document = await prisma.document.delete({
+     *   where: {
+     *     // ... filter to delete one Document
+     *   }
+     * })
+     * 
+     */
+    delete<T extends DocumentDeleteArgs>(args: SelectSubset<T, DocumentDeleteArgs<ExtArgs>>): Prisma__DocumentClient<$Result.GetResult<Prisma.$DocumentPayload<ExtArgs>, T, "delete">, never, ExtArgs>
+
+    /**
+     * Update one Document.
+     * @param {DocumentUpdateArgs} args - Arguments to update one Document.
+     * @example
+     * // Update one Document
+     * const document = await prisma.document.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends DocumentUpdateArgs>(args: SelectSubset<T, DocumentUpdateArgs<ExtArgs>>): Prisma__DocumentClient<$Result.GetResult<Prisma.$DocumentPayload<ExtArgs>, T, "update">, never, ExtArgs>
+
+    /**
+     * Delete zero or more Documents.
+     * @param {DocumentDeleteManyArgs} args - Arguments to filter Documents to delete.
+     * @example
+     * // Delete a few Documents
+     * const { count } = await prisma.document.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends DocumentDeleteManyArgs>(args?: SelectSubset<T, DocumentDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Documents.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DocumentUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Documents
+     * const document = await prisma.document.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends DocumentUpdateManyArgs>(args: SelectSubset<T, DocumentUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one Document.
+     * @param {DocumentUpsertArgs} args - Arguments to update or create a Document.
+     * @example
+     * // Update or create a Document
+     * const document = await prisma.document.upsert({
+     *   create: {
+     *     // ... data to create a Document
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Document we want to update
+     *   }
+     * })
+     */
+    upsert<T extends DocumentUpsertArgs>(args: SelectSubset<T, DocumentUpsertArgs<ExtArgs>>): Prisma__DocumentClient<$Result.GetResult<Prisma.$DocumentPayload<ExtArgs>, T, "upsert">, never, ExtArgs>
+
+
+    /**
+     * Count the number of Documents.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DocumentCountArgs} args - Arguments to filter Documents to count.
+     * @example
+     * // Count the number of Documents
+     * const count = await prisma.document.count({
+     *   where: {
+     *     // ... the filter for the Documents we want to count
+     *   }
+     * })
+    **/
+    count<T extends DocumentCountArgs>(
+      args?: Subset<T, DocumentCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], DocumentCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Document.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DocumentAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends DocumentAggregateArgs>(args: Subset<T, DocumentAggregateArgs>): Prisma.PrismaPromise<GetDocumentAggregateType<T>>
+
+    /**
+     * Group by Document.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DocumentGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends DocumentGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: DocumentGroupByArgs['orderBy'] }
+        : { orderBy?: DocumentGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, DocumentGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetDocumentGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Document model
+   */
+  readonly fields: DocumentFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Document.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__DocumentClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow"> | Null, Null, ExtArgs>
+    parent<T extends Document$parentArgs<ExtArgs> = {}>(args?: Subset<T, Document$parentArgs<ExtArgs>>): Prisma__DocumentClient<$Result.GetResult<Prisma.$DocumentPayload<ExtArgs>, T, "findUniqueOrThrow"> | null, null, ExtArgs>
+    subDocs<T extends Document$subDocsArgs<ExtArgs> = {}>(args?: Subset<T, Document$subDocsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DocumentPayload<ExtArgs>, T, "findMany"> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Document model
+   */ 
+  interface DocumentFieldRefs {
+    readonly id: FieldRef<"Document", 'String'>
+    readonly title: FieldRef<"Document", 'String'>
+    readonly content: FieldRef<"Document", 'String'>
+    readonly userId: FieldRef<"Document", 'String'>
+    readonly parentId: FieldRef<"Document", 'String'>
+    readonly date: FieldRef<"Document", 'DateTime'>
+    readonly position: FieldRef<"Document", 'Int'>
+    readonly createdAt: FieldRef<"Document", 'DateTime'>
+    readonly updatedAt: FieldRef<"Document", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Document findUnique
+   */
+  export type DocumentFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Document
+     */
+    select?: DocumentSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DocumentInclude<ExtArgs> | null
+    /**
+     * Filter, which Document to fetch.
+     */
+    where: DocumentWhereUniqueInput
+  }
+
+  /**
+   * Document findUniqueOrThrow
+   */
+  export type DocumentFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Document
+     */
+    select?: DocumentSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DocumentInclude<ExtArgs> | null
+    /**
+     * Filter, which Document to fetch.
+     */
+    where: DocumentWhereUniqueInput
+  }
+
+  /**
+   * Document findFirst
+   */
+  export type DocumentFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Document
+     */
+    select?: DocumentSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DocumentInclude<ExtArgs> | null
+    /**
+     * Filter, which Document to fetch.
+     */
+    where?: DocumentWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Documents to fetch.
+     */
+    orderBy?: DocumentOrderByWithRelationInput | DocumentOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Documents.
+     */
+    cursor?: DocumentWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Documents from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Documents.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Documents.
+     */
+    distinct?: DocumentScalarFieldEnum | DocumentScalarFieldEnum[]
+  }
+
+  /**
+   * Document findFirstOrThrow
+   */
+  export type DocumentFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Document
+     */
+    select?: DocumentSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DocumentInclude<ExtArgs> | null
+    /**
+     * Filter, which Document to fetch.
+     */
+    where?: DocumentWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Documents to fetch.
+     */
+    orderBy?: DocumentOrderByWithRelationInput | DocumentOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Documents.
+     */
+    cursor?: DocumentWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Documents from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Documents.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Documents.
+     */
+    distinct?: DocumentScalarFieldEnum | DocumentScalarFieldEnum[]
+  }
+
+  /**
+   * Document findMany
+   */
+  export type DocumentFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Document
+     */
+    select?: DocumentSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DocumentInclude<ExtArgs> | null
+    /**
+     * Filter, which Documents to fetch.
+     */
+    where?: DocumentWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Documents to fetch.
+     */
+    orderBy?: DocumentOrderByWithRelationInput | DocumentOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Documents.
+     */
+    cursor?: DocumentWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Documents from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Documents.
+     */
+    skip?: number
+    distinct?: DocumentScalarFieldEnum | DocumentScalarFieldEnum[]
+  }
+
+  /**
+   * Document create
+   */
+  export type DocumentCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Document
+     */
+    select?: DocumentSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DocumentInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Document.
+     */
+    data: XOR<DocumentCreateInput, DocumentUncheckedCreateInput>
+  }
+
+  /**
+   * Document createMany
+   */
+  export type DocumentCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Documents.
+     */
+    data: DocumentCreateManyInput | DocumentCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Document createManyAndReturn
+   */
+  export type DocumentCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Document
+     */
+    select?: DocumentSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * The data used to create many Documents.
+     */
+    data: DocumentCreateManyInput | DocumentCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DocumentIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Document update
+   */
+  export type DocumentUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Document
+     */
+    select?: DocumentSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DocumentInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Document.
+     */
+    data: XOR<DocumentUpdateInput, DocumentUncheckedUpdateInput>
+    /**
+     * Choose, which Document to update.
+     */
+    where: DocumentWhereUniqueInput
+  }
+
+  /**
+   * Document updateMany
+   */
+  export type DocumentUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Documents.
+     */
+    data: XOR<DocumentUpdateManyMutationInput, DocumentUncheckedUpdateManyInput>
+    /**
+     * Filter which Documents to update
+     */
+    where?: DocumentWhereInput
+  }
+
+  /**
+   * Document upsert
+   */
+  export type DocumentUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Document
+     */
+    select?: DocumentSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DocumentInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Document to update in case it exists.
+     */
+    where: DocumentWhereUniqueInput
+    /**
+     * In case the Document found by the `where` argument doesn't exist, create a new Document with this data.
+     */
+    create: XOR<DocumentCreateInput, DocumentUncheckedCreateInput>
+    /**
+     * In case the Document was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<DocumentUpdateInput, DocumentUncheckedUpdateInput>
+  }
+
+  /**
+   * Document delete
+   */
+  export type DocumentDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Document
+     */
+    select?: DocumentSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DocumentInclude<ExtArgs> | null
+    /**
+     * Filter which Document to delete.
+     */
+    where: DocumentWhereUniqueInput
+  }
+
+  /**
+   * Document deleteMany
+   */
+  export type DocumentDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Documents to delete
+     */
+    where?: DocumentWhereInput
+  }
+
+  /**
+   * Document.parent
+   */
+  export type Document$parentArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Document
+     */
+    select?: DocumentSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DocumentInclude<ExtArgs> | null
+    where?: DocumentWhereInput
+  }
+
+  /**
+   * Document.subDocs
+   */
+  export type Document$subDocsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Document
+     */
+    select?: DocumentSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DocumentInclude<ExtArgs> | null
+    where?: DocumentWhereInput
+    orderBy?: DocumentOrderByWithRelationInput | DocumentOrderByWithRelationInput[]
+    cursor?: DocumentWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: DocumentScalarFieldEnum | DocumentScalarFieldEnum[]
+  }
+
+  /**
+   * Document without action
+   */
+  export type DocumentDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Document
+     */
+    select?: DocumentSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DocumentInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model DiscussionThread
+   */
+
+  export type AggregateDiscussionThread = {
+    _count: DiscussionThreadCountAggregateOutputType | null
+    _min: DiscussionThreadMinAggregateOutputType | null
+    _max: DiscussionThreadMaxAggregateOutputType | null
+  }
+
+  export type DiscussionThreadMinAggregateOutputType = {
+    id: string | null
+    title: string | null
+    content: string | null
+    classId: string | null
+    authorId: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type DiscussionThreadMaxAggregateOutputType = {
+    id: string | null
+    title: string | null
+    content: string | null
+    classId: string | null
+    authorId: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type DiscussionThreadCountAggregateOutputType = {
+    id: number
+    title: number
+    content: number
+    classId: number
+    authorId: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type DiscussionThreadMinAggregateInputType = {
+    id?: true
+    title?: true
+    content?: true
+    classId?: true
+    authorId?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type DiscussionThreadMaxAggregateInputType = {
+    id?: true
+    title?: true
+    content?: true
+    classId?: true
+    authorId?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type DiscussionThreadCountAggregateInputType = {
+    id?: true
+    title?: true
+    content?: true
+    classId?: true
+    authorId?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type DiscussionThreadAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which DiscussionThread to aggregate.
+     */
+    where?: DiscussionThreadWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of DiscussionThreads to fetch.
+     */
+    orderBy?: DiscussionThreadOrderByWithRelationInput | DiscussionThreadOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: DiscussionThreadWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` DiscussionThreads from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` DiscussionThreads.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned DiscussionThreads
+    **/
+    _count?: true | DiscussionThreadCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: DiscussionThreadMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: DiscussionThreadMaxAggregateInputType
+  }
+
+  export type GetDiscussionThreadAggregateType<T extends DiscussionThreadAggregateArgs> = {
+        [P in keyof T & keyof AggregateDiscussionThread]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateDiscussionThread[P]>
+      : GetScalarType<T[P], AggregateDiscussionThread[P]>
+  }
+
+
+
+
+  export type DiscussionThreadGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: DiscussionThreadWhereInput
+    orderBy?: DiscussionThreadOrderByWithAggregationInput | DiscussionThreadOrderByWithAggregationInput[]
+    by: DiscussionThreadScalarFieldEnum[] | DiscussionThreadScalarFieldEnum
+    having?: DiscussionThreadScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: DiscussionThreadCountAggregateInputType | true
+    _min?: DiscussionThreadMinAggregateInputType
+    _max?: DiscussionThreadMaxAggregateInputType
+  }
+
+  export type DiscussionThreadGroupByOutputType = {
+    id: string
+    title: string
+    content: string
+    classId: string | null
+    authorId: string
+    createdAt: Date
+    updatedAt: Date
+    _count: DiscussionThreadCountAggregateOutputType | null
+    _min: DiscussionThreadMinAggregateOutputType | null
+    _max: DiscussionThreadMaxAggregateOutputType | null
+  }
+
+  type GetDiscussionThreadGroupByPayload<T extends DiscussionThreadGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<DiscussionThreadGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof DiscussionThreadGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], DiscussionThreadGroupByOutputType[P]>
+            : GetScalarType<T[P], DiscussionThreadGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type DiscussionThreadSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    title?: boolean
+    content?: boolean
+    classId?: boolean
+    authorId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    author?: boolean | UserDefaultArgs<ExtArgs>
+    class?: boolean | DiscussionThread$classArgs<ExtArgs>
+    replies?: boolean | DiscussionThread$repliesArgs<ExtArgs>
+    _count?: boolean | DiscussionThreadCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["discussionThread"]>
+
+  export type DiscussionThreadSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    title?: boolean
+    content?: boolean
+    classId?: boolean
+    authorId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    author?: boolean | UserDefaultArgs<ExtArgs>
+    class?: boolean | DiscussionThread$classArgs<ExtArgs>
+  }, ExtArgs["result"]["discussionThread"]>
+
+  export type DiscussionThreadSelectScalar = {
+    id?: boolean
+    title?: boolean
+    content?: boolean
+    classId?: boolean
+    authorId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type DiscussionThreadInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    author?: boolean | UserDefaultArgs<ExtArgs>
+    class?: boolean | DiscussionThread$classArgs<ExtArgs>
+    replies?: boolean | DiscussionThread$repliesArgs<ExtArgs>
+    _count?: boolean | DiscussionThreadCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type DiscussionThreadIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    author?: boolean | UserDefaultArgs<ExtArgs>
+    class?: boolean | DiscussionThread$classArgs<ExtArgs>
+  }
+
+  export type $DiscussionThreadPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "DiscussionThread"
+    objects: {
+      author: Prisma.$UserPayload<ExtArgs>
+      class: Prisma.$ClassPayload<ExtArgs> | null
+      replies: Prisma.$DiscussionReplyPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      title: string
+      content: string
+      classId: string | null
+      authorId: string
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["discussionThread"]>
+    composites: {}
+  }
+
+  type DiscussionThreadGetPayload<S extends boolean | null | undefined | DiscussionThreadDefaultArgs> = $Result.GetResult<Prisma.$DiscussionThreadPayload, S>
+
+  type DiscussionThreadCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<DiscussionThreadFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: DiscussionThreadCountAggregateInputType | true
+    }
+
+  export interface DiscussionThreadDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['DiscussionThread'], meta: { name: 'DiscussionThread' } }
+    /**
+     * Find zero or one DiscussionThread that matches the filter.
+     * @param {DiscussionThreadFindUniqueArgs} args - Arguments to find a DiscussionThread
+     * @example
+     * // Get one DiscussionThread
+     * const discussionThread = await prisma.discussionThread.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends DiscussionThreadFindUniqueArgs>(args: SelectSubset<T, DiscussionThreadFindUniqueArgs<ExtArgs>>): Prisma__DiscussionThreadClient<$Result.GetResult<Prisma.$DiscussionThreadPayload<ExtArgs>, T, "findUnique"> | null, null, ExtArgs>
+
+    /**
+     * Find one DiscussionThread that matches the filter or throw an error with `error.code='P2025'` 
+     * if no matches were found.
+     * @param {DiscussionThreadFindUniqueOrThrowArgs} args - Arguments to find a DiscussionThread
+     * @example
+     * // Get one DiscussionThread
+     * const discussionThread = await prisma.discussionThread.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends DiscussionThreadFindUniqueOrThrowArgs>(args: SelectSubset<T, DiscussionThreadFindUniqueOrThrowArgs<ExtArgs>>): Prisma__DiscussionThreadClient<$Result.GetResult<Prisma.$DiscussionThreadPayload<ExtArgs>, T, "findUniqueOrThrow">, never, ExtArgs>
+
+    /**
+     * Find the first DiscussionThread that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DiscussionThreadFindFirstArgs} args - Arguments to find a DiscussionThread
+     * @example
+     * // Get one DiscussionThread
+     * const discussionThread = await prisma.discussionThread.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends DiscussionThreadFindFirstArgs>(args?: SelectSubset<T, DiscussionThreadFindFirstArgs<ExtArgs>>): Prisma__DiscussionThreadClient<$Result.GetResult<Prisma.$DiscussionThreadPayload<ExtArgs>, T, "findFirst"> | null, null, ExtArgs>
+
+    /**
+     * Find the first DiscussionThread that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DiscussionThreadFindFirstOrThrowArgs} args - Arguments to find a DiscussionThread
+     * @example
+     * // Get one DiscussionThread
+     * const discussionThread = await prisma.discussionThread.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends DiscussionThreadFindFirstOrThrowArgs>(args?: SelectSubset<T, DiscussionThreadFindFirstOrThrowArgs<ExtArgs>>): Prisma__DiscussionThreadClient<$Result.GetResult<Prisma.$DiscussionThreadPayload<ExtArgs>, T, "findFirstOrThrow">, never, ExtArgs>
+
+    /**
+     * Find zero or more DiscussionThreads that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DiscussionThreadFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all DiscussionThreads
+     * const discussionThreads = await prisma.discussionThread.findMany()
+     * 
+     * // Get first 10 DiscussionThreads
+     * const discussionThreads = await prisma.discussionThread.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const discussionThreadWithIdOnly = await prisma.discussionThread.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends DiscussionThreadFindManyArgs>(args?: SelectSubset<T, DiscussionThreadFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DiscussionThreadPayload<ExtArgs>, T, "findMany">>
+
+    /**
+     * Create a DiscussionThread.
+     * @param {DiscussionThreadCreateArgs} args - Arguments to create a DiscussionThread.
+     * @example
+     * // Create one DiscussionThread
+     * const DiscussionThread = await prisma.discussionThread.create({
+     *   data: {
+     *     // ... data to create a DiscussionThread
+     *   }
+     * })
+     * 
+     */
+    create<T extends DiscussionThreadCreateArgs>(args: SelectSubset<T, DiscussionThreadCreateArgs<ExtArgs>>): Prisma__DiscussionThreadClient<$Result.GetResult<Prisma.$DiscussionThreadPayload<ExtArgs>, T, "create">, never, ExtArgs>
+
+    /**
+     * Create many DiscussionThreads.
+     * @param {DiscussionThreadCreateManyArgs} args - Arguments to create many DiscussionThreads.
+     * @example
+     * // Create many DiscussionThreads
+     * const discussionThread = await prisma.discussionThread.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends DiscussionThreadCreateManyArgs>(args?: SelectSubset<T, DiscussionThreadCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many DiscussionThreads and returns the data saved in the database.
+     * @param {DiscussionThreadCreateManyAndReturnArgs} args - Arguments to create many DiscussionThreads.
+     * @example
+     * // Create many DiscussionThreads
+     * const discussionThread = await prisma.discussionThread.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many DiscussionThreads and only return the `id`
+     * const discussionThreadWithIdOnly = await prisma.discussionThread.createManyAndReturn({ 
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends DiscussionThreadCreateManyAndReturnArgs>(args?: SelectSubset<T, DiscussionThreadCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DiscussionThreadPayload<ExtArgs>, T, "createManyAndReturn">>
+
+    /**
+     * Delete a DiscussionThread.
+     * @param {DiscussionThreadDeleteArgs} args - Arguments to delete one DiscussionThread.
+     * @example
+     * // Delete one DiscussionThread
+     * const DiscussionThread = await prisma.discussionThread.delete({
+     *   where: {
+     *     // ... filter to delete one DiscussionThread
+     *   }
+     * })
+     * 
+     */
+    delete<T extends DiscussionThreadDeleteArgs>(args: SelectSubset<T, DiscussionThreadDeleteArgs<ExtArgs>>): Prisma__DiscussionThreadClient<$Result.GetResult<Prisma.$DiscussionThreadPayload<ExtArgs>, T, "delete">, never, ExtArgs>
+
+    /**
+     * Update one DiscussionThread.
+     * @param {DiscussionThreadUpdateArgs} args - Arguments to update one DiscussionThread.
+     * @example
+     * // Update one DiscussionThread
+     * const discussionThread = await prisma.discussionThread.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends DiscussionThreadUpdateArgs>(args: SelectSubset<T, DiscussionThreadUpdateArgs<ExtArgs>>): Prisma__DiscussionThreadClient<$Result.GetResult<Prisma.$DiscussionThreadPayload<ExtArgs>, T, "update">, never, ExtArgs>
+
+    /**
+     * Delete zero or more DiscussionThreads.
+     * @param {DiscussionThreadDeleteManyArgs} args - Arguments to filter DiscussionThreads to delete.
+     * @example
+     * // Delete a few DiscussionThreads
+     * const { count } = await prisma.discussionThread.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends DiscussionThreadDeleteManyArgs>(args?: SelectSubset<T, DiscussionThreadDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more DiscussionThreads.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DiscussionThreadUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many DiscussionThreads
+     * const discussionThread = await prisma.discussionThread.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends DiscussionThreadUpdateManyArgs>(args: SelectSubset<T, DiscussionThreadUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one DiscussionThread.
+     * @param {DiscussionThreadUpsertArgs} args - Arguments to update or create a DiscussionThread.
+     * @example
+     * // Update or create a DiscussionThread
+     * const discussionThread = await prisma.discussionThread.upsert({
+     *   create: {
+     *     // ... data to create a DiscussionThread
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the DiscussionThread we want to update
+     *   }
+     * })
+     */
+    upsert<T extends DiscussionThreadUpsertArgs>(args: SelectSubset<T, DiscussionThreadUpsertArgs<ExtArgs>>): Prisma__DiscussionThreadClient<$Result.GetResult<Prisma.$DiscussionThreadPayload<ExtArgs>, T, "upsert">, never, ExtArgs>
+
+
+    /**
+     * Count the number of DiscussionThreads.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DiscussionThreadCountArgs} args - Arguments to filter DiscussionThreads to count.
+     * @example
+     * // Count the number of DiscussionThreads
+     * const count = await prisma.discussionThread.count({
+     *   where: {
+     *     // ... the filter for the DiscussionThreads we want to count
+     *   }
+     * })
+    **/
+    count<T extends DiscussionThreadCountArgs>(
+      args?: Subset<T, DiscussionThreadCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], DiscussionThreadCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a DiscussionThread.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DiscussionThreadAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends DiscussionThreadAggregateArgs>(args: Subset<T, DiscussionThreadAggregateArgs>): Prisma.PrismaPromise<GetDiscussionThreadAggregateType<T>>
+
+    /**
+     * Group by DiscussionThread.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DiscussionThreadGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends DiscussionThreadGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: DiscussionThreadGroupByArgs['orderBy'] }
+        : { orderBy?: DiscussionThreadGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, DiscussionThreadGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetDiscussionThreadGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the DiscussionThread model
+   */
+  readonly fields: DiscussionThreadFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for DiscussionThread.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__DiscussionThreadClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    author<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow"> | Null, Null, ExtArgs>
+    class<T extends DiscussionThread$classArgs<ExtArgs> = {}>(args?: Subset<T, DiscussionThread$classArgs<ExtArgs>>): Prisma__ClassClient<$Result.GetResult<Prisma.$ClassPayload<ExtArgs>, T, "findUniqueOrThrow"> | null, null, ExtArgs>
+    replies<T extends DiscussionThread$repliesArgs<ExtArgs> = {}>(args?: Subset<T, DiscussionThread$repliesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DiscussionReplyPayload<ExtArgs>, T, "findMany"> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the DiscussionThread model
+   */ 
+  interface DiscussionThreadFieldRefs {
+    readonly id: FieldRef<"DiscussionThread", 'String'>
+    readonly title: FieldRef<"DiscussionThread", 'String'>
+    readonly content: FieldRef<"DiscussionThread", 'String'>
+    readonly classId: FieldRef<"DiscussionThread", 'String'>
+    readonly authorId: FieldRef<"DiscussionThread", 'String'>
+    readonly createdAt: FieldRef<"DiscussionThread", 'DateTime'>
+    readonly updatedAt: FieldRef<"DiscussionThread", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * DiscussionThread findUnique
+   */
+  export type DiscussionThreadFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DiscussionThread
+     */
+    select?: DiscussionThreadSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DiscussionThreadInclude<ExtArgs> | null
+    /**
+     * Filter, which DiscussionThread to fetch.
+     */
+    where: DiscussionThreadWhereUniqueInput
+  }
+
+  /**
+   * DiscussionThread findUniqueOrThrow
+   */
+  export type DiscussionThreadFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DiscussionThread
+     */
+    select?: DiscussionThreadSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DiscussionThreadInclude<ExtArgs> | null
+    /**
+     * Filter, which DiscussionThread to fetch.
+     */
+    where: DiscussionThreadWhereUniqueInput
+  }
+
+  /**
+   * DiscussionThread findFirst
+   */
+  export type DiscussionThreadFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DiscussionThread
+     */
+    select?: DiscussionThreadSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DiscussionThreadInclude<ExtArgs> | null
+    /**
+     * Filter, which DiscussionThread to fetch.
+     */
+    where?: DiscussionThreadWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of DiscussionThreads to fetch.
+     */
+    orderBy?: DiscussionThreadOrderByWithRelationInput | DiscussionThreadOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for DiscussionThreads.
+     */
+    cursor?: DiscussionThreadWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` DiscussionThreads from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` DiscussionThreads.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of DiscussionThreads.
+     */
+    distinct?: DiscussionThreadScalarFieldEnum | DiscussionThreadScalarFieldEnum[]
+  }
+
+  /**
+   * DiscussionThread findFirstOrThrow
+   */
+  export type DiscussionThreadFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DiscussionThread
+     */
+    select?: DiscussionThreadSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DiscussionThreadInclude<ExtArgs> | null
+    /**
+     * Filter, which DiscussionThread to fetch.
+     */
+    where?: DiscussionThreadWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of DiscussionThreads to fetch.
+     */
+    orderBy?: DiscussionThreadOrderByWithRelationInput | DiscussionThreadOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for DiscussionThreads.
+     */
+    cursor?: DiscussionThreadWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` DiscussionThreads from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` DiscussionThreads.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of DiscussionThreads.
+     */
+    distinct?: DiscussionThreadScalarFieldEnum | DiscussionThreadScalarFieldEnum[]
+  }
+
+  /**
+   * DiscussionThread findMany
+   */
+  export type DiscussionThreadFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DiscussionThread
+     */
+    select?: DiscussionThreadSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DiscussionThreadInclude<ExtArgs> | null
+    /**
+     * Filter, which DiscussionThreads to fetch.
+     */
+    where?: DiscussionThreadWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of DiscussionThreads to fetch.
+     */
+    orderBy?: DiscussionThreadOrderByWithRelationInput | DiscussionThreadOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing DiscussionThreads.
+     */
+    cursor?: DiscussionThreadWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` DiscussionThreads from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` DiscussionThreads.
+     */
+    skip?: number
+    distinct?: DiscussionThreadScalarFieldEnum | DiscussionThreadScalarFieldEnum[]
+  }
+
+  /**
+   * DiscussionThread create
+   */
+  export type DiscussionThreadCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DiscussionThread
+     */
+    select?: DiscussionThreadSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DiscussionThreadInclude<ExtArgs> | null
+    /**
+     * The data needed to create a DiscussionThread.
+     */
+    data: XOR<DiscussionThreadCreateInput, DiscussionThreadUncheckedCreateInput>
+  }
+
+  /**
+   * DiscussionThread createMany
+   */
+  export type DiscussionThreadCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many DiscussionThreads.
+     */
+    data: DiscussionThreadCreateManyInput | DiscussionThreadCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * DiscussionThread createManyAndReturn
+   */
+  export type DiscussionThreadCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DiscussionThread
+     */
+    select?: DiscussionThreadSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * The data used to create many DiscussionThreads.
+     */
+    data: DiscussionThreadCreateManyInput | DiscussionThreadCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DiscussionThreadIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * DiscussionThread update
+   */
+  export type DiscussionThreadUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DiscussionThread
+     */
+    select?: DiscussionThreadSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DiscussionThreadInclude<ExtArgs> | null
+    /**
+     * The data needed to update a DiscussionThread.
+     */
+    data: XOR<DiscussionThreadUpdateInput, DiscussionThreadUncheckedUpdateInput>
+    /**
+     * Choose, which DiscussionThread to update.
+     */
+    where: DiscussionThreadWhereUniqueInput
+  }
+
+  /**
+   * DiscussionThread updateMany
+   */
+  export type DiscussionThreadUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update DiscussionThreads.
+     */
+    data: XOR<DiscussionThreadUpdateManyMutationInput, DiscussionThreadUncheckedUpdateManyInput>
+    /**
+     * Filter which DiscussionThreads to update
+     */
+    where?: DiscussionThreadWhereInput
+  }
+
+  /**
+   * DiscussionThread upsert
+   */
+  export type DiscussionThreadUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DiscussionThread
+     */
+    select?: DiscussionThreadSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DiscussionThreadInclude<ExtArgs> | null
+    /**
+     * The filter to search for the DiscussionThread to update in case it exists.
+     */
+    where: DiscussionThreadWhereUniqueInput
+    /**
+     * In case the DiscussionThread found by the `where` argument doesn't exist, create a new DiscussionThread with this data.
+     */
+    create: XOR<DiscussionThreadCreateInput, DiscussionThreadUncheckedCreateInput>
+    /**
+     * In case the DiscussionThread was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<DiscussionThreadUpdateInput, DiscussionThreadUncheckedUpdateInput>
+  }
+
+  /**
+   * DiscussionThread delete
+   */
+  export type DiscussionThreadDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DiscussionThread
+     */
+    select?: DiscussionThreadSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DiscussionThreadInclude<ExtArgs> | null
+    /**
+     * Filter which DiscussionThread to delete.
+     */
+    where: DiscussionThreadWhereUniqueInput
+  }
+
+  /**
+   * DiscussionThread deleteMany
+   */
+  export type DiscussionThreadDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which DiscussionThreads to delete
+     */
+    where?: DiscussionThreadWhereInput
+  }
+
+  /**
+   * DiscussionThread.class
+   */
+  export type DiscussionThread$classArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Class
+     */
+    select?: ClassSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClassInclude<ExtArgs> | null
+    where?: ClassWhereInput
+  }
+
+  /**
+   * DiscussionThread.replies
+   */
+  export type DiscussionThread$repliesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DiscussionReply
+     */
+    select?: DiscussionReplySelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DiscussionReplyInclude<ExtArgs> | null
+    where?: DiscussionReplyWhereInput
+    orderBy?: DiscussionReplyOrderByWithRelationInput | DiscussionReplyOrderByWithRelationInput[]
+    cursor?: DiscussionReplyWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: DiscussionReplyScalarFieldEnum | DiscussionReplyScalarFieldEnum[]
+  }
+
+  /**
+   * DiscussionThread without action
+   */
+  export type DiscussionThreadDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DiscussionThread
+     */
+    select?: DiscussionThreadSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DiscussionThreadInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model DiscussionReply
+   */
+
+  export type AggregateDiscussionReply = {
+    _count: DiscussionReplyCountAggregateOutputType | null
+    _min: DiscussionReplyMinAggregateOutputType | null
+    _max: DiscussionReplyMaxAggregateOutputType | null
+  }
+
+  export type DiscussionReplyMinAggregateOutputType = {
+    id: string | null
+    content: string | null
+    threadId: string | null
+    authorId: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type DiscussionReplyMaxAggregateOutputType = {
+    id: string | null
+    content: string | null
+    threadId: string | null
+    authorId: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type DiscussionReplyCountAggregateOutputType = {
+    id: number
+    content: number
+    threadId: number
+    authorId: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type DiscussionReplyMinAggregateInputType = {
+    id?: true
+    content?: true
+    threadId?: true
+    authorId?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type DiscussionReplyMaxAggregateInputType = {
+    id?: true
+    content?: true
+    threadId?: true
+    authorId?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type DiscussionReplyCountAggregateInputType = {
+    id?: true
+    content?: true
+    threadId?: true
+    authorId?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type DiscussionReplyAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which DiscussionReply to aggregate.
+     */
+    where?: DiscussionReplyWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of DiscussionReplies to fetch.
+     */
+    orderBy?: DiscussionReplyOrderByWithRelationInput | DiscussionReplyOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: DiscussionReplyWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` DiscussionReplies from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` DiscussionReplies.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned DiscussionReplies
+    **/
+    _count?: true | DiscussionReplyCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: DiscussionReplyMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: DiscussionReplyMaxAggregateInputType
+  }
+
+  export type GetDiscussionReplyAggregateType<T extends DiscussionReplyAggregateArgs> = {
+        [P in keyof T & keyof AggregateDiscussionReply]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateDiscussionReply[P]>
+      : GetScalarType<T[P], AggregateDiscussionReply[P]>
+  }
+
+
+
+
+  export type DiscussionReplyGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: DiscussionReplyWhereInput
+    orderBy?: DiscussionReplyOrderByWithAggregationInput | DiscussionReplyOrderByWithAggregationInput[]
+    by: DiscussionReplyScalarFieldEnum[] | DiscussionReplyScalarFieldEnum
+    having?: DiscussionReplyScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: DiscussionReplyCountAggregateInputType | true
+    _min?: DiscussionReplyMinAggregateInputType
+    _max?: DiscussionReplyMaxAggregateInputType
+  }
+
+  export type DiscussionReplyGroupByOutputType = {
+    id: string
+    content: string
+    threadId: string
+    authorId: string
+    createdAt: Date
+    updatedAt: Date
+    _count: DiscussionReplyCountAggregateOutputType | null
+    _min: DiscussionReplyMinAggregateOutputType | null
+    _max: DiscussionReplyMaxAggregateOutputType | null
+  }
+
+  type GetDiscussionReplyGroupByPayload<T extends DiscussionReplyGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<DiscussionReplyGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof DiscussionReplyGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], DiscussionReplyGroupByOutputType[P]>
+            : GetScalarType<T[P], DiscussionReplyGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type DiscussionReplySelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    content?: boolean
+    threadId?: boolean
+    authorId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    thread?: boolean | DiscussionThreadDefaultArgs<ExtArgs>
+    author?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["discussionReply"]>
+
+  export type DiscussionReplySelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    content?: boolean
+    threadId?: boolean
+    authorId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    thread?: boolean | DiscussionThreadDefaultArgs<ExtArgs>
+    author?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["discussionReply"]>
+
+  export type DiscussionReplySelectScalar = {
+    id?: boolean
+    content?: boolean
+    threadId?: boolean
+    authorId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type DiscussionReplyInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    thread?: boolean | DiscussionThreadDefaultArgs<ExtArgs>
+    author?: boolean | UserDefaultArgs<ExtArgs>
+  }
+  export type DiscussionReplyIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    thread?: boolean | DiscussionThreadDefaultArgs<ExtArgs>
+    author?: boolean | UserDefaultArgs<ExtArgs>
+  }
+
+  export type $DiscussionReplyPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "DiscussionReply"
+    objects: {
+      thread: Prisma.$DiscussionThreadPayload<ExtArgs>
+      author: Prisma.$UserPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      content: string
+      threadId: string
+      authorId: string
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["discussionReply"]>
+    composites: {}
+  }
+
+  type DiscussionReplyGetPayload<S extends boolean | null | undefined | DiscussionReplyDefaultArgs> = $Result.GetResult<Prisma.$DiscussionReplyPayload, S>
+
+  type DiscussionReplyCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<DiscussionReplyFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: DiscussionReplyCountAggregateInputType | true
+    }
+
+  export interface DiscussionReplyDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['DiscussionReply'], meta: { name: 'DiscussionReply' } }
+    /**
+     * Find zero or one DiscussionReply that matches the filter.
+     * @param {DiscussionReplyFindUniqueArgs} args - Arguments to find a DiscussionReply
+     * @example
+     * // Get one DiscussionReply
+     * const discussionReply = await prisma.discussionReply.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends DiscussionReplyFindUniqueArgs>(args: SelectSubset<T, DiscussionReplyFindUniqueArgs<ExtArgs>>): Prisma__DiscussionReplyClient<$Result.GetResult<Prisma.$DiscussionReplyPayload<ExtArgs>, T, "findUnique"> | null, null, ExtArgs>
+
+    /**
+     * Find one DiscussionReply that matches the filter or throw an error with `error.code='P2025'` 
+     * if no matches were found.
+     * @param {DiscussionReplyFindUniqueOrThrowArgs} args - Arguments to find a DiscussionReply
+     * @example
+     * // Get one DiscussionReply
+     * const discussionReply = await prisma.discussionReply.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends DiscussionReplyFindUniqueOrThrowArgs>(args: SelectSubset<T, DiscussionReplyFindUniqueOrThrowArgs<ExtArgs>>): Prisma__DiscussionReplyClient<$Result.GetResult<Prisma.$DiscussionReplyPayload<ExtArgs>, T, "findUniqueOrThrow">, never, ExtArgs>
+
+    /**
+     * Find the first DiscussionReply that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DiscussionReplyFindFirstArgs} args - Arguments to find a DiscussionReply
+     * @example
+     * // Get one DiscussionReply
+     * const discussionReply = await prisma.discussionReply.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends DiscussionReplyFindFirstArgs>(args?: SelectSubset<T, DiscussionReplyFindFirstArgs<ExtArgs>>): Prisma__DiscussionReplyClient<$Result.GetResult<Prisma.$DiscussionReplyPayload<ExtArgs>, T, "findFirst"> | null, null, ExtArgs>
+
+    /**
+     * Find the first DiscussionReply that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DiscussionReplyFindFirstOrThrowArgs} args - Arguments to find a DiscussionReply
+     * @example
+     * // Get one DiscussionReply
+     * const discussionReply = await prisma.discussionReply.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends DiscussionReplyFindFirstOrThrowArgs>(args?: SelectSubset<T, DiscussionReplyFindFirstOrThrowArgs<ExtArgs>>): Prisma__DiscussionReplyClient<$Result.GetResult<Prisma.$DiscussionReplyPayload<ExtArgs>, T, "findFirstOrThrow">, never, ExtArgs>
+
+    /**
+     * Find zero or more DiscussionReplies that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DiscussionReplyFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all DiscussionReplies
+     * const discussionReplies = await prisma.discussionReply.findMany()
+     * 
+     * // Get first 10 DiscussionReplies
+     * const discussionReplies = await prisma.discussionReply.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const discussionReplyWithIdOnly = await prisma.discussionReply.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends DiscussionReplyFindManyArgs>(args?: SelectSubset<T, DiscussionReplyFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DiscussionReplyPayload<ExtArgs>, T, "findMany">>
+
+    /**
+     * Create a DiscussionReply.
+     * @param {DiscussionReplyCreateArgs} args - Arguments to create a DiscussionReply.
+     * @example
+     * // Create one DiscussionReply
+     * const DiscussionReply = await prisma.discussionReply.create({
+     *   data: {
+     *     // ... data to create a DiscussionReply
+     *   }
+     * })
+     * 
+     */
+    create<T extends DiscussionReplyCreateArgs>(args: SelectSubset<T, DiscussionReplyCreateArgs<ExtArgs>>): Prisma__DiscussionReplyClient<$Result.GetResult<Prisma.$DiscussionReplyPayload<ExtArgs>, T, "create">, never, ExtArgs>
+
+    /**
+     * Create many DiscussionReplies.
+     * @param {DiscussionReplyCreateManyArgs} args - Arguments to create many DiscussionReplies.
+     * @example
+     * // Create many DiscussionReplies
+     * const discussionReply = await prisma.discussionReply.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends DiscussionReplyCreateManyArgs>(args?: SelectSubset<T, DiscussionReplyCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many DiscussionReplies and returns the data saved in the database.
+     * @param {DiscussionReplyCreateManyAndReturnArgs} args - Arguments to create many DiscussionReplies.
+     * @example
+     * // Create many DiscussionReplies
+     * const discussionReply = await prisma.discussionReply.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many DiscussionReplies and only return the `id`
+     * const discussionReplyWithIdOnly = await prisma.discussionReply.createManyAndReturn({ 
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends DiscussionReplyCreateManyAndReturnArgs>(args?: SelectSubset<T, DiscussionReplyCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DiscussionReplyPayload<ExtArgs>, T, "createManyAndReturn">>
+
+    /**
+     * Delete a DiscussionReply.
+     * @param {DiscussionReplyDeleteArgs} args - Arguments to delete one DiscussionReply.
+     * @example
+     * // Delete one DiscussionReply
+     * const DiscussionReply = await prisma.discussionReply.delete({
+     *   where: {
+     *     // ... filter to delete one DiscussionReply
+     *   }
+     * })
+     * 
+     */
+    delete<T extends DiscussionReplyDeleteArgs>(args: SelectSubset<T, DiscussionReplyDeleteArgs<ExtArgs>>): Prisma__DiscussionReplyClient<$Result.GetResult<Prisma.$DiscussionReplyPayload<ExtArgs>, T, "delete">, never, ExtArgs>
+
+    /**
+     * Update one DiscussionReply.
+     * @param {DiscussionReplyUpdateArgs} args - Arguments to update one DiscussionReply.
+     * @example
+     * // Update one DiscussionReply
+     * const discussionReply = await prisma.discussionReply.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends DiscussionReplyUpdateArgs>(args: SelectSubset<T, DiscussionReplyUpdateArgs<ExtArgs>>): Prisma__DiscussionReplyClient<$Result.GetResult<Prisma.$DiscussionReplyPayload<ExtArgs>, T, "update">, never, ExtArgs>
+
+    /**
+     * Delete zero or more DiscussionReplies.
+     * @param {DiscussionReplyDeleteManyArgs} args - Arguments to filter DiscussionReplies to delete.
+     * @example
+     * // Delete a few DiscussionReplies
+     * const { count } = await prisma.discussionReply.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends DiscussionReplyDeleteManyArgs>(args?: SelectSubset<T, DiscussionReplyDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more DiscussionReplies.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DiscussionReplyUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many DiscussionReplies
+     * const discussionReply = await prisma.discussionReply.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends DiscussionReplyUpdateManyArgs>(args: SelectSubset<T, DiscussionReplyUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one DiscussionReply.
+     * @param {DiscussionReplyUpsertArgs} args - Arguments to update or create a DiscussionReply.
+     * @example
+     * // Update or create a DiscussionReply
+     * const discussionReply = await prisma.discussionReply.upsert({
+     *   create: {
+     *     // ... data to create a DiscussionReply
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the DiscussionReply we want to update
+     *   }
+     * })
+     */
+    upsert<T extends DiscussionReplyUpsertArgs>(args: SelectSubset<T, DiscussionReplyUpsertArgs<ExtArgs>>): Prisma__DiscussionReplyClient<$Result.GetResult<Prisma.$DiscussionReplyPayload<ExtArgs>, T, "upsert">, never, ExtArgs>
+
+
+    /**
+     * Count the number of DiscussionReplies.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DiscussionReplyCountArgs} args - Arguments to filter DiscussionReplies to count.
+     * @example
+     * // Count the number of DiscussionReplies
+     * const count = await prisma.discussionReply.count({
+     *   where: {
+     *     // ... the filter for the DiscussionReplies we want to count
+     *   }
+     * })
+    **/
+    count<T extends DiscussionReplyCountArgs>(
+      args?: Subset<T, DiscussionReplyCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], DiscussionReplyCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a DiscussionReply.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DiscussionReplyAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends DiscussionReplyAggregateArgs>(args: Subset<T, DiscussionReplyAggregateArgs>): Prisma.PrismaPromise<GetDiscussionReplyAggregateType<T>>
+
+    /**
+     * Group by DiscussionReply.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DiscussionReplyGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends DiscussionReplyGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: DiscussionReplyGroupByArgs['orderBy'] }
+        : { orderBy?: DiscussionReplyGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, DiscussionReplyGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetDiscussionReplyGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the DiscussionReply model
+   */
+  readonly fields: DiscussionReplyFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for DiscussionReply.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__DiscussionReplyClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    thread<T extends DiscussionThreadDefaultArgs<ExtArgs> = {}>(args?: Subset<T, DiscussionThreadDefaultArgs<ExtArgs>>): Prisma__DiscussionThreadClient<$Result.GetResult<Prisma.$DiscussionThreadPayload<ExtArgs>, T, "findUniqueOrThrow"> | Null, Null, ExtArgs>
+    author<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow"> | Null, Null, ExtArgs>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the DiscussionReply model
+   */ 
+  interface DiscussionReplyFieldRefs {
+    readonly id: FieldRef<"DiscussionReply", 'String'>
+    readonly content: FieldRef<"DiscussionReply", 'String'>
+    readonly threadId: FieldRef<"DiscussionReply", 'String'>
+    readonly authorId: FieldRef<"DiscussionReply", 'String'>
+    readonly createdAt: FieldRef<"DiscussionReply", 'DateTime'>
+    readonly updatedAt: FieldRef<"DiscussionReply", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * DiscussionReply findUnique
+   */
+  export type DiscussionReplyFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DiscussionReply
+     */
+    select?: DiscussionReplySelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DiscussionReplyInclude<ExtArgs> | null
+    /**
+     * Filter, which DiscussionReply to fetch.
+     */
+    where: DiscussionReplyWhereUniqueInput
+  }
+
+  /**
+   * DiscussionReply findUniqueOrThrow
+   */
+  export type DiscussionReplyFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DiscussionReply
+     */
+    select?: DiscussionReplySelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DiscussionReplyInclude<ExtArgs> | null
+    /**
+     * Filter, which DiscussionReply to fetch.
+     */
+    where: DiscussionReplyWhereUniqueInput
+  }
+
+  /**
+   * DiscussionReply findFirst
+   */
+  export type DiscussionReplyFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DiscussionReply
+     */
+    select?: DiscussionReplySelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DiscussionReplyInclude<ExtArgs> | null
+    /**
+     * Filter, which DiscussionReply to fetch.
+     */
+    where?: DiscussionReplyWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of DiscussionReplies to fetch.
+     */
+    orderBy?: DiscussionReplyOrderByWithRelationInput | DiscussionReplyOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for DiscussionReplies.
+     */
+    cursor?: DiscussionReplyWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` DiscussionReplies from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` DiscussionReplies.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of DiscussionReplies.
+     */
+    distinct?: DiscussionReplyScalarFieldEnum | DiscussionReplyScalarFieldEnum[]
+  }
+
+  /**
+   * DiscussionReply findFirstOrThrow
+   */
+  export type DiscussionReplyFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DiscussionReply
+     */
+    select?: DiscussionReplySelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DiscussionReplyInclude<ExtArgs> | null
+    /**
+     * Filter, which DiscussionReply to fetch.
+     */
+    where?: DiscussionReplyWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of DiscussionReplies to fetch.
+     */
+    orderBy?: DiscussionReplyOrderByWithRelationInput | DiscussionReplyOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for DiscussionReplies.
+     */
+    cursor?: DiscussionReplyWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` DiscussionReplies from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` DiscussionReplies.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of DiscussionReplies.
+     */
+    distinct?: DiscussionReplyScalarFieldEnum | DiscussionReplyScalarFieldEnum[]
+  }
+
+  /**
+   * DiscussionReply findMany
+   */
+  export type DiscussionReplyFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DiscussionReply
+     */
+    select?: DiscussionReplySelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DiscussionReplyInclude<ExtArgs> | null
+    /**
+     * Filter, which DiscussionReplies to fetch.
+     */
+    where?: DiscussionReplyWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of DiscussionReplies to fetch.
+     */
+    orderBy?: DiscussionReplyOrderByWithRelationInput | DiscussionReplyOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing DiscussionReplies.
+     */
+    cursor?: DiscussionReplyWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` DiscussionReplies from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` DiscussionReplies.
+     */
+    skip?: number
+    distinct?: DiscussionReplyScalarFieldEnum | DiscussionReplyScalarFieldEnum[]
+  }
+
+  /**
+   * DiscussionReply create
+   */
+  export type DiscussionReplyCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DiscussionReply
+     */
+    select?: DiscussionReplySelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DiscussionReplyInclude<ExtArgs> | null
+    /**
+     * The data needed to create a DiscussionReply.
+     */
+    data: XOR<DiscussionReplyCreateInput, DiscussionReplyUncheckedCreateInput>
+  }
+
+  /**
+   * DiscussionReply createMany
+   */
+  export type DiscussionReplyCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many DiscussionReplies.
+     */
+    data: DiscussionReplyCreateManyInput | DiscussionReplyCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * DiscussionReply createManyAndReturn
+   */
+  export type DiscussionReplyCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DiscussionReply
+     */
+    select?: DiscussionReplySelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * The data used to create many DiscussionReplies.
+     */
+    data: DiscussionReplyCreateManyInput | DiscussionReplyCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DiscussionReplyIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * DiscussionReply update
+   */
+  export type DiscussionReplyUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DiscussionReply
+     */
+    select?: DiscussionReplySelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DiscussionReplyInclude<ExtArgs> | null
+    /**
+     * The data needed to update a DiscussionReply.
+     */
+    data: XOR<DiscussionReplyUpdateInput, DiscussionReplyUncheckedUpdateInput>
+    /**
+     * Choose, which DiscussionReply to update.
+     */
+    where: DiscussionReplyWhereUniqueInput
+  }
+
+  /**
+   * DiscussionReply updateMany
+   */
+  export type DiscussionReplyUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update DiscussionReplies.
+     */
+    data: XOR<DiscussionReplyUpdateManyMutationInput, DiscussionReplyUncheckedUpdateManyInput>
+    /**
+     * Filter which DiscussionReplies to update
+     */
+    where?: DiscussionReplyWhereInput
+  }
+
+  /**
+   * DiscussionReply upsert
+   */
+  export type DiscussionReplyUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DiscussionReply
+     */
+    select?: DiscussionReplySelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DiscussionReplyInclude<ExtArgs> | null
+    /**
+     * The filter to search for the DiscussionReply to update in case it exists.
+     */
+    where: DiscussionReplyWhereUniqueInput
+    /**
+     * In case the DiscussionReply found by the `where` argument doesn't exist, create a new DiscussionReply with this data.
+     */
+    create: XOR<DiscussionReplyCreateInput, DiscussionReplyUncheckedCreateInput>
+    /**
+     * In case the DiscussionReply was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<DiscussionReplyUpdateInput, DiscussionReplyUncheckedUpdateInput>
+  }
+
+  /**
+   * DiscussionReply delete
+   */
+  export type DiscussionReplyDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DiscussionReply
+     */
+    select?: DiscussionReplySelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DiscussionReplyInclude<ExtArgs> | null
+    /**
+     * Filter which DiscussionReply to delete.
+     */
+    where: DiscussionReplyWhereUniqueInput
+  }
+
+  /**
+   * DiscussionReply deleteMany
+   */
+  export type DiscussionReplyDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which DiscussionReplies to delete
+     */
+    where?: DiscussionReplyWhereInput
+  }
+
+  /**
+   * DiscussionReply without action
+   */
+  export type DiscussionReplyDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DiscussionReply
+     */
+    select?: DiscussionReplySelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DiscussionReplyInclude<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -29948,6 +33463,7 @@ export namespace Prisma {
     updatedAt: 'updatedAt',
     image: 'image',
     nis: 'nis',
+    noAbsen: 'noAbsen',
     phone: 'phone',
     gender: 'gender',
     address: 'address',
@@ -30287,6 +33803,46 @@ export namespace Prisma {
   export type CalendarReminderScalarFieldEnum = (typeof CalendarReminderScalarFieldEnum)[keyof typeof CalendarReminderScalarFieldEnum]
 
 
+  export const DocumentScalarFieldEnum: {
+    id: 'id',
+    title: 'title',
+    content: 'content',
+    userId: 'userId',
+    parentId: 'parentId',
+    date: 'date',
+    position: 'position',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type DocumentScalarFieldEnum = (typeof DocumentScalarFieldEnum)[keyof typeof DocumentScalarFieldEnum]
+
+
+  export const DiscussionThreadScalarFieldEnum: {
+    id: 'id',
+    title: 'title',
+    content: 'content',
+    classId: 'classId',
+    authorId: 'authorId',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type DiscussionThreadScalarFieldEnum = (typeof DiscussionThreadScalarFieldEnum)[keyof typeof DiscussionThreadScalarFieldEnum]
+
+
+  export const DiscussionReplyScalarFieldEnum: {
+    id: 'id',
+    content: 'content',
+    threadId: 'threadId',
+    authorId: 'authorId',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type DiscussionReplyScalarFieldEnum = (typeof DiscussionReplyScalarFieldEnum)[keyof typeof DiscussionReplyScalarFieldEnum]
+
+
   export const SortOrder: {
     asc: 'asc',
     desc: 'desc'
@@ -30397,20 +33953,6 @@ export namespace Prisma {
 
 
   /**
-   * Reference to a field of type 'AttendanceStatus'
-   */
-  export type EnumAttendanceStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'AttendanceStatus'>
-    
-
-
-  /**
-   * Reference to a field of type 'AttendanceStatus[]'
-   */
-  export type ListEnumAttendanceStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'AttendanceStatus[]'>
-    
-
-
-  /**
    * Reference to a field of type 'Int'
    */
   export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int'>
@@ -30421,6 +33963,20 @@ export namespace Prisma {
    * Reference to a field of type 'Int[]'
    */
   export type ListIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'AttendanceStatus'
+   */
+  export type EnumAttendanceStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'AttendanceStatus'>
+    
+
+
+  /**
+   * Reference to a field of type 'AttendanceStatus[]'
+   */
+  export type ListEnumAttendanceStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'AttendanceStatus[]'>
     
 
 
@@ -30488,6 +34044,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFilter<"User"> | Date | string
     image?: StringNullableFilter<"User"> | string | null
     nis?: StringNullableFilter<"User"> | string | null
+    noAbsen?: IntNullableFilter<"User"> | number | null
     phone?: StringNullableFilter<"User"> | string | null
     gender?: StringNullableFilter<"User"> | string | null
     address?: StringNullableFilter<"User"> | string | null
@@ -30517,6 +34074,9 @@ export namespace Prisma {
     ekskulMembers?: ExtracurricularMemberListRelationFilter
     ekskulAttendances?: ExtracurricularAttendanceListRelationFilter
     teacherMaterials?: MaterialListRelationFilter
+    documents?: DocumentListRelationFilter
+    discussionThreads?: DiscussionThreadListRelationFilter
+    discussionReplies?: DiscussionReplyListRelationFilter
   }
 
   export type UserOrderByWithRelationInput = {
@@ -30535,6 +34095,7 @@ export namespace Prisma {
     updatedAt?: SortOrder
     image?: SortOrderInput | SortOrder
     nis?: SortOrderInput | SortOrder
+    noAbsen?: SortOrderInput | SortOrder
     phone?: SortOrderInput | SortOrder
     gender?: SortOrderInput | SortOrder
     address?: SortOrderInput | SortOrder
@@ -30564,6 +34125,9 @@ export namespace Prisma {
     ekskulMembers?: ExtracurricularMemberOrderByRelationAggregateInput
     ekskulAttendances?: ExtracurricularAttendanceOrderByRelationAggregateInput
     teacherMaterials?: MaterialOrderByRelationAggregateInput
+    documents?: DocumentOrderByRelationAggregateInput
+    discussionThreads?: DiscussionThreadOrderByRelationAggregateInput
+    discussionReplies?: DiscussionReplyOrderByRelationAggregateInput
   }
 
   export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -30585,6 +34149,7 @@ export namespace Prisma {
     createdAt?: DateTimeFilter<"User"> | Date | string
     updatedAt?: DateTimeFilter<"User"> | Date | string
     image?: StringNullableFilter<"User"> | string | null
+    noAbsen?: IntNullableFilter<"User"> | number | null
     phone?: StringNullableFilter<"User"> | string | null
     gender?: StringNullableFilter<"User"> | string | null
     address?: StringNullableFilter<"User"> | string | null
@@ -30614,6 +34179,9 @@ export namespace Prisma {
     ekskulMembers?: ExtracurricularMemberListRelationFilter
     ekskulAttendances?: ExtracurricularAttendanceListRelationFilter
     teacherMaterials?: MaterialListRelationFilter
+    documents?: DocumentListRelationFilter
+    discussionThreads?: DiscussionThreadListRelationFilter
+    discussionReplies?: DiscussionReplyListRelationFilter
   }, "id" | "email" | "nis">
 
   export type UserOrderByWithAggregationInput = {
@@ -30632,6 +34200,7 @@ export namespace Prisma {
     updatedAt?: SortOrder
     image?: SortOrderInput | SortOrder
     nis?: SortOrderInput | SortOrder
+    noAbsen?: SortOrderInput | SortOrder
     phone?: SortOrderInput | SortOrder
     gender?: SortOrderInput | SortOrder
     address?: SortOrderInput | SortOrder
@@ -30641,8 +34210,10 @@ export namespace Prisma {
     canEditMaterials?: SortOrder
     canEditAssignments?: SortOrder
     _count?: UserCountOrderByAggregateInput
+    _avg?: UserAvgOrderByAggregateInput
     _max?: UserMaxOrderByAggregateInput
     _min?: UserMinOrderByAggregateInput
+    _sum?: UserSumOrderByAggregateInput
   }
 
   export type UserScalarWhereWithAggregatesInput = {
@@ -30664,6 +34235,7 @@ export namespace Prisma {
     updatedAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
     image?: StringNullableWithAggregatesFilter<"User"> | string | null
     nis?: StringNullableWithAggregatesFilter<"User"> | string | null
+    noAbsen?: IntNullableWithAggregatesFilter<"User"> | number | null
     phone?: StringNullableWithAggregatesFilter<"User"> | string | null
     gender?: StringNullableWithAggregatesFilter<"User"> | string | null
     address?: StringNullableWithAggregatesFilter<"User"> | string | null
@@ -30821,6 +34393,7 @@ export namespace Prisma {
     schedules?: ClassScheduleListRelationFilter
     students?: UserListRelationFilter
     materials?: MaterialListRelationFilter
+    discussionThreads?: DiscussionThreadListRelationFilter
   }
 
   export type ClassOrderByWithRelationInput = {
@@ -30833,6 +34406,7 @@ export namespace Prisma {
     schedules?: ClassScheduleOrderByRelationAggregateInput
     students?: UserOrderByRelationAggregateInput
     materials?: MaterialOrderByRelationAggregateInput
+    discussionThreads?: DiscussionThreadOrderByRelationAggregateInput
   }
 
   export type ClassWhereUniqueInput = Prisma.AtLeast<{
@@ -30849,6 +34423,7 @@ export namespace Prisma {
     schedules?: ClassScheduleListRelationFilter
     students?: UserListRelationFilter
     materials?: MaterialListRelationFilter
+    discussionThreads?: DiscussionThreadListRelationFilter
   }, "id" | "name_school">
 
   export type ClassOrderByWithAggregationInput = {
@@ -32419,6 +35994,223 @@ export namespace Prisma {
     createdAt?: DateTimeWithAggregatesFilter<"CalendarReminder"> | Date | string
   }
 
+  export type DocumentWhereInput = {
+    AND?: DocumentWhereInput | DocumentWhereInput[]
+    OR?: DocumentWhereInput[]
+    NOT?: DocumentWhereInput | DocumentWhereInput[]
+    id?: StringFilter<"Document"> | string
+    title?: StringFilter<"Document"> | string
+    content?: StringNullableFilter<"Document"> | string | null
+    userId?: StringFilter<"Document"> | string
+    parentId?: StringNullableFilter<"Document"> | string | null
+    date?: DateTimeNullableFilter<"Document"> | Date | string | null
+    position?: IntFilter<"Document"> | number
+    createdAt?: DateTimeFilter<"Document"> | Date | string
+    updatedAt?: DateTimeFilter<"Document"> | Date | string
+    user?: XOR<UserRelationFilter, UserWhereInput>
+    parent?: XOR<DocumentNullableRelationFilter, DocumentWhereInput> | null
+    subDocs?: DocumentListRelationFilter
+  }
+
+  export type DocumentOrderByWithRelationInput = {
+    id?: SortOrder
+    title?: SortOrder
+    content?: SortOrderInput | SortOrder
+    userId?: SortOrder
+    parentId?: SortOrderInput | SortOrder
+    date?: SortOrderInput | SortOrder
+    position?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    user?: UserOrderByWithRelationInput
+    parent?: DocumentOrderByWithRelationInput
+    subDocs?: DocumentOrderByRelationAggregateInput
+  }
+
+  export type DocumentWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: DocumentWhereInput | DocumentWhereInput[]
+    OR?: DocumentWhereInput[]
+    NOT?: DocumentWhereInput | DocumentWhereInput[]
+    title?: StringFilter<"Document"> | string
+    content?: StringNullableFilter<"Document"> | string | null
+    userId?: StringFilter<"Document"> | string
+    parentId?: StringNullableFilter<"Document"> | string | null
+    date?: DateTimeNullableFilter<"Document"> | Date | string | null
+    position?: IntFilter<"Document"> | number
+    createdAt?: DateTimeFilter<"Document"> | Date | string
+    updatedAt?: DateTimeFilter<"Document"> | Date | string
+    user?: XOR<UserRelationFilter, UserWhereInput>
+    parent?: XOR<DocumentNullableRelationFilter, DocumentWhereInput> | null
+    subDocs?: DocumentListRelationFilter
+  }, "id">
+
+  export type DocumentOrderByWithAggregationInput = {
+    id?: SortOrder
+    title?: SortOrder
+    content?: SortOrderInput | SortOrder
+    userId?: SortOrder
+    parentId?: SortOrderInput | SortOrder
+    date?: SortOrderInput | SortOrder
+    position?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: DocumentCountOrderByAggregateInput
+    _avg?: DocumentAvgOrderByAggregateInput
+    _max?: DocumentMaxOrderByAggregateInput
+    _min?: DocumentMinOrderByAggregateInput
+    _sum?: DocumentSumOrderByAggregateInput
+  }
+
+  export type DocumentScalarWhereWithAggregatesInput = {
+    AND?: DocumentScalarWhereWithAggregatesInput | DocumentScalarWhereWithAggregatesInput[]
+    OR?: DocumentScalarWhereWithAggregatesInput[]
+    NOT?: DocumentScalarWhereWithAggregatesInput | DocumentScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Document"> | string
+    title?: StringWithAggregatesFilter<"Document"> | string
+    content?: StringNullableWithAggregatesFilter<"Document"> | string | null
+    userId?: StringWithAggregatesFilter<"Document"> | string
+    parentId?: StringNullableWithAggregatesFilter<"Document"> | string | null
+    date?: DateTimeNullableWithAggregatesFilter<"Document"> | Date | string | null
+    position?: IntWithAggregatesFilter<"Document"> | number
+    createdAt?: DateTimeWithAggregatesFilter<"Document"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Document"> | Date | string
+  }
+
+  export type DiscussionThreadWhereInput = {
+    AND?: DiscussionThreadWhereInput | DiscussionThreadWhereInput[]
+    OR?: DiscussionThreadWhereInput[]
+    NOT?: DiscussionThreadWhereInput | DiscussionThreadWhereInput[]
+    id?: StringFilter<"DiscussionThread"> | string
+    title?: StringFilter<"DiscussionThread"> | string
+    content?: StringFilter<"DiscussionThread"> | string
+    classId?: StringNullableFilter<"DiscussionThread"> | string | null
+    authorId?: StringFilter<"DiscussionThread"> | string
+    createdAt?: DateTimeFilter<"DiscussionThread"> | Date | string
+    updatedAt?: DateTimeFilter<"DiscussionThread"> | Date | string
+    author?: XOR<UserRelationFilter, UserWhereInput>
+    class?: XOR<ClassNullableRelationFilter, ClassWhereInput> | null
+    replies?: DiscussionReplyListRelationFilter
+  }
+
+  export type DiscussionThreadOrderByWithRelationInput = {
+    id?: SortOrder
+    title?: SortOrder
+    content?: SortOrder
+    classId?: SortOrderInput | SortOrder
+    authorId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    author?: UserOrderByWithRelationInput
+    class?: ClassOrderByWithRelationInput
+    replies?: DiscussionReplyOrderByRelationAggregateInput
+  }
+
+  export type DiscussionThreadWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: DiscussionThreadWhereInput | DiscussionThreadWhereInput[]
+    OR?: DiscussionThreadWhereInput[]
+    NOT?: DiscussionThreadWhereInput | DiscussionThreadWhereInput[]
+    title?: StringFilter<"DiscussionThread"> | string
+    content?: StringFilter<"DiscussionThread"> | string
+    classId?: StringNullableFilter<"DiscussionThread"> | string | null
+    authorId?: StringFilter<"DiscussionThread"> | string
+    createdAt?: DateTimeFilter<"DiscussionThread"> | Date | string
+    updatedAt?: DateTimeFilter<"DiscussionThread"> | Date | string
+    author?: XOR<UserRelationFilter, UserWhereInput>
+    class?: XOR<ClassNullableRelationFilter, ClassWhereInput> | null
+    replies?: DiscussionReplyListRelationFilter
+  }, "id">
+
+  export type DiscussionThreadOrderByWithAggregationInput = {
+    id?: SortOrder
+    title?: SortOrder
+    content?: SortOrder
+    classId?: SortOrderInput | SortOrder
+    authorId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: DiscussionThreadCountOrderByAggregateInput
+    _max?: DiscussionThreadMaxOrderByAggregateInput
+    _min?: DiscussionThreadMinOrderByAggregateInput
+  }
+
+  export type DiscussionThreadScalarWhereWithAggregatesInput = {
+    AND?: DiscussionThreadScalarWhereWithAggregatesInput | DiscussionThreadScalarWhereWithAggregatesInput[]
+    OR?: DiscussionThreadScalarWhereWithAggregatesInput[]
+    NOT?: DiscussionThreadScalarWhereWithAggregatesInput | DiscussionThreadScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"DiscussionThread"> | string
+    title?: StringWithAggregatesFilter<"DiscussionThread"> | string
+    content?: StringWithAggregatesFilter<"DiscussionThread"> | string
+    classId?: StringNullableWithAggregatesFilter<"DiscussionThread"> | string | null
+    authorId?: StringWithAggregatesFilter<"DiscussionThread"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"DiscussionThread"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"DiscussionThread"> | Date | string
+  }
+
+  export type DiscussionReplyWhereInput = {
+    AND?: DiscussionReplyWhereInput | DiscussionReplyWhereInput[]
+    OR?: DiscussionReplyWhereInput[]
+    NOT?: DiscussionReplyWhereInput | DiscussionReplyWhereInput[]
+    id?: StringFilter<"DiscussionReply"> | string
+    content?: StringFilter<"DiscussionReply"> | string
+    threadId?: StringFilter<"DiscussionReply"> | string
+    authorId?: StringFilter<"DiscussionReply"> | string
+    createdAt?: DateTimeFilter<"DiscussionReply"> | Date | string
+    updatedAt?: DateTimeFilter<"DiscussionReply"> | Date | string
+    thread?: XOR<DiscussionThreadRelationFilter, DiscussionThreadWhereInput>
+    author?: XOR<UserRelationFilter, UserWhereInput>
+  }
+
+  export type DiscussionReplyOrderByWithRelationInput = {
+    id?: SortOrder
+    content?: SortOrder
+    threadId?: SortOrder
+    authorId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    thread?: DiscussionThreadOrderByWithRelationInput
+    author?: UserOrderByWithRelationInput
+  }
+
+  export type DiscussionReplyWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: DiscussionReplyWhereInput | DiscussionReplyWhereInput[]
+    OR?: DiscussionReplyWhereInput[]
+    NOT?: DiscussionReplyWhereInput | DiscussionReplyWhereInput[]
+    content?: StringFilter<"DiscussionReply"> | string
+    threadId?: StringFilter<"DiscussionReply"> | string
+    authorId?: StringFilter<"DiscussionReply"> | string
+    createdAt?: DateTimeFilter<"DiscussionReply"> | Date | string
+    updatedAt?: DateTimeFilter<"DiscussionReply"> | Date | string
+    thread?: XOR<DiscussionThreadRelationFilter, DiscussionThreadWhereInput>
+    author?: XOR<UserRelationFilter, UserWhereInput>
+  }, "id">
+
+  export type DiscussionReplyOrderByWithAggregationInput = {
+    id?: SortOrder
+    content?: SortOrder
+    threadId?: SortOrder
+    authorId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: DiscussionReplyCountOrderByAggregateInput
+    _max?: DiscussionReplyMaxOrderByAggregateInput
+    _min?: DiscussionReplyMinOrderByAggregateInput
+  }
+
+  export type DiscussionReplyScalarWhereWithAggregatesInput = {
+    AND?: DiscussionReplyScalarWhereWithAggregatesInput | DiscussionReplyScalarWhereWithAggregatesInput[]
+    OR?: DiscussionReplyScalarWhereWithAggregatesInput[]
+    NOT?: DiscussionReplyScalarWhereWithAggregatesInput | DiscussionReplyScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"DiscussionReply"> | string
+    content?: StringWithAggregatesFilter<"DiscussionReply"> | string
+    threadId?: StringWithAggregatesFilter<"DiscussionReply"> | string
+    authorId?: StringWithAggregatesFilter<"DiscussionReply"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"DiscussionReply"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"DiscussionReply"> | Date | string
+  }
+
   export type UserCreateInput = {
     id?: string
     name: string
@@ -32434,6 +36226,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     image?: string | null
     nis?: string | null
+    noAbsen?: number | null
     phone?: string | null
     gender?: string | null
     address?: string | null
@@ -32463,6 +36256,9 @@ export namespace Prisma {
     ekskulMembers?: ExtracurricularMemberCreateNestedManyWithoutStudentInput
     ekskulAttendances?: ExtracurricularAttendanceCreateNestedManyWithoutStudentInput
     teacherMaterials?: MaterialCreateNestedManyWithoutTeacherInput
+    documents?: DocumentCreateNestedManyWithoutUserInput
+    discussionThreads?: DiscussionThreadCreateNestedManyWithoutAuthorInput
+    discussionReplies?: DiscussionReplyCreateNestedManyWithoutAuthorInput
   }
 
   export type UserUncheckedCreateInput = {
@@ -32481,6 +36277,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     image?: string | null
     nis?: string | null
+    noAbsen?: number | null
     phone?: string | null
     gender?: string | null
     address?: string | null
@@ -32509,6 +36306,9 @@ export namespace Prisma {
     ekskulMembers?: ExtracurricularMemberUncheckedCreateNestedManyWithoutStudentInput
     ekskulAttendances?: ExtracurricularAttendanceUncheckedCreateNestedManyWithoutStudentInput
     teacherMaterials?: MaterialUncheckedCreateNestedManyWithoutTeacherInput
+    documents?: DocumentUncheckedCreateNestedManyWithoutUserInput
+    discussionThreads?: DiscussionThreadUncheckedCreateNestedManyWithoutAuthorInput
+    discussionReplies?: DiscussionReplyUncheckedCreateNestedManyWithoutAuthorInput
   }
 
   export type UserUpdateInput = {
@@ -32526,6 +36326,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     image?: NullableStringFieldUpdateOperationsInput | string | null
     nis?: NullableStringFieldUpdateOperationsInput | string | null
+    noAbsen?: NullableIntFieldUpdateOperationsInput | number | null
     phone?: NullableStringFieldUpdateOperationsInput | string | null
     gender?: NullableStringFieldUpdateOperationsInput | string | null
     address?: NullableStringFieldUpdateOperationsInput | string | null
@@ -32555,6 +36356,9 @@ export namespace Prisma {
     ekskulMembers?: ExtracurricularMemberUpdateManyWithoutStudentNestedInput
     ekskulAttendances?: ExtracurricularAttendanceUpdateManyWithoutStudentNestedInput
     teacherMaterials?: MaterialUpdateManyWithoutTeacherNestedInput
+    documents?: DocumentUpdateManyWithoutUserNestedInput
+    discussionThreads?: DiscussionThreadUpdateManyWithoutAuthorNestedInput
+    discussionReplies?: DiscussionReplyUpdateManyWithoutAuthorNestedInput
   }
 
   export type UserUncheckedUpdateInput = {
@@ -32573,6 +36377,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     image?: NullableStringFieldUpdateOperationsInput | string | null
     nis?: NullableStringFieldUpdateOperationsInput | string | null
+    noAbsen?: NullableIntFieldUpdateOperationsInput | number | null
     phone?: NullableStringFieldUpdateOperationsInput | string | null
     gender?: NullableStringFieldUpdateOperationsInput | string | null
     address?: NullableStringFieldUpdateOperationsInput | string | null
@@ -32601,6 +36406,9 @@ export namespace Prisma {
     ekskulMembers?: ExtracurricularMemberUncheckedUpdateManyWithoutStudentNestedInput
     ekskulAttendances?: ExtracurricularAttendanceUncheckedUpdateManyWithoutStudentNestedInput
     teacherMaterials?: MaterialUncheckedUpdateManyWithoutTeacherNestedInput
+    documents?: DocumentUncheckedUpdateManyWithoutUserNestedInput
+    discussionThreads?: DiscussionThreadUncheckedUpdateManyWithoutAuthorNestedInput
+    discussionReplies?: DiscussionReplyUncheckedUpdateManyWithoutAuthorNestedInput
   }
 
   export type UserCreateManyInput = {
@@ -32619,6 +36427,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     image?: string | null
     nis?: string | null
+    noAbsen?: number | null
     phone?: string | null
     gender?: string | null
     address?: string | null
@@ -32644,6 +36453,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     image?: NullableStringFieldUpdateOperationsInput | string | null
     nis?: NullableStringFieldUpdateOperationsInput | string | null
+    noAbsen?: NullableIntFieldUpdateOperationsInput | number | null
     phone?: NullableStringFieldUpdateOperationsInput | string | null
     gender?: NullableStringFieldUpdateOperationsInput | string | null
     address?: NullableStringFieldUpdateOperationsInput | string | null
@@ -32670,6 +36480,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     image?: NullableStringFieldUpdateOperationsInput | string | null
     nis?: NullableStringFieldUpdateOperationsInput | string | null
+    noAbsen?: NullableIntFieldUpdateOperationsInput | number | null
     phone?: NullableStringFieldUpdateOperationsInput | string | null
     gender?: NullableStringFieldUpdateOperationsInput | string | null
     address?: NullableStringFieldUpdateOperationsInput | string | null
@@ -32827,6 +36638,7 @@ export namespace Prisma {
     schedules?: ClassScheduleCreateNestedManyWithoutClassInput
     students?: UserCreateNestedManyWithoutClassInput
     materials?: MaterialCreateNestedManyWithoutClassInput
+    discussionThreads?: DiscussionThreadCreateNestedManyWithoutClassInput
   }
 
   export type ClassUncheckedCreateInput = {
@@ -32839,6 +36651,7 @@ export namespace Prisma {
     schedules?: ClassScheduleUncheckedCreateNestedManyWithoutClassInput
     students?: UserUncheckedCreateNestedManyWithoutClassInput
     materials?: MaterialUncheckedCreateNestedManyWithoutClassInput
+    discussionThreads?: DiscussionThreadUncheckedCreateNestedManyWithoutClassInput
   }
 
   export type ClassUpdateInput = {
@@ -32851,6 +36664,7 @@ export namespace Prisma {
     schedules?: ClassScheduleUpdateManyWithoutClassNestedInput
     students?: UserUpdateManyWithoutClassNestedInput
     materials?: MaterialUpdateManyWithoutClassNestedInput
+    discussionThreads?: DiscussionThreadUpdateManyWithoutClassNestedInput
   }
 
   export type ClassUncheckedUpdateInput = {
@@ -32863,6 +36677,7 @@ export namespace Prisma {
     schedules?: ClassScheduleUncheckedUpdateManyWithoutClassNestedInput
     students?: UserUncheckedUpdateManyWithoutClassNestedInput
     materials?: MaterialUncheckedUpdateManyWithoutClassNestedInput
+    discussionThreads?: DiscussionThreadUncheckedUpdateManyWithoutClassNestedInput
   }
 
   export type ClassCreateManyInput = {
@@ -34472,6 +38287,225 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
+  export type DocumentCreateInput = {
+    id?: string
+    title?: string
+    content?: string | null
+    date?: Date | string | null
+    position?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    user: UserCreateNestedOneWithoutDocumentsInput
+    parent?: DocumentCreateNestedOneWithoutSubDocsInput
+    subDocs?: DocumentCreateNestedManyWithoutParentInput
+  }
+
+  export type DocumentUncheckedCreateInput = {
+    id?: string
+    title?: string
+    content?: string | null
+    userId: string
+    parentId?: string | null
+    date?: Date | string | null
+    position?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    subDocs?: DocumentUncheckedCreateNestedManyWithoutParentInput
+  }
+
+  export type DocumentUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    content?: NullableStringFieldUpdateOperationsInput | string | null
+    date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    position?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutDocumentsNestedInput
+    parent?: DocumentUpdateOneWithoutSubDocsNestedInput
+    subDocs?: DocumentUpdateManyWithoutParentNestedInput
+  }
+
+  export type DocumentUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    content?: NullableStringFieldUpdateOperationsInput | string | null
+    userId?: StringFieldUpdateOperationsInput | string
+    parentId?: NullableStringFieldUpdateOperationsInput | string | null
+    date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    position?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    subDocs?: DocumentUncheckedUpdateManyWithoutParentNestedInput
+  }
+
+  export type DocumentCreateManyInput = {
+    id?: string
+    title?: string
+    content?: string | null
+    userId: string
+    parentId?: string | null
+    date?: Date | string | null
+    position?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type DocumentUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    content?: NullableStringFieldUpdateOperationsInput | string | null
+    date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    position?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type DocumentUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    content?: NullableStringFieldUpdateOperationsInput | string | null
+    userId?: StringFieldUpdateOperationsInput | string
+    parentId?: NullableStringFieldUpdateOperationsInput | string | null
+    date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    position?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type DiscussionThreadCreateInput = {
+    id?: string
+    title: string
+    content: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    author: UserCreateNestedOneWithoutDiscussionThreadsInput
+    class?: ClassCreateNestedOneWithoutDiscussionThreadsInput
+    replies?: DiscussionReplyCreateNestedManyWithoutThreadInput
+  }
+
+  export type DiscussionThreadUncheckedCreateInput = {
+    id?: string
+    title: string
+    content: string
+    classId?: string | null
+    authorId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    replies?: DiscussionReplyUncheckedCreateNestedManyWithoutThreadInput
+  }
+
+  export type DiscussionThreadUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    author?: UserUpdateOneRequiredWithoutDiscussionThreadsNestedInput
+    class?: ClassUpdateOneWithoutDiscussionThreadsNestedInput
+    replies?: DiscussionReplyUpdateManyWithoutThreadNestedInput
+  }
+
+  export type DiscussionThreadUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    classId?: NullableStringFieldUpdateOperationsInput | string | null
+    authorId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    replies?: DiscussionReplyUncheckedUpdateManyWithoutThreadNestedInput
+  }
+
+  export type DiscussionThreadCreateManyInput = {
+    id?: string
+    title: string
+    content: string
+    classId?: string | null
+    authorId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type DiscussionThreadUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type DiscussionThreadUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    classId?: NullableStringFieldUpdateOperationsInput | string | null
+    authorId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type DiscussionReplyCreateInput = {
+    id?: string
+    content: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    thread: DiscussionThreadCreateNestedOneWithoutRepliesInput
+    author: UserCreateNestedOneWithoutDiscussionRepliesInput
+  }
+
+  export type DiscussionReplyUncheckedCreateInput = {
+    id?: string
+    content: string
+    threadId: string
+    authorId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type DiscussionReplyUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    thread?: DiscussionThreadUpdateOneRequiredWithoutRepliesNestedInput
+    author?: UserUpdateOneRequiredWithoutDiscussionRepliesNestedInput
+  }
+
+  export type DiscussionReplyUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    threadId?: StringFieldUpdateOperationsInput | string
+    authorId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type DiscussionReplyCreateManyInput = {
+    id?: string
+    content: string
+    threadId: string
+    authorId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type DiscussionReplyUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type DiscussionReplyUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    threadId?: StringFieldUpdateOperationsInput | string
+    authorId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
   export type StringFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[] | ListStringFieldRefInput<$PrismaModel>
@@ -34556,6 +38590,17 @@ export namespace Prisma {
     gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     not?: NestedDateTimeFilter<$PrismaModel> | Date | string
+  }
+
+  export type IntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
   }
 
   export type StringNullableListFilter<$PrismaModel = never> = {
@@ -34678,6 +38723,24 @@ export namespace Prisma {
     none?: MaterialWhereInput
   }
 
+  export type DocumentListRelationFilter = {
+    every?: DocumentWhereInput
+    some?: DocumentWhereInput
+    none?: DocumentWhereInput
+  }
+
+  export type DiscussionThreadListRelationFilter = {
+    every?: DiscussionThreadWhereInput
+    some?: DiscussionThreadWhereInput
+    none?: DiscussionThreadWhereInput
+  }
+
+  export type DiscussionReplyListRelationFilter = {
+    every?: DiscussionReplyWhereInput
+    some?: DiscussionReplyWhereInput
+    none?: DiscussionReplyWhereInput
+  }
+
   export type SortOrderInput = {
     sort: SortOrder
     nulls?: NullsOrder
@@ -34751,6 +38814,18 @@ export namespace Prisma {
     _count?: SortOrder
   }
 
+  export type DocumentOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type DiscussionThreadOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type DiscussionReplyOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
   export type UserCountOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
@@ -34767,6 +38842,7 @@ export namespace Prisma {
     updatedAt?: SortOrder
     image?: SortOrder
     nis?: SortOrder
+    noAbsen?: SortOrder
     phone?: SortOrder
     gender?: SortOrder
     address?: SortOrder
@@ -34775,6 +38851,10 @@ export namespace Prisma {
     affiliations?: SortOrder
     canEditMaterials?: SortOrder
     canEditAssignments?: SortOrder
+  }
+
+  export type UserAvgOrderByAggregateInput = {
+    noAbsen?: SortOrder
   }
 
   export type UserMaxOrderByAggregateInput = {
@@ -34792,6 +38872,7 @@ export namespace Prisma {
     updatedAt?: SortOrder
     image?: SortOrder
     nis?: SortOrder
+    noAbsen?: SortOrder
     phone?: SortOrder
     gender?: SortOrder
     address?: SortOrder
@@ -34816,6 +38897,7 @@ export namespace Prisma {
     updatedAt?: SortOrder
     image?: SortOrder
     nis?: SortOrder
+    noAbsen?: SortOrder
     phone?: SortOrder
     gender?: SortOrder
     address?: SortOrder
@@ -34823,6 +38905,10 @@ export namespace Prisma {
     position?: SortOrder
     canEditMaterials?: SortOrder
     canEditAssignments?: SortOrder
+  }
+
+  export type UserSumOrderByAggregateInput = {
+    noAbsen?: SortOrder
   }
 
   export type StringWithAggregatesFilter<$PrismaModel = never> = {
@@ -34930,6 +39016,22 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedDateTimeFilter<$PrismaModel>
     _max?: NestedDateTimeFilter<$PrismaModel>
+  }
+
+  export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedIntNullableFilter<$PrismaModel>
+    _max?: NestedIntNullableFilter<$PrismaModel>
   }
 
   export type UserRelationFilter = {
@@ -35619,17 +39721,6 @@ export namespace Prisma {
     _max?: NestedEnumAssignmentStatusFilter<$PrismaModel>
   }
 
-  export type IntNullableFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel> | null
-    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntNullableFilter<$PrismaModel> | number | null
-  }
-
   export type AssignmentRelationFilter = {
     is?: AssignmentWhereInput
     isNot?: AssignmentWhereInput
@@ -35680,22 +39771,6 @@ export namespace Prisma {
 
   export type AssignmentSubmissionSumOrderByAggregateInput = {
     score?: SortOrder
-  }
-
-  export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel> | null
-    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _avg?: NestedFloatNullableFilter<$PrismaModel>
-    _sum?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedIntNullableFilter<$PrismaModel>
-    _max?: NestedIntNullableFilter<$PrismaModel>
   }
 
   export type AssignmentNullableRelationFilter = {
@@ -36032,6 +40107,117 @@ export namespace Prisma {
     createdAt?: SortOrder
   }
 
+  export type DocumentNullableRelationFilter = {
+    is?: DocumentWhereInput | null
+    isNot?: DocumentWhereInput | null
+  }
+
+  export type DocumentCountOrderByAggregateInput = {
+    id?: SortOrder
+    title?: SortOrder
+    content?: SortOrder
+    userId?: SortOrder
+    parentId?: SortOrder
+    date?: SortOrder
+    position?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type DocumentAvgOrderByAggregateInput = {
+    position?: SortOrder
+  }
+
+  export type DocumentMaxOrderByAggregateInput = {
+    id?: SortOrder
+    title?: SortOrder
+    content?: SortOrder
+    userId?: SortOrder
+    parentId?: SortOrder
+    date?: SortOrder
+    position?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type DocumentMinOrderByAggregateInput = {
+    id?: SortOrder
+    title?: SortOrder
+    content?: SortOrder
+    userId?: SortOrder
+    parentId?: SortOrder
+    date?: SortOrder
+    position?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type DocumentSumOrderByAggregateInput = {
+    position?: SortOrder
+  }
+
+  export type DiscussionThreadCountOrderByAggregateInput = {
+    id?: SortOrder
+    title?: SortOrder
+    content?: SortOrder
+    classId?: SortOrder
+    authorId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type DiscussionThreadMaxOrderByAggregateInput = {
+    id?: SortOrder
+    title?: SortOrder
+    content?: SortOrder
+    classId?: SortOrder
+    authorId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type DiscussionThreadMinOrderByAggregateInput = {
+    id?: SortOrder
+    title?: SortOrder
+    content?: SortOrder
+    classId?: SortOrder
+    authorId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type DiscussionThreadRelationFilter = {
+    is?: DiscussionThreadWhereInput
+    isNot?: DiscussionThreadWhereInput
+  }
+
+  export type DiscussionReplyCountOrderByAggregateInput = {
+    id?: SortOrder
+    content?: SortOrder
+    threadId?: SortOrder
+    authorId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type DiscussionReplyMaxOrderByAggregateInput = {
+    id?: SortOrder
+    content?: SortOrder
+    threadId?: SortOrder
+    authorId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type DiscussionReplyMinOrderByAggregateInput = {
+    id?: SortOrder
+    content?: SortOrder
+    threadId?: SortOrder
+    authorId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
   export type UserCreateaffiliationsInput = {
     set: string[]
   }
@@ -36181,6 +40367,27 @@ export namespace Prisma {
     connect?: MaterialWhereUniqueInput | MaterialWhereUniqueInput[]
   }
 
+  export type DocumentCreateNestedManyWithoutUserInput = {
+    create?: XOR<DocumentCreateWithoutUserInput, DocumentUncheckedCreateWithoutUserInput> | DocumentCreateWithoutUserInput[] | DocumentUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: DocumentCreateOrConnectWithoutUserInput | DocumentCreateOrConnectWithoutUserInput[]
+    createMany?: DocumentCreateManyUserInputEnvelope
+    connect?: DocumentWhereUniqueInput | DocumentWhereUniqueInput[]
+  }
+
+  export type DiscussionThreadCreateNestedManyWithoutAuthorInput = {
+    create?: XOR<DiscussionThreadCreateWithoutAuthorInput, DiscussionThreadUncheckedCreateWithoutAuthorInput> | DiscussionThreadCreateWithoutAuthorInput[] | DiscussionThreadUncheckedCreateWithoutAuthorInput[]
+    connectOrCreate?: DiscussionThreadCreateOrConnectWithoutAuthorInput | DiscussionThreadCreateOrConnectWithoutAuthorInput[]
+    createMany?: DiscussionThreadCreateManyAuthorInputEnvelope
+    connect?: DiscussionThreadWhereUniqueInput | DiscussionThreadWhereUniqueInput[]
+  }
+
+  export type DiscussionReplyCreateNestedManyWithoutAuthorInput = {
+    create?: XOR<DiscussionReplyCreateWithoutAuthorInput, DiscussionReplyUncheckedCreateWithoutAuthorInput> | DiscussionReplyCreateWithoutAuthorInput[] | DiscussionReplyUncheckedCreateWithoutAuthorInput[]
+    connectOrCreate?: DiscussionReplyCreateOrConnectWithoutAuthorInput | DiscussionReplyCreateOrConnectWithoutAuthorInput[]
+    createMany?: DiscussionReplyCreateManyAuthorInputEnvelope
+    connect?: DiscussionReplyWhereUniqueInput | DiscussionReplyWhereUniqueInput[]
+  }
+
   export type AccountUncheckedCreateNestedManyWithoutUserInput = {
     create?: XOR<AccountCreateWithoutUserInput, AccountUncheckedCreateWithoutUserInput> | AccountCreateWithoutUserInput[] | AccountUncheckedCreateWithoutUserInput[]
     connectOrCreate?: AccountCreateOrConnectWithoutUserInput | AccountCreateOrConnectWithoutUserInput[]
@@ -36320,6 +40527,27 @@ export namespace Prisma {
     connect?: MaterialWhereUniqueInput | MaterialWhereUniqueInput[]
   }
 
+  export type DocumentUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<DocumentCreateWithoutUserInput, DocumentUncheckedCreateWithoutUserInput> | DocumentCreateWithoutUserInput[] | DocumentUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: DocumentCreateOrConnectWithoutUserInput | DocumentCreateOrConnectWithoutUserInput[]
+    createMany?: DocumentCreateManyUserInputEnvelope
+    connect?: DocumentWhereUniqueInput | DocumentWhereUniqueInput[]
+  }
+
+  export type DiscussionThreadUncheckedCreateNestedManyWithoutAuthorInput = {
+    create?: XOR<DiscussionThreadCreateWithoutAuthorInput, DiscussionThreadUncheckedCreateWithoutAuthorInput> | DiscussionThreadCreateWithoutAuthorInput[] | DiscussionThreadUncheckedCreateWithoutAuthorInput[]
+    connectOrCreate?: DiscussionThreadCreateOrConnectWithoutAuthorInput | DiscussionThreadCreateOrConnectWithoutAuthorInput[]
+    createMany?: DiscussionThreadCreateManyAuthorInputEnvelope
+    connect?: DiscussionThreadWhereUniqueInput | DiscussionThreadWhereUniqueInput[]
+  }
+
+  export type DiscussionReplyUncheckedCreateNestedManyWithoutAuthorInput = {
+    create?: XOR<DiscussionReplyCreateWithoutAuthorInput, DiscussionReplyUncheckedCreateWithoutAuthorInput> | DiscussionReplyCreateWithoutAuthorInput[] | DiscussionReplyUncheckedCreateWithoutAuthorInput[]
+    connectOrCreate?: DiscussionReplyCreateOrConnectWithoutAuthorInput | DiscussionReplyCreateOrConnectWithoutAuthorInput[]
+    createMany?: DiscussionReplyCreateManyAuthorInputEnvelope
+    connect?: DiscussionReplyWhereUniqueInput | DiscussionReplyWhereUniqueInput[]
+  }
+
   export type StringFieldUpdateOperationsInput = {
     set?: string
   }
@@ -36342,6 +40570,14 @@ export namespace Prisma {
 
   export type DateTimeFieldUpdateOperationsInput = {
     set?: Date | string
+  }
+
+  export type NullableIntFieldUpdateOperationsInput = {
+    set?: number | null
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
   }
 
   export type UserUpdateaffiliationsInput = {
@@ -36635,6 +40871,48 @@ export namespace Prisma {
     deleteMany?: MaterialScalarWhereInput | MaterialScalarWhereInput[]
   }
 
+  export type DocumentUpdateManyWithoutUserNestedInput = {
+    create?: XOR<DocumentCreateWithoutUserInput, DocumentUncheckedCreateWithoutUserInput> | DocumentCreateWithoutUserInput[] | DocumentUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: DocumentCreateOrConnectWithoutUserInput | DocumentCreateOrConnectWithoutUserInput[]
+    upsert?: DocumentUpsertWithWhereUniqueWithoutUserInput | DocumentUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: DocumentCreateManyUserInputEnvelope
+    set?: DocumentWhereUniqueInput | DocumentWhereUniqueInput[]
+    disconnect?: DocumentWhereUniqueInput | DocumentWhereUniqueInput[]
+    delete?: DocumentWhereUniqueInput | DocumentWhereUniqueInput[]
+    connect?: DocumentWhereUniqueInput | DocumentWhereUniqueInput[]
+    update?: DocumentUpdateWithWhereUniqueWithoutUserInput | DocumentUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: DocumentUpdateManyWithWhereWithoutUserInput | DocumentUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: DocumentScalarWhereInput | DocumentScalarWhereInput[]
+  }
+
+  export type DiscussionThreadUpdateManyWithoutAuthorNestedInput = {
+    create?: XOR<DiscussionThreadCreateWithoutAuthorInput, DiscussionThreadUncheckedCreateWithoutAuthorInput> | DiscussionThreadCreateWithoutAuthorInput[] | DiscussionThreadUncheckedCreateWithoutAuthorInput[]
+    connectOrCreate?: DiscussionThreadCreateOrConnectWithoutAuthorInput | DiscussionThreadCreateOrConnectWithoutAuthorInput[]
+    upsert?: DiscussionThreadUpsertWithWhereUniqueWithoutAuthorInput | DiscussionThreadUpsertWithWhereUniqueWithoutAuthorInput[]
+    createMany?: DiscussionThreadCreateManyAuthorInputEnvelope
+    set?: DiscussionThreadWhereUniqueInput | DiscussionThreadWhereUniqueInput[]
+    disconnect?: DiscussionThreadWhereUniqueInput | DiscussionThreadWhereUniqueInput[]
+    delete?: DiscussionThreadWhereUniqueInput | DiscussionThreadWhereUniqueInput[]
+    connect?: DiscussionThreadWhereUniqueInput | DiscussionThreadWhereUniqueInput[]
+    update?: DiscussionThreadUpdateWithWhereUniqueWithoutAuthorInput | DiscussionThreadUpdateWithWhereUniqueWithoutAuthorInput[]
+    updateMany?: DiscussionThreadUpdateManyWithWhereWithoutAuthorInput | DiscussionThreadUpdateManyWithWhereWithoutAuthorInput[]
+    deleteMany?: DiscussionThreadScalarWhereInput | DiscussionThreadScalarWhereInput[]
+  }
+
+  export type DiscussionReplyUpdateManyWithoutAuthorNestedInput = {
+    create?: XOR<DiscussionReplyCreateWithoutAuthorInput, DiscussionReplyUncheckedCreateWithoutAuthorInput> | DiscussionReplyCreateWithoutAuthorInput[] | DiscussionReplyUncheckedCreateWithoutAuthorInput[]
+    connectOrCreate?: DiscussionReplyCreateOrConnectWithoutAuthorInput | DiscussionReplyCreateOrConnectWithoutAuthorInput[]
+    upsert?: DiscussionReplyUpsertWithWhereUniqueWithoutAuthorInput | DiscussionReplyUpsertWithWhereUniqueWithoutAuthorInput[]
+    createMany?: DiscussionReplyCreateManyAuthorInputEnvelope
+    set?: DiscussionReplyWhereUniqueInput | DiscussionReplyWhereUniqueInput[]
+    disconnect?: DiscussionReplyWhereUniqueInput | DiscussionReplyWhereUniqueInput[]
+    delete?: DiscussionReplyWhereUniqueInput | DiscussionReplyWhereUniqueInput[]
+    connect?: DiscussionReplyWhereUniqueInput | DiscussionReplyWhereUniqueInput[]
+    update?: DiscussionReplyUpdateWithWhereUniqueWithoutAuthorInput | DiscussionReplyUpdateWithWhereUniqueWithoutAuthorInput[]
+    updateMany?: DiscussionReplyUpdateManyWithWhereWithoutAuthorInput | DiscussionReplyUpdateManyWithWhereWithoutAuthorInput[]
+    deleteMany?: DiscussionReplyScalarWhereInput | DiscussionReplyScalarWhereInput[]
+  }
+
   export type AccountUncheckedUpdateManyWithoutUserNestedInput = {
     create?: XOR<AccountCreateWithoutUserInput, AccountUncheckedCreateWithoutUserInput> | AccountCreateWithoutUserInput[] | AccountUncheckedCreateWithoutUserInput[]
     connectOrCreate?: AccountCreateOrConnectWithoutUserInput | AccountCreateOrConnectWithoutUserInput[]
@@ -36911,6 +41189,48 @@ export namespace Prisma {
     deleteMany?: MaterialScalarWhereInput | MaterialScalarWhereInput[]
   }
 
+  export type DocumentUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<DocumentCreateWithoutUserInput, DocumentUncheckedCreateWithoutUserInput> | DocumentCreateWithoutUserInput[] | DocumentUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: DocumentCreateOrConnectWithoutUserInput | DocumentCreateOrConnectWithoutUserInput[]
+    upsert?: DocumentUpsertWithWhereUniqueWithoutUserInput | DocumentUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: DocumentCreateManyUserInputEnvelope
+    set?: DocumentWhereUniqueInput | DocumentWhereUniqueInput[]
+    disconnect?: DocumentWhereUniqueInput | DocumentWhereUniqueInput[]
+    delete?: DocumentWhereUniqueInput | DocumentWhereUniqueInput[]
+    connect?: DocumentWhereUniqueInput | DocumentWhereUniqueInput[]
+    update?: DocumentUpdateWithWhereUniqueWithoutUserInput | DocumentUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: DocumentUpdateManyWithWhereWithoutUserInput | DocumentUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: DocumentScalarWhereInput | DocumentScalarWhereInput[]
+  }
+
+  export type DiscussionThreadUncheckedUpdateManyWithoutAuthorNestedInput = {
+    create?: XOR<DiscussionThreadCreateWithoutAuthorInput, DiscussionThreadUncheckedCreateWithoutAuthorInput> | DiscussionThreadCreateWithoutAuthorInput[] | DiscussionThreadUncheckedCreateWithoutAuthorInput[]
+    connectOrCreate?: DiscussionThreadCreateOrConnectWithoutAuthorInput | DiscussionThreadCreateOrConnectWithoutAuthorInput[]
+    upsert?: DiscussionThreadUpsertWithWhereUniqueWithoutAuthorInput | DiscussionThreadUpsertWithWhereUniqueWithoutAuthorInput[]
+    createMany?: DiscussionThreadCreateManyAuthorInputEnvelope
+    set?: DiscussionThreadWhereUniqueInput | DiscussionThreadWhereUniqueInput[]
+    disconnect?: DiscussionThreadWhereUniqueInput | DiscussionThreadWhereUniqueInput[]
+    delete?: DiscussionThreadWhereUniqueInput | DiscussionThreadWhereUniqueInput[]
+    connect?: DiscussionThreadWhereUniqueInput | DiscussionThreadWhereUniqueInput[]
+    update?: DiscussionThreadUpdateWithWhereUniqueWithoutAuthorInput | DiscussionThreadUpdateWithWhereUniqueWithoutAuthorInput[]
+    updateMany?: DiscussionThreadUpdateManyWithWhereWithoutAuthorInput | DiscussionThreadUpdateManyWithWhereWithoutAuthorInput[]
+    deleteMany?: DiscussionThreadScalarWhereInput | DiscussionThreadScalarWhereInput[]
+  }
+
+  export type DiscussionReplyUncheckedUpdateManyWithoutAuthorNestedInput = {
+    create?: XOR<DiscussionReplyCreateWithoutAuthorInput, DiscussionReplyUncheckedCreateWithoutAuthorInput> | DiscussionReplyCreateWithoutAuthorInput[] | DiscussionReplyUncheckedCreateWithoutAuthorInput[]
+    connectOrCreate?: DiscussionReplyCreateOrConnectWithoutAuthorInput | DiscussionReplyCreateOrConnectWithoutAuthorInput[]
+    upsert?: DiscussionReplyUpsertWithWhereUniqueWithoutAuthorInput | DiscussionReplyUpsertWithWhereUniqueWithoutAuthorInput[]
+    createMany?: DiscussionReplyCreateManyAuthorInputEnvelope
+    set?: DiscussionReplyWhereUniqueInput | DiscussionReplyWhereUniqueInput[]
+    disconnect?: DiscussionReplyWhereUniqueInput | DiscussionReplyWhereUniqueInput[]
+    delete?: DiscussionReplyWhereUniqueInput | DiscussionReplyWhereUniqueInput[]
+    connect?: DiscussionReplyWhereUniqueInput | DiscussionReplyWhereUniqueInput[]
+    update?: DiscussionReplyUpdateWithWhereUniqueWithoutAuthorInput | DiscussionReplyUpdateWithWhereUniqueWithoutAuthorInput[]
+    updateMany?: DiscussionReplyUpdateManyWithWhereWithoutAuthorInput | DiscussionReplyUpdateManyWithWhereWithoutAuthorInput[]
+    deleteMany?: DiscussionReplyScalarWhereInput | DiscussionReplyScalarWhereInput[]
+  }
+
   export type UserCreateNestedOneWithoutUserNotesInput = {
     create?: XOR<UserCreateWithoutUserNotesInput, UserUncheckedCreateWithoutUserNotesInput>
     connectOrCreate?: UserCreateOrConnectWithoutUserNotesInput
@@ -36985,6 +41305,13 @@ export namespace Prisma {
     connect?: MaterialWhereUniqueInput | MaterialWhereUniqueInput[]
   }
 
+  export type DiscussionThreadCreateNestedManyWithoutClassInput = {
+    create?: XOR<DiscussionThreadCreateWithoutClassInput, DiscussionThreadUncheckedCreateWithoutClassInput> | DiscussionThreadCreateWithoutClassInput[] | DiscussionThreadUncheckedCreateWithoutClassInput[]
+    connectOrCreate?: DiscussionThreadCreateOrConnectWithoutClassInput | DiscussionThreadCreateOrConnectWithoutClassInput[]
+    createMany?: DiscussionThreadCreateManyClassInputEnvelope
+    connect?: DiscussionThreadWhereUniqueInput | DiscussionThreadWhereUniqueInput[]
+  }
+
   export type AssignmentUncheckedCreateNestedManyWithoutClassInput = {
     create?: XOR<AssignmentCreateWithoutClassInput, AssignmentUncheckedCreateWithoutClassInput> | AssignmentCreateWithoutClassInput[] | AssignmentUncheckedCreateWithoutClassInput[]
     connectOrCreate?: AssignmentCreateOrConnectWithoutClassInput | AssignmentCreateOrConnectWithoutClassInput[]
@@ -37011,6 +41338,13 @@ export namespace Prisma {
     connectOrCreate?: MaterialCreateOrConnectWithoutClassInput | MaterialCreateOrConnectWithoutClassInput[]
     createMany?: MaterialCreateManyClassInputEnvelope
     connect?: MaterialWhereUniqueInput | MaterialWhereUniqueInput[]
+  }
+
+  export type DiscussionThreadUncheckedCreateNestedManyWithoutClassInput = {
+    create?: XOR<DiscussionThreadCreateWithoutClassInput, DiscussionThreadUncheckedCreateWithoutClassInput> | DiscussionThreadCreateWithoutClassInput[] | DiscussionThreadUncheckedCreateWithoutClassInput[]
+    connectOrCreate?: DiscussionThreadCreateOrConnectWithoutClassInput | DiscussionThreadCreateOrConnectWithoutClassInput[]
+    createMany?: DiscussionThreadCreateManyClassInputEnvelope
+    connect?: DiscussionThreadWhereUniqueInput | DiscussionThreadWhereUniqueInput[]
   }
 
   export type IntFieldUpdateOperationsInput = {
@@ -37077,6 +41411,20 @@ export namespace Prisma {
     deleteMany?: MaterialScalarWhereInput | MaterialScalarWhereInput[]
   }
 
+  export type DiscussionThreadUpdateManyWithoutClassNestedInput = {
+    create?: XOR<DiscussionThreadCreateWithoutClassInput, DiscussionThreadUncheckedCreateWithoutClassInput> | DiscussionThreadCreateWithoutClassInput[] | DiscussionThreadUncheckedCreateWithoutClassInput[]
+    connectOrCreate?: DiscussionThreadCreateOrConnectWithoutClassInput | DiscussionThreadCreateOrConnectWithoutClassInput[]
+    upsert?: DiscussionThreadUpsertWithWhereUniqueWithoutClassInput | DiscussionThreadUpsertWithWhereUniqueWithoutClassInput[]
+    createMany?: DiscussionThreadCreateManyClassInputEnvelope
+    set?: DiscussionThreadWhereUniqueInput | DiscussionThreadWhereUniqueInput[]
+    disconnect?: DiscussionThreadWhereUniqueInput | DiscussionThreadWhereUniqueInput[]
+    delete?: DiscussionThreadWhereUniqueInput | DiscussionThreadWhereUniqueInput[]
+    connect?: DiscussionThreadWhereUniqueInput | DiscussionThreadWhereUniqueInput[]
+    update?: DiscussionThreadUpdateWithWhereUniqueWithoutClassInput | DiscussionThreadUpdateWithWhereUniqueWithoutClassInput[]
+    updateMany?: DiscussionThreadUpdateManyWithWhereWithoutClassInput | DiscussionThreadUpdateManyWithWhereWithoutClassInput[]
+    deleteMany?: DiscussionThreadScalarWhereInput | DiscussionThreadScalarWhereInput[]
+  }
+
   export type AssignmentUncheckedUpdateManyWithoutClassNestedInput = {
     create?: XOR<AssignmentCreateWithoutClassInput, AssignmentUncheckedCreateWithoutClassInput> | AssignmentCreateWithoutClassInput[] | AssignmentUncheckedCreateWithoutClassInput[]
     connectOrCreate?: AssignmentCreateOrConnectWithoutClassInput | AssignmentCreateOrConnectWithoutClassInput[]
@@ -37131,6 +41479,20 @@ export namespace Prisma {
     update?: MaterialUpdateWithWhereUniqueWithoutClassInput | MaterialUpdateWithWhereUniqueWithoutClassInput[]
     updateMany?: MaterialUpdateManyWithWhereWithoutClassInput | MaterialUpdateManyWithWhereWithoutClassInput[]
     deleteMany?: MaterialScalarWhereInput | MaterialScalarWhereInput[]
+  }
+
+  export type DiscussionThreadUncheckedUpdateManyWithoutClassNestedInput = {
+    create?: XOR<DiscussionThreadCreateWithoutClassInput, DiscussionThreadUncheckedCreateWithoutClassInput> | DiscussionThreadCreateWithoutClassInput[] | DiscussionThreadUncheckedCreateWithoutClassInput[]
+    connectOrCreate?: DiscussionThreadCreateOrConnectWithoutClassInput | DiscussionThreadCreateOrConnectWithoutClassInput[]
+    upsert?: DiscussionThreadUpsertWithWhereUniqueWithoutClassInput | DiscussionThreadUpsertWithWhereUniqueWithoutClassInput[]
+    createMany?: DiscussionThreadCreateManyClassInputEnvelope
+    set?: DiscussionThreadWhereUniqueInput | DiscussionThreadWhereUniqueInput[]
+    disconnect?: DiscussionThreadWhereUniqueInput | DiscussionThreadWhereUniqueInput[]
+    delete?: DiscussionThreadWhereUniqueInput | DiscussionThreadWhereUniqueInput[]
+    connect?: DiscussionThreadWhereUniqueInput | DiscussionThreadWhereUniqueInput[]
+    update?: DiscussionThreadUpdateWithWhereUniqueWithoutClassInput | DiscussionThreadUpdateWithWhereUniqueWithoutClassInput[]
+    updateMany?: DiscussionThreadUpdateManyWithWhereWithoutClassInput | DiscussionThreadUpdateManyWithWhereWithoutClassInput[]
+    deleteMany?: DiscussionThreadScalarWhereInput | DiscussionThreadScalarWhereInput[]
   }
 
   export type AssignmentCreateNestedManyWithoutSubjectInput = {
@@ -38001,14 +42363,6 @@ export namespace Prisma {
     connect?: CommentWhereUniqueInput | CommentWhereUniqueInput[]
   }
 
-  export type NullableIntFieldUpdateOperationsInput = {
-    set?: number | null
-    increment?: number
-    decrement?: number
-    multiply?: number
-    divide?: number
-  }
-
   export type AssignmentUpdateOneRequiredWithoutSubmissionsNestedInput = {
     create?: XOR<AssignmentCreateWithoutSubmissionsInput, AssignmentUncheckedCreateWithoutSubmissionsInput>
     connectOrCreate?: AssignmentCreateOrConnectWithoutSubmissionsInput
@@ -38231,6 +42585,178 @@ export namespace Prisma {
     update?: XOR<XOR<UserUpdateToOneWithWhereWithoutCalendarRemindersInput, UserUpdateWithoutCalendarRemindersInput>, UserUncheckedUpdateWithoutCalendarRemindersInput>
   }
 
+  export type UserCreateNestedOneWithoutDocumentsInput = {
+    create?: XOR<UserCreateWithoutDocumentsInput, UserUncheckedCreateWithoutDocumentsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutDocumentsInput
+    connect?: UserWhereUniqueInput
+  }
+
+  export type DocumentCreateNestedOneWithoutSubDocsInput = {
+    create?: XOR<DocumentCreateWithoutSubDocsInput, DocumentUncheckedCreateWithoutSubDocsInput>
+    connectOrCreate?: DocumentCreateOrConnectWithoutSubDocsInput
+    connect?: DocumentWhereUniqueInput
+  }
+
+  export type DocumentCreateNestedManyWithoutParentInput = {
+    create?: XOR<DocumentCreateWithoutParentInput, DocumentUncheckedCreateWithoutParentInput> | DocumentCreateWithoutParentInput[] | DocumentUncheckedCreateWithoutParentInput[]
+    connectOrCreate?: DocumentCreateOrConnectWithoutParentInput | DocumentCreateOrConnectWithoutParentInput[]
+    createMany?: DocumentCreateManyParentInputEnvelope
+    connect?: DocumentWhereUniqueInput | DocumentWhereUniqueInput[]
+  }
+
+  export type DocumentUncheckedCreateNestedManyWithoutParentInput = {
+    create?: XOR<DocumentCreateWithoutParentInput, DocumentUncheckedCreateWithoutParentInput> | DocumentCreateWithoutParentInput[] | DocumentUncheckedCreateWithoutParentInput[]
+    connectOrCreate?: DocumentCreateOrConnectWithoutParentInput | DocumentCreateOrConnectWithoutParentInput[]
+    createMany?: DocumentCreateManyParentInputEnvelope
+    connect?: DocumentWhereUniqueInput | DocumentWhereUniqueInput[]
+  }
+
+  export type UserUpdateOneRequiredWithoutDocumentsNestedInput = {
+    create?: XOR<UserCreateWithoutDocumentsInput, UserUncheckedCreateWithoutDocumentsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutDocumentsInput
+    upsert?: UserUpsertWithoutDocumentsInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutDocumentsInput, UserUpdateWithoutDocumentsInput>, UserUncheckedUpdateWithoutDocumentsInput>
+  }
+
+  export type DocumentUpdateOneWithoutSubDocsNestedInput = {
+    create?: XOR<DocumentCreateWithoutSubDocsInput, DocumentUncheckedCreateWithoutSubDocsInput>
+    connectOrCreate?: DocumentCreateOrConnectWithoutSubDocsInput
+    upsert?: DocumentUpsertWithoutSubDocsInput
+    disconnect?: DocumentWhereInput | boolean
+    delete?: DocumentWhereInput | boolean
+    connect?: DocumentWhereUniqueInput
+    update?: XOR<XOR<DocumentUpdateToOneWithWhereWithoutSubDocsInput, DocumentUpdateWithoutSubDocsInput>, DocumentUncheckedUpdateWithoutSubDocsInput>
+  }
+
+  export type DocumentUpdateManyWithoutParentNestedInput = {
+    create?: XOR<DocumentCreateWithoutParentInput, DocumentUncheckedCreateWithoutParentInput> | DocumentCreateWithoutParentInput[] | DocumentUncheckedCreateWithoutParentInput[]
+    connectOrCreate?: DocumentCreateOrConnectWithoutParentInput | DocumentCreateOrConnectWithoutParentInput[]
+    upsert?: DocumentUpsertWithWhereUniqueWithoutParentInput | DocumentUpsertWithWhereUniqueWithoutParentInput[]
+    createMany?: DocumentCreateManyParentInputEnvelope
+    set?: DocumentWhereUniqueInput | DocumentWhereUniqueInput[]
+    disconnect?: DocumentWhereUniqueInput | DocumentWhereUniqueInput[]
+    delete?: DocumentWhereUniqueInput | DocumentWhereUniqueInput[]
+    connect?: DocumentWhereUniqueInput | DocumentWhereUniqueInput[]
+    update?: DocumentUpdateWithWhereUniqueWithoutParentInput | DocumentUpdateWithWhereUniqueWithoutParentInput[]
+    updateMany?: DocumentUpdateManyWithWhereWithoutParentInput | DocumentUpdateManyWithWhereWithoutParentInput[]
+    deleteMany?: DocumentScalarWhereInput | DocumentScalarWhereInput[]
+  }
+
+  export type DocumentUncheckedUpdateManyWithoutParentNestedInput = {
+    create?: XOR<DocumentCreateWithoutParentInput, DocumentUncheckedCreateWithoutParentInput> | DocumentCreateWithoutParentInput[] | DocumentUncheckedCreateWithoutParentInput[]
+    connectOrCreate?: DocumentCreateOrConnectWithoutParentInput | DocumentCreateOrConnectWithoutParentInput[]
+    upsert?: DocumentUpsertWithWhereUniqueWithoutParentInput | DocumentUpsertWithWhereUniqueWithoutParentInput[]
+    createMany?: DocumentCreateManyParentInputEnvelope
+    set?: DocumentWhereUniqueInput | DocumentWhereUniqueInput[]
+    disconnect?: DocumentWhereUniqueInput | DocumentWhereUniqueInput[]
+    delete?: DocumentWhereUniqueInput | DocumentWhereUniqueInput[]
+    connect?: DocumentWhereUniqueInput | DocumentWhereUniqueInput[]
+    update?: DocumentUpdateWithWhereUniqueWithoutParentInput | DocumentUpdateWithWhereUniqueWithoutParentInput[]
+    updateMany?: DocumentUpdateManyWithWhereWithoutParentInput | DocumentUpdateManyWithWhereWithoutParentInput[]
+    deleteMany?: DocumentScalarWhereInput | DocumentScalarWhereInput[]
+  }
+
+  export type UserCreateNestedOneWithoutDiscussionThreadsInput = {
+    create?: XOR<UserCreateWithoutDiscussionThreadsInput, UserUncheckedCreateWithoutDiscussionThreadsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutDiscussionThreadsInput
+    connect?: UserWhereUniqueInput
+  }
+
+  export type ClassCreateNestedOneWithoutDiscussionThreadsInput = {
+    create?: XOR<ClassCreateWithoutDiscussionThreadsInput, ClassUncheckedCreateWithoutDiscussionThreadsInput>
+    connectOrCreate?: ClassCreateOrConnectWithoutDiscussionThreadsInput
+    connect?: ClassWhereUniqueInput
+  }
+
+  export type DiscussionReplyCreateNestedManyWithoutThreadInput = {
+    create?: XOR<DiscussionReplyCreateWithoutThreadInput, DiscussionReplyUncheckedCreateWithoutThreadInput> | DiscussionReplyCreateWithoutThreadInput[] | DiscussionReplyUncheckedCreateWithoutThreadInput[]
+    connectOrCreate?: DiscussionReplyCreateOrConnectWithoutThreadInput | DiscussionReplyCreateOrConnectWithoutThreadInput[]
+    createMany?: DiscussionReplyCreateManyThreadInputEnvelope
+    connect?: DiscussionReplyWhereUniqueInput | DiscussionReplyWhereUniqueInput[]
+  }
+
+  export type DiscussionReplyUncheckedCreateNestedManyWithoutThreadInput = {
+    create?: XOR<DiscussionReplyCreateWithoutThreadInput, DiscussionReplyUncheckedCreateWithoutThreadInput> | DiscussionReplyCreateWithoutThreadInput[] | DiscussionReplyUncheckedCreateWithoutThreadInput[]
+    connectOrCreate?: DiscussionReplyCreateOrConnectWithoutThreadInput | DiscussionReplyCreateOrConnectWithoutThreadInput[]
+    createMany?: DiscussionReplyCreateManyThreadInputEnvelope
+    connect?: DiscussionReplyWhereUniqueInput | DiscussionReplyWhereUniqueInput[]
+  }
+
+  export type UserUpdateOneRequiredWithoutDiscussionThreadsNestedInput = {
+    create?: XOR<UserCreateWithoutDiscussionThreadsInput, UserUncheckedCreateWithoutDiscussionThreadsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutDiscussionThreadsInput
+    upsert?: UserUpsertWithoutDiscussionThreadsInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutDiscussionThreadsInput, UserUpdateWithoutDiscussionThreadsInput>, UserUncheckedUpdateWithoutDiscussionThreadsInput>
+  }
+
+  export type ClassUpdateOneWithoutDiscussionThreadsNestedInput = {
+    create?: XOR<ClassCreateWithoutDiscussionThreadsInput, ClassUncheckedCreateWithoutDiscussionThreadsInput>
+    connectOrCreate?: ClassCreateOrConnectWithoutDiscussionThreadsInput
+    upsert?: ClassUpsertWithoutDiscussionThreadsInput
+    disconnect?: ClassWhereInput | boolean
+    delete?: ClassWhereInput | boolean
+    connect?: ClassWhereUniqueInput
+    update?: XOR<XOR<ClassUpdateToOneWithWhereWithoutDiscussionThreadsInput, ClassUpdateWithoutDiscussionThreadsInput>, ClassUncheckedUpdateWithoutDiscussionThreadsInput>
+  }
+
+  export type DiscussionReplyUpdateManyWithoutThreadNestedInput = {
+    create?: XOR<DiscussionReplyCreateWithoutThreadInput, DiscussionReplyUncheckedCreateWithoutThreadInput> | DiscussionReplyCreateWithoutThreadInput[] | DiscussionReplyUncheckedCreateWithoutThreadInput[]
+    connectOrCreate?: DiscussionReplyCreateOrConnectWithoutThreadInput | DiscussionReplyCreateOrConnectWithoutThreadInput[]
+    upsert?: DiscussionReplyUpsertWithWhereUniqueWithoutThreadInput | DiscussionReplyUpsertWithWhereUniqueWithoutThreadInput[]
+    createMany?: DiscussionReplyCreateManyThreadInputEnvelope
+    set?: DiscussionReplyWhereUniqueInput | DiscussionReplyWhereUniqueInput[]
+    disconnect?: DiscussionReplyWhereUniqueInput | DiscussionReplyWhereUniqueInput[]
+    delete?: DiscussionReplyWhereUniqueInput | DiscussionReplyWhereUniqueInput[]
+    connect?: DiscussionReplyWhereUniqueInput | DiscussionReplyWhereUniqueInput[]
+    update?: DiscussionReplyUpdateWithWhereUniqueWithoutThreadInput | DiscussionReplyUpdateWithWhereUniqueWithoutThreadInput[]
+    updateMany?: DiscussionReplyUpdateManyWithWhereWithoutThreadInput | DiscussionReplyUpdateManyWithWhereWithoutThreadInput[]
+    deleteMany?: DiscussionReplyScalarWhereInput | DiscussionReplyScalarWhereInput[]
+  }
+
+  export type DiscussionReplyUncheckedUpdateManyWithoutThreadNestedInput = {
+    create?: XOR<DiscussionReplyCreateWithoutThreadInput, DiscussionReplyUncheckedCreateWithoutThreadInput> | DiscussionReplyCreateWithoutThreadInput[] | DiscussionReplyUncheckedCreateWithoutThreadInput[]
+    connectOrCreate?: DiscussionReplyCreateOrConnectWithoutThreadInput | DiscussionReplyCreateOrConnectWithoutThreadInput[]
+    upsert?: DiscussionReplyUpsertWithWhereUniqueWithoutThreadInput | DiscussionReplyUpsertWithWhereUniqueWithoutThreadInput[]
+    createMany?: DiscussionReplyCreateManyThreadInputEnvelope
+    set?: DiscussionReplyWhereUniqueInput | DiscussionReplyWhereUniqueInput[]
+    disconnect?: DiscussionReplyWhereUniqueInput | DiscussionReplyWhereUniqueInput[]
+    delete?: DiscussionReplyWhereUniqueInput | DiscussionReplyWhereUniqueInput[]
+    connect?: DiscussionReplyWhereUniqueInput | DiscussionReplyWhereUniqueInput[]
+    update?: DiscussionReplyUpdateWithWhereUniqueWithoutThreadInput | DiscussionReplyUpdateWithWhereUniqueWithoutThreadInput[]
+    updateMany?: DiscussionReplyUpdateManyWithWhereWithoutThreadInput | DiscussionReplyUpdateManyWithWhereWithoutThreadInput[]
+    deleteMany?: DiscussionReplyScalarWhereInput | DiscussionReplyScalarWhereInput[]
+  }
+
+  export type DiscussionThreadCreateNestedOneWithoutRepliesInput = {
+    create?: XOR<DiscussionThreadCreateWithoutRepliesInput, DiscussionThreadUncheckedCreateWithoutRepliesInput>
+    connectOrCreate?: DiscussionThreadCreateOrConnectWithoutRepliesInput
+    connect?: DiscussionThreadWhereUniqueInput
+  }
+
+  export type UserCreateNestedOneWithoutDiscussionRepliesInput = {
+    create?: XOR<UserCreateWithoutDiscussionRepliesInput, UserUncheckedCreateWithoutDiscussionRepliesInput>
+    connectOrCreate?: UserCreateOrConnectWithoutDiscussionRepliesInput
+    connect?: UserWhereUniqueInput
+  }
+
+  export type DiscussionThreadUpdateOneRequiredWithoutRepliesNestedInput = {
+    create?: XOR<DiscussionThreadCreateWithoutRepliesInput, DiscussionThreadUncheckedCreateWithoutRepliesInput>
+    connectOrCreate?: DiscussionThreadCreateOrConnectWithoutRepliesInput
+    upsert?: DiscussionThreadUpsertWithoutRepliesInput
+    connect?: DiscussionThreadWhereUniqueInput
+    update?: XOR<XOR<DiscussionThreadUpdateToOneWithWhereWithoutRepliesInput, DiscussionThreadUpdateWithoutRepliesInput>, DiscussionThreadUncheckedUpdateWithoutRepliesInput>
+  }
+
+  export type UserUpdateOneRequiredWithoutDiscussionRepliesNestedInput = {
+    create?: XOR<UserCreateWithoutDiscussionRepliesInput, UserUncheckedCreateWithoutDiscussionRepliesInput>
+    connectOrCreate?: UserCreateOrConnectWithoutDiscussionRepliesInput
+    upsert?: UserUpsertWithoutDiscussionRepliesInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutDiscussionRepliesInput, UserUpdateWithoutDiscussionRepliesInput>, UserUncheckedUpdateWithoutDiscussionRepliesInput>
+  }
+
   export type NestedStringFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[] | ListStringFieldRefInput<$PrismaModel>
@@ -38293,6 +42819,17 @@ export namespace Prisma {
     not?: NestedDateTimeFilter<$PrismaModel> | Date | string
   }
 
+  export type NestedIntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
+  }
+
   export type NestedStringWithAggregatesFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[] | ListStringFieldRefInput<$PrismaModel>
@@ -38336,17 +42873,6 @@ export namespace Prisma {
     _count?: NestedIntNullableFilter<$PrismaModel>
     _min?: NestedStringNullableFilter<$PrismaModel>
     _max?: NestedStringNullableFilter<$PrismaModel>
-  }
-
-  export type NestedIntNullableFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel> | null
-    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntNullableFilter<$PrismaModel> | number | null
   }
 
   export type NestedEnumRoleWithAggregatesFilter<$PrismaModel = never> = {
@@ -38415,6 +42941,33 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedDateTimeFilter<$PrismaModel>
     _max?: NestedDateTimeFilter<$PrismaModel>
+  }
+
+  export type NestedIntNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedIntNullableFilter<$PrismaModel>
+    _max?: NestedIntNullableFilter<$PrismaModel>
+  }
+
+  export type NestedFloatNullableFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableFilter<$PrismaModel> | number | null
   }
 
   export type NestedEnumAttendanceStatusFilter<$PrismaModel = never> = {
@@ -38498,33 +43051,6 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedEnumAssignmentStatusFilter<$PrismaModel>
     _max?: NestedEnumAssignmentStatusFilter<$PrismaModel>
-  }
-
-  export type NestedIntNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel> | null
-    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _avg?: NestedFloatNullableFilter<$PrismaModel>
-    _sum?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedIntNullableFilter<$PrismaModel>
-    _max?: NestedIntNullableFilter<$PrismaModel>
-  }
-
-  export type NestedFloatNullableFilter<$PrismaModel = never> = {
-    equals?: number | FloatFieldRefInput<$PrismaModel> | null
-    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
-    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
-    lt?: number | FloatFieldRefInput<$PrismaModel>
-    lte?: number | FloatFieldRefInput<$PrismaModel>
-    gt?: number | FloatFieldRefInput<$PrismaModel>
-    gte?: number | FloatFieldRefInput<$PrismaModel>
-    not?: NestedFloatNullableFilter<$PrismaModel> | number | null
   }
 
   export type NestedEnumNotificationTypeFilter<$PrismaModel = never> = {
@@ -38842,6 +43368,7 @@ export namespace Prisma {
     assignments?: AssignmentCreateNestedManyWithoutClassInput
     schedules?: ClassScheduleCreateNestedManyWithoutClassInput
     materials?: MaterialCreateNestedManyWithoutClassInput
+    discussionThreads?: DiscussionThreadCreateNestedManyWithoutClassInput
   }
 
   export type ClassUncheckedCreateWithoutStudentsInput = {
@@ -38853,6 +43380,7 @@ export namespace Prisma {
     assignments?: AssignmentUncheckedCreateNestedManyWithoutClassInput
     schedules?: ClassScheduleUncheckedCreateNestedManyWithoutClassInput
     materials?: MaterialUncheckedCreateNestedManyWithoutClassInput
+    discussionThreads?: DiscussionThreadUncheckedCreateNestedManyWithoutClassInput
   }
 
   export type ClassCreateOrConnectWithoutStudentsInput = {
@@ -39164,6 +43692,96 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
+  export type DocumentCreateWithoutUserInput = {
+    id?: string
+    title?: string
+    content?: string | null
+    date?: Date | string | null
+    position?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    parent?: DocumentCreateNestedOneWithoutSubDocsInput
+    subDocs?: DocumentCreateNestedManyWithoutParentInput
+  }
+
+  export type DocumentUncheckedCreateWithoutUserInput = {
+    id?: string
+    title?: string
+    content?: string | null
+    parentId?: string | null
+    date?: Date | string | null
+    position?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    subDocs?: DocumentUncheckedCreateNestedManyWithoutParentInput
+  }
+
+  export type DocumentCreateOrConnectWithoutUserInput = {
+    where: DocumentWhereUniqueInput
+    create: XOR<DocumentCreateWithoutUserInput, DocumentUncheckedCreateWithoutUserInput>
+  }
+
+  export type DocumentCreateManyUserInputEnvelope = {
+    data: DocumentCreateManyUserInput | DocumentCreateManyUserInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type DiscussionThreadCreateWithoutAuthorInput = {
+    id?: string
+    title: string
+    content: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    class?: ClassCreateNestedOneWithoutDiscussionThreadsInput
+    replies?: DiscussionReplyCreateNestedManyWithoutThreadInput
+  }
+
+  export type DiscussionThreadUncheckedCreateWithoutAuthorInput = {
+    id?: string
+    title: string
+    content: string
+    classId?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    replies?: DiscussionReplyUncheckedCreateNestedManyWithoutThreadInput
+  }
+
+  export type DiscussionThreadCreateOrConnectWithoutAuthorInput = {
+    where: DiscussionThreadWhereUniqueInput
+    create: XOR<DiscussionThreadCreateWithoutAuthorInput, DiscussionThreadUncheckedCreateWithoutAuthorInput>
+  }
+
+  export type DiscussionThreadCreateManyAuthorInputEnvelope = {
+    data: DiscussionThreadCreateManyAuthorInput | DiscussionThreadCreateManyAuthorInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type DiscussionReplyCreateWithoutAuthorInput = {
+    id?: string
+    content: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    thread: DiscussionThreadCreateNestedOneWithoutRepliesInput
+  }
+
+  export type DiscussionReplyUncheckedCreateWithoutAuthorInput = {
+    id?: string
+    content: string
+    threadId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type DiscussionReplyCreateOrConnectWithoutAuthorInput = {
+    where: DiscussionReplyWhereUniqueInput
+    create: XOR<DiscussionReplyCreateWithoutAuthorInput, DiscussionReplyUncheckedCreateWithoutAuthorInput>
+  }
+
+  export type DiscussionReplyCreateManyAuthorInputEnvelope = {
+    data: DiscussionReplyCreateManyAuthorInput | DiscussionReplyCreateManyAuthorInput[]
+    skipDuplicates?: boolean
+  }
+
   export type AccountUpsertWithWhereUniqueWithoutUserInput = {
     where: AccountWhereUniqueInput
     update: XOR<AccountUpdateWithoutUserInput, AccountUncheckedUpdateWithoutUserInput>
@@ -39456,6 +44074,7 @@ export namespace Prisma {
     assignments?: AssignmentUpdateManyWithoutClassNestedInput
     schedules?: ClassScheduleUpdateManyWithoutClassNestedInput
     materials?: MaterialUpdateManyWithoutClassNestedInput
+    discussionThreads?: DiscussionThreadUpdateManyWithoutClassNestedInput
   }
 
   export type ClassUncheckedUpdateWithoutStudentsInput = {
@@ -39467,6 +44086,7 @@ export namespace Prisma {
     assignments?: AssignmentUncheckedUpdateManyWithoutClassNestedInput
     schedules?: ClassScheduleUncheckedUpdateManyWithoutClassNestedInput
     materials?: MaterialUncheckedUpdateManyWithoutClassNestedInput
+    discussionThreads?: DiscussionThreadUncheckedUpdateManyWithoutClassNestedInput
   }
 
   export type UserNoteUpsertWithWhereUniqueWithoutUserInput = {
@@ -39756,6 +44376,94 @@ export namespace Prisma {
     updatedAt?: DateTimeFilter<"Material"> | Date | string
   }
 
+  export type DocumentUpsertWithWhereUniqueWithoutUserInput = {
+    where: DocumentWhereUniqueInput
+    update: XOR<DocumentUpdateWithoutUserInput, DocumentUncheckedUpdateWithoutUserInput>
+    create: XOR<DocumentCreateWithoutUserInput, DocumentUncheckedCreateWithoutUserInput>
+  }
+
+  export type DocumentUpdateWithWhereUniqueWithoutUserInput = {
+    where: DocumentWhereUniqueInput
+    data: XOR<DocumentUpdateWithoutUserInput, DocumentUncheckedUpdateWithoutUserInput>
+  }
+
+  export type DocumentUpdateManyWithWhereWithoutUserInput = {
+    where: DocumentScalarWhereInput
+    data: XOR<DocumentUpdateManyMutationInput, DocumentUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type DocumentScalarWhereInput = {
+    AND?: DocumentScalarWhereInput | DocumentScalarWhereInput[]
+    OR?: DocumentScalarWhereInput[]
+    NOT?: DocumentScalarWhereInput | DocumentScalarWhereInput[]
+    id?: StringFilter<"Document"> | string
+    title?: StringFilter<"Document"> | string
+    content?: StringNullableFilter<"Document"> | string | null
+    userId?: StringFilter<"Document"> | string
+    parentId?: StringNullableFilter<"Document"> | string | null
+    date?: DateTimeNullableFilter<"Document"> | Date | string | null
+    position?: IntFilter<"Document"> | number
+    createdAt?: DateTimeFilter<"Document"> | Date | string
+    updatedAt?: DateTimeFilter<"Document"> | Date | string
+  }
+
+  export type DiscussionThreadUpsertWithWhereUniqueWithoutAuthorInput = {
+    where: DiscussionThreadWhereUniqueInput
+    update: XOR<DiscussionThreadUpdateWithoutAuthorInput, DiscussionThreadUncheckedUpdateWithoutAuthorInput>
+    create: XOR<DiscussionThreadCreateWithoutAuthorInput, DiscussionThreadUncheckedCreateWithoutAuthorInput>
+  }
+
+  export type DiscussionThreadUpdateWithWhereUniqueWithoutAuthorInput = {
+    where: DiscussionThreadWhereUniqueInput
+    data: XOR<DiscussionThreadUpdateWithoutAuthorInput, DiscussionThreadUncheckedUpdateWithoutAuthorInput>
+  }
+
+  export type DiscussionThreadUpdateManyWithWhereWithoutAuthorInput = {
+    where: DiscussionThreadScalarWhereInput
+    data: XOR<DiscussionThreadUpdateManyMutationInput, DiscussionThreadUncheckedUpdateManyWithoutAuthorInput>
+  }
+
+  export type DiscussionThreadScalarWhereInput = {
+    AND?: DiscussionThreadScalarWhereInput | DiscussionThreadScalarWhereInput[]
+    OR?: DiscussionThreadScalarWhereInput[]
+    NOT?: DiscussionThreadScalarWhereInput | DiscussionThreadScalarWhereInput[]
+    id?: StringFilter<"DiscussionThread"> | string
+    title?: StringFilter<"DiscussionThread"> | string
+    content?: StringFilter<"DiscussionThread"> | string
+    classId?: StringNullableFilter<"DiscussionThread"> | string | null
+    authorId?: StringFilter<"DiscussionThread"> | string
+    createdAt?: DateTimeFilter<"DiscussionThread"> | Date | string
+    updatedAt?: DateTimeFilter<"DiscussionThread"> | Date | string
+  }
+
+  export type DiscussionReplyUpsertWithWhereUniqueWithoutAuthorInput = {
+    where: DiscussionReplyWhereUniqueInput
+    update: XOR<DiscussionReplyUpdateWithoutAuthorInput, DiscussionReplyUncheckedUpdateWithoutAuthorInput>
+    create: XOR<DiscussionReplyCreateWithoutAuthorInput, DiscussionReplyUncheckedCreateWithoutAuthorInput>
+  }
+
+  export type DiscussionReplyUpdateWithWhereUniqueWithoutAuthorInput = {
+    where: DiscussionReplyWhereUniqueInput
+    data: XOR<DiscussionReplyUpdateWithoutAuthorInput, DiscussionReplyUncheckedUpdateWithoutAuthorInput>
+  }
+
+  export type DiscussionReplyUpdateManyWithWhereWithoutAuthorInput = {
+    where: DiscussionReplyScalarWhereInput
+    data: XOR<DiscussionReplyUpdateManyMutationInput, DiscussionReplyUncheckedUpdateManyWithoutAuthorInput>
+  }
+
+  export type DiscussionReplyScalarWhereInput = {
+    AND?: DiscussionReplyScalarWhereInput | DiscussionReplyScalarWhereInput[]
+    OR?: DiscussionReplyScalarWhereInput[]
+    NOT?: DiscussionReplyScalarWhereInput | DiscussionReplyScalarWhereInput[]
+    id?: StringFilter<"DiscussionReply"> | string
+    content?: StringFilter<"DiscussionReply"> | string
+    threadId?: StringFilter<"DiscussionReply"> | string
+    authorId?: StringFilter<"DiscussionReply"> | string
+    createdAt?: DateTimeFilter<"DiscussionReply"> | Date | string
+    updatedAt?: DateTimeFilter<"DiscussionReply"> | Date | string
+  }
+
   export type UserCreateWithoutUserNotesInput = {
     id?: string
     name: string
@@ -39771,6 +44479,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     image?: string | null
     nis?: string | null
+    noAbsen?: number | null
     phone?: string | null
     gender?: string | null
     address?: string | null
@@ -39799,6 +44508,9 @@ export namespace Prisma {
     ekskulMembers?: ExtracurricularMemberCreateNestedManyWithoutStudentInput
     ekskulAttendances?: ExtracurricularAttendanceCreateNestedManyWithoutStudentInput
     teacherMaterials?: MaterialCreateNestedManyWithoutTeacherInput
+    documents?: DocumentCreateNestedManyWithoutUserInput
+    discussionThreads?: DiscussionThreadCreateNestedManyWithoutAuthorInput
+    discussionReplies?: DiscussionReplyCreateNestedManyWithoutAuthorInput
   }
 
   export type UserUncheckedCreateWithoutUserNotesInput = {
@@ -39817,6 +44529,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     image?: string | null
     nis?: string | null
+    noAbsen?: number | null
     phone?: string | null
     gender?: string | null
     address?: string | null
@@ -39844,6 +44557,9 @@ export namespace Prisma {
     ekskulMembers?: ExtracurricularMemberUncheckedCreateNestedManyWithoutStudentInput
     ekskulAttendances?: ExtracurricularAttendanceUncheckedCreateNestedManyWithoutStudentInput
     teacherMaterials?: MaterialUncheckedCreateNestedManyWithoutTeacherInput
+    documents?: DocumentUncheckedCreateNestedManyWithoutUserInput
+    discussionThreads?: DiscussionThreadUncheckedCreateNestedManyWithoutAuthorInput
+    discussionReplies?: DiscussionReplyUncheckedCreateNestedManyWithoutAuthorInput
   }
 
   export type UserCreateOrConnectWithoutUserNotesInput = {
@@ -39866,6 +44582,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     image?: string | null
     nis?: string | null
+    noAbsen?: number | null
     phone?: string | null
     gender?: string | null
     address?: string | null
@@ -39894,6 +44611,9 @@ export namespace Prisma {
     ekskulMembers?: ExtracurricularMemberCreateNestedManyWithoutStudentInput
     ekskulAttendances?: ExtracurricularAttendanceCreateNestedManyWithoutStudentInput
     teacherMaterials?: MaterialCreateNestedManyWithoutTeacherInput
+    documents?: DocumentCreateNestedManyWithoutUserInput
+    discussionThreads?: DiscussionThreadCreateNestedManyWithoutAuthorInput
+    discussionReplies?: DiscussionReplyCreateNestedManyWithoutAuthorInput
   }
 
   export type UserUncheckedCreateWithoutAuthoredNotesInput = {
@@ -39912,6 +44632,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     image?: string | null
     nis?: string | null
+    noAbsen?: number | null
     phone?: string | null
     gender?: string | null
     address?: string | null
@@ -39939,6 +44660,9 @@ export namespace Prisma {
     ekskulMembers?: ExtracurricularMemberUncheckedCreateNestedManyWithoutStudentInput
     ekskulAttendances?: ExtracurricularAttendanceUncheckedCreateNestedManyWithoutStudentInput
     teacherMaterials?: MaterialUncheckedCreateNestedManyWithoutTeacherInput
+    documents?: DocumentUncheckedCreateNestedManyWithoutUserInput
+    discussionThreads?: DiscussionThreadUncheckedCreateNestedManyWithoutAuthorInput
+    discussionReplies?: DiscussionReplyUncheckedCreateNestedManyWithoutAuthorInput
   }
 
   export type UserCreateOrConnectWithoutAuthoredNotesInput = {
@@ -39972,6 +44696,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     image?: NullableStringFieldUpdateOperationsInput | string | null
     nis?: NullableStringFieldUpdateOperationsInput | string | null
+    noAbsen?: NullableIntFieldUpdateOperationsInput | number | null
     phone?: NullableStringFieldUpdateOperationsInput | string | null
     gender?: NullableStringFieldUpdateOperationsInput | string | null
     address?: NullableStringFieldUpdateOperationsInput | string | null
@@ -40000,6 +44725,9 @@ export namespace Prisma {
     ekskulMembers?: ExtracurricularMemberUpdateManyWithoutStudentNestedInput
     ekskulAttendances?: ExtracurricularAttendanceUpdateManyWithoutStudentNestedInput
     teacherMaterials?: MaterialUpdateManyWithoutTeacherNestedInput
+    documents?: DocumentUpdateManyWithoutUserNestedInput
+    discussionThreads?: DiscussionThreadUpdateManyWithoutAuthorNestedInput
+    discussionReplies?: DiscussionReplyUpdateManyWithoutAuthorNestedInput
   }
 
   export type UserUncheckedUpdateWithoutUserNotesInput = {
@@ -40018,6 +44746,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     image?: NullableStringFieldUpdateOperationsInput | string | null
     nis?: NullableStringFieldUpdateOperationsInput | string | null
+    noAbsen?: NullableIntFieldUpdateOperationsInput | number | null
     phone?: NullableStringFieldUpdateOperationsInput | string | null
     gender?: NullableStringFieldUpdateOperationsInput | string | null
     address?: NullableStringFieldUpdateOperationsInput | string | null
@@ -40045,6 +44774,9 @@ export namespace Prisma {
     ekskulMembers?: ExtracurricularMemberUncheckedUpdateManyWithoutStudentNestedInput
     ekskulAttendances?: ExtracurricularAttendanceUncheckedUpdateManyWithoutStudentNestedInput
     teacherMaterials?: MaterialUncheckedUpdateManyWithoutTeacherNestedInput
+    documents?: DocumentUncheckedUpdateManyWithoutUserNestedInput
+    discussionThreads?: DiscussionThreadUncheckedUpdateManyWithoutAuthorNestedInput
+    discussionReplies?: DiscussionReplyUncheckedUpdateManyWithoutAuthorNestedInput
   }
 
   export type UserUpsertWithoutAuthoredNotesInput = {
@@ -40073,6 +44805,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     image?: NullableStringFieldUpdateOperationsInput | string | null
     nis?: NullableStringFieldUpdateOperationsInput | string | null
+    noAbsen?: NullableIntFieldUpdateOperationsInput | number | null
     phone?: NullableStringFieldUpdateOperationsInput | string | null
     gender?: NullableStringFieldUpdateOperationsInput | string | null
     address?: NullableStringFieldUpdateOperationsInput | string | null
@@ -40101,6 +44834,9 @@ export namespace Prisma {
     ekskulMembers?: ExtracurricularMemberUpdateManyWithoutStudentNestedInput
     ekskulAttendances?: ExtracurricularAttendanceUpdateManyWithoutStudentNestedInput
     teacherMaterials?: MaterialUpdateManyWithoutTeacherNestedInput
+    documents?: DocumentUpdateManyWithoutUserNestedInput
+    discussionThreads?: DiscussionThreadUpdateManyWithoutAuthorNestedInput
+    discussionReplies?: DiscussionReplyUpdateManyWithoutAuthorNestedInput
   }
 
   export type UserUncheckedUpdateWithoutAuthoredNotesInput = {
@@ -40119,6 +44855,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     image?: NullableStringFieldUpdateOperationsInput | string | null
     nis?: NullableStringFieldUpdateOperationsInput | string | null
+    noAbsen?: NullableIntFieldUpdateOperationsInput | number | null
     phone?: NullableStringFieldUpdateOperationsInput | string | null
     gender?: NullableStringFieldUpdateOperationsInput | string | null
     address?: NullableStringFieldUpdateOperationsInput | string | null
@@ -40146,6 +44883,9 @@ export namespace Prisma {
     ekskulMembers?: ExtracurricularMemberUncheckedUpdateManyWithoutStudentNestedInput
     ekskulAttendances?: ExtracurricularAttendanceUncheckedUpdateManyWithoutStudentNestedInput
     teacherMaterials?: MaterialUncheckedUpdateManyWithoutTeacherNestedInput
+    documents?: DocumentUncheckedUpdateManyWithoutUserNestedInput
+    discussionThreads?: DiscussionThreadUncheckedUpdateManyWithoutAuthorNestedInput
+    discussionReplies?: DiscussionReplyUncheckedUpdateManyWithoutAuthorNestedInput
   }
 
   export type UserCreateWithoutAttendancesInput = {
@@ -40163,6 +44903,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     image?: string | null
     nis?: string | null
+    noAbsen?: number | null
     phone?: string | null
     gender?: string | null
     address?: string | null
@@ -40191,6 +44932,9 @@ export namespace Prisma {
     ekskulMembers?: ExtracurricularMemberCreateNestedManyWithoutStudentInput
     ekskulAttendances?: ExtracurricularAttendanceCreateNestedManyWithoutStudentInput
     teacherMaterials?: MaterialCreateNestedManyWithoutTeacherInput
+    documents?: DocumentCreateNestedManyWithoutUserInput
+    discussionThreads?: DiscussionThreadCreateNestedManyWithoutAuthorInput
+    discussionReplies?: DiscussionReplyCreateNestedManyWithoutAuthorInput
   }
 
   export type UserUncheckedCreateWithoutAttendancesInput = {
@@ -40209,6 +44953,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     image?: string | null
     nis?: string | null
+    noAbsen?: number | null
     phone?: string | null
     gender?: string | null
     address?: string | null
@@ -40236,6 +44981,9 @@ export namespace Prisma {
     ekskulMembers?: ExtracurricularMemberUncheckedCreateNestedManyWithoutStudentInput
     ekskulAttendances?: ExtracurricularAttendanceUncheckedCreateNestedManyWithoutStudentInput
     teacherMaterials?: MaterialUncheckedCreateNestedManyWithoutTeacherInput
+    documents?: DocumentUncheckedCreateNestedManyWithoutUserInput
+    discussionThreads?: DiscussionThreadUncheckedCreateNestedManyWithoutAuthorInput
+    discussionReplies?: DiscussionReplyUncheckedCreateNestedManyWithoutAuthorInput
   }
 
   export type UserCreateOrConnectWithoutAttendancesInput = {
@@ -40269,6 +45017,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     image?: NullableStringFieldUpdateOperationsInput | string | null
     nis?: NullableStringFieldUpdateOperationsInput | string | null
+    noAbsen?: NullableIntFieldUpdateOperationsInput | number | null
     phone?: NullableStringFieldUpdateOperationsInput | string | null
     gender?: NullableStringFieldUpdateOperationsInput | string | null
     address?: NullableStringFieldUpdateOperationsInput | string | null
@@ -40297,6 +45046,9 @@ export namespace Prisma {
     ekskulMembers?: ExtracurricularMemberUpdateManyWithoutStudentNestedInput
     ekskulAttendances?: ExtracurricularAttendanceUpdateManyWithoutStudentNestedInput
     teacherMaterials?: MaterialUpdateManyWithoutTeacherNestedInput
+    documents?: DocumentUpdateManyWithoutUserNestedInput
+    discussionThreads?: DiscussionThreadUpdateManyWithoutAuthorNestedInput
+    discussionReplies?: DiscussionReplyUpdateManyWithoutAuthorNestedInput
   }
 
   export type UserUncheckedUpdateWithoutAttendancesInput = {
@@ -40315,6 +45067,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     image?: NullableStringFieldUpdateOperationsInput | string | null
     nis?: NullableStringFieldUpdateOperationsInput | string | null
+    noAbsen?: NullableIntFieldUpdateOperationsInput | number | null
     phone?: NullableStringFieldUpdateOperationsInput | string | null
     gender?: NullableStringFieldUpdateOperationsInput | string | null
     address?: NullableStringFieldUpdateOperationsInput | string | null
@@ -40342,6 +45095,9 @@ export namespace Prisma {
     ekskulMembers?: ExtracurricularMemberUncheckedUpdateManyWithoutStudentNestedInput
     ekskulAttendances?: ExtracurricularAttendanceUncheckedUpdateManyWithoutStudentNestedInput
     teacherMaterials?: MaterialUncheckedUpdateManyWithoutTeacherNestedInput
+    documents?: DocumentUncheckedUpdateManyWithoutUserNestedInput
+    discussionThreads?: DiscussionThreadUncheckedUpdateManyWithoutAuthorNestedInput
+    discussionReplies?: DiscussionReplyUncheckedUpdateManyWithoutAuthorNestedInput
   }
 
   export type AssignmentCreateWithoutClassInput = {
@@ -40437,6 +45193,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     image?: string | null
     nis?: string | null
+    noAbsen?: number | null
     phone?: string | null
     gender?: string | null
     address?: string | null
@@ -40465,6 +45222,9 @@ export namespace Prisma {
     ekskulMembers?: ExtracurricularMemberCreateNestedManyWithoutStudentInput
     ekskulAttendances?: ExtracurricularAttendanceCreateNestedManyWithoutStudentInput
     teacherMaterials?: MaterialCreateNestedManyWithoutTeacherInput
+    documents?: DocumentCreateNestedManyWithoutUserInput
+    discussionThreads?: DiscussionThreadCreateNestedManyWithoutAuthorInput
+    discussionReplies?: DiscussionReplyCreateNestedManyWithoutAuthorInput
   }
 
   export type UserUncheckedCreateWithoutClassInput = {
@@ -40482,6 +45242,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     image?: string | null
     nis?: string | null
+    noAbsen?: number | null
     phone?: string | null
     gender?: string | null
     address?: string | null
@@ -40510,6 +45271,9 @@ export namespace Prisma {
     ekskulMembers?: ExtracurricularMemberUncheckedCreateNestedManyWithoutStudentInput
     ekskulAttendances?: ExtracurricularAttendanceUncheckedCreateNestedManyWithoutStudentInput
     teacherMaterials?: MaterialUncheckedCreateNestedManyWithoutTeacherInput
+    documents?: DocumentUncheckedCreateNestedManyWithoutUserInput
+    discussionThreads?: DiscussionThreadUncheckedCreateNestedManyWithoutAuthorInput
+    discussionReplies?: DiscussionReplyUncheckedCreateNestedManyWithoutAuthorInput
   }
 
   export type UserCreateOrConnectWithoutClassInput = {
@@ -40553,6 +45317,36 @@ export namespace Prisma {
 
   export type MaterialCreateManyClassInputEnvelope = {
     data: MaterialCreateManyClassInput | MaterialCreateManyClassInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type DiscussionThreadCreateWithoutClassInput = {
+    id?: string
+    title: string
+    content: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    author: UserCreateNestedOneWithoutDiscussionThreadsInput
+    replies?: DiscussionReplyCreateNestedManyWithoutThreadInput
+  }
+
+  export type DiscussionThreadUncheckedCreateWithoutClassInput = {
+    id?: string
+    title: string
+    content: string
+    authorId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    replies?: DiscussionReplyUncheckedCreateNestedManyWithoutThreadInput
+  }
+
+  export type DiscussionThreadCreateOrConnectWithoutClassInput = {
+    where: DiscussionThreadWhereUniqueInput
+    create: XOR<DiscussionThreadCreateWithoutClassInput, DiscussionThreadUncheckedCreateWithoutClassInput>
+  }
+
+  export type DiscussionThreadCreateManyClassInputEnvelope = {
+    data: DiscussionThreadCreateManyClassInput | DiscussionThreadCreateManyClassInput[]
     skipDuplicates?: boolean
   }
 
@@ -40623,6 +45417,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFilter<"User"> | Date | string
     image?: StringNullableFilter<"User"> | string | null
     nis?: StringNullableFilter<"User"> | string | null
+    noAbsen?: IntNullableFilter<"User"> | number | null
     phone?: StringNullableFilter<"User"> | string | null
     gender?: StringNullableFilter<"User"> | string | null
     address?: StringNullableFilter<"User"> | string | null
@@ -40647,6 +45442,22 @@ export namespace Prisma {
   export type MaterialUpdateManyWithWhereWithoutClassInput = {
     where: MaterialScalarWhereInput
     data: XOR<MaterialUpdateManyMutationInput, MaterialUncheckedUpdateManyWithoutClassInput>
+  }
+
+  export type DiscussionThreadUpsertWithWhereUniqueWithoutClassInput = {
+    where: DiscussionThreadWhereUniqueInput
+    update: XOR<DiscussionThreadUpdateWithoutClassInput, DiscussionThreadUncheckedUpdateWithoutClassInput>
+    create: XOR<DiscussionThreadCreateWithoutClassInput, DiscussionThreadUncheckedCreateWithoutClassInput>
+  }
+
+  export type DiscussionThreadUpdateWithWhereUniqueWithoutClassInput = {
+    where: DiscussionThreadWhereUniqueInput
+    data: XOR<DiscussionThreadUpdateWithoutClassInput, DiscussionThreadUncheckedUpdateWithoutClassInput>
+  }
+
+  export type DiscussionThreadUpdateManyWithWhereWithoutClassInput = {
+    where: DiscussionThreadScalarWhereInput
+    data: XOR<DiscussionThreadUpdateManyMutationInput, DiscussionThreadUncheckedUpdateManyWithoutClassInput>
   }
 
   export type AssignmentCreateWithoutSubjectInput = {
@@ -40742,6 +45553,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     image?: string | null
     nis?: string | null
+    noAbsen?: number | null
     phone?: string | null
     gender?: string | null
     address?: string | null
@@ -40770,6 +45582,9 @@ export namespace Prisma {
     ekskulMembers?: ExtracurricularMemberCreateNestedManyWithoutStudentInput
     ekskulAttendances?: ExtracurricularAttendanceCreateNestedManyWithoutStudentInput
     teacherMaterials?: MaterialCreateNestedManyWithoutTeacherInput
+    documents?: DocumentCreateNestedManyWithoutUserInput
+    discussionThreads?: DiscussionThreadCreateNestedManyWithoutAuthorInput
+    discussionReplies?: DiscussionReplyCreateNestedManyWithoutAuthorInput
   }
 
   export type UserUncheckedCreateWithoutTeacherSubjectsInput = {
@@ -40788,6 +45603,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     image?: string | null
     nis?: string | null
+    noAbsen?: number | null
     phone?: string | null
     gender?: string | null
     address?: string | null
@@ -40815,6 +45631,9 @@ export namespace Prisma {
     ekskulMembers?: ExtracurricularMemberUncheckedCreateNestedManyWithoutStudentInput
     ekskulAttendances?: ExtracurricularAttendanceUncheckedCreateNestedManyWithoutStudentInput
     teacherMaterials?: MaterialUncheckedCreateNestedManyWithoutTeacherInput
+    documents?: DocumentUncheckedCreateNestedManyWithoutUserInput
+    discussionThreads?: DiscussionThreadUncheckedCreateNestedManyWithoutAuthorInput
+    discussionReplies?: DiscussionReplyUncheckedCreateNestedManyWithoutAuthorInput
   }
 
   export type UserCreateOrConnectWithoutTeacherSubjectsInput = {
@@ -40972,6 +45791,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     image?: NullableStringFieldUpdateOperationsInput | string | null
     nis?: NullableStringFieldUpdateOperationsInput | string | null
+    noAbsen?: NullableIntFieldUpdateOperationsInput | number | null
     phone?: NullableStringFieldUpdateOperationsInput | string | null
     gender?: NullableStringFieldUpdateOperationsInput | string | null
     address?: NullableStringFieldUpdateOperationsInput | string | null
@@ -41000,6 +45820,9 @@ export namespace Prisma {
     ekskulMembers?: ExtracurricularMemberUpdateManyWithoutStudentNestedInput
     ekskulAttendances?: ExtracurricularAttendanceUpdateManyWithoutStudentNestedInput
     teacherMaterials?: MaterialUpdateManyWithoutTeacherNestedInput
+    documents?: DocumentUpdateManyWithoutUserNestedInput
+    discussionThreads?: DiscussionThreadUpdateManyWithoutAuthorNestedInput
+    discussionReplies?: DiscussionReplyUpdateManyWithoutAuthorNestedInput
   }
 
   export type UserUncheckedUpdateWithoutTeacherSubjectsInput = {
@@ -41018,6 +45841,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     image?: NullableStringFieldUpdateOperationsInput | string | null
     nis?: NullableStringFieldUpdateOperationsInput | string | null
+    noAbsen?: NullableIntFieldUpdateOperationsInput | number | null
     phone?: NullableStringFieldUpdateOperationsInput | string | null
     gender?: NullableStringFieldUpdateOperationsInput | string | null
     address?: NullableStringFieldUpdateOperationsInput | string | null
@@ -41045,6 +45869,9 @@ export namespace Prisma {
     ekskulMembers?: ExtracurricularMemberUncheckedUpdateManyWithoutStudentNestedInput
     ekskulAttendances?: ExtracurricularAttendanceUncheckedUpdateManyWithoutStudentNestedInput
     teacherMaterials?: MaterialUncheckedUpdateManyWithoutTeacherNestedInput
+    documents?: DocumentUncheckedUpdateManyWithoutUserNestedInput
+    discussionThreads?: DiscussionThreadUncheckedUpdateManyWithoutAuthorNestedInput
+    discussionReplies?: DiscussionReplyUncheckedUpdateManyWithoutAuthorNestedInput
   }
 
   export type TopicUpsertWithWhereUniqueWithoutSubjectInput = {
@@ -41338,6 +46165,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     image?: string | null
     nis?: string | null
+    noAbsen?: number | null
     phone?: string | null
     gender?: string | null
     address?: string | null
@@ -41366,6 +46194,9 @@ export namespace Prisma {
     ekskulMembers?: ExtracurricularMemberCreateNestedManyWithoutStudentInput
     ekskulAttendances?: ExtracurricularAttendanceCreateNestedManyWithoutStudentInput
     teacherMaterials?: MaterialCreateNestedManyWithoutTeacherInput
+    documents?: DocumentCreateNestedManyWithoutUserInput
+    discussionThreads?: DiscussionThreadCreateNestedManyWithoutAuthorInput
+    discussionReplies?: DiscussionReplyCreateNestedManyWithoutAuthorInput
   }
 
   export type UserUncheckedCreateWithoutProgressLogsInput = {
@@ -41384,6 +46215,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     image?: string | null
     nis?: string | null
+    noAbsen?: number | null
     phone?: string | null
     gender?: string | null
     address?: string | null
@@ -41411,6 +46243,9 @@ export namespace Prisma {
     ekskulMembers?: ExtracurricularMemberUncheckedCreateNestedManyWithoutStudentInput
     ekskulAttendances?: ExtracurricularAttendanceUncheckedCreateNestedManyWithoutStudentInput
     teacherMaterials?: MaterialUncheckedCreateNestedManyWithoutTeacherInput
+    documents?: DocumentUncheckedCreateNestedManyWithoutUserInput
+    discussionThreads?: DiscussionThreadUncheckedCreateNestedManyWithoutAuthorInput
+    discussionReplies?: DiscussionReplyUncheckedCreateNestedManyWithoutAuthorInput
   }
 
   export type UserCreateOrConnectWithoutProgressLogsInput = {
@@ -41481,6 +46316,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     image?: NullableStringFieldUpdateOperationsInput | string | null
     nis?: NullableStringFieldUpdateOperationsInput | string | null
+    noAbsen?: NullableIntFieldUpdateOperationsInput | number | null
     phone?: NullableStringFieldUpdateOperationsInput | string | null
     gender?: NullableStringFieldUpdateOperationsInput | string | null
     address?: NullableStringFieldUpdateOperationsInput | string | null
@@ -41509,6 +46345,9 @@ export namespace Prisma {
     ekskulMembers?: ExtracurricularMemberUpdateManyWithoutStudentNestedInput
     ekskulAttendances?: ExtracurricularAttendanceUpdateManyWithoutStudentNestedInput
     teacherMaterials?: MaterialUpdateManyWithoutTeacherNestedInput
+    documents?: DocumentUpdateManyWithoutUserNestedInput
+    discussionThreads?: DiscussionThreadUpdateManyWithoutAuthorNestedInput
+    discussionReplies?: DiscussionReplyUpdateManyWithoutAuthorNestedInput
   }
 
   export type UserUncheckedUpdateWithoutProgressLogsInput = {
@@ -41527,6 +46366,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     image?: NullableStringFieldUpdateOperationsInput | string | null
     nis?: NullableStringFieldUpdateOperationsInput | string | null
+    noAbsen?: NullableIntFieldUpdateOperationsInput | number | null
     phone?: NullableStringFieldUpdateOperationsInput | string | null
     gender?: NullableStringFieldUpdateOperationsInput | string | null
     address?: NullableStringFieldUpdateOperationsInput | string | null
@@ -41554,6 +46394,9 @@ export namespace Prisma {
     ekskulMembers?: ExtracurricularMemberUncheckedUpdateManyWithoutStudentNestedInput
     ekskulAttendances?: ExtracurricularAttendanceUncheckedUpdateManyWithoutStudentNestedInput
     teacherMaterials?: MaterialUncheckedUpdateManyWithoutTeacherNestedInput
+    documents?: DocumentUncheckedUpdateManyWithoutUserNestedInput
+    discussionThreads?: DiscussionThreadUncheckedUpdateManyWithoutAuthorNestedInput
+    discussionReplies?: DiscussionReplyUncheckedUpdateManyWithoutAuthorNestedInput
   }
 
   export type SubjectCreateWithoutUserSubjectsInput = {
@@ -41606,6 +46449,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     image?: string | null
     nis?: string | null
+    noAbsen?: number | null
     phone?: string | null
     gender?: string | null
     address?: string | null
@@ -41634,6 +46478,9 @@ export namespace Prisma {
     ekskulMembers?: ExtracurricularMemberCreateNestedManyWithoutStudentInput
     ekskulAttendances?: ExtracurricularAttendanceCreateNestedManyWithoutStudentInput
     teacherMaterials?: MaterialCreateNestedManyWithoutTeacherInput
+    documents?: DocumentCreateNestedManyWithoutUserInput
+    discussionThreads?: DiscussionThreadCreateNestedManyWithoutAuthorInput
+    discussionReplies?: DiscussionReplyCreateNestedManyWithoutAuthorInput
   }
 
   export type UserUncheckedCreateWithoutUserSubjectsInput = {
@@ -41652,6 +46499,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     image?: string | null
     nis?: string | null
+    noAbsen?: number | null
     phone?: string | null
     gender?: string | null
     address?: string | null
@@ -41679,6 +46527,9 @@ export namespace Prisma {
     ekskulMembers?: ExtracurricularMemberUncheckedCreateNestedManyWithoutStudentInput
     ekskulAttendances?: ExtracurricularAttendanceUncheckedCreateNestedManyWithoutStudentInput
     teacherMaterials?: MaterialUncheckedCreateNestedManyWithoutTeacherInput
+    documents?: DocumentUncheckedCreateNestedManyWithoutUserInput
+    discussionThreads?: DiscussionThreadUncheckedCreateNestedManyWithoutAuthorInput
+    discussionReplies?: DiscussionReplyUncheckedCreateNestedManyWithoutAuthorInput
   }
 
   export type UserCreateOrConnectWithoutUserSubjectsInput = {
@@ -41753,6 +46604,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     image?: NullableStringFieldUpdateOperationsInput | string | null
     nis?: NullableStringFieldUpdateOperationsInput | string | null
+    noAbsen?: NullableIntFieldUpdateOperationsInput | number | null
     phone?: NullableStringFieldUpdateOperationsInput | string | null
     gender?: NullableStringFieldUpdateOperationsInput | string | null
     address?: NullableStringFieldUpdateOperationsInput | string | null
@@ -41781,6 +46633,9 @@ export namespace Prisma {
     ekskulMembers?: ExtracurricularMemberUpdateManyWithoutStudentNestedInput
     ekskulAttendances?: ExtracurricularAttendanceUpdateManyWithoutStudentNestedInput
     teacherMaterials?: MaterialUpdateManyWithoutTeacherNestedInput
+    documents?: DocumentUpdateManyWithoutUserNestedInput
+    discussionThreads?: DiscussionThreadUpdateManyWithoutAuthorNestedInput
+    discussionReplies?: DiscussionReplyUpdateManyWithoutAuthorNestedInput
   }
 
   export type UserUncheckedUpdateWithoutUserSubjectsInput = {
@@ -41799,6 +46654,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     image?: NullableStringFieldUpdateOperationsInput | string | null
     nis?: NullableStringFieldUpdateOperationsInput | string | null
+    noAbsen?: NullableIntFieldUpdateOperationsInput | number | null
     phone?: NullableStringFieldUpdateOperationsInput | string | null
     gender?: NullableStringFieldUpdateOperationsInput | string | null
     address?: NullableStringFieldUpdateOperationsInput | string | null
@@ -41826,6 +46682,9 @@ export namespace Prisma {
     ekskulMembers?: ExtracurricularMemberUncheckedUpdateManyWithoutStudentNestedInput
     ekskulAttendances?: ExtracurricularAttendanceUncheckedUpdateManyWithoutStudentNestedInput
     teacherMaterials?: MaterialUncheckedUpdateManyWithoutTeacherNestedInput
+    documents?: DocumentUncheckedUpdateManyWithoutUserNestedInput
+    discussionThreads?: DiscussionThreadUncheckedUpdateManyWithoutAuthorNestedInput
+    discussionReplies?: DiscussionReplyUncheckedUpdateManyWithoutAuthorNestedInput
   }
 
   export type ClassCreateWithoutSchedulesInput = {
@@ -41837,6 +46696,7 @@ export namespace Prisma {
     assignments?: AssignmentCreateNestedManyWithoutClassInput
     students?: UserCreateNestedManyWithoutClassInput
     materials?: MaterialCreateNestedManyWithoutClassInput
+    discussionThreads?: DiscussionThreadCreateNestedManyWithoutClassInput
   }
 
   export type ClassUncheckedCreateWithoutSchedulesInput = {
@@ -41848,6 +46708,7 @@ export namespace Prisma {
     assignments?: AssignmentUncheckedCreateNestedManyWithoutClassInput
     students?: UserUncheckedCreateNestedManyWithoutClassInput
     materials?: MaterialUncheckedCreateNestedManyWithoutClassInput
+    discussionThreads?: DiscussionThreadUncheckedCreateNestedManyWithoutClassInput
   }
 
   export type ClassCreateOrConnectWithoutSchedulesInput = {
@@ -41905,6 +46766,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     image?: string | null
     nis?: string | null
+    noAbsen?: number | null
     phone?: string | null
     gender?: string | null
     address?: string | null
@@ -41933,6 +46795,9 @@ export namespace Prisma {
     ekskulMembers?: ExtracurricularMemberCreateNestedManyWithoutStudentInput
     ekskulAttendances?: ExtracurricularAttendanceCreateNestedManyWithoutStudentInput
     teacherMaterials?: MaterialCreateNestedManyWithoutTeacherInput
+    documents?: DocumentCreateNestedManyWithoutUserInput
+    discussionThreads?: DiscussionThreadCreateNestedManyWithoutAuthorInput
+    discussionReplies?: DiscussionReplyCreateNestedManyWithoutAuthorInput
   }
 
   export type UserUncheckedCreateWithoutTeacherSchedulesInput = {
@@ -41951,6 +46816,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     image?: string | null
     nis?: string | null
+    noAbsen?: number | null
     phone?: string | null
     gender?: string | null
     address?: string | null
@@ -41978,6 +46844,9 @@ export namespace Prisma {
     ekskulMembers?: ExtracurricularMemberUncheckedCreateNestedManyWithoutStudentInput
     ekskulAttendances?: ExtracurricularAttendanceUncheckedCreateNestedManyWithoutStudentInput
     teacherMaterials?: MaterialUncheckedCreateNestedManyWithoutTeacherInput
+    documents?: DocumentUncheckedCreateNestedManyWithoutUserInput
+    discussionThreads?: DiscussionThreadUncheckedCreateNestedManyWithoutAuthorInput
+    discussionReplies?: DiscussionReplyUncheckedCreateNestedManyWithoutAuthorInput
   }
 
   export type UserCreateOrConnectWithoutTeacherSchedulesInput = {
@@ -42005,6 +46874,7 @@ export namespace Prisma {
     assignments?: AssignmentUpdateManyWithoutClassNestedInput
     students?: UserUpdateManyWithoutClassNestedInput
     materials?: MaterialUpdateManyWithoutClassNestedInput
+    discussionThreads?: DiscussionThreadUpdateManyWithoutClassNestedInput
   }
 
   export type ClassUncheckedUpdateWithoutSchedulesInput = {
@@ -42016,6 +46886,7 @@ export namespace Prisma {
     assignments?: AssignmentUncheckedUpdateManyWithoutClassNestedInput
     students?: UserUncheckedUpdateManyWithoutClassNestedInput
     materials?: MaterialUncheckedUpdateManyWithoutClassNestedInput
+    discussionThreads?: DiscussionThreadUncheckedUpdateManyWithoutClassNestedInput
   }
 
   export type SubjectUpsertWithoutSchedulesInput = {
@@ -42085,6 +46956,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     image?: NullableStringFieldUpdateOperationsInput | string | null
     nis?: NullableStringFieldUpdateOperationsInput | string | null
+    noAbsen?: NullableIntFieldUpdateOperationsInput | number | null
     phone?: NullableStringFieldUpdateOperationsInput | string | null
     gender?: NullableStringFieldUpdateOperationsInput | string | null
     address?: NullableStringFieldUpdateOperationsInput | string | null
@@ -42113,6 +46985,9 @@ export namespace Prisma {
     ekskulMembers?: ExtracurricularMemberUpdateManyWithoutStudentNestedInput
     ekskulAttendances?: ExtracurricularAttendanceUpdateManyWithoutStudentNestedInput
     teacherMaterials?: MaterialUpdateManyWithoutTeacherNestedInput
+    documents?: DocumentUpdateManyWithoutUserNestedInput
+    discussionThreads?: DiscussionThreadUpdateManyWithoutAuthorNestedInput
+    discussionReplies?: DiscussionReplyUpdateManyWithoutAuthorNestedInput
   }
 
   export type UserUncheckedUpdateWithoutTeacherSchedulesInput = {
@@ -42131,6 +47006,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     image?: NullableStringFieldUpdateOperationsInput | string | null
     nis?: NullableStringFieldUpdateOperationsInput | string | null
+    noAbsen?: NullableIntFieldUpdateOperationsInput | number | null
     phone?: NullableStringFieldUpdateOperationsInput | string | null
     gender?: NullableStringFieldUpdateOperationsInput | string | null
     address?: NullableStringFieldUpdateOperationsInput | string | null
@@ -42158,6 +47034,9 @@ export namespace Prisma {
     ekskulMembers?: ExtracurricularMemberUncheckedUpdateManyWithoutStudentNestedInput
     ekskulAttendances?: ExtracurricularAttendanceUncheckedUpdateManyWithoutStudentNestedInput
     teacherMaterials?: MaterialUncheckedUpdateManyWithoutTeacherNestedInput
+    documents?: DocumentUncheckedUpdateManyWithoutUserNestedInput
+    discussionThreads?: DiscussionThreadUncheckedUpdateManyWithoutAuthorNestedInput
+    discussionReplies?: DiscussionReplyUncheckedUpdateManyWithoutAuthorNestedInput
   }
 
   export type ClassCreateWithoutMaterialsInput = {
@@ -42169,6 +47048,7 @@ export namespace Prisma {
     assignments?: AssignmentCreateNestedManyWithoutClassInput
     schedules?: ClassScheduleCreateNestedManyWithoutClassInput
     students?: UserCreateNestedManyWithoutClassInput
+    discussionThreads?: DiscussionThreadCreateNestedManyWithoutClassInput
   }
 
   export type ClassUncheckedCreateWithoutMaterialsInput = {
@@ -42180,6 +47060,7 @@ export namespace Prisma {
     assignments?: AssignmentUncheckedCreateNestedManyWithoutClassInput
     schedules?: ClassScheduleUncheckedCreateNestedManyWithoutClassInput
     students?: UserUncheckedCreateNestedManyWithoutClassInput
+    discussionThreads?: DiscussionThreadUncheckedCreateNestedManyWithoutClassInput
   }
 
   export type ClassCreateOrConnectWithoutMaterialsInput = {
@@ -42237,6 +47118,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     image?: string | null
     nis?: string | null
+    noAbsen?: number | null
     phone?: string | null
     gender?: string | null
     address?: string | null
@@ -42265,6 +47147,9 @@ export namespace Prisma {
     ekskulCoach?: ExtracurricularCreateNestedManyWithoutCoachInput
     ekskulMembers?: ExtracurricularMemberCreateNestedManyWithoutStudentInput
     ekskulAttendances?: ExtracurricularAttendanceCreateNestedManyWithoutStudentInput
+    documents?: DocumentCreateNestedManyWithoutUserInput
+    discussionThreads?: DiscussionThreadCreateNestedManyWithoutAuthorInput
+    discussionReplies?: DiscussionReplyCreateNestedManyWithoutAuthorInput
   }
 
   export type UserUncheckedCreateWithoutTeacherMaterialsInput = {
@@ -42283,6 +47168,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     image?: string | null
     nis?: string | null
+    noAbsen?: number | null
     phone?: string | null
     gender?: string | null
     address?: string | null
@@ -42310,6 +47196,9 @@ export namespace Prisma {
     ekskulCoach?: ExtracurricularUncheckedCreateNestedManyWithoutCoachInput
     ekskulMembers?: ExtracurricularMemberUncheckedCreateNestedManyWithoutStudentInput
     ekskulAttendances?: ExtracurricularAttendanceUncheckedCreateNestedManyWithoutStudentInput
+    documents?: DocumentUncheckedCreateNestedManyWithoutUserInput
+    discussionThreads?: DiscussionThreadUncheckedCreateNestedManyWithoutAuthorInput
+    discussionReplies?: DiscussionReplyUncheckedCreateNestedManyWithoutAuthorInput
   }
 
   export type UserCreateOrConnectWithoutTeacherMaterialsInput = {
@@ -42337,6 +47226,7 @@ export namespace Prisma {
     assignments?: AssignmentUpdateManyWithoutClassNestedInput
     schedules?: ClassScheduleUpdateManyWithoutClassNestedInput
     students?: UserUpdateManyWithoutClassNestedInput
+    discussionThreads?: DiscussionThreadUpdateManyWithoutClassNestedInput
   }
 
   export type ClassUncheckedUpdateWithoutMaterialsInput = {
@@ -42348,6 +47238,7 @@ export namespace Prisma {
     assignments?: AssignmentUncheckedUpdateManyWithoutClassNestedInput
     schedules?: ClassScheduleUncheckedUpdateManyWithoutClassNestedInput
     students?: UserUncheckedUpdateManyWithoutClassNestedInput
+    discussionThreads?: DiscussionThreadUncheckedUpdateManyWithoutClassNestedInput
   }
 
   export type SubjectUpsertWithoutMaterialsInput = {
@@ -42417,6 +47308,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     image?: NullableStringFieldUpdateOperationsInput | string | null
     nis?: NullableStringFieldUpdateOperationsInput | string | null
+    noAbsen?: NullableIntFieldUpdateOperationsInput | number | null
     phone?: NullableStringFieldUpdateOperationsInput | string | null
     gender?: NullableStringFieldUpdateOperationsInput | string | null
     address?: NullableStringFieldUpdateOperationsInput | string | null
@@ -42445,6 +47337,9 @@ export namespace Prisma {
     ekskulCoach?: ExtracurricularUpdateManyWithoutCoachNestedInput
     ekskulMembers?: ExtracurricularMemberUpdateManyWithoutStudentNestedInput
     ekskulAttendances?: ExtracurricularAttendanceUpdateManyWithoutStudentNestedInput
+    documents?: DocumentUpdateManyWithoutUserNestedInput
+    discussionThreads?: DiscussionThreadUpdateManyWithoutAuthorNestedInput
+    discussionReplies?: DiscussionReplyUpdateManyWithoutAuthorNestedInput
   }
 
   export type UserUncheckedUpdateWithoutTeacherMaterialsInput = {
@@ -42463,6 +47358,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     image?: NullableStringFieldUpdateOperationsInput | string | null
     nis?: NullableStringFieldUpdateOperationsInput | string | null
+    noAbsen?: NullableIntFieldUpdateOperationsInput | number | null
     phone?: NullableStringFieldUpdateOperationsInput | string | null
     gender?: NullableStringFieldUpdateOperationsInput | string | null
     address?: NullableStringFieldUpdateOperationsInput | string | null
@@ -42490,6 +47386,9 @@ export namespace Prisma {
     ekskulCoach?: ExtracurricularUncheckedUpdateManyWithoutCoachNestedInput
     ekskulMembers?: ExtracurricularMemberUncheckedUpdateManyWithoutStudentNestedInput
     ekskulAttendances?: ExtracurricularAttendanceUncheckedUpdateManyWithoutStudentNestedInput
+    documents?: DocumentUncheckedUpdateManyWithoutUserNestedInput
+    discussionThreads?: DiscussionThreadUncheckedUpdateManyWithoutAuthorNestedInput
+    discussionReplies?: DiscussionReplyUncheckedUpdateManyWithoutAuthorNestedInput
   }
 
   export type UserCreateWithoutEkskulLeaderInput = {
@@ -42507,6 +47406,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     image?: string | null
     nis?: string | null
+    noAbsen?: number | null
     phone?: string | null
     gender?: string | null
     address?: string | null
@@ -42535,6 +47435,9 @@ export namespace Prisma {
     ekskulMembers?: ExtracurricularMemberCreateNestedManyWithoutStudentInput
     ekskulAttendances?: ExtracurricularAttendanceCreateNestedManyWithoutStudentInput
     teacherMaterials?: MaterialCreateNestedManyWithoutTeacherInput
+    documents?: DocumentCreateNestedManyWithoutUserInput
+    discussionThreads?: DiscussionThreadCreateNestedManyWithoutAuthorInput
+    discussionReplies?: DiscussionReplyCreateNestedManyWithoutAuthorInput
   }
 
   export type UserUncheckedCreateWithoutEkskulLeaderInput = {
@@ -42553,6 +47456,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     image?: string | null
     nis?: string | null
+    noAbsen?: number | null
     phone?: string | null
     gender?: string | null
     address?: string | null
@@ -42580,6 +47484,9 @@ export namespace Prisma {
     ekskulMembers?: ExtracurricularMemberUncheckedCreateNestedManyWithoutStudentInput
     ekskulAttendances?: ExtracurricularAttendanceUncheckedCreateNestedManyWithoutStudentInput
     teacherMaterials?: MaterialUncheckedCreateNestedManyWithoutTeacherInput
+    documents?: DocumentUncheckedCreateNestedManyWithoutUserInput
+    discussionThreads?: DiscussionThreadUncheckedCreateNestedManyWithoutAuthorInput
+    discussionReplies?: DiscussionReplyUncheckedCreateNestedManyWithoutAuthorInput
   }
 
   export type UserCreateOrConnectWithoutEkskulLeaderInput = {
@@ -42602,6 +47509,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     image?: string | null
     nis?: string | null
+    noAbsen?: number | null
     phone?: string | null
     gender?: string | null
     address?: string | null
@@ -42630,6 +47538,9 @@ export namespace Prisma {
     ekskulMembers?: ExtracurricularMemberCreateNestedManyWithoutStudentInput
     ekskulAttendances?: ExtracurricularAttendanceCreateNestedManyWithoutStudentInput
     teacherMaterials?: MaterialCreateNestedManyWithoutTeacherInput
+    documents?: DocumentCreateNestedManyWithoutUserInput
+    discussionThreads?: DiscussionThreadCreateNestedManyWithoutAuthorInput
+    discussionReplies?: DiscussionReplyCreateNestedManyWithoutAuthorInput
   }
 
   export type UserUncheckedCreateWithoutEkskulCoachInput = {
@@ -42648,6 +47559,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     image?: string | null
     nis?: string | null
+    noAbsen?: number | null
     phone?: string | null
     gender?: string | null
     address?: string | null
@@ -42675,6 +47587,9 @@ export namespace Prisma {
     ekskulMembers?: ExtracurricularMemberUncheckedCreateNestedManyWithoutStudentInput
     ekskulAttendances?: ExtracurricularAttendanceUncheckedCreateNestedManyWithoutStudentInput
     teacherMaterials?: MaterialUncheckedCreateNestedManyWithoutTeacherInput
+    documents?: DocumentUncheckedCreateNestedManyWithoutUserInput
+    discussionThreads?: DiscussionThreadUncheckedCreateNestedManyWithoutAuthorInput
+    discussionReplies?: DiscussionReplyUncheckedCreateNestedManyWithoutAuthorInput
   }
 
   export type UserCreateOrConnectWithoutEkskulCoachInput = {
@@ -42760,6 +47675,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     image?: NullableStringFieldUpdateOperationsInput | string | null
     nis?: NullableStringFieldUpdateOperationsInput | string | null
+    noAbsen?: NullableIntFieldUpdateOperationsInput | number | null
     phone?: NullableStringFieldUpdateOperationsInput | string | null
     gender?: NullableStringFieldUpdateOperationsInput | string | null
     address?: NullableStringFieldUpdateOperationsInput | string | null
@@ -42788,6 +47704,9 @@ export namespace Prisma {
     ekskulMembers?: ExtracurricularMemberUpdateManyWithoutStudentNestedInput
     ekskulAttendances?: ExtracurricularAttendanceUpdateManyWithoutStudentNestedInput
     teacherMaterials?: MaterialUpdateManyWithoutTeacherNestedInput
+    documents?: DocumentUpdateManyWithoutUserNestedInput
+    discussionThreads?: DiscussionThreadUpdateManyWithoutAuthorNestedInput
+    discussionReplies?: DiscussionReplyUpdateManyWithoutAuthorNestedInput
   }
 
   export type UserUncheckedUpdateWithoutEkskulLeaderInput = {
@@ -42806,6 +47725,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     image?: NullableStringFieldUpdateOperationsInput | string | null
     nis?: NullableStringFieldUpdateOperationsInput | string | null
+    noAbsen?: NullableIntFieldUpdateOperationsInput | number | null
     phone?: NullableStringFieldUpdateOperationsInput | string | null
     gender?: NullableStringFieldUpdateOperationsInput | string | null
     address?: NullableStringFieldUpdateOperationsInput | string | null
@@ -42833,6 +47753,9 @@ export namespace Prisma {
     ekskulMembers?: ExtracurricularMemberUncheckedUpdateManyWithoutStudentNestedInput
     ekskulAttendances?: ExtracurricularAttendanceUncheckedUpdateManyWithoutStudentNestedInput
     teacherMaterials?: MaterialUncheckedUpdateManyWithoutTeacherNestedInput
+    documents?: DocumentUncheckedUpdateManyWithoutUserNestedInput
+    discussionThreads?: DiscussionThreadUncheckedUpdateManyWithoutAuthorNestedInput
+    discussionReplies?: DiscussionReplyUncheckedUpdateManyWithoutAuthorNestedInput
   }
 
   export type UserUpsertWithoutEkskulCoachInput = {
@@ -42861,6 +47784,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     image?: NullableStringFieldUpdateOperationsInput | string | null
     nis?: NullableStringFieldUpdateOperationsInput | string | null
+    noAbsen?: NullableIntFieldUpdateOperationsInput | number | null
     phone?: NullableStringFieldUpdateOperationsInput | string | null
     gender?: NullableStringFieldUpdateOperationsInput | string | null
     address?: NullableStringFieldUpdateOperationsInput | string | null
@@ -42889,6 +47813,9 @@ export namespace Prisma {
     ekskulMembers?: ExtracurricularMemberUpdateManyWithoutStudentNestedInput
     ekskulAttendances?: ExtracurricularAttendanceUpdateManyWithoutStudentNestedInput
     teacherMaterials?: MaterialUpdateManyWithoutTeacherNestedInput
+    documents?: DocumentUpdateManyWithoutUserNestedInput
+    discussionThreads?: DiscussionThreadUpdateManyWithoutAuthorNestedInput
+    discussionReplies?: DiscussionReplyUpdateManyWithoutAuthorNestedInput
   }
 
   export type UserUncheckedUpdateWithoutEkskulCoachInput = {
@@ -42907,6 +47834,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     image?: NullableStringFieldUpdateOperationsInput | string | null
     nis?: NullableStringFieldUpdateOperationsInput | string | null
+    noAbsen?: NullableIntFieldUpdateOperationsInput | number | null
     phone?: NullableStringFieldUpdateOperationsInput | string | null
     gender?: NullableStringFieldUpdateOperationsInput | string | null
     address?: NullableStringFieldUpdateOperationsInput | string | null
@@ -42934,6 +47862,9 @@ export namespace Prisma {
     ekskulMembers?: ExtracurricularMemberUncheckedUpdateManyWithoutStudentNestedInput
     ekskulAttendances?: ExtracurricularAttendanceUncheckedUpdateManyWithoutStudentNestedInput
     teacherMaterials?: MaterialUncheckedUpdateManyWithoutTeacherNestedInput
+    documents?: DocumentUncheckedUpdateManyWithoutUserNestedInput
+    discussionThreads?: DiscussionThreadUncheckedUpdateManyWithoutAuthorNestedInput
+    discussionReplies?: DiscussionReplyUncheckedUpdateManyWithoutAuthorNestedInput
   }
 
   export type ExtracurricularMemberUpsertWithWhereUniqueWithoutExtracurricularInput = {
@@ -42996,6 +47927,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     image?: string | null
     nis?: string | null
+    noAbsen?: number | null
     phone?: string | null
     gender?: string | null
     address?: string | null
@@ -43024,6 +47956,9 @@ export namespace Prisma {
     ekskulCoach?: ExtracurricularCreateNestedManyWithoutCoachInput
     ekskulAttendances?: ExtracurricularAttendanceCreateNestedManyWithoutStudentInput
     teacherMaterials?: MaterialCreateNestedManyWithoutTeacherInput
+    documents?: DocumentCreateNestedManyWithoutUserInput
+    discussionThreads?: DiscussionThreadCreateNestedManyWithoutAuthorInput
+    discussionReplies?: DiscussionReplyCreateNestedManyWithoutAuthorInput
   }
 
   export type UserUncheckedCreateWithoutEkskulMembersInput = {
@@ -43042,6 +47977,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     image?: string | null
     nis?: string | null
+    noAbsen?: number | null
     phone?: string | null
     gender?: string | null
     address?: string | null
@@ -43069,6 +48005,9 @@ export namespace Prisma {
     ekskulCoach?: ExtracurricularUncheckedCreateNestedManyWithoutCoachInput
     ekskulAttendances?: ExtracurricularAttendanceUncheckedCreateNestedManyWithoutStudentInput
     teacherMaterials?: MaterialUncheckedCreateNestedManyWithoutTeacherInput
+    documents?: DocumentUncheckedCreateNestedManyWithoutUserInput
+    discussionThreads?: DiscussionThreadUncheckedCreateNestedManyWithoutAuthorInput
+    discussionReplies?: DiscussionReplyUncheckedCreateNestedManyWithoutAuthorInput
   }
 
   export type UserCreateOrConnectWithoutEkskulMembersInput = {
@@ -43131,6 +48070,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     image?: NullableStringFieldUpdateOperationsInput | string | null
     nis?: NullableStringFieldUpdateOperationsInput | string | null
+    noAbsen?: NullableIntFieldUpdateOperationsInput | number | null
     phone?: NullableStringFieldUpdateOperationsInput | string | null
     gender?: NullableStringFieldUpdateOperationsInput | string | null
     address?: NullableStringFieldUpdateOperationsInput | string | null
@@ -43159,6 +48099,9 @@ export namespace Prisma {
     ekskulCoach?: ExtracurricularUpdateManyWithoutCoachNestedInput
     ekskulAttendances?: ExtracurricularAttendanceUpdateManyWithoutStudentNestedInput
     teacherMaterials?: MaterialUpdateManyWithoutTeacherNestedInput
+    documents?: DocumentUpdateManyWithoutUserNestedInput
+    discussionThreads?: DiscussionThreadUpdateManyWithoutAuthorNestedInput
+    discussionReplies?: DiscussionReplyUpdateManyWithoutAuthorNestedInput
   }
 
   export type UserUncheckedUpdateWithoutEkskulMembersInput = {
@@ -43177,6 +48120,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     image?: NullableStringFieldUpdateOperationsInput | string | null
     nis?: NullableStringFieldUpdateOperationsInput | string | null
+    noAbsen?: NullableIntFieldUpdateOperationsInput | number | null
     phone?: NullableStringFieldUpdateOperationsInput | string | null
     gender?: NullableStringFieldUpdateOperationsInput | string | null
     address?: NullableStringFieldUpdateOperationsInput | string | null
@@ -43204,6 +48148,9 @@ export namespace Prisma {
     ekskulCoach?: ExtracurricularUncheckedUpdateManyWithoutCoachNestedInput
     ekskulAttendances?: ExtracurricularAttendanceUncheckedUpdateManyWithoutStudentNestedInput
     teacherMaterials?: MaterialUncheckedUpdateManyWithoutTeacherNestedInput
+    documents?: DocumentUncheckedUpdateManyWithoutUserNestedInput
+    discussionThreads?: DiscussionThreadUncheckedUpdateManyWithoutAuthorNestedInput
+    discussionReplies?: DiscussionReplyUncheckedUpdateManyWithoutAuthorNestedInput
   }
 
   export type ExtracurricularUpsertWithoutMembersInput = {
@@ -43385,6 +48332,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     image?: string | null
     nis?: string | null
+    noAbsen?: number | null
     phone?: string | null
     gender?: string | null
     address?: string | null
@@ -43413,6 +48361,9 @@ export namespace Prisma {
     ekskulCoach?: ExtracurricularCreateNestedManyWithoutCoachInput
     ekskulMembers?: ExtracurricularMemberCreateNestedManyWithoutStudentInput
     teacherMaterials?: MaterialCreateNestedManyWithoutTeacherInput
+    documents?: DocumentCreateNestedManyWithoutUserInput
+    discussionThreads?: DiscussionThreadCreateNestedManyWithoutAuthorInput
+    discussionReplies?: DiscussionReplyCreateNestedManyWithoutAuthorInput
   }
 
   export type UserUncheckedCreateWithoutEkskulAttendancesInput = {
@@ -43431,6 +48382,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     image?: string | null
     nis?: string | null
+    noAbsen?: number | null
     phone?: string | null
     gender?: string | null
     address?: string | null
@@ -43458,6 +48410,9 @@ export namespace Prisma {
     ekskulCoach?: ExtracurricularUncheckedCreateNestedManyWithoutCoachInput
     ekskulMembers?: ExtracurricularMemberUncheckedCreateNestedManyWithoutStudentInput
     teacherMaterials?: MaterialUncheckedCreateNestedManyWithoutTeacherInput
+    documents?: DocumentUncheckedCreateNestedManyWithoutUserInput
+    discussionThreads?: DiscussionThreadUncheckedCreateNestedManyWithoutAuthorInput
+    discussionReplies?: DiscussionReplyUncheckedCreateNestedManyWithoutAuthorInput
   }
 
   export type UserCreateOrConnectWithoutEkskulAttendancesInput = {
@@ -43522,6 +48477,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     image?: NullableStringFieldUpdateOperationsInput | string | null
     nis?: NullableStringFieldUpdateOperationsInput | string | null
+    noAbsen?: NullableIntFieldUpdateOperationsInput | number | null
     phone?: NullableStringFieldUpdateOperationsInput | string | null
     gender?: NullableStringFieldUpdateOperationsInput | string | null
     address?: NullableStringFieldUpdateOperationsInput | string | null
@@ -43550,6 +48506,9 @@ export namespace Prisma {
     ekskulCoach?: ExtracurricularUpdateManyWithoutCoachNestedInput
     ekskulMembers?: ExtracurricularMemberUpdateManyWithoutStudentNestedInput
     teacherMaterials?: MaterialUpdateManyWithoutTeacherNestedInput
+    documents?: DocumentUpdateManyWithoutUserNestedInput
+    discussionThreads?: DiscussionThreadUpdateManyWithoutAuthorNestedInput
+    discussionReplies?: DiscussionReplyUpdateManyWithoutAuthorNestedInput
   }
 
   export type UserUncheckedUpdateWithoutEkskulAttendancesInput = {
@@ -43568,6 +48527,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     image?: NullableStringFieldUpdateOperationsInput | string | null
     nis?: NullableStringFieldUpdateOperationsInput | string | null
+    noAbsen?: NullableIntFieldUpdateOperationsInput | number | null
     phone?: NullableStringFieldUpdateOperationsInput | string | null
     gender?: NullableStringFieldUpdateOperationsInput | string | null
     address?: NullableStringFieldUpdateOperationsInput | string | null
@@ -43595,6 +48555,9 @@ export namespace Prisma {
     ekskulCoach?: ExtracurricularUncheckedUpdateManyWithoutCoachNestedInput
     ekskulMembers?: ExtracurricularMemberUncheckedUpdateManyWithoutStudentNestedInput
     teacherMaterials?: MaterialUncheckedUpdateManyWithoutTeacherNestedInput
+    documents?: DocumentUncheckedUpdateManyWithoutUserNestedInput
+    discussionThreads?: DiscussionThreadUncheckedUpdateManyWithoutAuthorNestedInput
+    discussionReplies?: DiscussionReplyUncheckedUpdateManyWithoutAuthorNestedInput
   }
 
   export type ClassCreateWithoutAssignmentsInput = {
@@ -43606,6 +48569,7 @@ export namespace Prisma {
     schedules?: ClassScheduleCreateNestedManyWithoutClassInput
     students?: UserCreateNestedManyWithoutClassInput
     materials?: MaterialCreateNestedManyWithoutClassInput
+    discussionThreads?: DiscussionThreadCreateNestedManyWithoutClassInput
   }
 
   export type ClassUncheckedCreateWithoutAssignmentsInput = {
@@ -43617,6 +48581,7 @@ export namespace Prisma {
     schedules?: ClassScheduleUncheckedCreateNestedManyWithoutClassInput
     students?: UserUncheckedCreateNestedManyWithoutClassInput
     materials?: MaterialUncheckedCreateNestedManyWithoutClassInput
+    discussionThreads?: DiscussionThreadUncheckedCreateNestedManyWithoutClassInput
   }
 
   export type ClassCreateOrConnectWithoutAssignmentsInput = {
@@ -43705,6 +48670,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     image?: string | null
     nis?: string | null
+    noAbsen?: number | null
     phone?: string | null
     gender?: string | null
     address?: string | null
@@ -43733,6 +48699,9 @@ export namespace Prisma {
     ekskulMembers?: ExtracurricularMemberCreateNestedManyWithoutStudentInput
     ekskulAttendances?: ExtracurricularAttendanceCreateNestedManyWithoutStudentInput
     teacherMaterials?: MaterialCreateNestedManyWithoutTeacherInput
+    documents?: DocumentCreateNestedManyWithoutUserInput
+    discussionThreads?: DiscussionThreadCreateNestedManyWithoutAuthorInput
+    discussionReplies?: DiscussionReplyCreateNestedManyWithoutAuthorInput
   }
 
   export type UserUncheckedCreateWithoutTeacherAssignmentsInput = {
@@ -43751,6 +48720,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     image?: string | null
     nis?: string | null
+    noAbsen?: number | null
     phone?: string | null
     gender?: string | null
     address?: string | null
@@ -43778,6 +48748,9 @@ export namespace Prisma {
     ekskulMembers?: ExtracurricularMemberUncheckedCreateNestedManyWithoutStudentInput
     ekskulAttendances?: ExtracurricularAttendanceUncheckedCreateNestedManyWithoutStudentInput
     teacherMaterials?: MaterialUncheckedCreateNestedManyWithoutTeacherInput
+    documents?: DocumentUncheckedCreateNestedManyWithoutUserInput
+    discussionThreads?: DiscussionThreadUncheckedCreateNestedManyWithoutAuthorInput
+    discussionReplies?: DiscussionReplyUncheckedCreateNestedManyWithoutAuthorInput
   }
 
   export type UserCreateOrConnectWithoutTeacherAssignmentsInput = {
@@ -43865,6 +48838,7 @@ export namespace Prisma {
     schedules?: ClassScheduleUpdateManyWithoutClassNestedInput
     students?: UserUpdateManyWithoutClassNestedInput
     materials?: MaterialUpdateManyWithoutClassNestedInput
+    discussionThreads?: DiscussionThreadUpdateManyWithoutClassNestedInput
   }
 
   export type ClassUncheckedUpdateWithoutAssignmentsInput = {
@@ -43876,6 +48850,7 @@ export namespace Prisma {
     schedules?: ClassScheduleUncheckedUpdateManyWithoutClassNestedInput
     students?: UserUncheckedUpdateManyWithoutClassNestedInput
     materials?: MaterialUncheckedUpdateManyWithoutClassNestedInput
+    discussionThreads?: DiscussionThreadUncheckedUpdateManyWithoutClassNestedInput
   }
 
   export type SubjectUpsertWithoutAssignmentsInput = {
@@ -43982,6 +48957,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     image?: NullableStringFieldUpdateOperationsInput | string | null
     nis?: NullableStringFieldUpdateOperationsInput | string | null
+    noAbsen?: NullableIntFieldUpdateOperationsInput | number | null
     phone?: NullableStringFieldUpdateOperationsInput | string | null
     gender?: NullableStringFieldUpdateOperationsInput | string | null
     address?: NullableStringFieldUpdateOperationsInput | string | null
@@ -44010,6 +48986,9 @@ export namespace Prisma {
     ekskulMembers?: ExtracurricularMemberUpdateManyWithoutStudentNestedInput
     ekskulAttendances?: ExtracurricularAttendanceUpdateManyWithoutStudentNestedInput
     teacherMaterials?: MaterialUpdateManyWithoutTeacherNestedInput
+    documents?: DocumentUpdateManyWithoutUserNestedInput
+    discussionThreads?: DiscussionThreadUpdateManyWithoutAuthorNestedInput
+    discussionReplies?: DiscussionReplyUpdateManyWithoutAuthorNestedInput
   }
 
   export type UserUncheckedUpdateWithoutTeacherAssignmentsInput = {
@@ -44028,6 +49007,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     image?: NullableStringFieldUpdateOperationsInput | string | null
     nis?: NullableStringFieldUpdateOperationsInput | string | null
+    noAbsen?: NullableIntFieldUpdateOperationsInput | number | null
     phone?: NullableStringFieldUpdateOperationsInput | string | null
     gender?: NullableStringFieldUpdateOperationsInput | string | null
     address?: NullableStringFieldUpdateOperationsInput | string | null
@@ -44055,6 +49035,9 @@ export namespace Prisma {
     ekskulMembers?: ExtracurricularMemberUncheckedUpdateManyWithoutStudentNestedInput
     ekskulAttendances?: ExtracurricularAttendanceUncheckedUpdateManyWithoutStudentNestedInput
     teacherMaterials?: MaterialUncheckedUpdateManyWithoutTeacherNestedInput
+    documents?: DocumentUncheckedUpdateManyWithoutUserNestedInput
+    discussionThreads?: DiscussionThreadUncheckedUpdateManyWithoutAuthorNestedInput
+    discussionReplies?: DiscussionReplyUncheckedUpdateManyWithoutAuthorNestedInput
   }
 
   export type AssignmentSubmissionUpsertWithWhereUniqueWithoutAssignmentInput = {
@@ -44145,6 +49128,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     image?: string | null
     nis?: string | null
+    noAbsen?: number | null
     phone?: string | null
     gender?: string | null
     address?: string | null
@@ -44173,6 +49157,9 @@ export namespace Prisma {
     ekskulMembers?: ExtracurricularMemberCreateNestedManyWithoutStudentInput
     ekskulAttendances?: ExtracurricularAttendanceCreateNestedManyWithoutStudentInput
     teacherMaterials?: MaterialCreateNestedManyWithoutTeacherInput
+    documents?: DocumentCreateNestedManyWithoutUserInput
+    discussionThreads?: DiscussionThreadCreateNestedManyWithoutAuthorInput
+    discussionReplies?: DiscussionReplyCreateNestedManyWithoutAuthorInput
   }
 
   export type UserUncheckedCreateWithoutStudentSubmissionsInput = {
@@ -44191,6 +49178,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     image?: string | null
     nis?: string | null
+    noAbsen?: number | null
     phone?: string | null
     gender?: string | null
     address?: string | null
@@ -44218,6 +49206,9 @@ export namespace Prisma {
     ekskulMembers?: ExtracurricularMemberUncheckedCreateNestedManyWithoutStudentInput
     ekskulAttendances?: ExtracurricularAttendanceUncheckedCreateNestedManyWithoutStudentInput
     teacherMaterials?: MaterialUncheckedCreateNestedManyWithoutTeacherInput
+    documents?: DocumentUncheckedCreateNestedManyWithoutUserInput
+    discussionThreads?: DiscussionThreadUncheckedCreateNestedManyWithoutAuthorInput
+    discussionReplies?: DiscussionReplyUncheckedCreateNestedManyWithoutAuthorInput
   }
 
   export type UserCreateOrConnectWithoutStudentSubmissionsInput = {
@@ -44324,6 +49315,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     image?: NullableStringFieldUpdateOperationsInput | string | null
     nis?: NullableStringFieldUpdateOperationsInput | string | null
+    noAbsen?: NullableIntFieldUpdateOperationsInput | number | null
     phone?: NullableStringFieldUpdateOperationsInput | string | null
     gender?: NullableStringFieldUpdateOperationsInput | string | null
     address?: NullableStringFieldUpdateOperationsInput | string | null
@@ -44352,6 +49344,9 @@ export namespace Prisma {
     ekskulMembers?: ExtracurricularMemberUpdateManyWithoutStudentNestedInput
     ekskulAttendances?: ExtracurricularAttendanceUpdateManyWithoutStudentNestedInput
     teacherMaterials?: MaterialUpdateManyWithoutTeacherNestedInput
+    documents?: DocumentUpdateManyWithoutUserNestedInput
+    discussionThreads?: DiscussionThreadUpdateManyWithoutAuthorNestedInput
+    discussionReplies?: DiscussionReplyUpdateManyWithoutAuthorNestedInput
   }
 
   export type UserUncheckedUpdateWithoutStudentSubmissionsInput = {
@@ -44370,6 +49365,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     image?: NullableStringFieldUpdateOperationsInput | string | null
     nis?: NullableStringFieldUpdateOperationsInput | string | null
+    noAbsen?: NullableIntFieldUpdateOperationsInput | number | null
     phone?: NullableStringFieldUpdateOperationsInput | string | null
     gender?: NullableStringFieldUpdateOperationsInput | string | null
     address?: NullableStringFieldUpdateOperationsInput | string | null
@@ -44397,6 +49393,9 @@ export namespace Prisma {
     ekskulMembers?: ExtracurricularMemberUncheckedUpdateManyWithoutStudentNestedInput
     ekskulAttendances?: ExtracurricularAttendanceUncheckedUpdateManyWithoutStudentNestedInput
     teacherMaterials?: MaterialUncheckedUpdateManyWithoutTeacherNestedInput
+    documents?: DocumentUncheckedUpdateManyWithoutUserNestedInput
+    discussionThreads?: DiscussionThreadUncheckedUpdateManyWithoutAuthorNestedInput
+    discussionReplies?: DiscussionReplyUncheckedUpdateManyWithoutAuthorNestedInput
   }
 
   export type CommentUpsertWithWhereUniqueWithoutSubmissionInput = {
@@ -44430,6 +49429,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     image?: string | null
     nis?: string | null
+    noAbsen?: number | null
     phone?: string | null
     gender?: string | null
     address?: string | null
@@ -44458,6 +49458,9 @@ export namespace Prisma {
     ekskulMembers?: ExtracurricularMemberCreateNestedManyWithoutStudentInput
     ekskulAttendances?: ExtracurricularAttendanceCreateNestedManyWithoutStudentInput
     teacherMaterials?: MaterialCreateNestedManyWithoutTeacherInput
+    documents?: DocumentCreateNestedManyWithoutUserInput
+    discussionThreads?: DiscussionThreadCreateNestedManyWithoutAuthorInput
+    discussionReplies?: DiscussionReplyCreateNestedManyWithoutAuthorInput
   }
 
   export type UserUncheckedCreateWithoutCommentsInput = {
@@ -44476,6 +49479,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     image?: string | null
     nis?: string | null
+    noAbsen?: number | null
     phone?: string | null
     gender?: string | null
     address?: string | null
@@ -44503,6 +49507,9 @@ export namespace Prisma {
     ekskulMembers?: ExtracurricularMemberUncheckedCreateNestedManyWithoutStudentInput
     ekskulAttendances?: ExtracurricularAttendanceUncheckedCreateNestedManyWithoutStudentInput
     teacherMaterials?: MaterialUncheckedCreateNestedManyWithoutTeacherInput
+    documents?: DocumentUncheckedCreateNestedManyWithoutUserInput
+    discussionThreads?: DiscussionThreadUncheckedCreateNestedManyWithoutAuthorInput
+    discussionReplies?: DiscussionReplyUncheckedCreateNestedManyWithoutAuthorInput
   }
 
   export type UserCreateOrConnectWithoutCommentsInput = {
@@ -44606,6 +49613,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     image?: NullableStringFieldUpdateOperationsInput | string | null
     nis?: NullableStringFieldUpdateOperationsInput | string | null
+    noAbsen?: NullableIntFieldUpdateOperationsInput | number | null
     phone?: NullableStringFieldUpdateOperationsInput | string | null
     gender?: NullableStringFieldUpdateOperationsInput | string | null
     address?: NullableStringFieldUpdateOperationsInput | string | null
@@ -44634,6 +49642,9 @@ export namespace Prisma {
     ekskulMembers?: ExtracurricularMemberUpdateManyWithoutStudentNestedInput
     ekskulAttendances?: ExtracurricularAttendanceUpdateManyWithoutStudentNestedInput
     teacherMaterials?: MaterialUpdateManyWithoutTeacherNestedInput
+    documents?: DocumentUpdateManyWithoutUserNestedInput
+    discussionThreads?: DiscussionThreadUpdateManyWithoutAuthorNestedInput
+    discussionReplies?: DiscussionReplyUpdateManyWithoutAuthorNestedInput
   }
 
   export type UserUncheckedUpdateWithoutCommentsInput = {
@@ -44652,6 +49663,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     image?: NullableStringFieldUpdateOperationsInput | string | null
     nis?: NullableStringFieldUpdateOperationsInput | string | null
+    noAbsen?: NullableIntFieldUpdateOperationsInput | number | null
     phone?: NullableStringFieldUpdateOperationsInput | string | null
     gender?: NullableStringFieldUpdateOperationsInput | string | null
     address?: NullableStringFieldUpdateOperationsInput | string | null
@@ -44679,6 +49691,9 @@ export namespace Prisma {
     ekskulMembers?: ExtracurricularMemberUncheckedUpdateManyWithoutStudentNestedInput
     ekskulAttendances?: ExtracurricularAttendanceUncheckedUpdateManyWithoutStudentNestedInput
     teacherMaterials?: MaterialUncheckedUpdateManyWithoutTeacherNestedInput
+    documents?: DocumentUncheckedUpdateManyWithoutUserNestedInput
+    discussionThreads?: DiscussionThreadUncheckedUpdateManyWithoutAuthorNestedInput
+    discussionReplies?: DiscussionReplyUncheckedUpdateManyWithoutAuthorNestedInput
   }
 
   export type AssignmentUpsertWithoutCommentsInput = {
@@ -44778,6 +49793,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     image?: string | null
     nis?: string | null
+    noAbsen?: number | null
     phone?: string | null
     gender?: string | null
     address?: string | null
@@ -44806,6 +49822,9 @@ export namespace Prisma {
     ekskulMembers?: ExtracurricularMemberCreateNestedManyWithoutStudentInput
     ekskulAttendances?: ExtracurricularAttendanceCreateNestedManyWithoutStudentInput
     teacherMaterials?: MaterialCreateNestedManyWithoutTeacherInput
+    documents?: DocumentCreateNestedManyWithoutUserInput
+    discussionThreads?: DiscussionThreadCreateNestedManyWithoutAuthorInput
+    discussionReplies?: DiscussionReplyCreateNestedManyWithoutAuthorInput
   }
 
   export type UserUncheckedCreateWithoutNotificationsInput = {
@@ -44824,6 +49843,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     image?: string | null
     nis?: string | null
+    noAbsen?: number | null
     phone?: string | null
     gender?: string | null
     address?: string | null
@@ -44851,6 +49871,9 @@ export namespace Prisma {
     ekskulMembers?: ExtracurricularMemberUncheckedCreateNestedManyWithoutStudentInput
     ekskulAttendances?: ExtracurricularAttendanceUncheckedCreateNestedManyWithoutStudentInput
     teacherMaterials?: MaterialUncheckedCreateNestedManyWithoutTeacherInput
+    documents?: DocumentUncheckedCreateNestedManyWithoutUserInput
+    discussionThreads?: DiscussionThreadUncheckedCreateNestedManyWithoutAuthorInput
+    discussionReplies?: DiscussionReplyUncheckedCreateNestedManyWithoutAuthorInput
   }
 
   export type UserCreateOrConnectWithoutNotificationsInput = {
@@ -44905,6 +49928,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     image?: NullableStringFieldUpdateOperationsInput | string | null
     nis?: NullableStringFieldUpdateOperationsInput | string | null
+    noAbsen?: NullableIntFieldUpdateOperationsInput | number | null
     phone?: NullableStringFieldUpdateOperationsInput | string | null
     gender?: NullableStringFieldUpdateOperationsInput | string | null
     address?: NullableStringFieldUpdateOperationsInput | string | null
@@ -44933,6 +49957,9 @@ export namespace Prisma {
     ekskulMembers?: ExtracurricularMemberUpdateManyWithoutStudentNestedInput
     ekskulAttendances?: ExtracurricularAttendanceUpdateManyWithoutStudentNestedInput
     teacherMaterials?: MaterialUpdateManyWithoutTeacherNestedInput
+    documents?: DocumentUpdateManyWithoutUserNestedInput
+    discussionThreads?: DiscussionThreadUpdateManyWithoutAuthorNestedInput
+    discussionReplies?: DiscussionReplyUpdateManyWithoutAuthorNestedInput
   }
 
   export type UserUncheckedUpdateWithoutNotificationsInput = {
@@ -44951,6 +49978,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     image?: NullableStringFieldUpdateOperationsInput | string | null
     nis?: NullableStringFieldUpdateOperationsInput | string | null
+    noAbsen?: NullableIntFieldUpdateOperationsInput | number | null
     phone?: NullableStringFieldUpdateOperationsInput | string | null
     gender?: NullableStringFieldUpdateOperationsInput | string | null
     address?: NullableStringFieldUpdateOperationsInput | string | null
@@ -44978,6 +50006,9 @@ export namespace Prisma {
     ekskulMembers?: ExtracurricularMemberUncheckedUpdateManyWithoutStudentNestedInput
     ekskulAttendances?: ExtracurricularAttendanceUncheckedUpdateManyWithoutStudentNestedInput
     teacherMaterials?: MaterialUncheckedUpdateManyWithoutTeacherNestedInput
+    documents?: DocumentUncheckedUpdateManyWithoutUserNestedInput
+    discussionThreads?: DiscussionThreadUncheckedUpdateManyWithoutAuthorNestedInput
+    discussionReplies?: DiscussionReplyUncheckedUpdateManyWithoutAuthorNestedInput
   }
 
   export type AnnouncementUpsertWithoutNotificationsInput = {
@@ -45068,6 +50099,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     image?: string | null
     nis?: string | null
+    noAbsen?: number | null
     phone?: string | null
     gender?: string | null
     address?: string | null
@@ -45096,6 +50128,9 @@ export namespace Prisma {
     ekskulMembers?: ExtracurricularMemberCreateNestedManyWithoutStudentInput
     ekskulAttendances?: ExtracurricularAttendanceCreateNestedManyWithoutStudentInput
     teacherMaterials?: MaterialCreateNestedManyWithoutTeacherInput
+    documents?: DocumentCreateNestedManyWithoutUserInput
+    discussionThreads?: DiscussionThreadCreateNestedManyWithoutAuthorInput
+    discussionReplies?: DiscussionReplyCreateNestedManyWithoutAuthorInput
   }
 
   export type UserUncheckedCreateWithoutOperatorInput = {
@@ -45114,6 +50149,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     image?: string | null
     nis?: string | null
+    noAbsen?: number | null
     phone?: string | null
     gender?: string | null
     address?: string | null
@@ -45141,6 +50177,9 @@ export namespace Prisma {
     ekskulMembers?: ExtracurricularMemberUncheckedCreateNestedManyWithoutStudentInput
     ekskulAttendances?: ExtracurricularAttendanceUncheckedCreateNestedManyWithoutStudentInput
     teacherMaterials?: MaterialUncheckedCreateNestedManyWithoutTeacherInput
+    documents?: DocumentUncheckedCreateNestedManyWithoutUserInput
+    discussionThreads?: DiscussionThreadUncheckedCreateNestedManyWithoutAuthorInput
+    discussionReplies?: DiscussionReplyUncheckedCreateNestedManyWithoutAuthorInput
   }
 
   export type UserCreateOrConnectWithoutOperatorInput = {
@@ -45174,6 +50213,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     image?: NullableStringFieldUpdateOperationsInput | string | null
     nis?: NullableStringFieldUpdateOperationsInput | string | null
+    noAbsen?: NullableIntFieldUpdateOperationsInput | number | null
     phone?: NullableStringFieldUpdateOperationsInput | string | null
     gender?: NullableStringFieldUpdateOperationsInput | string | null
     address?: NullableStringFieldUpdateOperationsInput | string | null
@@ -45202,6 +50242,9 @@ export namespace Prisma {
     ekskulMembers?: ExtracurricularMemberUpdateManyWithoutStudentNestedInput
     ekskulAttendances?: ExtracurricularAttendanceUpdateManyWithoutStudentNestedInput
     teacherMaterials?: MaterialUpdateManyWithoutTeacherNestedInput
+    documents?: DocumentUpdateManyWithoutUserNestedInput
+    discussionThreads?: DiscussionThreadUpdateManyWithoutAuthorNestedInput
+    discussionReplies?: DiscussionReplyUpdateManyWithoutAuthorNestedInput
   }
 
   export type UserUncheckedUpdateWithoutOperatorInput = {
@@ -45220,6 +50263,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     image?: NullableStringFieldUpdateOperationsInput | string | null
     nis?: NullableStringFieldUpdateOperationsInput | string | null
+    noAbsen?: NullableIntFieldUpdateOperationsInput | number | null
     phone?: NullableStringFieldUpdateOperationsInput | string | null
     gender?: NullableStringFieldUpdateOperationsInput | string | null
     address?: NullableStringFieldUpdateOperationsInput | string | null
@@ -45247,6 +50291,9 @@ export namespace Prisma {
     ekskulMembers?: ExtracurricularMemberUncheckedUpdateManyWithoutStudentNestedInput
     ekskulAttendances?: ExtracurricularAttendanceUncheckedUpdateManyWithoutStudentNestedInput
     teacherMaterials?: MaterialUncheckedUpdateManyWithoutTeacherNestedInput
+    documents?: DocumentUncheckedUpdateManyWithoutUserNestedInput
+    discussionThreads?: DiscussionThreadUncheckedUpdateManyWithoutAuthorNestedInput
+    discussionReplies?: DiscussionReplyUncheckedUpdateManyWithoutAuthorNestedInput
   }
 
   export type UserCreateWithoutAccountsInput = {
@@ -45264,6 +50311,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     image?: string | null
     nis?: string | null
+    noAbsen?: number | null
     phone?: string | null
     gender?: string | null
     address?: string | null
@@ -45292,6 +50340,9 @@ export namespace Prisma {
     ekskulMembers?: ExtracurricularMemberCreateNestedManyWithoutStudentInput
     ekskulAttendances?: ExtracurricularAttendanceCreateNestedManyWithoutStudentInput
     teacherMaterials?: MaterialCreateNestedManyWithoutTeacherInput
+    documents?: DocumentCreateNestedManyWithoutUserInput
+    discussionThreads?: DiscussionThreadCreateNestedManyWithoutAuthorInput
+    discussionReplies?: DiscussionReplyCreateNestedManyWithoutAuthorInput
   }
 
   export type UserUncheckedCreateWithoutAccountsInput = {
@@ -45310,6 +50361,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     image?: string | null
     nis?: string | null
+    noAbsen?: number | null
     phone?: string | null
     gender?: string | null
     address?: string | null
@@ -45337,6 +50389,9 @@ export namespace Prisma {
     ekskulMembers?: ExtracurricularMemberUncheckedCreateNestedManyWithoutStudentInput
     ekskulAttendances?: ExtracurricularAttendanceUncheckedCreateNestedManyWithoutStudentInput
     teacherMaterials?: MaterialUncheckedCreateNestedManyWithoutTeacherInput
+    documents?: DocumentUncheckedCreateNestedManyWithoutUserInput
+    discussionThreads?: DiscussionThreadUncheckedCreateNestedManyWithoutAuthorInput
+    discussionReplies?: DiscussionReplyUncheckedCreateNestedManyWithoutAuthorInput
   }
 
   export type UserCreateOrConnectWithoutAccountsInput = {
@@ -45370,6 +50425,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     image?: NullableStringFieldUpdateOperationsInput | string | null
     nis?: NullableStringFieldUpdateOperationsInput | string | null
+    noAbsen?: NullableIntFieldUpdateOperationsInput | number | null
     phone?: NullableStringFieldUpdateOperationsInput | string | null
     gender?: NullableStringFieldUpdateOperationsInput | string | null
     address?: NullableStringFieldUpdateOperationsInput | string | null
@@ -45398,6 +50454,9 @@ export namespace Prisma {
     ekskulMembers?: ExtracurricularMemberUpdateManyWithoutStudentNestedInput
     ekskulAttendances?: ExtracurricularAttendanceUpdateManyWithoutStudentNestedInput
     teacherMaterials?: MaterialUpdateManyWithoutTeacherNestedInput
+    documents?: DocumentUpdateManyWithoutUserNestedInput
+    discussionThreads?: DiscussionThreadUpdateManyWithoutAuthorNestedInput
+    discussionReplies?: DiscussionReplyUpdateManyWithoutAuthorNestedInput
   }
 
   export type UserUncheckedUpdateWithoutAccountsInput = {
@@ -45416,6 +50475,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     image?: NullableStringFieldUpdateOperationsInput | string | null
     nis?: NullableStringFieldUpdateOperationsInput | string | null
+    noAbsen?: NullableIntFieldUpdateOperationsInput | number | null
     phone?: NullableStringFieldUpdateOperationsInput | string | null
     gender?: NullableStringFieldUpdateOperationsInput | string | null
     address?: NullableStringFieldUpdateOperationsInput | string | null
@@ -45443,6 +50503,9 @@ export namespace Prisma {
     ekskulMembers?: ExtracurricularMemberUncheckedUpdateManyWithoutStudentNestedInput
     ekskulAttendances?: ExtracurricularAttendanceUncheckedUpdateManyWithoutStudentNestedInput
     teacherMaterials?: MaterialUncheckedUpdateManyWithoutTeacherNestedInput
+    documents?: DocumentUncheckedUpdateManyWithoutUserNestedInput
+    discussionThreads?: DiscussionThreadUncheckedUpdateManyWithoutAuthorNestedInput
+    discussionReplies?: DiscussionReplyUncheckedUpdateManyWithoutAuthorNestedInput
   }
 
   export type UserCreateWithoutSessionsInput = {
@@ -45460,6 +50523,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     image?: string | null
     nis?: string | null
+    noAbsen?: number | null
     phone?: string | null
     gender?: string | null
     address?: string | null
@@ -45488,6 +50552,9 @@ export namespace Prisma {
     ekskulMembers?: ExtracurricularMemberCreateNestedManyWithoutStudentInput
     ekskulAttendances?: ExtracurricularAttendanceCreateNestedManyWithoutStudentInput
     teacherMaterials?: MaterialCreateNestedManyWithoutTeacherInput
+    documents?: DocumentCreateNestedManyWithoutUserInput
+    discussionThreads?: DiscussionThreadCreateNestedManyWithoutAuthorInput
+    discussionReplies?: DiscussionReplyCreateNestedManyWithoutAuthorInput
   }
 
   export type UserUncheckedCreateWithoutSessionsInput = {
@@ -45506,6 +50573,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     image?: string | null
     nis?: string | null
+    noAbsen?: number | null
     phone?: string | null
     gender?: string | null
     address?: string | null
@@ -45533,6 +50601,9 @@ export namespace Prisma {
     ekskulMembers?: ExtracurricularMemberUncheckedCreateNestedManyWithoutStudentInput
     ekskulAttendances?: ExtracurricularAttendanceUncheckedCreateNestedManyWithoutStudentInput
     teacherMaterials?: MaterialUncheckedCreateNestedManyWithoutTeacherInput
+    documents?: DocumentUncheckedCreateNestedManyWithoutUserInput
+    discussionThreads?: DiscussionThreadUncheckedCreateNestedManyWithoutAuthorInput
+    discussionReplies?: DiscussionReplyUncheckedCreateNestedManyWithoutAuthorInput
   }
 
   export type UserCreateOrConnectWithoutSessionsInput = {
@@ -45566,6 +50637,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     image?: NullableStringFieldUpdateOperationsInput | string | null
     nis?: NullableStringFieldUpdateOperationsInput | string | null
+    noAbsen?: NullableIntFieldUpdateOperationsInput | number | null
     phone?: NullableStringFieldUpdateOperationsInput | string | null
     gender?: NullableStringFieldUpdateOperationsInput | string | null
     address?: NullableStringFieldUpdateOperationsInput | string | null
@@ -45594,6 +50666,9 @@ export namespace Prisma {
     ekskulMembers?: ExtracurricularMemberUpdateManyWithoutStudentNestedInput
     ekskulAttendances?: ExtracurricularAttendanceUpdateManyWithoutStudentNestedInput
     teacherMaterials?: MaterialUpdateManyWithoutTeacherNestedInput
+    documents?: DocumentUpdateManyWithoutUserNestedInput
+    discussionThreads?: DiscussionThreadUpdateManyWithoutAuthorNestedInput
+    discussionReplies?: DiscussionReplyUpdateManyWithoutAuthorNestedInput
   }
 
   export type UserUncheckedUpdateWithoutSessionsInput = {
@@ -45612,6 +50687,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     image?: NullableStringFieldUpdateOperationsInput | string | null
     nis?: NullableStringFieldUpdateOperationsInput | string | null
+    noAbsen?: NullableIntFieldUpdateOperationsInput | number | null
     phone?: NullableStringFieldUpdateOperationsInput | string | null
     gender?: NullableStringFieldUpdateOperationsInput | string | null
     address?: NullableStringFieldUpdateOperationsInput | string | null
@@ -45639,6 +50715,9 @@ export namespace Prisma {
     ekskulMembers?: ExtracurricularMemberUncheckedUpdateManyWithoutStudentNestedInput
     ekskulAttendances?: ExtracurricularAttendanceUncheckedUpdateManyWithoutStudentNestedInput
     teacherMaterials?: MaterialUncheckedUpdateManyWithoutTeacherNestedInput
+    documents?: DocumentUncheckedUpdateManyWithoutUserNestedInput
+    discussionThreads?: DiscussionThreadUncheckedUpdateManyWithoutAuthorNestedInput
+    discussionReplies?: DiscussionReplyUncheckedUpdateManyWithoutAuthorNestedInput
   }
 
   export type UserCreateWithoutCalendarRemindersInput = {
@@ -45656,6 +50735,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     image?: string | null
     nis?: string | null
+    noAbsen?: number | null
     phone?: string | null
     gender?: string | null
     address?: string | null
@@ -45684,6 +50764,9 @@ export namespace Prisma {
     ekskulMembers?: ExtracurricularMemberCreateNestedManyWithoutStudentInput
     ekskulAttendances?: ExtracurricularAttendanceCreateNestedManyWithoutStudentInput
     teacherMaterials?: MaterialCreateNestedManyWithoutTeacherInput
+    documents?: DocumentCreateNestedManyWithoutUserInput
+    discussionThreads?: DiscussionThreadCreateNestedManyWithoutAuthorInput
+    discussionReplies?: DiscussionReplyCreateNestedManyWithoutAuthorInput
   }
 
   export type UserUncheckedCreateWithoutCalendarRemindersInput = {
@@ -45702,6 +50785,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     image?: string | null
     nis?: string | null
+    noAbsen?: number | null
     phone?: string | null
     gender?: string | null
     address?: string | null
@@ -45729,6 +50813,9 @@ export namespace Prisma {
     ekskulMembers?: ExtracurricularMemberUncheckedCreateNestedManyWithoutStudentInput
     ekskulAttendances?: ExtracurricularAttendanceUncheckedCreateNestedManyWithoutStudentInput
     teacherMaterials?: MaterialUncheckedCreateNestedManyWithoutTeacherInput
+    documents?: DocumentUncheckedCreateNestedManyWithoutUserInput
+    discussionThreads?: DiscussionThreadUncheckedCreateNestedManyWithoutAuthorInput
+    discussionReplies?: DiscussionReplyUncheckedCreateNestedManyWithoutAuthorInput
   }
 
   export type UserCreateOrConnectWithoutCalendarRemindersInput = {
@@ -45762,6 +50849,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     image?: NullableStringFieldUpdateOperationsInput | string | null
     nis?: NullableStringFieldUpdateOperationsInput | string | null
+    noAbsen?: NullableIntFieldUpdateOperationsInput | number | null
     phone?: NullableStringFieldUpdateOperationsInput | string | null
     gender?: NullableStringFieldUpdateOperationsInput | string | null
     address?: NullableStringFieldUpdateOperationsInput | string | null
@@ -45790,6 +50878,9 @@ export namespace Prisma {
     ekskulMembers?: ExtracurricularMemberUpdateManyWithoutStudentNestedInput
     ekskulAttendances?: ExtracurricularAttendanceUpdateManyWithoutStudentNestedInput
     teacherMaterials?: MaterialUpdateManyWithoutTeacherNestedInput
+    documents?: DocumentUpdateManyWithoutUserNestedInput
+    discussionThreads?: DiscussionThreadUpdateManyWithoutAuthorNestedInput
+    discussionReplies?: DiscussionReplyUpdateManyWithoutAuthorNestedInput
   }
 
   export type UserUncheckedUpdateWithoutCalendarRemindersInput = {
@@ -45808,6 +50899,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     image?: NullableStringFieldUpdateOperationsInput | string | null
     nis?: NullableStringFieldUpdateOperationsInput | string | null
+    noAbsen?: NullableIntFieldUpdateOperationsInput | number | null
     phone?: NullableStringFieldUpdateOperationsInput | string | null
     gender?: NullableStringFieldUpdateOperationsInput | string | null
     address?: NullableStringFieldUpdateOperationsInput | string | null
@@ -45835,6 +50927,921 @@ export namespace Prisma {
     ekskulMembers?: ExtracurricularMemberUncheckedUpdateManyWithoutStudentNestedInput
     ekskulAttendances?: ExtracurricularAttendanceUncheckedUpdateManyWithoutStudentNestedInput
     teacherMaterials?: MaterialUncheckedUpdateManyWithoutTeacherNestedInput
+    documents?: DocumentUncheckedUpdateManyWithoutUserNestedInput
+    discussionThreads?: DiscussionThreadUncheckedUpdateManyWithoutAuthorNestedInput
+    discussionReplies?: DiscussionReplyUncheckedUpdateManyWithoutAuthorNestedInput
+  }
+
+  export type UserCreateWithoutDocumentsInput = {
+    id?: string
+    name: string
+    email: string
+    password?: string | null
+    role?: $Enums.Role
+    school?: string | null
+    isActive?: boolean
+    lastActiveAt?: Date | string | null
+    reminderTime?: string | null
+    notificationPrefs?: JsonNullValueInput | InputJsonValue
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    image?: string | null
+    nis?: string | null
+    noAbsen?: number | null
+    phone?: string | null
+    gender?: string | null
+    address?: string | null
+    emailVerified?: Date | string | null
+    position?: string | null
+    affiliations?: UserCreateaffiliationsInput | string[]
+    canEditMaterials?: boolean
+    canEditAssignments?: boolean
+    accounts?: AccountCreateNestedManyWithoutUserInput
+    sessions?: SessionCreateNestedManyWithoutUserInput
+    teacherAssignments?: AssignmentCreateNestedManyWithoutTeacherInput
+    studentSubmissions?: AssignmentSubmissionCreateNestedManyWithoutStudentInput
+    teacherSchedules?: ClassScheduleCreateNestedManyWithoutTeacherInput
+    notifications?: NotificationCreateNestedManyWithoutUserInput
+    operator?: OperatorCreateNestedOneWithoutUserInput
+    progressLogs?: ProgressLogCreateNestedManyWithoutUserInput
+    teacherSubjects?: SubjectCreateNestedManyWithoutTeacherInput
+    class?: ClassCreateNestedOneWithoutStudentsInput
+    userNotes?: UserNoteCreateNestedManyWithoutUserInput
+    authoredNotes?: UserNoteCreateNestedManyWithoutAuthorInput
+    attendances?: AttendanceCreateNestedManyWithoutUserInput
+    userSubjects?: UserSubjectCreateNestedManyWithoutUserInput
+    comments?: CommentCreateNestedManyWithoutAuthorInput
+    calendarReminders?: CalendarReminderCreateNestedManyWithoutUserInput
+    ekskulLeader?: ExtracurricularCreateNestedManyWithoutLeaderInput
+    ekskulCoach?: ExtracurricularCreateNestedManyWithoutCoachInput
+    ekskulMembers?: ExtracurricularMemberCreateNestedManyWithoutStudentInput
+    ekskulAttendances?: ExtracurricularAttendanceCreateNestedManyWithoutStudentInput
+    teacherMaterials?: MaterialCreateNestedManyWithoutTeacherInput
+    discussionThreads?: DiscussionThreadCreateNestedManyWithoutAuthorInput
+    discussionReplies?: DiscussionReplyCreateNestedManyWithoutAuthorInput
+  }
+
+  export type UserUncheckedCreateWithoutDocumentsInput = {
+    id?: string
+    name: string
+    email: string
+    password?: string | null
+    role?: $Enums.Role
+    school?: string | null
+    isActive?: boolean
+    lastActiveAt?: Date | string | null
+    reminderTime?: string | null
+    notificationPrefs?: JsonNullValueInput | InputJsonValue
+    classId?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    image?: string | null
+    nis?: string | null
+    noAbsen?: number | null
+    phone?: string | null
+    gender?: string | null
+    address?: string | null
+    emailVerified?: Date | string | null
+    position?: string | null
+    affiliations?: UserCreateaffiliationsInput | string[]
+    canEditMaterials?: boolean
+    canEditAssignments?: boolean
+    accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
+    sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
+    teacherAssignments?: AssignmentUncheckedCreateNestedManyWithoutTeacherInput
+    studentSubmissions?: AssignmentSubmissionUncheckedCreateNestedManyWithoutStudentInput
+    teacherSchedules?: ClassScheduleUncheckedCreateNestedManyWithoutTeacherInput
+    notifications?: NotificationUncheckedCreateNestedManyWithoutUserInput
+    operator?: OperatorUncheckedCreateNestedOneWithoutUserInput
+    progressLogs?: ProgressLogUncheckedCreateNestedManyWithoutUserInput
+    teacherSubjects?: SubjectUncheckedCreateNestedManyWithoutTeacherInput
+    userNotes?: UserNoteUncheckedCreateNestedManyWithoutUserInput
+    authoredNotes?: UserNoteUncheckedCreateNestedManyWithoutAuthorInput
+    attendances?: AttendanceUncheckedCreateNestedManyWithoutUserInput
+    userSubjects?: UserSubjectUncheckedCreateNestedManyWithoutUserInput
+    comments?: CommentUncheckedCreateNestedManyWithoutAuthorInput
+    calendarReminders?: CalendarReminderUncheckedCreateNestedManyWithoutUserInput
+    ekskulLeader?: ExtracurricularUncheckedCreateNestedManyWithoutLeaderInput
+    ekskulCoach?: ExtracurricularUncheckedCreateNestedManyWithoutCoachInput
+    ekskulMembers?: ExtracurricularMemberUncheckedCreateNestedManyWithoutStudentInput
+    ekskulAttendances?: ExtracurricularAttendanceUncheckedCreateNestedManyWithoutStudentInput
+    teacherMaterials?: MaterialUncheckedCreateNestedManyWithoutTeacherInput
+    discussionThreads?: DiscussionThreadUncheckedCreateNestedManyWithoutAuthorInput
+    discussionReplies?: DiscussionReplyUncheckedCreateNestedManyWithoutAuthorInput
+  }
+
+  export type UserCreateOrConnectWithoutDocumentsInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutDocumentsInput, UserUncheckedCreateWithoutDocumentsInput>
+  }
+
+  export type DocumentCreateWithoutSubDocsInput = {
+    id?: string
+    title?: string
+    content?: string | null
+    date?: Date | string | null
+    position?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    user: UserCreateNestedOneWithoutDocumentsInput
+    parent?: DocumentCreateNestedOneWithoutSubDocsInput
+  }
+
+  export type DocumentUncheckedCreateWithoutSubDocsInput = {
+    id?: string
+    title?: string
+    content?: string | null
+    userId: string
+    parentId?: string | null
+    date?: Date | string | null
+    position?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type DocumentCreateOrConnectWithoutSubDocsInput = {
+    where: DocumentWhereUniqueInput
+    create: XOR<DocumentCreateWithoutSubDocsInput, DocumentUncheckedCreateWithoutSubDocsInput>
+  }
+
+  export type DocumentCreateWithoutParentInput = {
+    id?: string
+    title?: string
+    content?: string | null
+    date?: Date | string | null
+    position?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    user: UserCreateNestedOneWithoutDocumentsInput
+    subDocs?: DocumentCreateNestedManyWithoutParentInput
+  }
+
+  export type DocumentUncheckedCreateWithoutParentInput = {
+    id?: string
+    title?: string
+    content?: string | null
+    userId: string
+    date?: Date | string | null
+    position?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    subDocs?: DocumentUncheckedCreateNestedManyWithoutParentInput
+  }
+
+  export type DocumentCreateOrConnectWithoutParentInput = {
+    where: DocumentWhereUniqueInput
+    create: XOR<DocumentCreateWithoutParentInput, DocumentUncheckedCreateWithoutParentInput>
+  }
+
+  export type DocumentCreateManyParentInputEnvelope = {
+    data: DocumentCreateManyParentInput | DocumentCreateManyParentInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type UserUpsertWithoutDocumentsInput = {
+    update: XOR<UserUpdateWithoutDocumentsInput, UserUncheckedUpdateWithoutDocumentsInput>
+    create: XOR<UserCreateWithoutDocumentsInput, UserUncheckedCreateWithoutDocumentsInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutDocumentsInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutDocumentsInput, UserUncheckedUpdateWithoutDocumentsInput>
+  }
+
+  export type UserUpdateWithoutDocumentsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    password?: NullableStringFieldUpdateOperationsInput | string | null
+    role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
+    school?: NullableStringFieldUpdateOperationsInput | string | null
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    lastActiveAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    reminderTime?: NullableStringFieldUpdateOperationsInput | string | null
+    notificationPrefs?: JsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    nis?: NullableStringFieldUpdateOperationsInput | string | null
+    noAbsen?: NullableIntFieldUpdateOperationsInput | number | null
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    gender?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: NullableStringFieldUpdateOperationsInput | string | null
+    emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    position?: NullableStringFieldUpdateOperationsInput | string | null
+    affiliations?: UserUpdateaffiliationsInput | string[]
+    canEditMaterials?: BoolFieldUpdateOperationsInput | boolean
+    canEditAssignments?: BoolFieldUpdateOperationsInput | boolean
+    accounts?: AccountUpdateManyWithoutUserNestedInput
+    sessions?: SessionUpdateManyWithoutUserNestedInput
+    teacherAssignments?: AssignmentUpdateManyWithoutTeacherNestedInput
+    studentSubmissions?: AssignmentSubmissionUpdateManyWithoutStudentNestedInput
+    teacherSchedules?: ClassScheduleUpdateManyWithoutTeacherNestedInput
+    notifications?: NotificationUpdateManyWithoutUserNestedInput
+    operator?: OperatorUpdateOneWithoutUserNestedInput
+    progressLogs?: ProgressLogUpdateManyWithoutUserNestedInput
+    teacherSubjects?: SubjectUpdateManyWithoutTeacherNestedInput
+    class?: ClassUpdateOneWithoutStudentsNestedInput
+    userNotes?: UserNoteUpdateManyWithoutUserNestedInput
+    authoredNotes?: UserNoteUpdateManyWithoutAuthorNestedInput
+    attendances?: AttendanceUpdateManyWithoutUserNestedInput
+    userSubjects?: UserSubjectUpdateManyWithoutUserNestedInput
+    comments?: CommentUpdateManyWithoutAuthorNestedInput
+    calendarReminders?: CalendarReminderUpdateManyWithoutUserNestedInput
+    ekskulLeader?: ExtracurricularUpdateManyWithoutLeaderNestedInput
+    ekskulCoach?: ExtracurricularUpdateManyWithoutCoachNestedInput
+    ekskulMembers?: ExtracurricularMemberUpdateManyWithoutStudentNestedInput
+    ekskulAttendances?: ExtracurricularAttendanceUpdateManyWithoutStudentNestedInput
+    teacherMaterials?: MaterialUpdateManyWithoutTeacherNestedInput
+    discussionThreads?: DiscussionThreadUpdateManyWithoutAuthorNestedInput
+    discussionReplies?: DiscussionReplyUpdateManyWithoutAuthorNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutDocumentsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    password?: NullableStringFieldUpdateOperationsInput | string | null
+    role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
+    school?: NullableStringFieldUpdateOperationsInput | string | null
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    lastActiveAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    reminderTime?: NullableStringFieldUpdateOperationsInput | string | null
+    notificationPrefs?: JsonNullValueInput | InputJsonValue
+    classId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    nis?: NullableStringFieldUpdateOperationsInput | string | null
+    noAbsen?: NullableIntFieldUpdateOperationsInput | number | null
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    gender?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: NullableStringFieldUpdateOperationsInput | string | null
+    emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    position?: NullableStringFieldUpdateOperationsInput | string | null
+    affiliations?: UserUpdateaffiliationsInput | string[]
+    canEditMaterials?: BoolFieldUpdateOperationsInput | boolean
+    canEditAssignments?: BoolFieldUpdateOperationsInput | boolean
+    accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
+    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
+    teacherAssignments?: AssignmentUncheckedUpdateManyWithoutTeacherNestedInput
+    studentSubmissions?: AssignmentSubmissionUncheckedUpdateManyWithoutStudentNestedInput
+    teacherSchedules?: ClassScheduleUncheckedUpdateManyWithoutTeacherNestedInput
+    notifications?: NotificationUncheckedUpdateManyWithoutUserNestedInput
+    operator?: OperatorUncheckedUpdateOneWithoutUserNestedInput
+    progressLogs?: ProgressLogUncheckedUpdateManyWithoutUserNestedInput
+    teacherSubjects?: SubjectUncheckedUpdateManyWithoutTeacherNestedInput
+    userNotes?: UserNoteUncheckedUpdateManyWithoutUserNestedInput
+    authoredNotes?: UserNoteUncheckedUpdateManyWithoutAuthorNestedInput
+    attendances?: AttendanceUncheckedUpdateManyWithoutUserNestedInput
+    userSubjects?: UserSubjectUncheckedUpdateManyWithoutUserNestedInput
+    comments?: CommentUncheckedUpdateManyWithoutAuthorNestedInput
+    calendarReminders?: CalendarReminderUncheckedUpdateManyWithoutUserNestedInput
+    ekskulLeader?: ExtracurricularUncheckedUpdateManyWithoutLeaderNestedInput
+    ekskulCoach?: ExtracurricularUncheckedUpdateManyWithoutCoachNestedInput
+    ekskulMembers?: ExtracurricularMemberUncheckedUpdateManyWithoutStudentNestedInput
+    ekskulAttendances?: ExtracurricularAttendanceUncheckedUpdateManyWithoutStudentNestedInput
+    teacherMaterials?: MaterialUncheckedUpdateManyWithoutTeacherNestedInput
+    discussionThreads?: DiscussionThreadUncheckedUpdateManyWithoutAuthorNestedInput
+    discussionReplies?: DiscussionReplyUncheckedUpdateManyWithoutAuthorNestedInput
+  }
+
+  export type DocumentUpsertWithoutSubDocsInput = {
+    update: XOR<DocumentUpdateWithoutSubDocsInput, DocumentUncheckedUpdateWithoutSubDocsInput>
+    create: XOR<DocumentCreateWithoutSubDocsInput, DocumentUncheckedCreateWithoutSubDocsInput>
+    where?: DocumentWhereInput
+  }
+
+  export type DocumentUpdateToOneWithWhereWithoutSubDocsInput = {
+    where?: DocumentWhereInput
+    data: XOR<DocumentUpdateWithoutSubDocsInput, DocumentUncheckedUpdateWithoutSubDocsInput>
+  }
+
+  export type DocumentUpdateWithoutSubDocsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    content?: NullableStringFieldUpdateOperationsInput | string | null
+    date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    position?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutDocumentsNestedInput
+    parent?: DocumentUpdateOneWithoutSubDocsNestedInput
+  }
+
+  export type DocumentUncheckedUpdateWithoutSubDocsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    content?: NullableStringFieldUpdateOperationsInput | string | null
+    userId?: StringFieldUpdateOperationsInput | string
+    parentId?: NullableStringFieldUpdateOperationsInput | string | null
+    date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    position?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type DocumentUpsertWithWhereUniqueWithoutParentInput = {
+    where: DocumentWhereUniqueInput
+    update: XOR<DocumentUpdateWithoutParentInput, DocumentUncheckedUpdateWithoutParentInput>
+    create: XOR<DocumentCreateWithoutParentInput, DocumentUncheckedCreateWithoutParentInput>
+  }
+
+  export type DocumentUpdateWithWhereUniqueWithoutParentInput = {
+    where: DocumentWhereUniqueInput
+    data: XOR<DocumentUpdateWithoutParentInput, DocumentUncheckedUpdateWithoutParentInput>
+  }
+
+  export type DocumentUpdateManyWithWhereWithoutParentInput = {
+    where: DocumentScalarWhereInput
+    data: XOR<DocumentUpdateManyMutationInput, DocumentUncheckedUpdateManyWithoutParentInput>
+  }
+
+  export type UserCreateWithoutDiscussionThreadsInput = {
+    id?: string
+    name: string
+    email: string
+    password?: string | null
+    role?: $Enums.Role
+    school?: string | null
+    isActive?: boolean
+    lastActiveAt?: Date | string | null
+    reminderTime?: string | null
+    notificationPrefs?: JsonNullValueInput | InputJsonValue
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    image?: string | null
+    nis?: string | null
+    noAbsen?: number | null
+    phone?: string | null
+    gender?: string | null
+    address?: string | null
+    emailVerified?: Date | string | null
+    position?: string | null
+    affiliations?: UserCreateaffiliationsInput | string[]
+    canEditMaterials?: boolean
+    canEditAssignments?: boolean
+    accounts?: AccountCreateNestedManyWithoutUserInput
+    sessions?: SessionCreateNestedManyWithoutUserInput
+    teacherAssignments?: AssignmentCreateNestedManyWithoutTeacherInput
+    studentSubmissions?: AssignmentSubmissionCreateNestedManyWithoutStudentInput
+    teacherSchedules?: ClassScheduleCreateNestedManyWithoutTeacherInput
+    notifications?: NotificationCreateNestedManyWithoutUserInput
+    operator?: OperatorCreateNestedOneWithoutUserInput
+    progressLogs?: ProgressLogCreateNestedManyWithoutUserInput
+    teacherSubjects?: SubjectCreateNestedManyWithoutTeacherInput
+    class?: ClassCreateNestedOneWithoutStudentsInput
+    userNotes?: UserNoteCreateNestedManyWithoutUserInput
+    authoredNotes?: UserNoteCreateNestedManyWithoutAuthorInput
+    attendances?: AttendanceCreateNestedManyWithoutUserInput
+    userSubjects?: UserSubjectCreateNestedManyWithoutUserInput
+    comments?: CommentCreateNestedManyWithoutAuthorInput
+    calendarReminders?: CalendarReminderCreateNestedManyWithoutUserInput
+    ekskulLeader?: ExtracurricularCreateNestedManyWithoutLeaderInput
+    ekskulCoach?: ExtracurricularCreateNestedManyWithoutCoachInput
+    ekskulMembers?: ExtracurricularMemberCreateNestedManyWithoutStudentInput
+    ekskulAttendances?: ExtracurricularAttendanceCreateNestedManyWithoutStudentInput
+    teacherMaterials?: MaterialCreateNestedManyWithoutTeacherInput
+    documents?: DocumentCreateNestedManyWithoutUserInput
+    discussionReplies?: DiscussionReplyCreateNestedManyWithoutAuthorInput
+  }
+
+  export type UserUncheckedCreateWithoutDiscussionThreadsInput = {
+    id?: string
+    name: string
+    email: string
+    password?: string | null
+    role?: $Enums.Role
+    school?: string | null
+    isActive?: boolean
+    lastActiveAt?: Date | string | null
+    reminderTime?: string | null
+    notificationPrefs?: JsonNullValueInput | InputJsonValue
+    classId?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    image?: string | null
+    nis?: string | null
+    noAbsen?: number | null
+    phone?: string | null
+    gender?: string | null
+    address?: string | null
+    emailVerified?: Date | string | null
+    position?: string | null
+    affiliations?: UserCreateaffiliationsInput | string[]
+    canEditMaterials?: boolean
+    canEditAssignments?: boolean
+    accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
+    sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
+    teacherAssignments?: AssignmentUncheckedCreateNestedManyWithoutTeacherInput
+    studentSubmissions?: AssignmentSubmissionUncheckedCreateNestedManyWithoutStudentInput
+    teacherSchedules?: ClassScheduleUncheckedCreateNestedManyWithoutTeacherInput
+    notifications?: NotificationUncheckedCreateNestedManyWithoutUserInput
+    operator?: OperatorUncheckedCreateNestedOneWithoutUserInput
+    progressLogs?: ProgressLogUncheckedCreateNestedManyWithoutUserInput
+    teacherSubjects?: SubjectUncheckedCreateNestedManyWithoutTeacherInput
+    userNotes?: UserNoteUncheckedCreateNestedManyWithoutUserInput
+    authoredNotes?: UserNoteUncheckedCreateNestedManyWithoutAuthorInput
+    attendances?: AttendanceUncheckedCreateNestedManyWithoutUserInput
+    userSubjects?: UserSubjectUncheckedCreateNestedManyWithoutUserInput
+    comments?: CommentUncheckedCreateNestedManyWithoutAuthorInput
+    calendarReminders?: CalendarReminderUncheckedCreateNestedManyWithoutUserInput
+    ekskulLeader?: ExtracurricularUncheckedCreateNestedManyWithoutLeaderInput
+    ekskulCoach?: ExtracurricularUncheckedCreateNestedManyWithoutCoachInput
+    ekskulMembers?: ExtracurricularMemberUncheckedCreateNestedManyWithoutStudentInput
+    ekskulAttendances?: ExtracurricularAttendanceUncheckedCreateNestedManyWithoutStudentInput
+    teacherMaterials?: MaterialUncheckedCreateNestedManyWithoutTeacherInput
+    documents?: DocumentUncheckedCreateNestedManyWithoutUserInput
+    discussionReplies?: DiscussionReplyUncheckedCreateNestedManyWithoutAuthorInput
+  }
+
+  export type UserCreateOrConnectWithoutDiscussionThreadsInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutDiscussionThreadsInput, UserUncheckedCreateWithoutDiscussionThreadsInput>
+  }
+
+  export type ClassCreateWithoutDiscussionThreadsInput = {
+    id?: string
+    name: string
+    school: string
+    gradeYear: number
+    createdAt?: Date | string
+    assignments?: AssignmentCreateNestedManyWithoutClassInput
+    schedules?: ClassScheduleCreateNestedManyWithoutClassInput
+    students?: UserCreateNestedManyWithoutClassInput
+    materials?: MaterialCreateNestedManyWithoutClassInput
+  }
+
+  export type ClassUncheckedCreateWithoutDiscussionThreadsInput = {
+    id?: string
+    name: string
+    school: string
+    gradeYear: number
+    createdAt?: Date | string
+    assignments?: AssignmentUncheckedCreateNestedManyWithoutClassInput
+    schedules?: ClassScheduleUncheckedCreateNestedManyWithoutClassInput
+    students?: UserUncheckedCreateNestedManyWithoutClassInput
+    materials?: MaterialUncheckedCreateNestedManyWithoutClassInput
+  }
+
+  export type ClassCreateOrConnectWithoutDiscussionThreadsInput = {
+    where: ClassWhereUniqueInput
+    create: XOR<ClassCreateWithoutDiscussionThreadsInput, ClassUncheckedCreateWithoutDiscussionThreadsInput>
+  }
+
+  export type DiscussionReplyCreateWithoutThreadInput = {
+    id?: string
+    content: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    author: UserCreateNestedOneWithoutDiscussionRepliesInput
+  }
+
+  export type DiscussionReplyUncheckedCreateWithoutThreadInput = {
+    id?: string
+    content: string
+    authorId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type DiscussionReplyCreateOrConnectWithoutThreadInput = {
+    where: DiscussionReplyWhereUniqueInput
+    create: XOR<DiscussionReplyCreateWithoutThreadInput, DiscussionReplyUncheckedCreateWithoutThreadInput>
+  }
+
+  export type DiscussionReplyCreateManyThreadInputEnvelope = {
+    data: DiscussionReplyCreateManyThreadInput | DiscussionReplyCreateManyThreadInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type UserUpsertWithoutDiscussionThreadsInput = {
+    update: XOR<UserUpdateWithoutDiscussionThreadsInput, UserUncheckedUpdateWithoutDiscussionThreadsInput>
+    create: XOR<UserCreateWithoutDiscussionThreadsInput, UserUncheckedCreateWithoutDiscussionThreadsInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutDiscussionThreadsInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutDiscussionThreadsInput, UserUncheckedUpdateWithoutDiscussionThreadsInput>
+  }
+
+  export type UserUpdateWithoutDiscussionThreadsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    password?: NullableStringFieldUpdateOperationsInput | string | null
+    role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
+    school?: NullableStringFieldUpdateOperationsInput | string | null
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    lastActiveAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    reminderTime?: NullableStringFieldUpdateOperationsInput | string | null
+    notificationPrefs?: JsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    nis?: NullableStringFieldUpdateOperationsInput | string | null
+    noAbsen?: NullableIntFieldUpdateOperationsInput | number | null
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    gender?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: NullableStringFieldUpdateOperationsInput | string | null
+    emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    position?: NullableStringFieldUpdateOperationsInput | string | null
+    affiliations?: UserUpdateaffiliationsInput | string[]
+    canEditMaterials?: BoolFieldUpdateOperationsInput | boolean
+    canEditAssignments?: BoolFieldUpdateOperationsInput | boolean
+    accounts?: AccountUpdateManyWithoutUserNestedInput
+    sessions?: SessionUpdateManyWithoutUserNestedInput
+    teacherAssignments?: AssignmentUpdateManyWithoutTeacherNestedInput
+    studentSubmissions?: AssignmentSubmissionUpdateManyWithoutStudentNestedInput
+    teacherSchedules?: ClassScheduleUpdateManyWithoutTeacherNestedInput
+    notifications?: NotificationUpdateManyWithoutUserNestedInput
+    operator?: OperatorUpdateOneWithoutUserNestedInput
+    progressLogs?: ProgressLogUpdateManyWithoutUserNestedInput
+    teacherSubjects?: SubjectUpdateManyWithoutTeacherNestedInput
+    class?: ClassUpdateOneWithoutStudentsNestedInput
+    userNotes?: UserNoteUpdateManyWithoutUserNestedInput
+    authoredNotes?: UserNoteUpdateManyWithoutAuthorNestedInput
+    attendances?: AttendanceUpdateManyWithoutUserNestedInput
+    userSubjects?: UserSubjectUpdateManyWithoutUserNestedInput
+    comments?: CommentUpdateManyWithoutAuthorNestedInput
+    calendarReminders?: CalendarReminderUpdateManyWithoutUserNestedInput
+    ekskulLeader?: ExtracurricularUpdateManyWithoutLeaderNestedInput
+    ekskulCoach?: ExtracurricularUpdateManyWithoutCoachNestedInput
+    ekskulMembers?: ExtracurricularMemberUpdateManyWithoutStudentNestedInput
+    ekskulAttendances?: ExtracurricularAttendanceUpdateManyWithoutStudentNestedInput
+    teacherMaterials?: MaterialUpdateManyWithoutTeacherNestedInput
+    documents?: DocumentUpdateManyWithoutUserNestedInput
+    discussionReplies?: DiscussionReplyUpdateManyWithoutAuthorNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutDiscussionThreadsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    password?: NullableStringFieldUpdateOperationsInput | string | null
+    role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
+    school?: NullableStringFieldUpdateOperationsInput | string | null
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    lastActiveAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    reminderTime?: NullableStringFieldUpdateOperationsInput | string | null
+    notificationPrefs?: JsonNullValueInput | InputJsonValue
+    classId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    nis?: NullableStringFieldUpdateOperationsInput | string | null
+    noAbsen?: NullableIntFieldUpdateOperationsInput | number | null
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    gender?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: NullableStringFieldUpdateOperationsInput | string | null
+    emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    position?: NullableStringFieldUpdateOperationsInput | string | null
+    affiliations?: UserUpdateaffiliationsInput | string[]
+    canEditMaterials?: BoolFieldUpdateOperationsInput | boolean
+    canEditAssignments?: BoolFieldUpdateOperationsInput | boolean
+    accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
+    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
+    teacherAssignments?: AssignmentUncheckedUpdateManyWithoutTeacherNestedInput
+    studentSubmissions?: AssignmentSubmissionUncheckedUpdateManyWithoutStudentNestedInput
+    teacherSchedules?: ClassScheduleUncheckedUpdateManyWithoutTeacherNestedInput
+    notifications?: NotificationUncheckedUpdateManyWithoutUserNestedInput
+    operator?: OperatorUncheckedUpdateOneWithoutUserNestedInput
+    progressLogs?: ProgressLogUncheckedUpdateManyWithoutUserNestedInput
+    teacherSubjects?: SubjectUncheckedUpdateManyWithoutTeacherNestedInput
+    userNotes?: UserNoteUncheckedUpdateManyWithoutUserNestedInput
+    authoredNotes?: UserNoteUncheckedUpdateManyWithoutAuthorNestedInput
+    attendances?: AttendanceUncheckedUpdateManyWithoutUserNestedInput
+    userSubjects?: UserSubjectUncheckedUpdateManyWithoutUserNestedInput
+    comments?: CommentUncheckedUpdateManyWithoutAuthorNestedInput
+    calendarReminders?: CalendarReminderUncheckedUpdateManyWithoutUserNestedInput
+    ekskulLeader?: ExtracurricularUncheckedUpdateManyWithoutLeaderNestedInput
+    ekskulCoach?: ExtracurricularUncheckedUpdateManyWithoutCoachNestedInput
+    ekskulMembers?: ExtracurricularMemberUncheckedUpdateManyWithoutStudentNestedInput
+    ekskulAttendances?: ExtracurricularAttendanceUncheckedUpdateManyWithoutStudentNestedInput
+    teacherMaterials?: MaterialUncheckedUpdateManyWithoutTeacherNestedInput
+    documents?: DocumentUncheckedUpdateManyWithoutUserNestedInput
+    discussionReplies?: DiscussionReplyUncheckedUpdateManyWithoutAuthorNestedInput
+  }
+
+  export type ClassUpsertWithoutDiscussionThreadsInput = {
+    update: XOR<ClassUpdateWithoutDiscussionThreadsInput, ClassUncheckedUpdateWithoutDiscussionThreadsInput>
+    create: XOR<ClassCreateWithoutDiscussionThreadsInput, ClassUncheckedCreateWithoutDiscussionThreadsInput>
+    where?: ClassWhereInput
+  }
+
+  export type ClassUpdateToOneWithWhereWithoutDiscussionThreadsInput = {
+    where?: ClassWhereInput
+    data: XOR<ClassUpdateWithoutDiscussionThreadsInput, ClassUncheckedUpdateWithoutDiscussionThreadsInput>
+  }
+
+  export type ClassUpdateWithoutDiscussionThreadsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    school?: StringFieldUpdateOperationsInput | string
+    gradeYear?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    assignments?: AssignmentUpdateManyWithoutClassNestedInput
+    schedules?: ClassScheduleUpdateManyWithoutClassNestedInput
+    students?: UserUpdateManyWithoutClassNestedInput
+    materials?: MaterialUpdateManyWithoutClassNestedInput
+  }
+
+  export type ClassUncheckedUpdateWithoutDiscussionThreadsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    school?: StringFieldUpdateOperationsInput | string
+    gradeYear?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    assignments?: AssignmentUncheckedUpdateManyWithoutClassNestedInput
+    schedules?: ClassScheduleUncheckedUpdateManyWithoutClassNestedInput
+    students?: UserUncheckedUpdateManyWithoutClassNestedInput
+    materials?: MaterialUncheckedUpdateManyWithoutClassNestedInput
+  }
+
+  export type DiscussionReplyUpsertWithWhereUniqueWithoutThreadInput = {
+    where: DiscussionReplyWhereUniqueInput
+    update: XOR<DiscussionReplyUpdateWithoutThreadInput, DiscussionReplyUncheckedUpdateWithoutThreadInput>
+    create: XOR<DiscussionReplyCreateWithoutThreadInput, DiscussionReplyUncheckedCreateWithoutThreadInput>
+  }
+
+  export type DiscussionReplyUpdateWithWhereUniqueWithoutThreadInput = {
+    where: DiscussionReplyWhereUniqueInput
+    data: XOR<DiscussionReplyUpdateWithoutThreadInput, DiscussionReplyUncheckedUpdateWithoutThreadInput>
+  }
+
+  export type DiscussionReplyUpdateManyWithWhereWithoutThreadInput = {
+    where: DiscussionReplyScalarWhereInput
+    data: XOR<DiscussionReplyUpdateManyMutationInput, DiscussionReplyUncheckedUpdateManyWithoutThreadInput>
+  }
+
+  export type DiscussionThreadCreateWithoutRepliesInput = {
+    id?: string
+    title: string
+    content: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    author: UserCreateNestedOneWithoutDiscussionThreadsInput
+    class?: ClassCreateNestedOneWithoutDiscussionThreadsInput
+  }
+
+  export type DiscussionThreadUncheckedCreateWithoutRepliesInput = {
+    id?: string
+    title: string
+    content: string
+    classId?: string | null
+    authorId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type DiscussionThreadCreateOrConnectWithoutRepliesInput = {
+    where: DiscussionThreadWhereUniqueInput
+    create: XOR<DiscussionThreadCreateWithoutRepliesInput, DiscussionThreadUncheckedCreateWithoutRepliesInput>
+  }
+
+  export type UserCreateWithoutDiscussionRepliesInput = {
+    id?: string
+    name: string
+    email: string
+    password?: string | null
+    role?: $Enums.Role
+    school?: string | null
+    isActive?: boolean
+    lastActiveAt?: Date | string | null
+    reminderTime?: string | null
+    notificationPrefs?: JsonNullValueInput | InputJsonValue
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    image?: string | null
+    nis?: string | null
+    noAbsen?: number | null
+    phone?: string | null
+    gender?: string | null
+    address?: string | null
+    emailVerified?: Date | string | null
+    position?: string | null
+    affiliations?: UserCreateaffiliationsInput | string[]
+    canEditMaterials?: boolean
+    canEditAssignments?: boolean
+    accounts?: AccountCreateNestedManyWithoutUserInput
+    sessions?: SessionCreateNestedManyWithoutUserInput
+    teacherAssignments?: AssignmentCreateNestedManyWithoutTeacherInput
+    studentSubmissions?: AssignmentSubmissionCreateNestedManyWithoutStudentInput
+    teacherSchedules?: ClassScheduleCreateNestedManyWithoutTeacherInput
+    notifications?: NotificationCreateNestedManyWithoutUserInput
+    operator?: OperatorCreateNestedOneWithoutUserInput
+    progressLogs?: ProgressLogCreateNestedManyWithoutUserInput
+    teacherSubjects?: SubjectCreateNestedManyWithoutTeacherInput
+    class?: ClassCreateNestedOneWithoutStudentsInput
+    userNotes?: UserNoteCreateNestedManyWithoutUserInput
+    authoredNotes?: UserNoteCreateNestedManyWithoutAuthorInput
+    attendances?: AttendanceCreateNestedManyWithoutUserInput
+    userSubjects?: UserSubjectCreateNestedManyWithoutUserInput
+    comments?: CommentCreateNestedManyWithoutAuthorInput
+    calendarReminders?: CalendarReminderCreateNestedManyWithoutUserInput
+    ekskulLeader?: ExtracurricularCreateNestedManyWithoutLeaderInput
+    ekskulCoach?: ExtracurricularCreateNestedManyWithoutCoachInput
+    ekskulMembers?: ExtracurricularMemberCreateNestedManyWithoutStudentInput
+    ekskulAttendances?: ExtracurricularAttendanceCreateNestedManyWithoutStudentInput
+    teacherMaterials?: MaterialCreateNestedManyWithoutTeacherInput
+    documents?: DocumentCreateNestedManyWithoutUserInput
+    discussionThreads?: DiscussionThreadCreateNestedManyWithoutAuthorInput
+  }
+
+  export type UserUncheckedCreateWithoutDiscussionRepliesInput = {
+    id?: string
+    name: string
+    email: string
+    password?: string | null
+    role?: $Enums.Role
+    school?: string | null
+    isActive?: boolean
+    lastActiveAt?: Date | string | null
+    reminderTime?: string | null
+    notificationPrefs?: JsonNullValueInput | InputJsonValue
+    classId?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    image?: string | null
+    nis?: string | null
+    noAbsen?: number | null
+    phone?: string | null
+    gender?: string | null
+    address?: string | null
+    emailVerified?: Date | string | null
+    position?: string | null
+    affiliations?: UserCreateaffiliationsInput | string[]
+    canEditMaterials?: boolean
+    canEditAssignments?: boolean
+    accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
+    sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
+    teacherAssignments?: AssignmentUncheckedCreateNestedManyWithoutTeacherInput
+    studentSubmissions?: AssignmentSubmissionUncheckedCreateNestedManyWithoutStudentInput
+    teacherSchedules?: ClassScheduleUncheckedCreateNestedManyWithoutTeacherInput
+    notifications?: NotificationUncheckedCreateNestedManyWithoutUserInput
+    operator?: OperatorUncheckedCreateNestedOneWithoutUserInput
+    progressLogs?: ProgressLogUncheckedCreateNestedManyWithoutUserInput
+    teacherSubjects?: SubjectUncheckedCreateNestedManyWithoutTeacherInput
+    userNotes?: UserNoteUncheckedCreateNestedManyWithoutUserInput
+    authoredNotes?: UserNoteUncheckedCreateNestedManyWithoutAuthorInput
+    attendances?: AttendanceUncheckedCreateNestedManyWithoutUserInput
+    userSubjects?: UserSubjectUncheckedCreateNestedManyWithoutUserInput
+    comments?: CommentUncheckedCreateNestedManyWithoutAuthorInput
+    calendarReminders?: CalendarReminderUncheckedCreateNestedManyWithoutUserInput
+    ekskulLeader?: ExtracurricularUncheckedCreateNestedManyWithoutLeaderInput
+    ekskulCoach?: ExtracurricularUncheckedCreateNestedManyWithoutCoachInput
+    ekskulMembers?: ExtracurricularMemberUncheckedCreateNestedManyWithoutStudentInput
+    ekskulAttendances?: ExtracurricularAttendanceUncheckedCreateNestedManyWithoutStudentInput
+    teacherMaterials?: MaterialUncheckedCreateNestedManyWithoutTeacherInput
+    documents?: DocumentUncheckedCreateNestedManyWithoutUserInput
+    discussionThreads?: DiscussionThreadUncheckedCreateNestedManyWithoutAuthorInput
+  }
+
+  export type UserCreateOrConnectWithoutDiscussionRepliesInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutDiscussionRepliesInput, UserUncheckedCreateWithoutDiscussionRepliesInput>
+  }
+
+  export type DiscussionThreadUpsertWithoutRepliesInput = {
+    update: XOR<DiscussionThreadUpdateWithoutRepliesInput, DiscussionThreadUncheckedUpdateWithoutRepliesInput>
+    create: XOR<DiscussionThreadCreateWithoutRepliesInput, DiscussionThreadUncheckedCreateWithoutRepliesInput>
+    where?: DiscussionThreadWhereInput
+  }
+
+  export type DiscussionThreadUpdateToOneWithWhereWithoutRepliesInput = {
+    where?: DiscussionThreadWhereInput
+    data: XOR<DiscussionThreadUpdateWithoutRepliesInput, DiscussionThreadUncheckedUpdateWithoutRepliesInput>
+  }
+
+  export type DiscussionThreadUpdateWithoutRepliesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    author?: UserUpdateOneRequiredWithoutDiscussionThreadsNestedInput
+    class?: ClassUpdateOneWithoutDiscussionThreadsNestedInput
+  }
+
+  export type DiscussionThreadUncheckedUpdateWithoutRepliesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    classId?: NullableStringFieldUpdateOperationsInput | string | null
+    authorId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type UserUpsertWithoutDiscussionRepliesInput = {
+    update: XOR<UserUpdateWithoutDiscussionRepliesInput, UserUncheckedUpdateWithoutDiscussionRepliesInput>
+    create: XOR<UserCreateWithoutDiscussionRepliesInput, UserUncheckedCreateWithoutDiscussionRepliesInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutDiscussionRepliesInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutDiscussionRepliesInput, UserUncheckedUpdateWithoutDiscussionRepliesInput>
+  }
+
+  export type UserUpdateWithoutDiscussionRepliesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    password?: NullableStringFieldUpdateOperationsInput | string | null
+    role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
+    school?: NullableStringFieldUpdateOperationsInput | string | null
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    lastActiveAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    reminderTime?: NullableStringFieldUpdateOperationsInput | string | null
+    notificationPrefs?: JsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    nis?: NullableStringFieldUpdateOperationsInput | string | null
+    noAbsen?: NullableIntFieldUpdateOperationsInput | number | null
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    gender?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: NullableStringFieldUpdateOperationsInput | string | null
+    emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    position?: NullableStringFieldUpdateOperationsInput | string | null
+    affiliations?: UserUpdateaffiliationsInput | string[]
+    canEditMaterials?: BoolFieldUpdateOperationsInput | boolean
+    canEditAssignments?: BoolFieldUpdateOperationsInput | boolean
+    accounts?: AccountUpdateManyWithoutUserNestedInput
+    sessions?: SessionUpdateManyWithoutUserNestedInput
+    teacherAssignments?: AssignmentUpdateManyWithoutTeacherNestedInput
+    studentSubmissions?: AssignmentSubmissionUpdateManyWithoutStudentNestedInput
+    teacherSchedules?: ClassScheduleUpdateManyWithoutTeacherNestedInput
+    notifications?: NotificationUpdateManyWithoutUserNestedInput
+    operator?: OperatorUpdateOneWithoutUserNestedInput
+    progressLogs?: ProgressLogUpdateManyWithoutUserNestedInput
+    teacherSubjects?: SubjectUpdateManyWithoutTeacherNestedInput
+    class?: ClassUpdateOneWithoutStudentsNestedInput
+    userNotes?: UserNoteUpdateManyWithoutUserNestedInput
+    authoredNotes?: UserNoteUpdateManyWithoutAuthorNestedInput
+    attendances?: AttendanceUpdateManyWithoutUserNestedInput
+    userSubjects?: UserSubjectUpdateManyWithoutUserNestedInput
+    comments?: CommentUpdateManyWithoutAuthorNestedInput
+    calendarReminders?: CalendarReminderUpdateManyWithoutUserNestedInput
+    ekskulLeader?: ExtracurricularUpdateManyWithoutLeaderNestedInput
+    ekskulCoach?: ExtracurricularUpdateManyWithoutCoachNestedInput
+    ekskulMembers?: ExtracurricularMemberUpdateManyWithoutStudentNestedInput
+    ekskulAttendances?: ExtracurricularAttendanceUpdateManyWithoutStudentNestedInput
+    teacherMaterials?: MaterialUpdateManyWithoutTeacherNestedInput
+    documents?: DocumentUpdateManyWithoutUserNestedInput
+    discussionThreads?: DiscussionThreadUpdateManyWithoutAuthorNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutDiscussionRepliesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    password?: NullableStringFieldUpdateOperationsInput | string | null
+    role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
+    school?: NullableStringFieldUpdateOperationsInput | string | null
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    lastActiveAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    reminderTime?: NullableStringFieldUpdateOperationsInput | string | null
+    notificationPrefs?: JsonNullValueInput | InputJsonValue
+    classId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    nis?: NullableStringFieldUpdateOperationsInput | string | null
+    noAbsen?: NullableIntFieldUpdateOperationsInput | number | null
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    gender?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: NullableStringFieldUpdateOperationsInput | string | null
+    emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    position?: NullableStringFieldUpdateOperationsInput | string | null
+    affiliations?: UserUpdateaffiliationsInput | string[]
+    canEditMaterials?: BoolFieldUpdateOperationsInput | boolean
+    canEditAssignments?: BoolFieldUpdateOperationsInput | boolean
+    accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
+    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
+    teacherAssignments?: AssignmentUncheckedUpdateManyWithoutTeacherNestedInput
+    studentSubmissions?: AssignmentSubmissionUncheckedUpdateManyWithoutStudentNestedInput
+    teacherSchedules?: ClassScheduleUncheckedUpdateManyWithoutTeacherNestedInput
+    notifications?: NotificationUncheckedUpdateManyWithoutUserNestedInput
+    operator?: OperatorUncheckedUpdateOneWithoutUserNestedInput
+    progressLogs?: ProgressLogUncheckedUpdateManyWithoutUserNestedInput
+    teacherSubjects?: SubjectUncheckedUpdateManyWithoutTeacherNestedInput
+    userNotes?: UserNoteUncheckedUpdateManyWithoutUserNestedInput
+    authoredNotes?: UserNoteUncheckedUpdateManyWithoutAuthorNestedInput
+    attendances?: AttendanceUncheckedUpdateManyWithoutUserNestedInput
+    userSubjects?: UserSubjectUncheckedUpdateManyWithoutUserNestedInput
+    comments?: CommentUncheckedUpdateManyWithoutAuthorNestedInput
+    calendarReminders?: CalendarReminderUncheckedUpdateManyWithoutUserNestedInput
+    ekskulLeader?: ExtracurricularUncheckedUpdateManyWithoutLeaderNestedInput
+    ekskulCoach?: ExtracurricularUncheckedUpdateManyWithoutCoachNestedInput
+    ekskulMembers?: ExtracurricularMemberUncheckedUpdateManyWithoutStudentNestedInput
+    ekskulAttendances?: ExtracurricularAttendanceUncheckedUpdateManyWithoutStudentNestedInput
+    teacherMaterials?: MaterialUncheckedUpdateManyWithoutTeacherNestedInput
+    documents?: DocumentUncheckedUpdateManyWithoutUserNestedInput
+    discussionThreads?: DiscussionThreadUncheckedUpdateManyWithoutAuthorNestedInput
   }
 
   export type AccountCreateManyUserInput = {
@@ -46013,6 +52020,34 @@ export namespace Prisma {
     classId?: string | null
     attachments?: NullableJsonNullValueInput | InputJsonValue
     status?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type DocumentCreateManyUserInput = {
+    id?: string
+    title?: string
+    content?: string | null
+    parentId?: string | null
+    date?: Date | string | null
+    position?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type DiscussionThreadCreateManyAuthorInput = {
+    id?: string
+    title: string
+    content: string
+    classId?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type DiscussionReplyCreateManyAuthorInput = {
+    id?: string
+    content: string
+    threadId: string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -46581,6 +52616,94 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
+  export type DocumentUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    content?: NullableStringFieldUpdateOperationsInput | string | null
+    date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    position?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    parent?: DocumentUpdateOneWithoutSubDocsNestedInput
+    subDocs?: DocumentUpdateManyWithoutParentNestedInput
+  }
+
+  export type DocumentUncheckedUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    content?: NullableStringFieldUpdateOperationsInput | string | null
+    parentId?: NullableStringFieldUpdateOperationsInput | string | null
+    date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    position?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    subDocs?: DocumentUncheckedUpdateManyWithoutParentNestedInput
+  }
+
+  export type DocumentUncheckedUpdateManyWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    content?: NullableStringFieldUpdateOperationsInput | string | null
+    parentId?: NullableStringFieldUpdateOperationsInput | string | null
+    date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    position?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type DiscussionThreadUpdateWithoutAuthorInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    class?: ClassUpdateOneWithoutDiscussionThreadsNestedInput
+    replies?: DiscussionReplyUpdateManyWithoutThreadNestedInput
+  }
+
+  export type DiscussionThreadUncheckedUpdateWithoutAuthorInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    classId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    replies?: DiscussionReplyUncheckedUpdateManyWithoutThreadNestedInput
+  }
+
+  export type DiscussionThreadUncheckedUpdateManyWithoutAuthorInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    classId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type DiscussionReplyUpdateWithoutAuthorInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    thread?: DiscussionThreadUpdateOneRequiredWithoutRepliesNestedInput
+  }
+
+  export type DiscussionReplyUncheckedUpdateWithoutAuthorInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    threadId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type DiscussionReplyUncheckedUpdateManyWithoutAuthorInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    threadId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
   export type AssignmentCreateManyClassInput = {
     id?: string
     title: string
@@ -46623,6 +52746,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     image?: string | null
     nis?: string | null
+    noAbsen?: number | null
     phone?: string | null
     gender?: string | null
     address?: string | null
@@ -46641,6 +52765,15 @@ export namespace Prisma {
     teacherId: string
     attachments?: NullableJsonNullValueInput | InputJsonValue
     status?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type DiscussionThreadCreateManyClassInput = {
+    id?: string
+    title: string
+    content: string
+    authorId: string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -46745,6 +52878,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     image?: NullableStringFieldUpdateOperationsInput | string | null
     nis?: NullableStringFieldUpdateOperationsInput | string | null
+    noAbsen?: NullableIntFieldUpdateOperationsInput | number | null
     phone?: NullableStringFieldUpdateOperationsInput | string | null
     gender?: NullableStringFieldUpdateOperationsInput | string | null
     address?: NullableStringFieldUpdateOperationsInput | string | null
@@ -46773,6 +52907,9 @@ export namespace Prisma {
     ekskulMembers?: ExtracurricularMemberUpdateManyWithoutStudentNestedInput
     ekskulAttendances?: ExtracurricularAttendanceUpdateManyWithoutStudentNestedInput
     teacherMaterials?: MaterialUpdateManyWithoutTeacherNestedInput
+    documents?: DocumentUpdateManyWithoutUserNestedInput
+    discussionThreads?: DiscussionThreadUpdateManyWithoutAuthorNestedInput
+    discussionReplies?: DiscussionReplyUpdateManyWithoutAuthorNestedInput
   }
 
   export type UserUncheckedUpdateWithoutClassInput = {
@@ -46790,6 +52927,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     image?: NullableStringFieldUpdateOperationsInput | string | null
     nis?: NullableStringFieldUpdateOperationsInput | string | null
+    noAbsen?: NullableIntFieldUpdateOperationsInput | number | null
     phone?: NullableStringFieldUpdateOperationsInput | string | null
     gender?: NullableStringFieldUpdateOperationsInput | string | null
     address?: NullableStringFieldUpdateOperationsInput | string | null
@@ -46818,6 +52956,9 @@ export namespace Prisma {
     ekskulMembers?: ExtracurricularMemberUncheckedUpdateManyWithoutStudentNestedInput
     ekskulAttendances?: ExtracurricularAttendanceUncheckedUpdateManyWithoutStudentNestedInput
     teacherMaterials?: MaterialUncheckedUpdateManyWithoutTeacherNestedInput
+    documents?: DocumentUncheckedUpdateManyWithoutUserNestedInput
+    discussionThreads?: DiscussionThreadUncheckedUpdateManyWithoutAuthorNestedInput
+    discussionReplies?: DiscussionReplyUncheckedUpdateManyWithoutAuthorNestedInput
   }
 
   export type UserUncheckedUpdateManyWithoutClassInput = {
@@ -46835,6 +52976,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     image?: NullableStringFieldUpdateOperationsInput | string | null
     nis?: NullableStringFieldUpdateOperationsInput | string | null
+    noAbsen?: NullableIntFieldUpdateOperationsInput | number | null
     phone?: NullableStringFieldUpdateOperationsInput | string | null
     gender?: NullableStringFieldUpdateOperationsInput | string | null
     address?: NullableStringFieldUpdateOperationsInput | string | null
@@ -46877,6 +53019,35 @@ export namespace Prisma {
     teacherId?: StringFieldUpdateOperationsInput | string
     attachments?: NullableJsonNullValueInput | InputJsonValue
     status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type DiscussionThreadUpdateWithoutClassInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    author?: UserUpdateOneRequiredWithoutDiscussionThreadsNestedInput
+    replies?: DiscussionReplyUpdateManyWithoutThreadNestedInput
+  }
+
+  export type DiscussionThreadUncheckedUpdateWithoutClassInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    authorId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    replies?: DiscussionReplyUncheckedUpdateManyWithoutThreadNestedInput
+  }
+
+  export type DiscussionThreadUncheckedUpdateManyWithoutClassInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    authorId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -47457,6 +53628,84 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
+  export type DocumentCreateManyParentInput = {
+    id?: string
+    title?: string
+    content?: string | null
+    userId: string
+    date?: Date | string | null
+    position?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type DocumentUpdateWithoutParentInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    content?: NullableStringFieldUpdateOperationsInput | string | null
+    date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    position?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutDocumentsNestedInput
+    subDocs?: DocumentUpdateManyWithoutParentNestedInput
+  }
+
+  export type DocumentUncheckedUpdateWithoutParentInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    content?: NullableStringFieldUpdateOperationsInput | string | null
+    userId?: StringFieldUpdateOperationsInput | string
+    date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    position?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    subDocs?: DocumentUncheckedUpdateManyWithoutParentNestedInput
+  }
+
+  export type DocumentUncheckedUpdateManyWithoutParentInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    content?: NullableStringFieldUpdateOperationsInput | string | null
+    userId?: StringFieldUpdateOperationsInput | string
+    date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    position?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type DiscussionReplyCreateManyThreadInput = {
+    id?: string
+    content: string
+    authorId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type DiscussionReplyUpdateWithoutThreadInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    author?: UserUpdateOneRequiredWithoutDiscussionRepliesNestedInput
+  }
+
+  export type DiscussionReplyUncheckedUpdateWithoutThreadInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    authorId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type DiscussionReplyUncheckedUpdateManyWithoutThreadInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    authorId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
 
 
   /**
@@ -47498,6 +53747,14 @@ export namespace Prisma {
      * @deprecated Use AnnouncementCountOutputTypeDefaultArgs instead
      */
     export type AnnouncementCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = AnnouncementCountOutputTypeDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use DocumentCountOutputTypeDefaultArgs instead
+     */
+    export type DocumentCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = DocumentCountOutputTypeDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use DiscussionThreadCountOutputTypeDefaultArgs instead
+     */
+    export type DiscussionThreadCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = DiscussionThreadCountOutputTypeDefaultArgs<ExtArgs>
     /**
      * @deprecated Use UserDefaultArgs instead
      */
@@ -47602,6 +53859,18 @@ export namespace Prisma {
      * @deprecated Use CalendarReminderDefaultArgs instead
      */
     export type CalendarReminderArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = CalendarReminderDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use DocumentDefaultArgs instead
+     */
+    export type DocumentArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = DocumentDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use DiscussionThreadDefaultArgs instead
+     */
+    export type DiscussionThreadArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = DiscussionThreadDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use DiscussionReplyDefaultArgs instead
+     */
+    export type DiscussionReplyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = DiscussionReplyDefaultArgs<ExtArgs>
 
   /**
    * Batch Payload for updateMany & deleteMany & createMany
