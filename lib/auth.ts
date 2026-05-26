@@ -98,6 +98,21 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
         token.school = (user as any).school
         token.classId = (user as any).classId
         token.image = (user as any).image
+      } else if (token.id) {
+        try {
+          const dbUser = await prisma.user.findUnique({
+            where: { id: token.id as string },
+            select: { role: true, school: true, classId: true, image: true }
+          })
+          if (dbUser) {
+            token.role = dbUser.role
+            token.school = dbUser.school
+            token.classId = dbUser.classId
+            token.image = dbUser.image
+          }
+        } catch (error) {
+          console.error("Error fetching dbUser in jwt callback:", error)
+        }
       }
       
       // Handle session update trigger
