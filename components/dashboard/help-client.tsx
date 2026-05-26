@@ -200,8 +200,10 @@ export function HelpClient({ role }: HelpClientProps) {
                     Jika Anda mengalami kendala teknis yang tidak dapat diselesaikan melalui panduan di atas, silakan hubungi tim dukungan IT kami.
                   </p>
                 </div>
-                <Button className="bg-[#5483B3] hover:bg-[#3B6FA0] text-white rounded-xl font-bold text-xs px-6 h-12 shadow-lg shadow-[#5483B3]/20 transition-all gap-2 w-full md:w-auto">
-                  <Mail className="h-4 w-4" /> Hubungi Admin IT
+                <Button asChild className="bg-[#5483B3] hover:bg-[#3B6FA0] text-white rounded-xl font-bold text-xs px-6 h-12 shadow-lg shadow-[#5483B3]/20 transition-all gap-2 w-full md:w-auto">
+                  <a href="https://instagram.com/davinmaritza" target="_blank" rel="noopener noreferrer">
+                    <Mail className="h-4 w-4" /> Hubungi Admin IT
+                  </a>
                 </Button>
               </div>
             </CardContent>
