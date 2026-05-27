@@ -15,7 +15,7 @@ export default async function TeacherBillingPage() {
 
   // Fetch all students to select when creating bill
   const students = await prisma.user.findMany({
-    where: { role: "USER" },
+    where: { role: { in: ["USER", "STUDENT"] } },
     include: { class: true },
     orderBy: { name: 'asc' }
   })

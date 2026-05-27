@@ -88,7 +88,7 @@ export function AdminBillingClient({ students, billings }: { students: any[], bi
               <PlusCircle className="w-4 h-4 mr-2" /> Buat Tagihan Baru
             </Button>
           </DialogTrigger>
-          <DialogContent>
+          <DialogContent className="sm:max-w-[500px] bg-[var(--background)] dark:bg-slate-900 border-[var(--border)] shadow-xl z-50">
             <DialogHeader>
               <DialogTitle>Buat Tagihan Baru</DialogTitle>
             </DialogHeader>
@@ -96,10 +96,10 @@ export function AdminBillingClient({ students, billings }: { students: any[], bi
               <div className="space-y-2">
                 <Label>Pilih Siswa</Label>
                 <Select value={formData.studentId} onValueChange={v => setFormData({...formData, studentId: v})}>
-                  <SelectTrigger>
+                  <SelectTrigger className="bg-[var(--background)] dark:bg-slate-800">
                     <SelectValue placeholder="Pilih siswa" />
                   </SelectTrigger>
-                  <SelectContent>
+                  <SelectContent className="bg-[var(--background)] dark:bg-slate-800 border-[var(--border)] z-50">
                     {students.map(s => (
                       <SelectItem key={s.id} value={s.id}>
                         {s.name} - {s.class?.name || "Tanpa Kelas"}
@@ -111,17 +111,17 @@ export function AdminBillingClient({ students, billings }: { students: any[], bi
 
               <div className="space-y-2">
                 <Label>Judul Tagihan</Label>
-                <Input required value={formData.title} onChange={e => setFormData({...formData, title: e.target.value})} />
+                <Input className="bg-[var(--background)] dark:bg-slate-800" required value={formData.title} onChange={e => setFormData({...formData, title: e.target.value})} />
               </div>
 
               <div className="space-y-2">
                 <Label>Nominal (Rp)</Label>
-                <Input type="number" required value={formData.amount} onChange={e => setFormData({...formData, amount: e.target.value})} />
+                <Input className="bg-[var(--background)] dark:bg-slate-800" type="number" required value={formData.amount} onChange={e => setFormData({...formData, amount: e.target.value})} />
               </div>
 
               <div className="space-y-2">
                 <Label>Jatuh Tempo</Label>
-                <Input type="date" required value={formData.dueDate} onChange={e => setFormData({...formData, dueDate: e.target.value})} />
+                <Input className="bg-[var(--background)] dark:bg-slate-800" type="date" required value={formData.dueDate} onChange={e => setFormData({...formData, dueDate: e.target.value})} />
               </div>
 
               <Button type="submit" className="w-full bg-[#5483B3] hover:bg-[#3B6FA0]" disabled={isLoading}>
