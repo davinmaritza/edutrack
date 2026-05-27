@@ -33,7 +33,7 @@ export function ParentAbsenceClient({ requests }: { requests: any[] }) {
     setIsLoading(true)
 
     try {
-      let finalUrl = ""
+      let finalFilename = ""
       if (attachmentFile) {
         const supabase = createBrowserClient(
           process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -41,24 +41,22 @@ export function ParentAbsenceClient({ requests }: { requests: any[] }) {
         )
 
         const fileExt = attachmentFile.name.split('.').pop()
-        const filename = `${Date.now()}-${Math.random().toString(36).substring(7)}.${fileExt}`
+        finalFilename = `${Date.now()}-${Math.random().toString(36).substring(7)}.${fileExt}`
 
         const { error: uploadError } = await supabase.storage
           .from('uploads')
-          .upload(filename, attachmentFile, { upsert: false })
+          .upload(finalFilename, attachmentFile, { upsert: false })
 
         if (uploadError) {
           console.error(uploadError)
           throw new Error("Gagal mengunggah file lampiran")
         }
-        const { data: { publicUrl } } = supabase.storage.from('uploads').getPublicUrl(filename)
-        finalUrl = publicUrl
       }
 
       const res = await fetch("/api/parent/requests", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...formData, attachmentFilename: filename })
+        body: JSON.stringify({ ...formData, attachmentFilename: finalFilename })
       })
 
       if (res.ok) {
@@ -120,7 +118,7 @@ export function ParentAbsenceClient({ requests }: { requests: any[] }) {
                   <SelectTrigger className="bg-white dark:bg-slate-800">
                     <SelectValue placeholder="Pilih alasan" />
                   </SelectTrigger>
-                  <SelectContent>
+                  <SelectContent className="bg-white dark:bg-slate-800 z-[100]">
                     <SelectItem value="SICK">Sakit</SelectItem>
                     <SelectItem value="PERMISSION">Izin Keperluan Lain</SelectItem>
                   </SelectContent>
