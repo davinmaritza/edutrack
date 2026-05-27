@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { Settings, Save, Shield, Globe, School, Bell, Database, Lock, Mail, HardDrive, AlertTriangle, RefreshCw, Download } from 'lucide-react'
+import { Settings, Save, Shield, Globe, School, Bell, Database, Lock, Mail, HardDrive, AlertTriangle, RefreshCw, Download, Wallet } from 'lucide-react'
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -24,6 +24,9 @@ export function AdminSettingsClient({ initialSettings }: any) {
     supportEmail: initialSettings?.supportEmail || 'support@edutrack.id',
     backupEnabled: initialSettings?.backupEnabled ?? true,
     securityLog: initialSettings?.securityLog ?? true,
+    bankName: initialSettings?.bankName || 'BCA',
+    bankAccount: initialSettings?.bankAccount || '1234567890',
+    bankAccountName: initialSettings?.bankAccountName || 'EduTrack Academy',
     confirmPassword: '',
   })
 
@@ -80,6 +83,7 @@ export function AdminSettingsClient({ initialSettings }: any) {
 
   const menuItems = [
     { id: 'general', label: 'General Settings', icon: Globe },
+    { id: 'finance', label: 'Finance & Billing', icon: Wallet },
     { id: 'security', label: 'Security & Privacy', icon: Shield },
     { id: 'email', label: 'Email Notifications', icon: Bell },
     { id: 'backup', label: 'Backup & Recovery', icon: Database },
@@ -192,6 +196,52 @@ export function AdminSettingsClient({ initialSettings }: any) {
                                  className="data-[state=checked]:bg-rose-500" 
                               />
                            </div>
+                        </div>
+                     </CardContent>
+                  </Card>
+               )}
+
+               {activeTab === 'finance' && (
+                  <Card className="bg-[var(--card)] border-[var(--border)] rounded-2xl shadow-sm overflow-hidden animate-in fade-in slide-in-from-right-4 duration-500">
+                     <CardHeader className="p-6 md:p-8 border-b border-[var(--border)] bg-[var(--muted)]/30">
+                        <CardTitle className="text-xl font-extrabold tracking-tight">Keuangan & Pembayaran</CardTitle>
+                        <CardDescription className="text-sm font-medium text-[var(--muted-foreground)] mt-1">Konfigurasi rekening tujuan pembayaran sekolah.</CardDescription>
+                     </CardHeader>
+                     <CardContent className="p-6 md:p-8 space-y-6">
+                        <div className="space-y-2">
+                           <Label className="text-xs font-bold text-[var(--foreground)]">Nama Bank</Label>
+                           <Input 
+                              value={formData.bankName} 
+                              onChange={(e) => setFormData({...formData, bankName: e.target.value})} 
+                              className="bg-[var(--background)] border-[var(--border)] rounded-xl h-12 focus-visible:ring-[#5483B3] shadow-sm"
+                              placeholder="Contoh: BCA / Mandiri / BNI"
+                           />
+                        </div>
+                        <div className="space-y-2">
+                           <Label className="text-xs font-bold text-[var(--foreground)]">Nomor Rekening</Label>
+                           <Input 
+                              value={formData.bankAccount} 
+                              onChange={(e) => setFormData({...formData, bankAccount: e.target.value})} 
+                              className="bg-[var(--background)] border-[var(--border)] rounded-xl h-12 focus-visible:ring-[#5483B3] shadow-sm"
+                              placeholder="Contoh: 1234567890"
+                           />
+                        </div>
+                        <div className="space-y-2">
+                           <Label className="text-xs font-bold text-[var(--foreground)]">Atas Nama (A.N)</Label>
+                           <Input 
+                              value={formData.bankAccountName} 
+                              onChange={(e) => setFormData({...formData, bankAccountName: e.target.value})} 
+                              className="bg-[var(--background)] border-[var(--border)] rounded-xl h-12 focus-visible:ring-[#5483B3] shadow-sm"
+                              placeholder="Contoh: EduTrack Academy"
+                           />
+                        </div>
+                        <div className="p-6 bg-[#5483B3]/5 border border-[#5483B3]/20 rounded-xl flex items-center gap-4">
+                           <div className="h-10 w-10 bg-[#5483B3]/10 rounded-lg flex items-center justify-center shrink-0">
+                              <Wallet className="h-5 w-5 text-[#5483B3]" />
+                           </div>
+                           <p className="text-xs text-[var(--muted-foreground)] leading-relaxed font-medium">
+                              Informasi rekening ini akan ditampilkan kepada orang tua pada saat <strong className="text-[var(--foreground)]">pembayaran SPP atau tagihan lainnya</strong>. Pastikan data rekening benar untuk menghindari kesalahan transfer.
+                           </p>
                         </div>
                      </CardContent>
                   </Card>

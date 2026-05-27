@@ -18,7 +18,7 @@ export function AdminBillingClient({ students, billings }: { students: any[], bi
   const router = useRouter()
   const [open, setOpen] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
-  
+
   const [formData, setFormData] = useState({
     studentId: "",
     title: "SPP Bulan ",
@@ -95,7 +95,7 @@ export function AdminBillingClient({ students, billings }: { students: any[], bi
             <form onSubmit={handleCreateBill} className="space-y-4 py-4">
               <div className="space-y-2">
                 <Label>Pilih Siswa</Label>
-                <Select value={formData.studentId} onValueChange={v => setFormData({...formData, studentId: v})}>
+                <Select value={formData.studentId} onValueChange={v => setFormData({ ...formData, studentId: v })}>
                   <SelectTrigger className="bg-[var(--background)] dark:bg-slate-800">
                     <SelectValue placeholder="Pilih siswa" />
                   </SelectTrigger>
@@ -111,17 +111,17 @@ export function AdminBillingClient({ students, billings }: { students: any[], bi
 
               <div className="space-y-2">
                 <Label>Judul Tagihan</Label>
-                <Input className="bg-[var(--background)] dark:bg-slate-800" required value={formData.title} onChange={e => setFormData({...formData, title: e.target.value})} />
+                <Input className="bg-[var(--background)] dark:bg-slate-800" required value={formData.title} onChange={e => setFormData({ ...formData, title: e.target.value })} />
               </div>
 
               <div className="space-y-2">
                 <Label>Nominal (Rp)</Label>
-                <Input className="bg-[var(--background)] dark:bg-slate-800" type="number" required value={formData.amount} onChange={e => setFormData({...formData, amount: e.target.value})} />
+                <Input className="bg-[var(--background)] dark:bg-slate-800" type="number" required value={formData.amount} onChange={e => setFormData({ ...formData, amount: e.target.value })} />
               </div>
 
               <div className="space-y-2">
                 <Label>Jatuh Tempo</Label>
-                <Input className="bg-[var(--background)] dark:bg-slate-800" type="date" required value={formData.dueDate} onChange={e => setFormData({...formData, dueDate: e.target.value})} />
+                <Input className="bg-[var(--background)] dark:bg-slate-800" type="date" required value={formData.dueDate} onChange={e => setFormData({ ...formData, dueDate: e.target.value })} />
               </div>
 
               <Button type="submit" className="w-full bg-[#5483B3] hover:bg-[#3B6FA0]" disabled={isLoading}>

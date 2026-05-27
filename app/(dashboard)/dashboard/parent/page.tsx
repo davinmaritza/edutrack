@@ -98,6 +98,11 @@ export default async function ParentDashboardPage() {
     return <ForceChangePin studentId={student.id} />
   }
 
+  // Ambil pengaturan bank untuk tagihan
+  const settings = await prisma.settings.findUnique({
+    where: { id: "global" }
+  })
+
 
   // Calculate statistics
   const totalSubmissions = student.studentSubmissions?.length || 0
@@ -348,7 +353,7 @@ export default async function ParentDashboardPage() {
       </TabsContent>
 
       <TabsContent value="finance" className="pt-6">
-        <ParentBillingClient billings={student.billings || []} />
+        <ParentBillingClient billings={student.billings || []} bankSettings={settings} />
       </TabsContent>
 
       <TabsContent value="absence" className="pt-6">

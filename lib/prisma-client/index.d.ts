@@ -25853,6 +25853,9 @@ export namespace Prisma {
     supportEmail: string | null
     backupEnabled: boolean | null
     securityLog: boolean | null
+    bankName: string | null
+    bankAccount: string | null
+    bankAccountName: string | null
   }
 
   export type SettingsMaxAggregateOutputType = {
@@ -25866,6 +25869,9 @@ export namespace Prisma {
     supportEmail: string | null
     backupEnabled: boolean | null
     securityLog: boolean | null
+    bankName: string | null
+    bankAccount: string | null
+    bankAccountName: string | null
   }
 
   export type SettingsCountAggregateOutputType = {
@@ -25879,6 +25885,9 @@ export namespace Prisma {
     supportEmail: number
     backupEnabled: number
     securityLog: number
+    bankName: number
+    bankAccount: number
+    bankAccountName: number
     _all: number
   }
 
@@ -25894,6 +25903,9 @@ export namespace Prisma {
     supportEmail?: true
     backupEnabled?: true
     securityLog?: true
+    bankName?: true
+    bankAccount?: true
+    bankAccountName?: true
   }
 
   export type SettingsMaxAggregateInputType = {
@@ -25907,6 +25919,9 @@ export namespace Prisma {
     supportEmail?: true
     backupEnabled?: true
     securityLog?: true
+    bankName?: true
+    bankAccount?: true
+    bankAccountName?: true
   }
 
   export type SettingsCountAggregateInputType = {
@@ -25920,6 +25935,9 @@ export namespace Prisma {
     supportEmail?: true
     backupEnabled?: true
     securityLog?: true
+    bankName?: true
+    bankAccount?: true
+    bankAccountName?: true
     _all?: true
   }
 
@@ -26006,6 +26024,9 @@ export namespace Prisma {
     supportEmail: string | null
     backupEnabled: boolean
     securityLog: boolean
+    bankName: string
+    bankAccount: string
+    bankAccountName: string
     _count: SettingsCountAggregateOutputType | null
     _min: SettingsMinAggregateOutputType | null
     _max: SettingsMaxAggregateOutputType | null
@@ -26036,6 +26057,9 @@ export namespace Prisma {
     supportEmail?: boolean
     backupEnabled?: boolean
     securityLog?: boolean
+    bankName?: boolean
+    bankAccount?: boolean
+    bankAccountName?: boolean
   }, ExtArgs["result"]["settings"]>
 
   export type SettingsSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -26049,6 +26073,9 @@ export namespace Prisma {
     supportEmail?: boolean
     backupEnabled?: boolean
     securityLog?: boolean
+    bankName?: boolean
+    bankAccount?: boolean
+    bankAccountName?: boolean
   }, ExtArgs["result"]["settings"]>
 
   export type SettingsSelectScalar = {
@@ -26062,6 +26089,9 @@ export namespace Prisma {
     supportEmail?: boolean
     backupEnabled?: boolean
     securityLog?: boolean
+    bankName?: boolean
+    bankAccount?: boolean
+    bankAccountName?: boolean
   }
 
 
@@ -26079,6 +26109,9 @@ export namespace Prisma {
       supportEmail: string | null
       backupEnabled: boolean
       securityLog: boolean
+      bankName: string
+      bankAccount: string
+      bankAccountName: string
     }, ExtArgs["result"]["settings"]>
     composites: {}
   }
@@ -26482,6 +26515,9 @@ export namespace Prisma {
     readonly supportEmail: FieldRef<"Settings", 'String'>
     readonly backupEnabled: FieldRef<"Settings", 'Boolean'>
     readonly securityLog: FieldRef<"Settings", 'Boolean'>
+    readonly bankName: FieldRef<"Settings", 'String'>
+    readonly bankAccount: FieldRef<"Settings", 'String'>
+    readonly bankAccountName: FieldRef<"Settings", 'String'>
   }
     
 
@@ -41002,7 +41038,10 @@ export namespace Prisma {
     loginMaintenance: 'loginMaintenance',
     supportEmail: 'supportEmail',
     backupEnabled: 'backupEnabled',
-    securityLog: 'securityLog'
+    securityLog: 'securityLog',
+    bankName: 'bankName',
+    bankAccount: 'bankAccount',
+    bankAccountName: 'bankAccountName'
   };
 
   export type SettingsScalarFieldEnum = (typeof SettingsScalarFieldEnum)[keyof typeof SettingsScalarFieldEnum]
@@ -43093,6 +43132,9 @@ export namespace Prisma {
     supportEmail?: StringNullableFilter<"Settings"> | string | null
     backupEnabled?: BoolFilter<"Settings"> | boolean
     securityLog?: BoolFilter<"Settings"> | boolean
+    bankName?: StringFilter<"Settings"> | string
+    bankAccount?: StringFilter<"Settings"> | string
+    bankAccountName?: StringFilter<"Settings"> | string
   }
 
   export type SettingsOrderByWithRelationInput = {
@@ -43106,6 +43148,9 @@ export namespace Prisma {
     supportEmail?: SortOrderInput | SortOrder
     backupEnabled?: SortOrder
     securityLog?: SortOrder
+    bankName?: SortOrder
+    bankAccount?: SortOrder
+    bankAccountName?: SortOrder
   }
 
   export type SettingsWhereUniqueInput = Prisma.AtLeast<{
@@ -43122,6 +43167,9 @@ export namespace Prisma {
     supportEmail?: StringNullableFilter<"Settings"> | string | null
     backupEnabled?: BoolFilter<"Settings"> | boolean
     securityLog?: BoolFilter<"Settings"> | boolean
+    bankName?: StringFilter<"Settings"> | string
+    bankAccount?: StringFilter<"Settings"> | string
+    bankAccountName?: StringFilter<"Settings"> | string
   }, "id">
 
   export type SettingsOrderByWithAggregationInput = {
@@ -43135,6 +43183,9 @@ export namespace Prisma {
     supportEmail?: SortOrderInput | SortOrder
     backupEnabled?: SortOrder
     securityLog?: SortOrder
+    bankName?: SortOrder
+    bankAccount?: SortOrder
+    bankAccountName?: SortOrder
     _count?: SettingsCountOrderByAggregateInput
     _max?: SettingsMaxOrderByAggregateInput
     _min?: SettingsMinOrderByAggregateInput
@@ -43154,6 +43205,9 @@ export namespace Prisma {
     supportEmail?: StringNullableWithAggregatesFilter<"Settings"> | string | null
     backupEnabled?: BoolWithAggregatesFilter<"Settings"> | boolean
     securityLog?: BoolWithAggregatesFilter<"Settings"> | boolean
+    bankName?: StringWithAggregatesFilter<"Settings"> | string
+    bankAccount?: StringWithAggregatesFilter<"Settings"> | string
+    bankAccountName?: StringWithAggregatesFilter<"Settings"> | string
   }
 
   export type AccountWhereInput = {
@@ -45919,6 +45973,9 @@ export namespace Prisma {
     supportEmail?: string | null
     backupEnabled?: boolean
     securityLog?: boolean
+    bankName?: string
+    bankAccount?: string
+    bankAccountName?: string
   }
 
   export type SettingsUncheckedCreateInput = {
@@ -45932,6 +45989,9 @@ export namespace Prisma {
     supportEmail?: string | null
     backupEnabled?: boolean
     securityLog?: boolean
+    bankName?: string
+    bankAccount?: string
+    bankAccountName?: string
   }
 
   export type SettingsUpdateInput = {
@@ -45945,6 +46005,9 @@ export namespace Prisma {
     supportEmail?: NullableStringFieldUpdateOperationsInput | string | null
     backupEnabled?: BoolFieldUpdateOperationsInput | boolean
     securityLog?: BoolFieldUpdateOperationsInput | boolean
+    bankName?: StringFieldUpdateOperationsInput | string
+    bankAccount?: StringFieldUpdateOperationsInput | string
+    bankAccountName?: StringFieldUpdateOperationsInput | string
   }
 
   export type SettingsUncheckedUpdateInput = {
@@ -45958,6 +46021,9 @@ export namespace Prisma {
     supportEmail?: NullableStringFieldUpdateOperationsInput | string | null
     backupEnabled?: BoolFieldUpdateOperationsInput | boolean
     securityLog?: BoolFieldUpdateOperationsInput | boolean
+    bankName?: StringFieldUpdateOperationsInput | string
+    bankAccount?: StringFieldUpdateOperationsInput | string
+    bankAccountName?: StringFieldUpdateOperationsInput | string
   }
 
   export type SettingsCreateManyInput = {
@@ -45971,6 +46037,9 @@ export namespace Prisma {
     supportEmail?: string | null
     backupEnabled?: boolean
     securityLog?: boolean
+    bankName?: string
+    bankAccount?: string
+    bankAccountName?: string
   }
 
   export type SettingsUpdateManyMutationInput = {
@@ -45984,6 +46053,9 @@ export namespace Prisma {
     supportEmail?: NullableStringFieldUpdateOperationsInput | string | null
     backupEnabled?: BoolFieldUpdateOperationsInput | boolean
     securityLog?: BoolFieldUpdateOperationsInput | boolean
+    bankName?: StringFieldUpdateOperationsInput | string
+    bankAccount?: StringFieldUpdateOperationsInput | string
+    bankAccountName?: StringFieldUpdateOperationsInput | string
   }
 
   export type SettingsUncheckedUpdateManyInput = {
@@ -45997,6 +46069,9 @@ export namespace Prisma {
     supportEmail?: NullableStringFieldUpdateOperationsInput | string | null
     backupEnabled?: BoolFieldUpdateOperationsInput | boolean
     securityLog?: BoolFieldUpdateOperationsInput | boolean
+    bankName?: StringFieldUpdateOperationsInput | string
+    bankAccount?: StringFieldUpdateOperationsInput | string
+    bankAccountName?: StringFieldUpdateOperationsInput | string
   }
 
   export type AccountCreateInput = {
@@ -48527,6 +48602,9 @@ export namespace Prisma {
     supportEmail?: SortOrder
     backupEnabled?: SortOrder
     securityLog?: SortOrder
+    bankName?: SortOrder
+    bankAccount?: SortOrder
+    bankAccountName?: SortOrder
   }
 
   export type SettingsMaxOrderByAggregateInput = {
@@ -48540,6 +48618,9 @@ export namespace Prisma {
     supportEmail?: SortOrder
     backupEnabled?: SortOrder
     securityLog?: SortOrder
+    bankName?: SortOrder
+    bankAccount?: SortOrder
+    bankAccountName?: SortOrder
   }
 
   export type SettingsMinOrderByAggregateInput = {
@@ -48553,6 +48634,9 @@ export namespace Prisma {
     supportEmail?: SortOrder
     backupEnabled?: SortOrder
     securityLog?: SortOrder
+    bankName?: SortOrder
+    bankAccount?: SortOrder
+    bankAccountName?: SortOrder
   }
 
   export type AccountProviderProviderAccountIdCompoundUniqueInput = {

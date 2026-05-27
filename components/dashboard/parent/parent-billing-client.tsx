@@ -13,37 +13,52 @@ import { Label } from "@/components/ui/label"
 import { toast } from "sonner"
 import { useRouter } from "next/navigation"
 
-export function ParentBillingClient({ billings }: { billings: any[] }) {
+export function ParentBillingClient({ billings, bankSettings }: { billings: any[], bankSettings?: any }) {
   const router = useRouter()
   const [selectedBill, setSelectedBill] = useState<any>(null)
-  const [proofUrl, setProofUrl] = useState("")
+  const [proofFile, setProofFile] = useState<File | null>(null)
   const [isUploading, setIsUploading] = useState(false)
 
   const handleUploadProof = async (e: React.FormEvent) => {
     e.preventDefault()
-    if (!proofUrl) {
-      toast.error("Harap masukkan URL bukti transfer")
+    if (!proofFile) {
+      toast.error("Harap pilih file bukti transfer")
       return
     }
 
     setIsUploading(true)
     try {
+      const uploadData = new FormData()
+      uploadData.append("file", proofFile)
+
+      const uploadRes = await fetch("/api/upload", {
+        method: "POST",
+        body: uploadData
+      })
+
+      if (!uploadRes.ok) {
+        throw new Error("Gagal mengunggah file")
+      }
+
+      const uploadResult = await uploadRes.json()
+      const finalUrl = uploadResult.url
+
       const res = await fetch("/api/parent/billing", {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ id: selectedBill.id, proofUrl })
+        body: JSON.stringify({ id: selectedBill.id, proofUrl: finalUrl })
       })
 
       if (res.ok) {
         toast.success("Bukti transfer berhasil diunggah!")
         setSelectedBill(null)
-        setProofUrl("")
+        setProofFile(null)
         router.refresh()
       } else {
-        toast.error("Gagal mengunggah bukti")
+        toast.error("Gagal menyimpan bukti transfer")
       }
     } catch (error) {
-      toast.error("Terjadi kesalahan sistem")
+      toast.error("Terjadi kesalahan sistem saat unggah")
     } finally {
       setIsUploading(false)
     }
@@ -135,18 +150,18 @@ export function ParentBillingClient({ billings }: { billings: any[] }) {
                             <hr className="my-3 border-[var(--border)]" />
                             <p className="text-xs text-[var(--muted-foreground)] leading-relaxed">
                               Silakan transfer ke rekening berikut:<br/>
-                              <strong>BCA 1234567890 a.n EduTrack Academy</strong>
+                              <strong>{bankSettings?.bankName || "BCA"} {bankSettings?.bankAccount || "1234567890"} a.n {bankSettings?.bankAccountName || "EduTrack Academy"}</strong>
                             </p>
                           </div>
                           
                           <form onSubmit={handleUploadProof} className="space-y-4">
                             <div className="space-y-2">
-                              <Label className="text-xs font-bold text-[#64748B] uppercase tracking-wider">URL Bukti Transfer (Simulasi MVP)</Label>
+                              <Label className="text-xs font-bold text-[#64748B] uppercase tracking-wider">Unggah Bukti Transfer</Label>
                               <Input 
+                                type="file"
+                                accept="image/*,.pdf"
                                 className="bg-white dark:bg-slate-800"
-                                placeholder="https://contoh.com/bukti.jpg" 
-                                value={proofUrl} 
-                                onChange={(e) => setProofUrl(e.target.value)}
+                                onChange={(e) => setProofFile(e.target.files?.[0] || null)}
                                 required 
                               />
                             </div>

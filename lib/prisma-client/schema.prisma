@@ -359,6 +359,9 @@ model Settings {
   supportEmail        String?
   backupEnabled       Boolean @default(true)
   securityLog         Boolean @default(true)
+  bankName            String  @default("BCA")
+  bankAccount         String  @default("1234567890")
+  bankAccountName     String  @default("EduTrack Academy")
 }
 
 model Account {

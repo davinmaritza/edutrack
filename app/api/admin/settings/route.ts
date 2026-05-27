@@ -20,6 +20,9 @@ export async function PATCH(req: Request) {
       supportEmail, 
       backupEnabled, 
       securityLog,
+      bankName,
+      bankAccount,
+      bankAccountName,
       confirmPassword
     } = await req.json()
 
@@ -52,7 +55,10 @@ export async function PATCH(req: Request) {
         loginMaintenance,
         supportEmail, 
         backupEnabled, 
-        securityLog 
+        securityLog,
+        bankName,
+        bankAccount,
+        bankAccountName
       },
       create: { 
         id: 'global', 
@@ -64,7 +70,10 @@ export async function PATCH(req: Request) {
         loginMaintenance,
         supportEmail, 
         backupEnabled, 
-        securityLog 
+        securityLog,
+        bankName,
+        bankAccount,
+        bankAccountName
       }
     })
 

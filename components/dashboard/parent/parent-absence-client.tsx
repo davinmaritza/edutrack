@@ -19,12 +19,12 @@ export function ParentAbsenceClient({ requests }: { requests: any[] }) {
   const router = useRouter()
   const [open, setOpen] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
+  const [attachmentFile, setAttachmentFile] = useState<File | null>(null)
   const [formData, setFormData] = useState({
     startDate: "",
     endDate: "",
     reason: "SICK",
     description: "",
-    attachmentUrl: ""
   })
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -32,16 +32,32 @@ export function ParentAbsenceClient({ requests }: { requests: any[] }) {
     setIsLoading(true)
 
     try {
+      let finalUrl = ""
+      if (attachmentFile) {
+        const uploadData = new FormData()
+        uploadData.append("file", attachmentFile)
+
+        const uploadRes = await fetch("/api/upload", {
+          method: "POST",
+          body: uploadData
+        })
+
+        if (!uploadRes.ok) throw new Error("Gagal mengunggah file lampiran")
+        const uploadResult = await uploadRes.json()
+        finalUrl = uploadResult.url
+      }
+
       const res = await fetch("/api/parent/requests", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData)
+        body: JSON.stringify({ ...formData, attachmentUrl: finalUrl })
       })
 
       if (res.ok) {
         toast.success("Pengajuan izin berhasil dikirim")
         setOpen(false)
-        setFormData({ startDate: "", endDate: "", reason: "SICK", description: "", attachmentUrl: "" })
+        setFormData({ startDate: "", endDate: "", reason: "SICK", description: "" })
+        setAttachmentFile(null)
         router.refresh()
       } else {
         toast.error("Gagal mengirim pengajuan")
@@ -115,12 +131,12 @@ export function ParentAbsenceClient({ requests }: { requests: any[] }) {
               </div>
 
               <div className="space-y-2">
-                <Label className="text-xs font-bold text-[#64748B]">URL Surat Dokter / Bukti (Opsional)</Label>
+                <Label className="text-xs font-bold text-[#64748B] uppercase tracking-wider">Unggah Surat Dokter / Bukti (Opsional)</Label>
                 <Input 
+                  type="file"
+                  accept="image/*,.pdf"
                   className="bg-white dark:bg-slate-800"
-                  placeholder="https://contoh.com/surat.jpg" 
-                  value={formData.attachmentUrl} 
-                  onChange={e => setFormData({...formData, attachmentUrl: e.target.value})} 
+                  onChange={(e) => setAttachmentFile(e.target.files?.[0] || null)}
                 />
               </div>
 
