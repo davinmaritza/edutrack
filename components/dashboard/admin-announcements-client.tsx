@@ -10,6 +10,7 @@ import { Textarea } from '@/components/ui/textarea'
 import { toast } from 'sonner'
 import { Label } from '@/components/ui/label'
 import { RichTextEditor } from '@/components/ui/rich-text-editor'
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog'
 import {
   Select,
   SelectContent,
@@ -47,6 +48,7 @@ export function AdminAnnouncementsClient() {
     isOpen: false,
     id: ''
   })
+  const [selectedAnnouncement, setSelectedAnnouncement] = useState<any>(null)
 
   useEffect(() => {
     fetchAnnouncements()
@@ -207,7 +209,11 @@ export function AdminAnnouncementsClient() {
                  ) : (
                     <div className="divide-y divide-[var(--border)]">
                        {announcements.map((a) => (
-                          <div key={a.id} className="p-6 hover:bg-[var(--muted)]/30 transition-colors group">
+                          <div 
+                            key={a.id} 
+                            className="p-6 hover:bg-[var(--muted)]/30 transition-colors group cursor-pointer"
+                            onClick={() => setSelectedAnnouncement(a)}
+                          >
                              <div className="flex justify-between items-start mb-3">
                                 <div className="space-y-1.5">
                                    <h4 className="font-bold text-[var(--foreground)] text-sm group-hover:text-[#5483B3] transition-colors">{a.title}</h4>
@@ -220,15 +226,19 @@ export function AdminAnnouncementsClient() {
                                   variant="ghost" 
                                   size="icon" 
                                   className="h-8 w-8 text-[var(--muted-foreground)] hover:text-red-500 hover:bg-red-50 rounded-lg transition-all opacity-0 group-hover:opacity-100"
-                                  onClick={() => handleDelete(a.id)}
+                                  onClick={(e) => {
+                                    e.stopPropagation()
+                                    handleDelete(a.id)
+                                  }}
                                 >
                                    <Trash2 className="h-4 w-4" />
                                 </Button>
                              </div>
                              <div 
-                               className="text-sm text-[var(--muted-foreground)] font-medium leading-relaxed line-clamp-2 prose prose-sm max-w-none dark:prose-invert"
-                               dangerouslySetInnerHTML={{ __html: a.message }}
-                             />
+                               className="text-sm text-[var(--muted-foreground)] font-medium leading-relaxed line-clamp-2"
+                             >
+                               {a.message.replace(/<[^>]*>?/gm, '')}
+                             </div>
                           </div>
                        ))}
                     </div>
@@ -262,6 +272,22 @@ export function AdminAnnouncementsClient() {
           </AlertDialogFooter>
         </AlertDialogContent>
       </AlertDialog>
+
+      <Dialog open={!!selectedAnnouncement} onOpenChange={(open) => !open && setSelectedAnnouncement(null)}>
+        <DialogContent className="bg-[var(--card)] border-[var(--border)] p-0 rounded-2xl overflow-hidden max-w-lg">
+          <DialogHeader className="p-6 border-b border-[var(--border)] bg-[var(--muted)]/30">
+            <DialogTitle className="text-xl font-extrabold text-[var(--foreground)]">{selectedAnnouncement?.title}</DialogTitle>
+            <DialogDescription className="text-xs text-[var(--muted-foreground)] flex items-center gap-1.5 mt-2">
+              <Clock className="h-3.5 w-3.5" />
+              {selectedAnnouncement && format(new Date(selectedAnnouncement.createdAt), 'dd MMM yyyy HH:mm', { locale: idLocale })}
+            </DialogDescription>
+          </DialogHeader>
+          <div className="p-6 max-h-[60vh] overflow-y-auto prose prose-sm max-w-none dark:prose-invert" dangerouslySetInnerHTML={{ __html: selectedAnnouncement?.message || '' }} />
+          <div className="p-4 border-t border-[var(--border)] flex justify-end">
+            <Button onClick={() => setSelectedAnnouncement(null)} className="bg-[var(--muted)] text-[var(--foreground)] hover:bg-[var(--border)] rounded-xl">Tutup</Button>
+          </div>
+        </DialogContent>
+      </Dialog>
     </div>
   )
 }
