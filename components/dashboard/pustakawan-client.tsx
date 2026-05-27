@@ -316,7 +316,7 @@ export function PustakawanClient({ books: initialBooks, circulations: initialCir
                  <TableRow>
                    <TableCell colSpan={6} className="text-center py-10 text-[var(--muted-foreground)] font-medium">Belum ada data peminjaman</TableCell>
                  </TableRow>
-              ) : (
+              ) : 
                 filteredCirculations.map((circ: any) => {
                   const isOverdue = circ.status === 'BORROWED' && new Date(circ.dueDate) < new Date()
                   return (
@@ -353,7 +353,9 @@ export function PustakawanClient({ books: initialBooks, circulations: initialCir
                       )}
                     </TableCell>
                   </TableRow>
-                )})}
+                  )
+                })
+              }
             </TableBody>
           </Table>
         </Card>

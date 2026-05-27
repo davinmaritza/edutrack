@@ -14,8 +14,12 @@ import {
   Calendar,
   School,
   FileText,
-  UserCheck
-} , Library, HeartPulse, GraduationCap } from 'lucide-react'
+  UserCheck,
+  Menu,
+  GraduationCap,
+  Library,
+  HeartPulse
+} from 'lucide-react'
 import { motion } from 'framer-motion'
 import { useAppStore } from '@/store/useAppStore'
 import { cn } from '@/lib/utils'
