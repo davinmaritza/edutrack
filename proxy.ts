@@ -42,7 +42,13 @@ export const proxy = auth((req) => {
     if (nextUrl.pathname.startsWith("/dashboard/admin")) {
       const isAllowedForTeacher = nextUrl.pathname === "/dashboard/admin/classes" || nextUrl.pathname.startsWith("/dashboard/admin/classes/")
       
-      if (role !== "ADMIN" && !(role === "TEACHER" && isAllowedForTeacher)) {
+      // Import RBAC logic inside the proxy or just replicate the allowed roles if import fails, but import { RBAC } is already available or can be added.
+      // Wait, let's just allow anyone who isn't a student, parent, or alumni to access admin routes, OR we can check RBAC.
+      const adminRoles = ['SUPER_ADMIN', 'KETUA_YAYASAN', 'KEPALA_SEKOLAH', 'WAKASEK_KURIKULUM', 'WAKASEK_KESISWAAN', 'WAKASEK_HUBIN', 'KAPROG', 'KEPALA_LAB', 'TATA_USAHA', 'BENDAHARA_YAYASAN', 'BENDAHARA_SEKOLAH', 'PANITIA_PPDB', 'STAF_SARPRAS', 'WALI_KELAS', 'GURU_BK', 'ADMIN']
+      const normalizedRole = role ? String(role).toUpperCase().replace(/[\s\-]/g, '_') : ''
+      const isAuthorizedAdmin = adminRoles.includes(normalizedRole)
+      
+      if (!isAuthorizedAdmin && !(role === "TEACHER" && isAllowedForTeacher)) {
         return NextResponse.redirect(new URL("/dashboard", nextUrl))
       }
     }
