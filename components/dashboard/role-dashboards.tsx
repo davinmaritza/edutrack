@@ -47,50 +47,105 @@ export function KepalaSekolahDashboard({ stats, recentUsers, teacherStats }: any
         ))}
       </div>
 
-      {/* Kinerja Guru */}
-      <Card className="bg-[var(--card)] border border-[var(--border)] rounded-2xl">
-        <CardHeader className="border-b border-[var(--border)]">
-          <CardTitle className="text-sm font-bold flex items-center gap-2">
-            <ShieldCheck className="h-4 w-4 text-[#8B5CF6]" /> Pemantauan Kinerja Guru
-          </CardTitle>
-        </CardHeader>
-        <CardContent className="p-0">
-          <div className="divide-y divide-[var(--border)]">
-            {(teacherStats || []).slice(0, 8).map((t: any) => (
-              <div key={t.id} className="flex items-center justify-between p-4 hover:bg-[var(--muted)]/50 transition-colors">
-                <div className="flex items-center gap-3">
-                  <div className="h-9 w-9 rounded-full bg-[#8B5CF6]/10 flex items-center justify-center text-[#8B5CF6] font-bold text-xs">
-                    {t.name?.substring(0, 2).toUpperCase()}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        {/* Kinerja Guru */}
+        <Card className="bg-[var(--card)] border border-[var(--border)] rounded-2xl flex flex-col h-full shadow-sm hover:shadow-md transition-all">
+          <CardHeader className="border-b border-[var(--border)] bg-[#8B5CF6]/5 rounded-t-2xl pb-4">
+            <CardTitle className="text-base font-extrabold flex items-center gap-2 text-[#8B5CF6]">
+              <ShieldCheck className="h-5 w-5" /> Pemantauan Kinerja Guru
+            </CardTitle>
+          </CardHeader>
+          <CardContent className="p-0 flex-1">
+            <div className="divide-y divide-[var(--border)]">
+              {(teacherStats || []).slice(0, 5).map((t: any) => (
+                <div key={t.id} className="flex items-center justify-between p-5 hover:bg-[var(--muted)]/50 transition-colors">
+                  <div className="flex items-center gap-4">
+                    <div className="h-10 w-10 rounded-full bg-[#8B5CF6]/10 flex items-center justify-center text-[#8B5CF6] font-extrabold text-sm border border-[#8B5CF6]/20 shadow-sm">
+                      {t.name?.substring(0, 2).toUpperCase()}
+                    </div>
+                    <div>
+                      <p className="text-sm font-bold text-[var(--foreground)]">{t.name}</p>
+                      <p className="text-[11px] font-medium text-[var(--muted-foreground)] mt-0.5">{t._count?.teacherSubjects || 0} mapel • {t._count?.teacherAssignments || 0} tugas aktif</p>
+                    </div>
                   </div>
-                  <div>
-                    <p className="text-sm font-bold text-[var(--foreground)]">{t.name}</p>
-                    <p className="text-[10px] text-[var(--muted-foreground)]">{t._count?.teacherSubjects || 0} mapel • {t._count?.teacherAssignments || 0} tugas dibuat</p>
-                  </div>
+                  <Badge className="bg-emerald-500/10 text-emerald-600 border-none text-[10px] font-bold px-3 py-1 uppercase tracking-wider">Sangat Baik</Badge>
                 </div>
-                <Badge className="bg-green-500/10 text-green-600 border-none text-[10px] font-bold">Aktif</Badge>
+              ))}
+              {(!teacherStats || teacherStats.length === 0) && (
+                <div className="p-8 text-center text-sm font-medium text-[var(--muted-foreground)] flex flex-col items-center gap-3">
+                  <ShieldCheck className="h-10 w-10 text-[#8B5CF6]/20" />
+                  Belum ada data evaluasi kinerja guru.
+                </div>
+              )}
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Otorisasi & Keputusan Strategis */}
+        <div className="space-y-4">
+          <h2 className="text-sm font-extrabold text-[var(--muted-foreground)] uppercase tracking-wider px-1">Menunggu Otorisasi Anda</h2>
+          
+          <Card className="bg-gradient-to-br from-amber-500/10 to-orange-600/10 border border-amber-500/20 rounded-2xl relative overflow-hidden group">
+            <div className="absolute right-0 top-0 w-32 h-32 bg-amber-500/10 rounded-full -translate-y-1/2 translate-x-1/2 blur-2xl group-hover:scale-150 transition-transform duration-500" />
+            <CardContent className="p-6">
+              <div className="flex items-start gap-5">
+                <div className="h-12 w-12 rounded-xl bg-amber-500/20 flex items-center justify-center shrink-0 border border-amber-500/30">
+                  <Wallet className="h-6 w-6 text-amber-600" />
+                </div>
+                <div className="flex-1 space-y-2">
+                  <div className="flex items-center justify-between">
+                    <h3 className="font-extrabold text-amber-700 dark:text-amber-500">Pencairan Dana BOS</h3>
+                    <Badge className="bg-amber-500 text-white border-none font-bold">Prioritas</Badge>
+                  </div>
+                  <p className="text-xs font-medium text-amber-700/70 dark:text-amber-500/70 leading-relaxed">
+                    Terdapat 2 pengajuan pencairan dana untuk kegiatan operasional sekolah dari Bendahara yang menunggu tanda tangan digital Anda.
+                  </p>
+                  <button className="text-xs font-bold bg-amber-500 hover:bg-amber-600 text-white px-4 py-2 rounded-lg mt-2 transition-colors shadow-sm shadow-amber-500/20">
+                    Tinjau & Otorisasi
+                  </button>
+                </div>
               </div>
-            ))}
-            {(!teacherStats || teacherStats.length === 0) && (
-              <div className="p-8 text-center text-sm text-[var(--muted-foreground)]">Belum ada data guru.</div>
-            )}
-          </div>
-        </CardContent>
-      </Card>
+            </CardContent>
+          </Card>
+
+          <Card className="bg-gradient-to-br from-[#5483B3]/10 to-[#3B6FA0]/10 border border-[#5483B3]/20 rounded-2xl relative overflow-hidden group">
+            <div className="absolute right-0 top-0 w-32 h-32 bg-[#5483B3]/10 rounded-full -translate-y-1/2 translate-x-1/2 blur-2xl group-hover:scale-150 transition-transform duration-500" />
+            <CardContent className="p-6">
+              <div className="flex items-start gap-5">
+                <div className="h-12 w-12 rounded-xl bg-[#5483B3]/20 flex items-center justify-center shrink-0 border border-[#5483B3]/30">
+                  <CheckCircle2 className="h-6 w-6 text-[#5483B3]" />
+                </div>
+                <div className="flex-1 space-y-2">
+                  <h3 className="font-extrabold text-[#5483B3]">Pengesahan e-Rapor & Kalender</h3>
+                  <p className="text-xs font-medium text-[#5483B3]/70 leading-relaxed">
+                    Kalender akademik semester genap telah disusun oleh Wakasek Kurikulum dan siap untuk disahkan secara digital.
+                  </p>
+                  <button className="text-xs font-bold bg-[#5483B3] hover:bg-[#3B6FA0] text-white px-4 py-2 rounded-lg mt-2 transition-colors shadow-sm shadow-[#5483B3]/20">
+                    Buka Dokumen
+                  </button>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
 
       {/* Quick Links */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         {[
-          { label: 'Kelola Pengguna', href: '/dashboard/admin/users', icon: Users },
-          { label: 'Laporan Akademik', href: '/dashboard/admin/reports', icon: FileBarChart },
-          { label: 'Pengaturan', href: '/dashboard/admin/settings', icon: Activity },
-          { label: 'Pengumuman', href: '/dashboard/admin/announcements', icon: ClipboardList },
+          { label: 'Kelola Pengguna', href: '/dashboard/admin/users', icon: Users, color: '#3B82F6' },
+          { label: 'Laporan Akademik', href: '/dashboard/admin/reports', icon: FileBarChart, color: '#10B981' },
+          { label: 'Pengaturan Sekolah', href: '/dashboard/admin/settings', icon: Building2, color: '#8B5CF6' },
+          { label: 'Pengumuman Resmi', href: '/dashboard/admin/announcements', icon: ClipboardList, color: '#F59E0B' },
         ].map((link) => (
           <Link key={link.href} href={link.href}>
-            <Card className="bg-[var(--card)] border border-[var(--border)] rounded-2xl hover:border-[#5483B3]/50 transition-colors cursor-pointer">
+            <Card className="bg-[var(--card)] border border-[var(--border)] rounded-2xl hover:border-[#5483B3]/50 hover:shadow-md transition-all cursor-pointer group">
               <CardContent className="p-4 flex items-center gap-3">
-                {(() => { const Icon = link.icon; return <Icon className="h-5 w-5 text-[#5483B3]" />; })()}
+                <div className="h-9 w-9 rounded-lg flex items-center justify-center transition-transform group-hover:scale-110" style={{ backgroundColor: `${link.color}15`, color: link.color }}>
+                  {(() => { const Icon = link.icon; return <Icon className="h-4.5 w-4.5" />; })()}
+                </div>
                 <span className="text-sm font-bold text-[var(--foreground)]">{link.label}</span>
-                <ChevronRight className="h-4 w-4 ml-auto text-[var(--muted-foreground)]" />
+                <ChevronRight className="h-4 w-4 ml-auto text-[var(--muted-foreground)] group-hover:text-[var(--foreground)] transition-colors" />
               </CardContent>
             </Card>
           </Link>
