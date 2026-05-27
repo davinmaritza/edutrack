@@ -51,7 +51,7 @@ export async function GET(request: NextRequest) {
     // Build where clause for progress logs
     const logsWhere: Record<string, unknown> = {}
     if (startDate) {
-      logsWhere.date = { gte: startDate }
+      logsWhere.loggedAt = { gte: startDate }
     }
 
     // Get all students
@@ -83,7 +83,6 @@ export async function GET(request: NextRequest) {
           select: {
             duration: true,
             difficulty: true,
-            ,
           },
         })
 
@@ -92,7 +91,7 @@ export async function GET(request: NextRequest) {
         // - Completed topics (10 points each)
         // - Difficulty bonus (difficulty * 2 points)
         const totalMinutes = logs.reduce((sum, log) => sum + log.duration, 0)
-        const completedBonus = logs.filter(l => l.completed).length * 10
+        const completedBonus = logs.length * 10 // Since log.completed was removed
         const difficultyBonus = logs.reduce((sum, log) => sum + (log.difficulty || 3) * 2, 0)
         
         const score = totalMinutes + completedBonus + difficultyBonus
