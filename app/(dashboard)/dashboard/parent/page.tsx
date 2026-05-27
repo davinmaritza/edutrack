@@ -344,6 +344,7 @@ export default async function ParentDashboardPage() {
             </CardContent>
           </Card>
         </div>
+        </div>
       </TabsContent>
 
       <TabsContent value="finance" className="pt-6">
