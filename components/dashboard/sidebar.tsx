@@ -269,10 +269,10 @@ export function Sidebar({ isMobile, onClose }: SidebarProps = {}) {
               {isActive && (
                 <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[3px] h-5 bg-[#5483B3] rounded-r-full" />
               )}
-              <link.icon className={cn(
+              {(() => { const Icon = link.icon; return <Icon className={cn(
                 "h-[18px] w-[18px] flex-shrink-0 transition-colors",
                 isActive ? "text-[#5483B3]" : "text-[var(--muted-foreground)] group-hover:text-[var(--foreground)]"
-              )} />
+              )} / />; })()}
               <span>{link.label}</span>
             </Link>
           )
@@ -303,10 +303,10 @@ export function Sidebar({ isMobile, onClose }: SidebarProps = {}) {
               {isActive && (
                 <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[3px] h-5 bg-[#5483B3] rounded-r-full" />
               )}
-              <link.icon className={cn(
+              {(() => { const Icon = link.icon; return <Icon className={cn(
                 "h-[18px] w-[18px] flex-shrink-0",
                 isActive ? "text-[#5483B3]" : ""
-              )} />
+              )} / />; })()}
               <span>{link.label}</span>
             </Link>
           )

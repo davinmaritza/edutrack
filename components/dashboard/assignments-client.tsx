@@ -235,7 +235,7 @@ export function AssignmentsClient({ assignments, currentUserId }: any) {
                             <ClipboardList className="h-5 w-5" />
                           </div>
                           <Badge className={`${status.color} border-none rounded-lg text-[10px] font-bold px-2.5 py-1 flex items-center gap-1.5`}>
-                            <status.icon className="h-3.5 w-3.5" />
+                            {(() => { const Icon = status.icon; return <Icon className="h-3.5 w-3.5" / />; })()}
                             {status.label}
                           </Badge>
                         </div>
@@ -303,7 +303,7 @@ export function AssignmentsClient({ assignments, currentUserId }: any) {
                             <ClipboardList className="h-5 w-5" />
                           </div>
                           <Badge className={`${status.color} border-none rounded-lg text-[10px] font-bold px-2.5 py-1 flex items-center gap-1.5`}>
-                            <status.icon className="h-3.5 w-3.5" />
+                            {(() => { const Icon = status.icon; return <Icon className="h-3.5 w-3.5" / />; })()}
                             {status.label}
                           </Badge>
                         </div>
@@ -371,7 +371,7 @@ export function AssignmentsClient({ assignments, currentUserId }: any) {
                             <ClipboardList className="h-5 w-5" />
                           </div>
                           <Badge className={`${status.color} border-none rounded-lg text-[10px] font-bold px-2.5 py-1 flex items-center gap-1.5`}>
-                            <status.icon className="h-3.5 w-3.5" />
+                            {(() => { const Icon = status.icon; return <Icon className="h-3.5 w-3.5" / />; })()}
                             {status.label}
                           </Badge>
                         </div>

@@ -101,7 +101,7 @@ export function SettingsClient({ user }: any) {
                    : 'text-[var(--muted-foreground)] hover:text-[var(--foreground)] hover:bg-[var(--muted)]/50 font-semibold'
                  }`}
                >
-                  <item.icon className={`h-4.5 w-4.5 ${activeCategory === item.id ? 'text-[#5483B3]' : 'text-[var(--muted-foreground)] group-hover:text-[var(--foreground)] transition-colors'}`} />
+                  {(() => { const Icon = item.icon; return <Icon className={`h-4.5 w-4.5 ${activeCategory === item.id ? 'text-[#5483B3]' : 'text-[var(--muted-foreground)] group-hover:text-[var(--foreground)] transition-colors'}`} / />; })()}
                   <span className="text-sm">{item.label}</span>
                </button>
              ))}

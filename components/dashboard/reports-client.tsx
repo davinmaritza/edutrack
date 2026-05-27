@@ -87,11 +87,11 @@ export function ReportsClient({ subjects, logs, student }: any) {
           >
             <Card className="bg-[var(--card)] border-[var(--border)] rounded-2xl shadow-sm hover:shadow-md transition-shadow relative overflow-hidden">
               <div className="absolute top-0 right-0 p-4 opacity-10">
-                <stat.icon className="h-20 w-20 text-[#5483B3]" />
+                {(() => { const Icon = stat.icon; return <Icon className="h-20 w-20 text-[#5483B3]" / />; })()}
               </div>
               <CardContent className="p-6 relative z-10">
                 <div className="h-12 w-12 bg-[#5483B3]/10 rounded-xl flex items-center justify-center mb-4">
-                  <stat.icon className="h-6 w-6 text-[#5483B3]" />
+                  {(() => { const Icon = stat.icon; return <Icon className="h-6 w-6 text-[#5483B3]" / />; })()}
                 </div>
                 <h3 className="text-3xl font-extrabold text-[var(--foreground)] mb-1">{stat.value}</h3>
                 <p className="text-xs font-bold text-[var(--foreground)] mb-1">{stat.label}</p>

@@ -159,7 +159,7 @@ export function GuestDashboard({ user }: any) {
               <Card className="bg-[var(--card)] border-[var(--border)] rounded-2xl shadow-sm hover:shadow-md hover:border-[#5483B3]/20 transition-all group h-full">
                 <CardContent className="p-6 flex items-start gap-5">
                   <div className={`h-12 w-12 ${feature.bg} rounded-xl flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform`}>
-                    <feature.icon className={`h-6 w-6 ${feature.color}`} />
+                    {(() => { const Icon = feature.icon; return <Icon className={`h-6 w-6 ${feature.color}`} />; })()}
                   </div>
                   <div className="space-y-1.5">
                     <h4 className="text-sm font-bold text-[var(--foreground)] group-hover:text-[#5483B3] transition-colors">{feature.title}</h4>

@@ -529,7 +529,7 @@ export function BlockEditor({
                     className="w-full text-left px-3 py-2 hover:bg-[var(--muted)] flex items-center gap-3 transition-colors rounded-lg group"
                   >
                     <div className="h-8 w-8 rounded-lg bg-[#5483B3]/10 text-[#5483B3] flex items-center justify-center group-hover:scale-105 transition-transform duration-200">
-                      <opt.icon className="h-4.5 w-4.5" />
+                      {(() => { const Icon = opt.icon; return <Icon className="h-4.5 w-4.5" / />; })()}
                     </div>
                     <div>
                       <div className="text-xs font-bold text-[var(--foreground)]">{opt.label}</div>

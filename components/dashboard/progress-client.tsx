@@ -240,7 +240,7 @@ export function ProgressClient({ subjects, logs }: any) {
             <Card className="bg-[var(--card)] border-[var(--border)] rounded-2xl hover:shadow-md transition-shadow">
               <CardContent className="p-5">
                 <div className="h-10 w-10 rounded-xl mb-4 flex items-center justify-center" style={{ backgroundColor: stat.bg }}>
-                  <stat.icon className="h-5 w-5" style={{ color: stat.color }} />
+                  {(() => { const Icon = stat.icon; return <Icon className="h-5 w-5" style={{ color: stat.color }} / />; })()}
                 </div>
                 <h3 className="text-3xl font-extrabold tracking-tight text-[var(--foreground)] mb-1">{stat.value}</h3>
                 <p className="text-[11px] font-bold uppercase tracking-wider text-[var(--muted-foreground)]">{stat.label}</p>

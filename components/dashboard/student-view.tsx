@@ -192,7 +192,7 @@ export function StudentDashboard({ user, subjects, recentLogs, assignments, allS
               <CardContent className="p-4 md:p-5">
                 <div className="flex justify-between items-start mb-3">
                   <div className="h-9 w-9 rounded-xl flex items-center justify-center" style={{ backgroundColor: stat.bgColor }}>
-                    <stat.icon className="h-4 w-4" style={{ color: stat.color }} />
+                    {(() => { const Icon = stat.icon; return <Icon className="h-4 w-4" style={{ color: stat.color }} / />; })()}
                   </div>
                 </div>
                 <div>

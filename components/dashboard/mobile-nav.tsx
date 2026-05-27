@@ -102,7 +102,7 @@ export function MobileNav() {
                   transition={{ type: "spring", bounce: 0.15, duration: 0.5 }}
                 />
               )}
-              <item.icon className={cn("h-5 w-5 transition-all duration-200", isActive && "scale-105")} />
+              {(() => { const Icon = item.icon; return <Icon className={cn("h-5 w-5 transition-all duration-200", isActive && "scale-105")} / />; })()}
               <span className={cn(
                 "text-[10px] font-medium transition-all",
                 isActive ? "opacity-100 font-semibold" : "opacity-60"
