@@ -1,3 +1,4 @@
+import { RBAC } from "@/lib/rbac"
 import { auth } from "@/lib/auth"
 import prisma from "@/lib/prisma"
 import { NextResponse } from "next/server"
@@ -20,7 +21,7 @@ export async function POST(req: Request) {
     }
 
     // Permission check: Admin or the teacher who owns the subject
-    if (role !== 'ADMIN') {
+    if (!RBAC.isAdminLevel(role)) {
       const subject = await prisma.subject.findUnique({
         where: { id: subjectId }
       })

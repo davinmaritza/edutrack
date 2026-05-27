@@ -1,3 +1,4 @@
+import { RBAC } from "@/lib/rbac"
 import { auth } from "@/lib/auth"
 import prisma from "@/lib/prisma"
 import { NextResponse } from "next/server"
@@ -23,7 +24,7 @@ export async function PATCH(
 
     // Permission check: Admin or the teacher who owns the subject
     const isTeacherOwner = (session.user as any).role === 'TEACHER' && topic.subject.teacherId === (session.user as any).id
-    const isAdmin = (session.user as any).role === 'ADMIN'
+    const isAdmin = (session.user as any).RBAC.isAdminLevel(role)
 
     if (!isAdmin && !isTeacherOwner) {
       return new NextResponse("Forbidden", { status: 403 })
@@ -65,7 +66,7 @@ export async function DELETE(
 
     // Permission check
     const isTeacherOwner = (session.user as any).role === 'TEACHER' && topic.subject.teacherId === (session.user as any).id
-    const isAdmin = (session.user as any).role === 'ADMIN'
+    const isAdmin = (session.user as any).RBAC.isAdminLevel(role)
 
     if (!isAdmin && !isTeacherOwner) {
       return new NextResponse("Forbidden", { status: 403 })

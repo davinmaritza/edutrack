@@ -1,3 +1,4 @@
+import { RBAC } from "@/lib/rbac"
 import { NextResponse } from "next/server"
 import { auth } from "@/lib/auth"
 import prisma from "@/lib/prisma"
@@ -8,7 +9,7 @@ export async function PATCH(req: Request) {
     const role = (session?.user as any)?.role
     const teacherId = (session?.user as any)?.id
 
-    if (!session || (role !== "TEACHER" && role !== "ADMIN")) {
+    if (!session || (role !== "TEACHER" && !RBAC.isAdminLevel(role))) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 })
     }
 

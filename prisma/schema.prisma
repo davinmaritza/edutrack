@@ -410,6 +410,44 @@ model PasswordResetToken {
 }
 
 enum Role {
+  // Level Yayasan & Top Management
+  SUPER_ADMIN
+  KETUA_YAYASAN
+  KEPALA_SEKOLAH
+  
+  // Level Wakil Kepala Sekolah
+  WAKASEK_KURIKULUM
+  WAKASEK_KESISWAAN
+  WAKASEK_HUBIN
+  
+  // Level Operasional Akademik
+  KAPROG
+  KEPALA_LAB
+  TATA_USAHA
+  
+  // Level Keuangan
+  BENDAHARA_YAYASAN
+  BENDAHARA_SEKOLAH
+  
+  // Level Panitia & Khusus
+  PANITIA_PPDB
+  
+  // Level Pengajar
+  GURU_MAPEL
+  WALI_KELAS
+  GURU_BK
+  
+  // Level Staf Penunjang
+  PUSTAKAWAN
+  PETUGAS_UKS
+  STAF_SARPRAS
+  
+  // Level Klien
+  SISWA
+  ORANG_TUA
+  ALUMNI
+  
+  // Legacy / Default Roles
   STUDENT
   TEACHER
   ADMIN

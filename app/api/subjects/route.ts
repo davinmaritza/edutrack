@@ -1,3 +1,4 @@
+import { RBAC } from "@/lib/rbac"
 import { NextRequest, NextResponse } from 'next/server'
 import { auth } from '@/lib/auth'
 import prisma from '@/lib/prisma'
@@ -101,7 +102,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Check if user is teacher or admin
-    if ((session.user as any).role !== 'TEACHER' && (session.user as any).role !== 'ADMIN') {
+    if ((session.user as any).role !== 'TEACHER' && !RBAC.isAdminLevel((session.user as any).role)) {
       return NextResponse.json(
         { error: 'Forbidden: Only teachers and admins can create subjects' },
         { status: 403 }

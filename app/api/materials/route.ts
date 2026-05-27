@@ -1,3 +1,4 @@
+import { RBAC } from "@/lib/rbac"
 import { auth } from "@/lib/auth"
 import prisma from "@/lib/prisma"
 import { NextResponse } from "next/server"
@@ -13,12 +14,12 @@ export async function GET(req: Request) {
     const role = (session.user as any).role
     const userId = (session.user as any).id
 
-    if (role !== 'ADMIN' && role !== 'TEACHER') {
+    if (!RBAC.canAccessAdminDashboard(role)) {
       return new NextResponse("Forbidden", { status: 403 })
     }
 
     let materials;
-    if (role === 'ADMIN') {
+    if (RBAC.isAdminLevel(role)) {
       materials = await prisma.material.findMany({
         include: { subject: true, class: true, teacher: true },
         orderBy: { createdAt: 'desc' }
@@ -48,7 +49,7 @@ export async function POST(req: Request) {
     const role = (session.user as any).role
     const userId = (session.user as any).id
 
-    if (role !== 'ADMIN' && role !== 'TEACHER') {
+    if (!RBAC.canAccessAdminDashboard(role)) {
       return new NextResponse("Forbidden", { status: 403 })
     }
 
@@ -89,7 +90,7 @@ export async function PATCH(req: Request) {
     const role = (session.user as any).role
     const userId = (session.user as any).id
 
-    if (role !== 'ADMIN' && role !== 'TEACHER') {
+    if (!RBAC.canAccessAdminDashboard(role)) {
       return new NextResponse("Forbidden", { status: 403 })
     }
 
@@ -100,7 +101,7 @@ export async function PATCH(req: Request) {
       return new NextResponse("Invalid request payload", { status: 400 })
     }
 
-    if (role !== 'ADMIN') {
+    if (!RBAC.isAdminLevel(role)) {
       // Check permissions and ownership
       const user = await prisma.user.findUnique({
         where: { id: userId },
@@ -142,7 +143,7 @@ export async function DELETE(req: Request) {
     const role = (session.user as any).role
     const userId = (session.user as any).id
 
-    if (role !== 'ADMIN' && role !== 'TEACHER') {
+    if (!RBAC.canAccessAdminDashboard(role)) {
       return new NextResponse("Forbidden", { status: 403 })
     }
 
@@ -153,7 +154,7 @@ export async function DELETE(req: Request) {
       return new NextResponse("Invalid request payload", { status: 400 })
     }
 
-    if (role !== 'ADMIN') {
+    if (!RBAC.isAdminLevel(role)) {
       // Check permissions and ownership
       const user = await prisma.user.findUnique({
         where: { id: userId },

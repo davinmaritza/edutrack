@@ -1,3 +1,4 @@
+import { RBAC } from "@/lib/rbac"
 import { auth } from "@/lib/auth"
 import prisma from "@/lib/prisma"
 import { NextResponse } from "next/server"
@@ -16,7 +17,7 @@ export async function PATCH(
     const role = (session.user as any).role
     const userId = (session.user as any).id
 
-    if (role !== 'ADMIN' && role !== 'TEACHER') {
+    if (!RBAC.canAccessAdminDashboard(role)) {
       return new NextResponse("Forbidden", { status: 403 })
     }
 
@@ -25,7 +26,7 @@ export async function PATCH(
       return new NextResponse("Not Found", { status: 404 })
     }
 
-    if (role !== 'ADMIN') {
+    if (!RBAC.isAdminLevel(role)) {
       // Check ownership
       if (assignment.teacherId !== userId) {
         return new NextResponse("Forbidden", { status: 403 })
@@ -86,7 +87,7 @@ export async function DELETE(
       return new NextResponse("Not Found", { status: 404 })
     }
 
-    if (role !== 'ADMIN') {
+    if (!RBAC.isAdminLevel(role)) {
       if (assignment.teacherId !== userId) {
         return new NextResponse("Forbidden", { status: 403 })
       }

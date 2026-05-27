@@ -26,6 +26,7 @@ import {
 } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
+import { RBAC } from '@/lib/rbac'
 
 const sidebarLinks = {
   STUDENT: [
@@ -114,8 +115,16 @@ export function Sidebar({ isMobile, onClose }: SidebarProps = {}) {
   const pathname = usePathname()
   
   const rawRole = (session?.user as any)?.role || 'USER'
-  const role = (rawRole in sidebarLinks) ? (rawRole as keyof typeof sidebarLinks) : 'USER'
-  const links = sidebarLinks[role]
+  
+  let roleKey: keyof typeof sidebarLinks = 'USER'
+  if (RBAC.isAdminLevel(rawRole)) roleKey = 'ADMIN'
+  else if (RBAC.isTeacherLevel(rawRole)) roleKey = 'TEACHER'
+  else if (RBAC.isStudentLevel(rawRole)) roleKey = 'STUDENT'
+  else if (RBAC.isParentLevel(rawRole)) roleKey = 'PARENT'
+  else if (RBAC.isAlumniLevel(rawRole)) roleKey = 'USER' // or ALUMNI later
+  else if (rawRole === 'COACH') roleKey = 'COACH'
+
+  const links = sidebarLinks[roleKey] || sidebarLinks['USER']
 
   const mainLinks = links.slice(0, -2)
   const bottomLinks = links.slice(-2)

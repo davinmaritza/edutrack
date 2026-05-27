@@ -1,3 +1,4 @@
+import { RBAC } from "@/lib/rbac"
 import { NextResponse } from "next/server"
 import { auth } from "@/lib/auth"
 import prisma from "@/lib/prisma"
@@ -7,7 +8,7 @@ export async function POST(req: Request) {
   try {
     const session = await auth()
     const role = (session?.user as any)?.role
-    if (role !== "ADMIN" && role !== "TEACHER") {
+    if (!RBAC.canAccessAdminDashboard(role)) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 })
     }
 
@@ -40,7 +41,7 @@ export async function PATCH(req: Request) {
   try {
     const session = await auth()
     const role = (session?.user as any)?.role
-    if (role !== "ADMIN" && role !== "TEACHER") {
+    if (!RBAC.canAccessAdminDashboard(role)) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 })
     }
 
@@ -70,7 +71,7 @@ export async function PUT(req: Request) {
   try {
     const session = await auth()
     const role = (session?.user as any)?.role
-    if (role !== "ADMIN" && role !== "TEACHER") {
+    if (!RBAC.canAccessAdminDashboard(role)) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 })
     }
 
@@ -104,7 +105,7 @@ export async function DELETE(req: Request) {
   try {
     const session = await auth()
     const role = (session?.user as any)?.role
-    if (role !== "ADMIN" && role !== "TEACHER") {
+    if (!RBAC.canAccessAdminDashboard(role)) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 })
     }
 

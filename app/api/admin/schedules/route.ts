@@ -1,10 +1,11 @@
+import { RBAC } from "@/lib/rbac"
 import { auth } from "@/lib/auth"
 import prisma from "@/lib/prisma"
 import { NextResponse } from "next/server"
 
 export async function POST(req: Request) {
   const session = await auth()
-  if (!session || (session.user as any).role !== 'ADMIN') {
+  if (!session || !RBAC.isAdminLevel((session.user as any).role)) {
     return new NextResponse("Unauthorized", { status: 401 })
   }
 

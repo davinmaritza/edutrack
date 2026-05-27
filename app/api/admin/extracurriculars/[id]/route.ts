@@ -1,3 +1,4 @@
+import { RBAC } from "@/lib/rbac"
 import { auth } from "@/lib/auth"
 import prisma from "@/lib/prisma"
 import { NextResponse } from "next/server"
@@ -5,7 +6,7 @@ import { NextResponse } from "next/server"
 export async function PATCH(req: Request, { params }: { params: Promise<{ id: string }> }) {
   const { id } = await params
   const session = await auth()
-  if (!session || (session.user as any).role !== 'ADMIN') {
+  if (!session || !RBAC.isAdminLevel((session.user as any).role)) {
     return new NextResponse("Unauthorized", { status: 401 })
   }
 
@@ -39,7 +40,7 @@ export async function PATCH(req: Request, { params }: { params: Promise<{ id: st
 export async function DELETE(req: Request, { params }: { params: Promise<{ id: string }> }) {
   const { id } = await params
   const session = await auth()
-  if (!session || (session.user as any).role !== 'ADMIN') {
+  if (!session || !RBAC.isAdminLevel((session.user as any).role)) {
     return new NextResponse("Unauthorized", { status: 401 })
   }
 

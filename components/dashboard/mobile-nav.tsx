@@ -19,6 +19,7 @@ import {
 import { motion } from 'framer-motion'
 import { useAppStore } from '@/store/useAppStore'
 import { cn } from '@/lib/utils'
+import { RBAC } from '@/lib/rbac'
 
 const studentNavItems = [
   { href: '/dashboard', label: 'Beranda', icon: LayoutDashboard },
@@ -50,15 +51,30 @@ const userNavItems = [
   { href: '/dashboard/settings', label: 'Profil', icon: User },
 ]
 
+const mobileLinks = {
+  ADMIN: adminNavItems,
+  TEACHER: teacherNavItems,
+  STUDENT: studentNavItems,
+  USER: userNavItems,
+  PARENT: userNavItems,
+  COACH: teacherNavItems,
+}
+
 export function MobileNav() {
   const pathname = usePathname()
   const { user } = useAppStore()
   
-  const navItems = 
-    user?.role === 'ADMIN' ? adminNavItems : 
-    user?.role === 'TEACHER' ? teacherNavItems : 
-    user?.role === 'USER' ? userNavItems : 
-    studentNavItems
+  const rawRole = user?.role || 'USER'
+  
+  let roleKey: keyof typeof mobileLinks = 'USER'
+  if (RBAC.isAdminLevel(rawRole)) roleKey = 'ADMIN'
+  else if (RBAC.isTeacherLevel(rawRole)) roleKey = 'TEACHER'
+  else if (RBAC.isStudentLevel(rawRole)) roleKey = 'STUDENT'
+  else if (RBAC.isParentLevel(rawRole)) roleKey = 'PARENT'
+  else if (RBAC.isAlumniLevel(rawRole)) roleKey = 'USER'
+  else if (rawRole === 'COACH') roleKey = 'COACH'
+
+  const navItems = mobileLinks[roleKey] || mobileLinks['USER']
 
   return (
     <nav className="fixed bottom-0 left-0 right-0 z-50 glass border-t border-[var(--border)] lg:hidden px-2 pb-safe">
