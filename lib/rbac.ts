@@ -36,10 +36,7 @@ export const RBAC = {
   // 10. Alumni Level
   isAlumniLevel: (role?: string) => RBAC.check(role, ['ALUMNI']),
   
-  // Legacy mappings for quick checks
-  canAccessAdminDashboard: (role?: string) => RBAC.check(role, ['SUPER_ADMIN', 'KETUA_YAYASAN', 'KEPALA_SEKOLAH', 'WAKASEK_KURIKULUM', 'WAKASEK_KESISWAAN', 'WAKASEK_HUBIN', 'KAPROG', 'KEPALA_LAB', 'TATA_USAHA', 'BENDAHARA_YAYASAN', 'BENDAHARA_SEKOLAH', 'PANITIA_PPDB', 'STAF_SARPRAS', 'ADMIN']),
-  
-  canManageUsers: (role?: string) => RBAC.check(role, ['SUPER_ADMIN', 'TATA_USAHA', 'ADMIN']),
+  canAccessAdminDashboard: (role?: string) => RBAC.check(role, ['SUPER_ADMIN', 'KETUA_YAYASAN', 'KEPALA_SEKOLAH', 'WAKASEK_KURIKULUM', 'WAKASEK_KESISWAAN', 'WAKASEK_HUBIN', 'KAPROG', 'KEPALA_LAB', 'TATA_USAHA', 'BENDAHARA_YAYASAN', 'BENDAHARA_SEKOLAH', 'PANITIA_PPDB', 'STAF_SARPRAS', 'WALI_KELAS', 'GURU_BK', 'ADMIN']),
   
   canManageFinance: (role?: string) => RBAC.check(role, ['SUPER_ADMIN', 'KETUA_YAYASAN', 'BENDAHARA_YAYASAN', 'BENDAHARA_SEKOLAH', 'ADMIN']),
   

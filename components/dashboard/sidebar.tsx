@@ -68,19 +68,67 @@ const sidebarLinks = {
   ADMIN: [
     { label: 'Beranda', icon: LayoutDashboard, href: '/dashboard/admin' },
     { label: 'Kelola Pengguna', icon: Users, href: '/dashboard/admin/users' },
-    { label: 'Kelola Siswa', icon: Users, href: '/dashboard/admin/students' },
-    { label: 'Kelola Kelas', icon: GraduationCap, href: '/dashboard/admin/classes' },
+    { label: 'Kelola Siswa', icon: GraduationCap, href: '/dashboard/admin/students' },
+    { label: 'Kelola Kelas', icon: School, href: '/dashboard/admin/classes' },
     { label: 'Kelola Mapel', icon: BookOpen, href: '/dashboard/admin/subjects' },
     { label: 'Kelola Materi', icon: ClipboardList, href: '/dashboard/kelola-materi' },
     { label: 'Kelola Tugas', icon: ClipboardList, href: '/dashboard/kelola-tugas' },
-    { label: 'Kelola Ekskul', icon: Trophy, href: '/dashboard/admin/extracurriculars' },
-    { label: 'Kelola Jadwal', icon: ClipboardList, href: '/dashboard/admin/schedules' },
-    { label: 'Keuangan & SPP', icon: Wallet, href: '/dashboard/admin/billing' },
+    { label: 'Ekskul', icon: Trophy, href: '/dashboard/admin/extracurriculars' },
+    { label: 'Jadwal', icon: Calendar, href: '/dashboard/admin/schedules' },
+    { label: 'Keuangan', icon: Wallet, href: '/dashboard/admin/billing' },
     { label: 'Verifikasi Izin', icon: UserCheck, href: '/dashboard/teacher/requests' },
     { label: 'Kalender', icon: Calendar, href: '/dashboard/calendar' },
     { label: 'Pengumuman', icon: Megaphone, href: '/dashboard/admin/announcements' },
     { label: 'Forum Diskusi', icon: MessageSquare, href: '/dashboard/discussions' },
     { label: 'Laporan', icon: FileBarChart, href: '/dashboard/admin/reports' },
+    { label: 'Bantuan', icon: HelpCircle, href: '/dashboard/help' },
+    { label: 'Pengaturan', icon: Settings, href: '/dashboard/admin/settings' },
+  ],
+  YAYASAN: [
+    { label: 'Beranda', icon: LayoutDashboard, href: '/dashboard/admin' },
+    { label: 'Laporan Akademik', icon: FileBarChart, href: '/dashboard/admin/reports' },
+    { label: 'Laporan Keuangan', icon: Wallet, href: '/dashboard/admin/billing' },
+    { label: 'Bantuan', icon: HelpCircle, href: '/dashboard/help' },
+    { label: 'Pengaturan', icon: Settings, href: '/dashboard/admin/settings' },
+  ],
+  LEADERSHIP: [
+    { label: 'Beranda', icon: LayoutDashboard, href: '/dashboard/admin' },
+    { label: 'Kelola Pengguna', icon: Users, href: '/dashboard/admin/users' },
+    { label: 'Laporan Akademik', icon: FileBarChart, href: '/dashboard/admin/reports' },
+    { label: 'Laporan Keuangan', icon: Wallet, href: '/dashboard/admin/billing' },
+    { label: 'Kalender', icon: Calendar, href: '/dashboard/calendar' },
+    { label: 'Bantuan', icon: HelpCircle, href: '/dashboard/help' },
+    { label: 'Pengaturan', icon: Settings, href: '/dashboard/admin/settings' },
+  ],
+  WAKASEK: [
+    { label: 'Beranda', icon: LayoutDashboard, href: '/dashboard/admin' },
+    { label: 'Kelola Siswa', icon: GraduationCap, href: '/dashboard/admin/students' },
+    { label: 'Kelola Kelas', icon: School, href: '/dashboard/admin/classes' },
+    { label: 'Kelola Mapel', icon: BookOpen, href: '/dashboard/admin/subjects' },
+    { label: 'Ekskul', icon: Trophy, href: '/dashboard/admin/extracurriculars' },
+    { label: 'Jadwal', icon: Calendar, href: '/dashboard/admin/schedules' },
+    { label: 'Verifikasi Izin', icon: UserCheck, href: '/dashboard/teacher/requests' },
+    { label: 'Portal Alumni', icon: GraduationCap, href: '/dashboard/alumni' },
+    { label: 'Kalender', icon: Calendar, href: '/dashboard/calendar' },
+    { label: 'Bantuan', icon: HelpCircle, href: '/dashboard/help' },
+    { label: 'Pengaturan', icon: Settings, href: '/dashboard/admin/settings' },
+  ],
+  FINANCE: [
+    { label: 'Beranda', icon: LayoutDashboard, href: '/dashboard/admin' },
+    { label: 'Keuangan & SPP', icon: Wallet, href: '/dashboard/admin/billing' },
+    { label: 'Data Siswa', icon: GraduationCap, href: '/dashboard/admin/students' },
+    { label: 'Bantuan', icon: HelpCircle, href: '/dashboard/help' },
+    { label: 'Pengaturan', icon: Settings, href: '/dashboard/admin/settings' },
+  ],
+  OPERATIONAL: [
+    { label: 'Beranda', icon: LayoutDashboard, href: '/dashboard/admin' },
+    { label: 'Kelola Pengguna', icon: Users, href: '/dashboard/admin/users' },
+    { label: 'Kelola Siswa', icon: GraduationCap, href: '/dashboard/admin/students' },
+    { label: 'Kelola Kelas', icon: School, href: '/dashboard/admin/classes' },
+    { label: 'Kelola Mapel', icon: BookOpen, href: '/dashboard/admin/subjects' },
+    { label: 'Jadwal', icon: Calendar, href: '/dashboard/admin/schedules' },
+    { label: 'Pengumuman', icon: Megaphone, href: '/dashboard/admin/announcements' },
+    { label: 'Kalender', icon: Calendar, href: '/dashboard/calendar' },
     { label: 'Bantuan', icon: HelpCircle, href: '/dashboard/help' },
     { label: 'Pengaturan', icon: Settings, href: '/dashboard/admin/settings' },
   ],
@@ -141,11 +189,20 @@ export function Sidebar({ isMobile, onClose }: SidebarProps = {}) {
   
   // Resolve sidebar menu based on role (check specific roles first, then broad categories)
   let roleKey: keyof typeof sidebarLinks = 'USER'
+  
   if (rawRole === 'PUSTAKAWAN') roleKey = 'PUSTAKAWAN'
   else if (rawRole === 'PETUGAS_UKS') roleKey = 'PETUGAS_UKS'
   else if (RBAC.isAlumniLevel(rawRole)) roleKey = 'ALUMNI'
   else if (RBAC.isParentLevel(rawRole)) roleKey = 'PARENT'
   else if (rawRole === 'COACH') roleKey = 'COACH'
+  // Guru spesialis tetap mendapat akses menu guru
+  else if (rawRole === 'WALI_KELAS' || rawRole === 'GURU_BK') roleKey = 'TEACHER'
+  // Admin spesifik roles
+  else if (rawRole === 'KETUA_YAYASAN' || rawRole === 'BENDAHARA_YAYASAN') roleKey = 'YAYASAN'
+  else if (rawRole === 'KEPALA_SEKOLAH') roleKey = 'LEADERSHIP'
+  else if (rawRole === 'WAKASEK_KURIKULUM' || rawRole === 'WAKASEK_KESISWAAN' || rawRole === 'WAKASEK_HUBIN') roleKey = 'WAKASEK'
+  else if (rawRole === 'BENDAHARA_SEKOLAH') roleKey = 'FINANCE'
+  else if (rawRole === 'TATA_USAHA' || rawRole === 'KAPROG' || rawRole === 'KEPALA_LAB' || rawRole === 'STAF_SARPRAS' || rawRole === 'PANITIA_PPDB') roleKey = 'OPERATIONAL'
   else if (RBAC.canAccessAdminDashboard(rawRole)) roleKey = 'ADMIN'
   else if (RBAC.isTeacherLevel(rawRole)) roleKey = 'TEACHER'
   else if (RBAC.isStudentLevel(rawRole)) roleKey = 'STUDENT'
