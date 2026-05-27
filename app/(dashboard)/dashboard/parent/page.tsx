@@ -19,6 +19,9 @@ import {
   AlertCircle
 } from "lucide-react"
 import { ForceChangePin } from "@/components/dashboard/parent/force-change-pin"
+import { ParentBillingClient } from "@/components/dashboard/parent/parent-billing-client"
+import { ParentAbsenceClient } from "@/components/dashboard/parent/parent-absence-client"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { format } from "date-fns"
 import { id as idLocale } from "date-fns/locale"
 
@@ -76,6 +79,12 @@ export default async function ParentDashboardPage() {
       },
       attendances: {
         orderBy: { date: 'desc' }
+      },
+      billings: {
+        orderBy: { dueDate: 'asc' }
+      },
+      absenceRequests: {
+        orderBy: { createdAt: 'desc' }
       }
     }
   })
@@ -120,7 +129,21 @@ export default async function ParentDashboardPage() {
         <div className="absolute right-0 top-0 h-full w-1/3 bg-white/5 skew-x-12 translate-x-10 pointer-events-none" />
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
+      <Tabs defaultValue="academic" className="w-full">
+        <TabsList className="w-full justify-start border-b border-[var(--border)] rounded-none bg-transparent h-auto p-0 gap-6">
+          <TabsTrigger value="academic" className="data-[state=active]:border-b-2 data-[state=active]:border-[#5483B3] data-[state=active]:text-[#5483B3] data-[state=active]:shadow-none rounded-none px-2 py-3 bg-transparent font-bold text-[var(--muted-foreground)]">
+            Ringkasan Akademik
+          </TabsTrigger>
+          <TabsTrigger value="finance" className="data-[state=active]:border-b-2 data-[state=active]:border-[#5483B3] data-[state=active]:text-[#5483B3] data-[state=active]:shadow-none rounded-none px-2 py-3 bg-transparent font-bold text-[var(--muted-foreground)]">
+            Keuangan & SPP
+          </TabsTrigger>
+          <TabsTrigger value="absence" className="data-[state=active]:border-b-2 data-[state=active]:border-[#5483B3] data-[state=active]:text-[#5483B3] data-[state=active]:shadow-none rounded-none px-2 py-3 bg-transparent font-bold text-[var(--muted-foreground)]">
+            Pengajuan Izin
+          </TabsTrigger>
+        </TabsList>
+
+        <TabsContent value="academic" className="pt-6">
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
         {/* Child Profile Card */}
         <div className="lg:col-span-1 space-y-6">
           <Card className="bg-[var(--card)] border border-[var(--border)] rounded-2xl shadow-sm overflow-hidden">
@@ -321,7 +344,16 @@ export default async function ParentDashboardPage() {
             </CardContent>
           </Card>
         </div>
-      </div>
+      </TabsContent>
+
+      <TabsContent value="finance" className="pt-6">
+        <ParentBillingClient billings={student.billings || []} />
+      </TabsContent>
+
+      <TabsContent value="absence" className="pt-6">
+        <ParentAbsenceClient requests={student.absenceRequests || []} />
+      </TabsContent>
+      </Tabs>
     </div>
   )
 }

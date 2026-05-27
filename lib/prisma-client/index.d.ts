@@ -178,6 +178,16 @@ export type ExamAttempt = $Result.DefaultSelection<Prisma.$ExamAttemptPayload>
  * 
  */
 export type ExamAnswer = $Result.DefaultSelection<Prisma.$ExamAnswerPayload>
+/**
+ * Model Billing
+ * 
+ */
+export type Billing = $Result.DefaultSelection<Prisma.$BillingPayload>
+/**
+ * Model AbsenceRequest
+ * 
+ */
+export type AbsenceRequest = $Result.DefaultSelection<Prisma.$AbsenceRequestPayload>
 
 /**
  * Enums
@@ -242,6 +252,24 @@ export const AttemptStatus: {
 
 export type AttemptStatus = (typeof AttemptStatus)[keyof typeof AttemptStatus]
 
+
+export const BillingStatus: {
+  UNPAID: 'UNPAID',
+  PENDING: 'PENDING',
+  PAID: 'PAID'
+};
+
+export type BillingStatus = (typeof BillingStatus)[keyof typeof BillingStatus]
+
+
+export const RequestStatus: {
+  PENDING: 'PENDING',
+  APPROVED: 'APPROVED',
+  REJECTED: 'REJECTED'
+};
+
+export type RequestStatus = (typeof RequestStatus)[keyof typeof RequestStatus]
+
 }
 
 export type Role = $Enums.Role
@@ -267,6 +295,14 @@ export const ExamStatus: typeof $Enums.ExamStatus
 export type AttemptStatus = $Enums.AttemptStatus
 
 export const AttemptStatus: typeof $Enums.AttemptStatus
+
+export type BillingStatus = $Enums.BillingStatus
+
+export const BillingStatus: typeof $Enums.BillingStatus
+
+export type RequestStatus = $Enums.RequestStatus
+
+export const RequestStatus: typeof $Enums.RequestStatus
 
 /**
  * ##  Prisma Client ʲˢ
@@ -720,6 +756,26 @@ export class PrismaClient<
     * ```
     */
   get examAnswer(): Prisma.ExamAnswerDelegate<ExtArgs>;
+
+  /**
+   * `prisma.billing`: Exposes CRUD operations for the **Billing** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Billings
+    * const billings = await prisma.billing.findMany()
+    * ```
+    */
+  get billing(): Prisma.BillingDelegate<ExtArgs>;
+
+  /**
+   * `prisma.absenceRequest`: Exposes CRUD operations for the **AbsenceRequest** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more AbsenceRequests
+    * const absenceRequests = await prisma.absenceRequest.findMany()
+    * ```
+    */
+  get absenceRequest(): Prisma.AbsenceRequestDelegate<ExtArgs>;
 }
 
 export namespace Prisma {
@@ -1193,7 +1249,9 @@ export namespace Prisma {
     Exam: 'Exam',
     ExamQuestion: 'ExamQuestion',
     ExamAttempt: 'ExamAttempt',
-    ExamAnswer: 'ExamAnswer'
+    ExamAnswer: 'ExamAnswer',
+    Billing: 'Billing',
+    AbsenceRequest: 'AbsenceRequest'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -1209,7 +1267,7 @@ export namespace Prisma {
 
   export type TypeMap<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, ClientOptions = {}> = {
     meta: {
-      modelProps: "user" | "userNote" | "attendance" | "class" | "subject" | "topic" | "progressLog" | "userSubject" | "classSchedule" | "material" | "extracurricular" | "extracurricularMember" | "extracurricularSession" | "extracurricularAttendance" | "assignment" | "assignmentSubmission" | "comment" | "notification" | "announcement" | "operator" | "settings" | "account" | "session" | "verificationToken" | "passwordResetToken" | "calendarReminder" | "document" | "discussionThread" | "discussionReply" | "exam" | "examQuestion" | "examAttempt" | "examAnswer"
+      modelProps: "user" | "userNote" | "attendance" | "class" | "subject" | "topic" | "progressLog" | "userSubject" | "classSchedule" | "material" | "extracurricular" | "extracurricularMember" | "extracurricularSession" | "extracurricularAttendance" | "assignment" | "assignmentSubmission" | "comment" | "notification" | "announcement" | "operator" | "settings" | "account" | "session" | "verificationToken" | "passwordResetToken" | "calendarReminder" | "document" | "discussionThread" | "discussionReply" | "exam" | "examQuestion" | "examAttempt" | "examAnswer" | "billing" | "absenceRequest"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -3523,6 +3581,146 @@ export namespace Prisma {
           }
         }
       }
+      Billing: {
+        payload: Prisma.$BillingPayload<ExtArgs>
+        fields: Prisma.BillingFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.BillingFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BillingPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.BillingFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BillingPayload>
+          }
+          findFirst: {
+            args: Prisma.BillingFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BillingPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.BillingFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BillingPayload>
+          }
+          findMany: {
+            args: Prisma.BillingFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BillingPayload>[]
+          }
+          create: {
+            args: Prisma.BillingCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BillingPayload>
+          }
+          createMany: {
+            args: Prisma.BillingCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.BillingCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BillingPayload>[]
+          }
+          delete: {
+            args: Prisma.BillingDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BillingPayload>
+          }
+          update: {
+            args: Prisma.BillingUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BillingPayload>
+          }
+          deleteMany: {
+            args: Prisma.BillingDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.BillingUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.BillingUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BillingPayload>
+          }
+          aggregate: {
+            args: Prisma.BillingAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateBilling>
+          }
+          groupBy: {
+            args: Prisma.BillingGroupByArgs<ExtArgs>
+            result: $Utils.Optional<BillingGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.BillingCountArgs<ExtArgs>
+            result: $Utils.Optional<BillingCountAggregateOutputType> | number
+          }
+        }
+      }
+      AbsenceRequest: {
+        payload: Prisma.$AbsenceRequestPayload<ExtArgs>
+        fields: Prisma.AbsenceRequestFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.AbsenceRequestFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AbsenceRequestPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.AbsenceRequestFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AbsenceRequestPayload>
+          }
+          findFirst: {
+            args: Prisma.AbsenceRequestFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AbsenceRequestPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.AbsenceRequestFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AbsenceRequestPayload>
+          }
+          findMany: {
+            args: Prisma.AbsenceRequestFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AbsenceRequestPayload>[]
+          }
+          create: {
+            args: Prisma.AbsenceRequestCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AbsenceRequestPayload>
+          }
+          createMany: {
+            args: Prisma.AbsenceRequestCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.AbsenceRequestCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AbsenceRequestPayload>[]
+          }
+          delete: {
+            args: Prisma.AbsenceRequestDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AbsenceRequestPayload>
+          }
+          update: {
+            args: Prisma.AbsenceRequestUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AbsenceRequestPayload>
+          }
+          deleteMany: {
+            args: Prisma.AbsenceRequestDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.AbsenceRequestUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.AbsenceRequestUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AbsenceRequestPayload>
+          }
+          aggregate: {
+            args: Prisma.AbsenceRequestAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateAbsenceRequest>
+          }
+          groupBy: {
+            args: Prisma.AbsenceRequestGroupByArgs<ExtArgs>
+            result: $Utils.Optional<AbsenceRequestGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.AbsenceRequestCountArgs<ExtArgs>
+            result: $Utils.Optional<AbsenceRequestCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -3709,6 +3907,9 @@ export namespace Prisma {
     teacherExams: number
     examAttempts: number
     children: number
+    billings: number
+    absenceRequests: number
+    reviewedRequests: number
   }
 
   export type UserCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -3737,6 +3938,9 @@ export namespace Prisma {
     teacherExams?: boolean | UserCountOutputTypeCountTeacherExamsArgs
     examAttempts?: boolean | UserCountOutputTypeCountExamAttemptsArgs
     children?: boolean | UserCountOutputTypeCountChildrenArgs
+    billings?: boolean | UserCountOutputTypeCountBillingsArgs
+    absenceRequests?: boolean | UserCountOutputTypeCountAbsenceRequestsArgs
+    reviewedRequests?: boolean | UserCountOutputTypeCountReviewedRequestsArgs
   }
 
   // Custom InputTypes
@@ -3923,6 +4127,27 @@ export namespace Prisma {
    */
   export type UserCountOutputTypeCountChildrenArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: UserWhereInput
+  }
+
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountBillingsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: BillingWhereInput
+  }
+
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountAbsenceRequestsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: AbsenceRequestWhereInput
+  }
+
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountReviewedRequestsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: AbsenceRequestWhereInput
   }
 
 
@@ -4845,6 +5070,9 @@ export namespace Prisma {
     examAttempts?: boolean | User$examAttemptsArgs<ExtArgs>
     parent?: boolean | User$parentArgs<ExtArgs>
     children?: boolean | User$childrenArgs<ExtArgs>
+    billings?: boolean | User$billingsArgs<ExtArgs>
+    absenceRequests?: boolean | User$absenceRequestsArgs<ExtArgs>
+    reviewedRequests?: boolean | User$reviewedRequestsArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["user"]>
 
@@ -4937,6 +5165,9 @@ export namespace Prisma {
     examAttempts?: boolean | User$examAttemptsArgs<ExtArgs>
     parent?: boolean | User$parentArgs<ExtArgs>
     children?: boolean | User$childrenArgs<ExtArgs>
+    billings?: boolean | User$billingsArgs<ExtArgs>
+    absenceRequests?: boolean | User$absenceRequestsArgs<ExtArgs>
+    reviewedRequests?: boolean | User$reviewedRequestsArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type UserIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -4975,6 +5206,9 @@ export namespace Prisma {
       examAttempts: Prisma.$ExamAttemptPayload<ExtArgs>[]
       parent: Prisma.$UserPayload<ExtArgs> | null
       children: Prisma.$UserPayload<ExtArgs>[]
+      billings: Prisma.$BillingPayload<ExtArgs>[]
+      absenceRequests: Prisma.$AbsenceRequestPayload<ExtArgs>[]
+      reviewedRequests: Prisma.$AbsenceRequestPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -5395,6 +5629,9 @@ export namespace Prisma {
     examAttempts<T extends User$examAttemptsArgs<ExtArgs> = {}>(args?: Subset<T, User$examAttemptsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ExamAttemptPayload<ExtArgs>, T, "findMany"> | Null>
     parent<T extends User$parentArgs<ExtArgs> = {}>(args?: Subset<T, User$parentArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow"> | null, null, ExtArgs>
     children<T extends User$childrenArgs<ExtArgs> = {}>(args?: Subset<T, User$childrenArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findMany"> | Null>
+    billings<T extends User$billingsArgs<ExtArgs> = {}>(args?: Subset<T, User$billingsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BillingPayload<ExtArgs>, T, "findMany"> | Null>
+    absenceRequests<T extends User$absenceRequestsArgs<ExtArgs> = {}>(args?: Subset<T, User$absenceRequestsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AbsenceRequestPayload<ExtArgs>, T, "findMany"> | Null>
+    reviewedRequests<T extends User$reviewedRequestsArgs<ExtArgs> = {}>(args?: Subset<T, User$reviewedRequestsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AbsenceRequestPayload<ExtArgs>, T, "findMany"> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -6310,6 +6547,66 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: UserScalarFieldEnum | UserScalarFieldEnum[]
+  }
+
+  /**
+   * User.billings
+   */
+  export type User$billingsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Billing
+     */
+    select?: BillingSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BillingInclude<ExtArgs> | null
+    where?: BillingWhereInput
+    orderBy?: BillingOrderByWithRelationInput | BillingOrderByWithRelationInput[]
+    cursor?: BillingWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: BillingScalarFieldEnum | BillingScalarFieldEnum[]
+  }
+
+  /**
+   * User.absenceRequests
+   */
+  export type User$absenceRequestsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AbsenceRequest
+     */
+    select?: AbsenceRequestSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AbsenceRequestInclude<ExtArgs> | null
+    where?: AbsenceRequestWhereInput
+    orderBy?: AbsenceRequestOrderByWithRelationInput | AbsenceRequestOrderByWithRelationInput[]
+    cursor?: AbsenceRequestWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: AbsenceRequestScalarFieldEnum | AbsenceRequestScalarFieldEnum[]
+  }
+
+  /**
+   * User.reviewedRequests
+   */
+  export type User$reviewedRequestsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AbsenceRequest
+     */
+    select?: AbsenceRequestSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AbsenceRequestInclude<ExtArgs> | null
+    where?: AbsenceRequestWhereInput
+    orderBy?: AbsenceRequestOrderByWithRelationInput | AbsenceRequestOrderByWithRelationInput[]
+    cursor?: AbsenceRequestWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: AbsenceRequestScalarFieldEnum | AbsenceRequestScalarFieldEnum[]
   }
 
   /**
@@ -38321,6 +38618,2083 @@ export namespace Prisma {
 
 
   /**
+   * Model Billing
+   */
+
+  export type AggregateBilling = {
+    _count: BillingCountAggregateOutputType | null
+    _avg: BillingAvgAggregateOutputType | null
+    _sum: BillingSumAggregateOutputType | null
+    _min: BillingMinAggregateOutputType | null
+    _max: BillingMaxAggregateOutputType | null
+  }
+
+  export type BillingAvgAggregateOutputType = {
+    amount: number | null
+  }
+
+  export type BillingSumAggregateOutputType = {
+    amount: number | null
+  }
+
+  export type BillingMinAggregateOutputType = {
+    id: string | null
+    studentId: string | null
+    title: string | null
+    description: string | null
+    amount: number | null
+    dueDate: Date | null
+    status: $Enums.BillingStatus | null
+    paymentMethod: string | null
+    paymentDate: Date | null
+    proofUrl: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type BillingMaxAggregateOutputType = {
+    id: string | null
+    studentId: string | null
+    title: string | null
+    description: string | null
+    amount: number | null
+    dueDate: Date | null
+    status: $Enums.BillingStatus | null
+    paymentMethod: string | null
+    paymentDate: Date | null
+    proofUrl: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type BillingCountAggregateOutputType = {
+    id: number
+    studentId: number
+    title: number
+    description: number
+    amount: number
+    dueDate: number
+    status: number
+    paymentMethod: number
+    paymentDate: number
+    proofUrl: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type BillingAvgAggregateInputType = {
+    amount?: true
+  }
+
+  export type BillingSumAggregateInputType = {
+    amount?: true
+  }
+
+  export type BillingMinAggregateInputType = {
+    id?: true
+    studentId?: true
+    title?: true
+    description?: true
+    amount?: true
+    dueDate?: true
+    status?: true
+    paymentMethod?: true
+    paymentDate?: true
+    proofUrl?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type BillingMaxAggregateInputType = {
+    id?: true
+    studentId?: true
+    title?: true
+    description?: true
+    amount?: true
+    dueDate?: true
+    status?: true
+    paymentMethod?: true
+    paymentDate?: true
+    proofUrl?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type BillingCountAggregateInputType = {
+    id?: true
+    studentId?: true
+    title?: true
+    description?: true
+    amount?: true
+    dueDate?: true
+    status?: true
+    paymentMethod?: true
+    paymentDate?: true
+    proofUrl?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type BillingAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Billing to aggregate.
+     */
+    where?: BillingWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Billings to fetch.
+     */
+    orderBy?: BillingOrderByWithRelationInput | BillingOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: BillingWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Billings from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Billings.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Billings
+    **/
+    _count?: true | BillingCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: BillingAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: BillingSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: BillingMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: BillingMaxAggregateInputType
+  }
+
+  export type GetBillingAggregateType<T extends BillingAggregateArgs> = {
+        [P in keyof T & keyof AggregateBilling]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateBilling[P]>
+      : GetScalarType<T[P], AggregateBilling[P]>
+  }
+
+
+
+
+  export type BillingGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: BillingWhereInput
+    orderBy?: BillingOrderByWithAggregationInput | BillingOrderByWithAggregationInput[]
+    by: BillingScalarFieldEnum[] | BillingScalarFieldEnum
+    having?: BillingScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: BillingCountAggregateInputType | true
+    _avg?: BillingAvgAggregateInputType
+    _sum?: BillingSumAggregateInputType
+    _min?: BillingMinAggregateInputType
+    _max?: BillingMaxAggregateInputType
+  }
+
+  export type BillingGroupByOutputType = {
+    id: string
+    studentId: string
+    title: string
+    description: string | null
+    amount: number
+    dueDate: Date
+    status: $Enums.BillingStatus
+    paymentMethod: string | null
+    paymentDate: Date | null
+    proofUrl: string | null
+    createdAt: Date
+    updatedAt: Date
+    _count: BillingCountAggregateOutputType | null
+    _avg: BillingAvgAggregateOutputType | null
+    _sum: BillingSumAggregateOutputType | null
+    _min: BillingMinAggregateOutputType | null
+    _max: BillingMaxAggregateOutputType | null
+  }
+
+  type GetBillingGroupByPayload<T extends BillingGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<BillingGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof BillingGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], BillingGroupByOutputType[P]>
+            : GetScalarType<T[P], BillingGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type BillingSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    studentId?: boolean
+    title?: boolean
+    description?: boolean
+    amount?: boolean
+    dueDate?: boolean
+    status?: boolean
+    paymentMethod?: boolean
+    paymentDate?: boolean
+    proofUrl?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    student?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["billing"]>
+
+  export type BillingSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    studentId?: boolean
+    title?: boolean
+    description?: boolean
+    amount?: boolean
+    dueDate?: boolean
+    status?: boolean
+    paymentMethod?: boolean
+    paymentDate?: boolean
+    proofUrl?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    student?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["billing"]>
+
+  export type BillingSelectScalar = {
+    id?: boolean
+    studentId?: boolean
+    title?: boolean
+    description?: boolean
+    amount?: boolean
+    dueDate?: boolean
+    status?: boolean
+    paymentMethod?: boolean
+    paymentDate?: boolean
+    proofUrl?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type BillingInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    student?: boolean | UserDefaultArgs<ExtArgs>
+  }
+  export type BillingIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    student?: boolean | UserDefaultArgs<ExtArgs>
+  }
+
+  export type $BillingPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Billing"
+    objects: {
+      student: Prisma.$UserPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      studentId: string
+      title: string
+      description: string | null
+      amount: number
+      dueDate: Date
+      status: $Enums.BillingStatus
+      paymentMethod: string | null
+      paymentDate: Date | null
+      proofUrl: string | null
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["billing"]>
+    composites: {}
+  }
+
+  type BillingGetPayload<S extends boolean | null | undefined | BillingDefaultArgs> = $Result.GetResult<Prisma.$BillingPayload, S>
+
+  type BillingCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<BillingFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: BillingCountAggregateInputType | true
+    }
+
+  export interface BillingDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Billing'], meta: { name: 'Billing' } }
+    /**
+     * Find zero or one Billing that matches the filter.
+     * @param {BillingFindUniqueArgs} args - Arguments to find a Billing
+     * @example
+     * // Get one Billing
+     * const billing = await prisma.billing.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends BillingFindUniqueArgs>(args: SelectSubset<T, BillingFindUniqueArgs<ExtArgs>>): Prisma__BillingClient<$Result.GetResult<Prisma.$BillingPayload<ExtArgs>, T, "findUnique"> | null, null, ExtArgs>
+
+    /**
+     * Find one Billing that matches the filter or throw an error with `error.code='P2025'` 
+     * if no matches were found.
+     * @param {BillingFindUniqueOrThrowArgs} args - Arguments to find a Billing
+     * @example
+     * // Get one Billing
+     * const billing = await prisma.billing.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends BillingFindUniqueOrThrowArgs>(args: SelectSubset<T, BillingFindUniqueOrThrowArgs<ExtArgs>>): Prisma__BillingClient<$Result.GetResult<Prisma.$BillingPayload<ExtArgs>, T, "findUniqueOrThrow">, never, ExtArgs>
+
+    /**
+     * Find the first Billing that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BillingFindFirstArgs} args - Arguments to find a Billing
+     * @example
+     * // Get one Billing
+     * const billing = await prisma.billing.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends BillingFindFirstArgs>(args?: SelectSubset<T, BillingFindFirstArgs<ExtArgs>>): Prisma__BillingClient<$Result.GetResult<Prisma.$BillingPayload<ExtArgs>, T, "findFirst"> | null, null, ExtArgs>
+
+    /**
+     * Find the first Billing that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BillingFindFirstOrThrowArgs} args - Arguments to find a Billing
+     * @example
+     * // Get one Billing
+     * const billing = await prisma.billing.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends BillingFindFirstOrThrowArgs>(args?: SelectSubset<T, BillingFindFirstOrThrowArgs<ExtArgs>>): Prisma__BillingClient<$Result.GetResult<Prisma.$BillingPayload<ExtArgs>, T, "findFirstOrThrow">, never, ExtArgs>
+
+    /**
+     * Find zero or more Billings that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BillingFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Billings
+     * const billings = await prisma.billing.findMany()
+     * 
+     * // Get first 10 Billings
+     * const billings = await prisma.billing.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const billingWithIdOnly = await prisma.billing.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends BillingFindManyArgs>(args?: SelectSubset<T, BillingFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BillingPayload<ExtArgs>, T, "findMany">>
+
+    /**
+     * Create a Billing.
+     * @param {BillingCreateArgs} args - Arguments to create a Billing.
+     * @example
+     * // Create one Billing
+     * const Billing = await prisma.billing.create({
+     *   data: {
+     *     // ... data to create a Billing
+     *   }
+     * })
+     * 
+     */
+    create<T extends BillingCreateArgs>(args: SelectSubset<T, BillingCreateArgs<ExtArgs>>): Prisma__BillingClient<$Result.GetResult<Prisma.$BillingPayload<ExtArgs>, T, "create">, never, ExtArgs>
+
+    /**
+     * Create many Billings.
+     * @param {BillingCreateManyArgs} args - Arguments to create many Billings.
+     * @example
+     * // Create many Billings
+     * const billing = await prisma.billing.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends BillingCreateManyArgs>(args?: SelectSubset<T, BillingCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Billings and returns the data saved in the database.
+     * @param {BillingCreateManyAndReturnArgs} args - Arguments to create many Billings.
+     * @example
+     * // Create many Billings
+     * const billing = await prisma.billing.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Billings and only return the `id`
+     * const billingWithIdOnly = await prisma.billing.createManyAndReturn({ 
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends BillingCreateManyAndReturnArgs>(args?: SelectSubset<T, BillingCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BillingPayload<ExtArgs>, T, "createManyAndReturn">>
+
+    /**
+     * Delete a Billing.
+     * @param {BillingDeleteArgs} args - Arguments to delete one Billing.
+     * @example
+     * // Delete one Billing
+     * const Billing = await prisma.billing.delete({
+     *   where: {
+     *     // ... filter to delete one Billing
+     *   }
+     * })
+     * 
+     */
+    delete<T extends BillingDeleteArgs>(args: SelectSubset<T, BillingDeleteArgs<ExtArgs>>): Prisma__BillingClient<$Result.GetResult<Prisma.$BillingPayload<ExtArgs>, T, "delete">, never, ExtArgs>
+
+    /**
+     * Update one Billing.
+     * @param {BillingUpdateArgs} args - Arguments to update one Billing.
+     * @example
+     * // Update one Billing
+     * const billing = await prisma.billing.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends BillingUpdateArgs>(args: SelectSubset<T, BillingUpdateArgs<ExtArgs>>): Prisma__BillingClient<$Result.GetResult<Prisma.$BillingPayload<ExtArgs>, T, "update">, never, ExtArgs>
+
+    /**
+     * Delete zero or more Billings.
+     * @param {BillingDeleteManyArgs} args - Arguments to filter Billings to delete.
+     * @example
+     * // Delete a few Billings
+     * const { count } = await prisma.billing.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends BillingDeleteManyArgs>(args?: SelectSubset<T, BillingDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Billings.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BillingUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Billings
+     * const billing = await prisma.billing.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends BillingUpdateManyArgs>(args: SelectSubset<T, BillingUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one Billing.
+     * @param {BillingUpsertArgs} args - Arguments to update or create a Billing.
+     * @example
+     * // Update or create a Billing
+     * const billing = await prisma.billing.upsert({
+     *   create: {
+     *     // ... data to create a Billing
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Billing we want to update
+     *   }
+     * })
+     */
+    upsert<T extends BillingUpsertArgs>(args: SelectSubset<T, BillingUpsertArgs<ExtArgs>>): Prisma__BillingClient<$Result.GetResult<Prisma.$BillingPayload<ExtArgs>, T, "upsert">, never, ExtArgs>
+
+
+    /**
+     * Count the number of Billings.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BillingCountArgs} args - Arguments to filter Billings to count.
+     * @example
+     * // Count the number of Billings
+     * const count = await prisma.billing.count({
+     *   where: {
+     *     // ... the filter for the Billings we want to count
+     *   }
+     * })
+    **/
+    count<T extends BillingCountArgs>(
+      args?: Subset<T, BillingCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], BillingCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Billing.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BillingAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends BillingAggregateArgs>(args: Subset<T, BillingAggregateArgs>): Prisma.PrismaPromise<GetBillingAggregateType<T>>
+
+    /**
+     * Group by Billing.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BillingGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends BillingGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: BillingGroupByArgs['orderBy'] }
+        : { orderBy?: BillingGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, BillingGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetBillingGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Billing model
+   */
+  readonly fields: BillingFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Billing.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__BillingClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    student<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow"> | Null, Null, ExtArgs>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Billing model
+   */ 
+  interface BillingFieldRefs {
+    readonly id: FieldRef<"Billing", 'String'>
+    readonly studentId: FieldRef<"Billing", 'String'>
+    readonly title: FieldRef<"Billing", 'String'>
+    readonly description: FieldRef<"Billing", 'String'>
+    readonly amount: FieldRef<"Billing", 'Int'>
+    readonly dueDate: FieldRef<"Billing", 'DateTime'>
+    readonly status: FieldRef<"Billing", 'BillingStatus'>
+    readonly paymentMethod: FieldRef<"Billing", 'String'>
+    readonly paymentDate: FieldRef<"Billing", 'DateTime'>
+    readonly proofUrl: FieldRef<"Billing", 'String'>
+    readonly createdAt: FieldRef<"Billing", 'DateTime'>
+    readonly updatedAt: FieldRef<"Billing", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Billing findUnique
+   */
+  export type BillingFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Billing
+     */
+    select?: BillingSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BillingInclude<ExtArgs> | null
+    /**
+     * Filter, which Billing to fetch.
+     */
+    where: BillingWhereUniqueInput
+  }
+
+  /**
+   * Billing findUniqueOrThrow
+   */
+  export type BillingFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Billing
+     */
+    select?: BillingSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BillingInclude<ExtArgs> | null
+    /**
+     * Filter, which Billing to fetch.
+     */
+    where: BillingWhereUniqueInput
+  }
+
+  /**
+   * Billing findFirst
+   */
+  export type BillingFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Billing
+     */
+    select?: BillingSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BillingInclude<ExtArgs> | null
+    /**
+     * Filter, which Billing to fetch.
+     */
+    where?: BillingWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Billings to fetch.
+     */
+    orderBy?: BillingOrderByWithRelationInput | BillingOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Billings.
+     */
+    cursor?: BillingWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Billings from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Billings.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Billings.
+     */
+    distinct?: BillingScalarFieldEnum | BillingScalarFieldEnum[]
+  }
+
+  /**
+   * Billing findFirstOrThrow
+   */
+  export type BillingFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Billing
+     */
+    select?: BillingSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BillingInclude<ExtArgs> | null
+    /**
+     * Filter, which Billing to fetch.
+     */
+    where?: BillingWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Billings to fetch.
+     */
+    orderBy?: BillingOrderByWithRelationInput | BillingOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Billings.
+     */
+    cursor?: BillingWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Billings from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Billings.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Billings.
+     */
+    distinct?: BillingScalarFieldEnum | BillingScalarFieldEnum[]
+  }
+
+  /**
+   * Billing findMany
+   */
+  export type BillingFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Billing
+     */
+    select?: BillingSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BillingInclude<ExtArgs> | null
+    /**
+     * Filter, which Billings to fetch.
+     */
+    where?: BillingWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Billings to fetch.
+     */
+    orderBy?: BillingOrderByWithRelationInput | BillingOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Billings.
+     */
+    cursor?: BillingWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Billings from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Billings.
+     */
+    skip?: number
+    distinct?: BillingScalarFieldEnum | BillingScalarFieldEnum[]
+  }
+
+  /**
+   * Billing create
+   */
+  export type BillingCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Billing
+     */
+    select?: BillingSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BillingInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Billing.
+     */
+    data: XOR<BillingCreateInput, BillingUncheckedCreateInput>
+  }
+
+  /**
+   * Billing createMany
+   */
+  export type BillingCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Billings.
+     */
+    data: BillingCreateManyInput | BillingCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Billing createManyAndReturn
+   */
+  export type BillingCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Billing
+     */
+    select?: BillingSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * The data used to create many Billings.
+     */
+    data: BillingCreateManyInput | BillingCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BillingIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Billing update
+   */
+  export type BillingUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Billing
+     */
+    select?: BillingSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BillingInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Billing.
+     */
+    data: XOR<BillingUpdateInput, BillingUncheckedUpdateInput>
+    /**
+     * Choose, which Billing to update.
+     */
+    where: BillingWhereUniqueInput
+  }
+
+  /**
+   * Billing updateMany
+   */
+  export type BillingUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Billings.
+     */
+    data: XOR<BillingUpdateManyMutationInput, BillingUncheckedUpdateManyInput>
+    /**
+     * Filter which Billings to update
+     */
+    where?: BillingWhereInput
+  }
+
+  /**
+   * Billing upsert
+   */
+  export type BillingUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Billing
+     */
+    select?: BillingSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BillingInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Billing to update in case it exists.
+     */
+    where: BillingWhereUniqueInput
+    /**
+     * In case the Billing found by the `where` argument doesn't exist, create a new Billing with this data.
+     */
+    create: XOR<BillingCreateInput, BillingUncheckedCreateInput>
+    /**
+     * In case the Billing was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<BillingUpdateInput, BillingUncheckedUpdateInput>
+  }
+
+  /**
+   * Billing delete
+   */
+  export type BillingDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Billing
+     */
+    select?: BillingSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BillingInclude<ExtArgs> | null
+    /**
+     * Filter which Billing to delete.
+     */
+    where: BillingWhereUniqueInput
+  }
+
+  /**
+   * Billing deleteMany
+   */
+  export type BillingDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Billings to delete
+     */
+    where?: BillingWhereInput
+  }
+
+  /**
+   * Billing without action
+   */
+  export type BillingDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Billing
+     */
+    select?: BillingSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BillingInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model AbsenceRequest
+   */
+
+  export type AggregateAbsenceRequest = {
+    _count: AbsenceRequestCountAggregateOutputType | null
+    _min: AbsenceRequestMinAggregateOutputType | null
+    _max: AbsenceRequestMaxAggregateOutputType | null
+  }
+
+  export type AbsenceRequestMinAggregateOutputType = {
+    id: string | null
+    studentId: string | null
+    startDate: Date | null
+    endDate: Date | null
+    reason: $Enums.AttendanceStatus | null
+    description: string | null
+    attachmentUrl: string | null
+    status: $Enums.RequestStatus | null
+    reviewedById: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type AbsenceRequestMaxAggregateOutputType = {
+    id: string | null
+    studentId: string | null
+    startDate: Date | null
+    endDate: Date | null
+    reason: $Enums.AttendanceStatus | null
+    description: string | null
+    attachmentUrl: string | null
+    status: $Enums.RequestStatus | null
+    reviewedById: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type AbsenceRequestCountAggregateOutputType = {
+    id: number
+    studentId: number
+    startDate: number
+    endDate: number
+    reason: number
+    description: number
+    attachmentUrl: number
+    status: number
+    reviewedById: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type AbsenceRequestMinAggregateInputType = {
+    id?: true
+    studentId?: true
+    startDate?: true
+    endDate?: true
+    reason?: true
+    description?: true
+    attachmentUrl?: true
+    status?: true
+    reviewedById?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type AbsenceRequestMaxAggregateInputType = {
+    id?: true
+    studentId?: true
+    startDate?: true
+    endDate?: true
+    reason?: true
+    description?: true
+    attachmentUrl?: true
+    status?: true
+    reviewedById?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type AbsenceRequestCountAggregateInputType = {
+    id?: true
+    studentId?: true
+    startDate?: true
+    endDate?: true
+    reason?: true
+    description?: true
+    attachmentUrl?: true
+    status?: true
+    reviewedById?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type AbsenceRequestAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which AbsenceRequest to aggregate.
+     */
+    where?: AbsenceRequestWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of AbsenceRequests to fetch.
+     */
+    orderBy?: AbsenceRequestOrderByWithRelationInput | AbsenceRequestOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: AbsenceRequestWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` AbsenceRequests from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` AbsenceRequests.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned AbsenceRequests
+    **/
+    _count?: true | AbsenceRequestCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: AbsenceRequestMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: AbsenceRequestMaxAggregateInputType
+  }
+
+  export type GetAbsenceRequestAggregateType<T extends AbsenceRequestAggregateArgs> = {
+        [P in keyof T & keyof AggregateAbsenceRequest]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateAbsenceRequest[P]>
+      : GetScalarType<T[P], AggregateAbsenceRequest[P]>
+  }
+
+
+
+
+  export type AbsenceRequestGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: AbsenceRequestWhereInput
+    orderBy?: AbsenceRequestOrderByWithAggregationInput | AbsenceRequestOrderByWithAggregationInput[]
+    by: AbsenceRequestScalarFieldEnum[] | AbsenceRequestScalarFieldEnum
+    having?: AbsenceRequestScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: AbsenceRequestCountAggregateInputType | true
+    _min?: AbsenceRequestMinAggregateInputType
+    _max?: AbsenceRequestMaxAggregateInputType
+  }
+
+  export type AbsenceRequestGroupByOutputType = {
+    id: string
+    studentId: string
+    startDate: Date
+    endDate: Date
+    reason: $Enums.AttendanceStatus
+    description: string
+    attachmentUrl: string | null
+    status: $Enums.RequestStatus
+    reviewedById: string | null
+    createdAt: Date
+    updatedAt: Date
+    _count: AbsenceRequestCountAggregateOutputType | null
+    _min: AbsenceRequestMinAggregateOutputType | null
+    _max: AbsenceRequestMaxAggregateOutputType | null
+  }
+
+  type GetAbsenceRequestGroupByPayload<T extends AbsenceRequestGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<AbsenceRequestGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof AbsenceRequestGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], AbsenceRequestGroupByOutputType[P]>
+            : GetScalarType<T[P], AbsenceRequestGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type AbsenceRequestSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    studentId?: boolean
+    startDate?: boolean
+    endDate?: boolean
+    reason?: boolean
+    description?: boolean
+    attachmentUrl?: boolean
+    status?: boolean
+    reviewedById?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    student?: boolean | UserDefaultArgs<ExtArgs>
+    reviewer?: boolean | AbsenceRequest$reviewerArgs<ExtArgs>
+  }, ExtArgs["result"]["absenceRequest"]>
+
+  export type AbsenceRequestSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    studentId?: boolean
+    startDate?: boolean
+    endDate?: boolean
+    reason?: boolean
+    description?: boolean
+    attachmentUrl?: boolean
+    status?: boolean
+    reviewedById?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    student?: boolean | UserDefaultArgs<ExtArgs>
+    reviewer?: boolean | AbsenceRequest$reviewerArgs<ExtArgs>
+  }, ExtArgs["result"]["absenceRequest"]>
+
+  export type AbsenceRequestSelectScalar = {
+    id?: boolean
+    studentId?: boolean
+    startDate?: boolean
+    endDate?: boolean
+    reason?: boolean
+    description?: boolean
+    attachmentUrl?: boolean
+    status?: boolean
+    reviewedById?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type AbsenceRequestInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    student?: boolean | UserDefaultArgs<ExtArgs>
+    reviewer?: boolean | AbsenceRequest$reviewerArgs<ExtArgs>
+  }
+  export type AbsenceRequestIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    student?: boolean | UserDefaultArgs<ExtArgs>
+    reviewer?: boolean | AbsenceRequest$reviewerArgs<ExtArgs>
+  }
+
+  export type $AbsenceRequestPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "AbsenceRequest"
+    objects: {
+      student: Prisma.$UserPayload<ExtArgs>
+      reviewer: Prisma.$UserPayload<ExtArgs> | null
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      studentId: string
+      startDate: Date
+      endDate: Date
+      reason: $Enums.AttendanceStatus
+      description: string
+      attachmentUrl: string | null
+      status: $Enums.RequestStatus
+      reviewedById: string | null
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["absenceRequest"]>
+    composites: {}
+  }
+
+  type AbsenceRequestGetPayload<S extends boolean | null | undefined | AbsenceRequestDefaultArgs> = $Result.GetResult<Prisma.$AbsenceRequestPayload, S>
+
+  type AbsenceRequestCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<AbsenceRequestFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: AbsenceRequestCountAggregateInputType | true
+    }
+
+  export interface AbsenceRequestDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['AbsenceRequest'], meta: { name: 'AbsenceRequest' } }
+    /**
+     * Find zero or one AbsenceRequest that matches the filter.
+     * @param {AbsenceRequestFindUniqueArgs} args - Arguments to find a AbsenceRequest
+     * @example
+     * // Get one AbsenceRequest
+     * const absenceRequest = await prisma.absenceRequest.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends AbsenceRequestFindUniqueArgs>(args: SelectSubset<T, AbsenceRequestFindUniqueArgs<ExtArgs>>): Prisma__AbsenceRequestClient<$Result.GetResult<Prisma.$AbsenceRequestPayload<ExtArgs>, T, "findUnique"> | null, null, ExtArgs>
+
+    /**
+     * Find one AbsenceRequest that matches the filter or throw an error with `error.code='P2025'` 
+     * if no matches were found.
+     * @param {AbsenceRequestFindUniqueOrThrowArgs} args - Arguments to find a AbsenceRequest
+     * @example
+     * // Get one AbsenceRequest
+     * const absenceRequest = await prisma.absenceRequest.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends AbsenceRequestFindUniqueOrThrowArgs>(args: SelectSubset<T, AbsenceRequestFindUniqueOrThrowArgs<ExtArgs>>): Prisma__AbsenceRequestClient<$Result.GetResult<Prisma.$AbsenceRequestPayload<ExtArgs>, T, "findUniqueOrThrow">, never, ExtArgs>
+
+    /**
+     * Find the first AbsenceRequest that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AbsenceRequestFindFirstArgs} args - Arguments to find a AbsenceRequest
+     * @example
+     * // Get one AbsenceRequest
+     * const absenceRequest = await prisma.absenceRequest.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends AbsenceRequestFindFirstArgs>(args?: SelectSubset<T, AbsenceRequestFindFirstArgs<ExtArgs>>): Prisma__AbsenceRequestClient<$Result.GetResult<Prisma.$AbsenceRequestPayload<ExtArgs>, T, "findFirst"> | null, null, ExtArgs>
+
+    /**
+     * Find the first AbsenceRequest that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AbsenceRequestFindFirstOrThrowArgs} args - Arguments to find a AbsenceRequest
+     * @example
+     * // Get one AbsenceRequest
+     * const absenceRequest = await prisma.absenceRequest.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends AbsenceRequestFindFirstOrThrowArgs>(args?: SelectSubset<T, AbsenceRequestFindFirstOrThrowArgs<ExtArgs>>): Prisma__AbsenceRequestClient<$Result.GetResult<Prisma.$AbsenceRequestPayload<ExtArgs>, T, "findFirstOrThrow">, never, ExtArgs>
+
+    /**
+     * Find zero or more AbsenceRequests that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AbsenceRequestFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all AbsenceRequests
+     * const absenceRequests = await prisma.absenceRequest.findMany()
+     * 
+     * // Get first 10 AbsenceRequests
+     * const absenceRequests = await prisma.absenceRequest.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const absenceRequestWithIdOnly = await prisma.absenceRequest.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends AbsenceRequestFindManyArgs>(args?: SelectSubset<T, AbsenceRequestFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AbsenceRequestPayload<ExtArgs>, T, "findMany">>
+
+    /**
+     * Create a AbsenceRequest.
+     * @param {AbsenceRequestCreateArgs} args - Arguments to create a AbsenceRequest.
+     * @example
+     * // Create one AbsenceRequest
+     * const AbsenceRequest = await prisma.absenceRequest.create({
+     *   data: {
+     *     // ... data to create a AbsenceRequest
+     *   }
+     * })
+     * 
+     */
+    create<T extends AbsenceRequestCreateArgs>(args: SelectSubset<T, AbsenceRequestCreateArgs<ExtArgs>>): Prisma__AbsenceRequestClient<$Result.GetResult<Prisma.$AbsenceRequestPayload<ExtArgs>, T, "create">, never, ExtArgs>
+
+    /**
+     * Create many AbsenceRequests.
+     * @param {AbsenceRequestCreateManyArgs} args - Arguments to create many AbsenceRequests.
+     * @example
+     * // Create many AbsenceRequests
+     * const absenceRequest = await prisma.absenceRequest.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends AbsenceRequestCreateManyArgs>(args?: SelectSubset<T, AbsenceRequestCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many AbsenceRequests and returns the data saved in the database.
+     * @param {AbsenceRequestCreateManyAndReturnArgs} args - Arguments to create many AbsenceRequests.
+     * @example
+     * // Create many AbsenceRequests
+     * const absenceRequest = await prisma.absenceRequest.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many AbsenceRequests and only return the `id`
+     * const absenceRequestWithIdOnly = await prisma.absenceRequest.createManyAndReturn({ 
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends AbsenceRequestCreateManyAndReturnArgs>(args?: SelectSubset<T, AbsenceRequestCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AbsenceRequestPayload<ExtArgs>, T, "createManyAndReturn">>
+
+    /**
+     * Delete a AbsenceRequest.
+     * @param {AbsenceRequestDeleteArgs} args - Arguments to delete one AbsenceRequest.
+     * @example
+     * // Delete one AbsenceRequest
+     * const AbsenceRequest = await prisma.absenceRequest.delete({
+     *   where: {
+     *     // ... filter to delete one AbsenceRequest
+     *   }
+     * })
+     * 
+     */
+    delete<T extends AbsenceRequestDeleteArgs>(args: SelectSubset<T, AbsenceRequestDeleteArgs<ExtArgs>>): Prisma__AbsenceRequestClient<$Result.GetResult<Prisma.$AbsenceRequestPayload<ExtArgs>, T, "delete">, never, ExtArgs>
+
+    /**
+     * Update one AbsenceRequest.
+     * @param {AbsenceRequestUpdateArgs} args - Arguments to update one AbsenceRequest.
+     * @example
+     * // Update one AbsenceRequest
+     * const absenceRequest = await prisma.absenceRequest.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends AbsenceRequestUpdateArgs>(args: SelectSubset<T, AbsenceRequestUpdateArgs<ExtArgs>>): Prisma__AbsenceRequestClient<$Result.GetResult<Prisma.$AbsenceRequestPayload<ExtArgs>, T, "update">, never, ExtArgs>
+
+    /**
+     * Delete zero or more AbsenceRequests.
+     * @param {AbsenceRequestDeleteManyArgs} args - Arguments to filter AbsenceRequests to delete.
+     * @example
+     * // Delete a few AbsenceRequests
+     * const { count } = await prisma.absenceRequest.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends AbsenceRequestDeleteManyArgs>(args?: SelectSubset<T, AbsenceRequestDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more AbsenceRequests.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AbsenceRequestUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many AbsenceRequests
+     * const absenceRequest = await prisma.absenceRequest.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends AbsenceRequestUpdateManyArgs>(args: SelectSubset<T, AbsenceRequestUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one AbsenceRequest.
+     * @param {AbsenceRequestUpsertArgs} args - Arguments to update or create a AbsenceRequest.
+     * @example
+     * // Update or create a AbsenceRequest
+     * const absenceRequest = await prisma.absenceRequest.upsert({
+     *   create: {
+     *     // ... data to create a AbsenceRequest
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the AbsenceRequest we want to update
+     *   }
+     * })
+     */
+    upsert<T extends AbsenceRequestUpsertArgs>(args: SelectSubset<T, AbsenceRequestUpsertArgs<ExtArgs>>): Prisma__AbsenceRequestClient<$Result.GetResult<Prisma.$AbsenceRequestPayload<ExtArgs>, T, "upsert">, never, ExtArgs>
+
+
+    /**
+     * Count the number of AbsenceRequests.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AbsenceRequestCountArgs} args - Arguments to filter AbsenceRequests to count.
+     * @example
+     * // Count the number of AbsenceRequests
+     * const count = await prisma.absenceRequest.count({
+     *   where: {
+     *     // ... the filter for the AbsenceRequests we want to count
+     *   }
+     * })
+    **/
+    count<T extends AbsenceRequestCountArgs>(
+      args?: Subset<T, AbsenceRequestCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], AbsenceRequestCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a AbsenceRequest.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AbsenceRequestAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends AbsenceRequestAggregateArgs>(args: Subset<T, AbsenceRequestAggregateArgs>): Prisma.PrismaPromise<GetAbsenceRequestAggregateType<T>>
+
+    /**
+     * Group by AbsenceRequest.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AbsenceRequestGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends AbsenceRequestGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: AbsenceRequestGroupByArgs['orderBy'] }
+        : { orderBy?: AbsenceRequestGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, AbsenceRequestGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetAbsenceRequestGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the AbsenceRequest model
+   */
+  readonly fields: AbsenceRequestFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for AbsenceRequest.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__AbsenceRequestClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    student<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow"> | Null, Null, ExtArgs>
+    reviewer<T extends AbsenceRequest$reviewerArgs<ExtArgs> = {}>(args?: Subset<T, AbsenceRequest$reviewerArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow"> | null, null, ExtArgs>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the AbsenceRequest model
+   */ 
+  interface AbsenceRequestFieldRefs {
+    readonly id: FieldRef<"AbsenceRequest", 'String'>
+    readonly studentId: FieldRef<"AbsenceRequest", 'String'>
+    readonly startDate: FieldRef<"AbsenceRequest", 'DateTime'>
+    readonly endDate: FieldRef<"AbsenceRequest", 'DateTime'>
+    readonly reason: FieldRef<"AbsenceRequest", 'AttendanceStatus'>
+    readonly description: FieldRef<"AbsenceRequest", 'String'>
+    readonly attachmentUrl: FieldRef<"AbsenceRequest", 'String'>
+    readonly status: FieldRef<"AbsenceRequest", 'RequestStatus'>
+    readonly reviewedById: FieldRef<"AbsenceRequest", 'String'>
+    readonly createdAt: FieldRef<"AbsenceRequest", 'DateTime'>
+    readonly updatedAt: FieldRef<"AbsenceRequest", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * AbsenceRequest findUnique
+   */
+  export type AbsenceRequestFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AbsenceRequest
+     */
+    select?: AbsenceRequestSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AbsenceRequestInclude<ExtArgs> | null
+    /**
+     * Filter, which AbsenceRequest to fetch.
+     */
+    where: AbsenceRequestWhereUniqueInput
+  }
+
+  /**
+   * AbsenceRequest findUniqueOrThrow
+   */
+  export type AbsenceRequestFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AbsenceRequest
+     */
+    select?: AbsenceRequestSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AbsenceRequestInclude<ExtArgs> | null
+    /**
+     * Filter, which AbsenceRequest to fetch.
+     */
+    where: AbsenceRequestWhereUniqueInput
+  }
+
+  /**
+   * AbsenceRequest findFirst
+   */
+  export type AbsenceRequestFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AbsenceRequest
+     */
+    select?: AbsenceRequestSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AbsenceRequestInclude<ExtArgs> | null
+    /**
+     * Filter, which AbsenceRequest to fetch.
+     */
+    where?: AbsenceRequestWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of AbsenceRequests to fetch.
+     */
+    orderBy?: AbsenceRequestOrderByWithRelationInput | AbsenceRequestOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for AbsenceRequests.
+     */
+    cursor?: AbsenceRequestWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` AbsenceRequests from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` AbsenceRequests.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of AbsenceRequests.
+     */
+    distinct?: AbsenceRequestScalarFieldEnum | AbsenceRequestScalarFieldEnum[]
+  }
+
+  /**
+   * AbsenceRequest findFirstOrThrow
+   */
+  export type AbsenceRequestFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AbsenceRequest
+     */
+    select?: AbsenceRequestSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AbsenceRequestInclude<ExtArgs> | null
+    /**
+     * Filter, which AbsenceRequest to fetch.
+     */
+    where?: AbsenceRequestWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of AbsenceRequests to fetch.
+     */
+    orderBy?: AbsenceRequestOrderByWithRelationInput | AbsenceRequestOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for AbsenceRequests.
+     */
+    cursor?: AbsenceRequestWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` AbsenceRequests from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` AbsenceRequests.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of AbsenceRequests.
+     */
+    distinct?: AbsenceRequestScalarFieldEnum | AbsenceRequestScalarFieldEnum[]
+  }
+
+  /**
+   * AbsenceRequest findMany
+   */
+  export type AbsenceRequestFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AbsenceRequest
+     */
+    select?: AbsenceRequestSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AbsenceRequestInclude<ExtArgs> | null
+    /**
+     * Filter, which AbsenceRequests to fetch.
+     */
+    where?: AbsenceRequestWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of AbsenceRequests to fetch.
+     */
+    orderBy?: AbsenceRequestOrderByWithRelationInput | AbsenceRequestOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing AbsenceRequests.
+     */
+    cursor?: AbsenceRequestWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` AbsenceRequests from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` AbsenceRequests.
+     */
+    skip?: number
+    distinct?: AbsenceRequestScalarFieldEnum | AbsenceRequestScalarFieldEnum[]
+  }
+
+  /**
+   * AbsenceRequest create
+   */
+  export type AbsenceRequestCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AbsenceRequest
+     */
+    select?: AbsenceRequestSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AbsenceRequestInclude<ExtArgs> | null
+    /**
+     * The data needed to create a AbsenceRequest.
+     */
+    data: XOR<AbsenceRequestCreateInput, AbsenceRequestUncheckedCreateInput>
+  }
+
+  /**
+   * AbsenceRequest createMany
+   */
+  export type AbsenceRequestCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many AbsenceRequests.
+     */
+    data: AbsenceRequestCreateManyInput | AbsenceRequestCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * AbsenceRequest createManyAndReturn
+   */
+  export type AbsenceRequestCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AbsenceRequest
+     */
+    select?: AbsenceRequestSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * The data used to create many AbsenceRequests.
+     */
+    data: AbsenceRequestCreateManyInput | AbsenceRequestCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AbsenceRequestIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * AbsenceRequest update
+   */
+  export type AbsenceRequestUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AbsenceRequest
+     */
+    select?: AbsenceRequestSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AbsenceRequestInclude<ExtArgs> | null
+    /**
+     * The data needed to update a AbsenceRequest.
+     */
+    data: XOR<AbsenceRequestUpdateInput, AbsenceRequestUncheckedUpdateInput>
+    /**
+     * Choose, which AbsenceRequest to update.
+     */
+    where: AbsenceRequestWhereUniqueInput
+  }
+
+  /**
+   * AbsenceRequest updateMany
+   */
+  export type AbsenceRequestUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update AbsenceRequests.
+     */
+    data: XOR<AbsenceRequestUpdateManyMutationInput, AbsenceRequestUncheckedUpdateManyInput>
+    /**
+     * Filter which AbsenceRequests to update
+     */
+    where?: AbsenceRequestWhereInput
+  }
+
+  /**
+   * AbsenceRequest upsert
+   */
+  export type AbsenceRequestUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AbsenceRequest
+     */
+    select?: AbsenceRequestSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AbsenceRequestInclude<ExtArgs> | null
+    /**
+     * The filter to search for the AbsenceRequest to update in case it exists.
+     */
+    where: AbsenceRequestWhereUniqueInput
+    /**
+     * In case the AbsenceRequest found by the `where` argument doesn't exist, create a new AbsenceRequest with this data.
+     */
+    create: XOR<AbsenceRequestCreateInput, AbsenceRequestUncheckedCreateInput>
+    /**
+     * In case the AbsenceRequest was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<AbsenceRequestUpdateInput, AbsenceRequestUncheckedUpdateInput>
+  }
+
+  /**
+   * AbsenceRequest delete
+   */
+  export type AbsenceRequestDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AbsenceRequest
+     */
+    select?: AbsenceRequestSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AbsenceRequestInclude<ExtArgs> | null
+    /**
+     * Filter which AbsenceRequest to delete.
+     */
+    where: AbsenceRequestWhereUniqueInput
+  }
+
+  /**
+   * AbsenceRequest deleteMany
+   */
+  export type AbsenceRequestDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which AbsenceRequests to delete
+     */
+    where?: AbsenceRequestWhereInput
+  }
+
+  /**
+   * AbsenceRequest.reviewer
+   */
+  export type AbsenceRequest$reviewerArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the User
+     */
+    select?: UserSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
+    where?: UserWhereInput
+  }
+
+  /**
+   * AbsenceRequest without action
+   */
+  export type AbsenceRequestDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AbsenceRequest
+     */
+    select?: AbsenceRequestSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AbsenceRequestInclude<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -38792,6 +41166,41 @@ export namespace Prisma {
   export type ExamAnswerScalarFieldEnum = (typeof ExamAnswerScalarFieldEnum)[keyof typeof ExamAnswerScalarFieldEnum]
 
 
+  export const BillingScalarFieldEnum: {
+    id: 'id',
+    studentId: 'studentId',
+    title: 'title',
+    description: 'description',
+    amount: 'amount',
+    dueDate: 'dueDate',
+    status: 'status',
+    paymentMethod: 'paymentMethod',
+    paymentDate: 'paymentDate',
+    proofUrl: 'proofUrl',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type BillingScalarFieldEnum = (typeof BillingScalarFieldEnum)[keyof typeof BillingScalarFieldEnum]
+
+
+  export const AbsenceRequestScalarFieldEnum: {
+    id: 'id',
+    studentId: 'studentId',
+    startDate: 'startDate',
+    endDate: 'endDate',
+    reason: 'reason',
+    description: 'description',
+    attachmentUrl: 'attachmentUrl',
+    status: 'status',
+    reviewedById: 'reviewedById',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type AbsenceRequestScalarFieldEnum = (typeof AbsenceRequestScalarFieldEnum)[keyof typeof AbsenceRequestScalarFieldEnum]
+
+
   export const SortOrder: {
     asc: 'asc',
     desc: 'desc'
@@ -38986,6 +41395,34 @@ export namespace Prisma {
 
 
   /**
+   * Reference to a field of type 'BillingStatus'
+   */
+  export type EnumBillingStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BillingStatus'>
+    
+
+
+  /**
+   * Reference to a field of type 'BillingStatus[]'
+   */
+  export type ListEnumBillingStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BillingStatus[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'RequestStatus'
+   */
+  export type EnumRequestStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'RequestStatus'>
+    
+
+
+  /**
+   * Reference to a field of type 'RequestStatus[]'
+   */
+  export type ListEnumRequestStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'RequestStatus[]'>
+    
+
+
+  /**
    * Reference to a field of type 'Float'
    */
   export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
@@ -39060,6 +41497,9 @@ export namespace Prisma {
     examAttempts?: ExamAttemptListRelationFilter
     parent?: XOR<UserNullableRelationFilter, UserWhereInput> | null
     children?: UserListRelationFilter
+    billings?: BillingListRelationFilter
+    absenceRequests?: AbsenceRequestListRelationFilter
+    reviewedRequests?: AbsenceRequestListRelationFilter
   }
 
   export type UserOrderByWithRelationInput = {
@@ -39117,6 +41557,9 @@ export namespace Prisma {
     examAttempts?: ExamAttemptOrderByRelationAggregateInput
     parent?: UserOrderByWithRelationInput
     children?: UserOrderByRelationAggregateInput
+    billings?: BillingOrderByRelationAggregateInput
+    absenceRequests?: AbsenceRequestOrderByRelationAggregateInput
+    reviewedRequests?: AbsenceRequestOrderByRelationAggregateInput
   }
 
   export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -39177,6 +41620,9 @@ export namespace Prisma {
     examAttempts?: ExamAttemptListRelationFilter
     parent?: XOR<UserNullableRelationFilter, UserWhereInput> | null
     children?: UserListRelationFilter
+    billings?: BillingListRelationFilter
+    absenceRequests?: AbsenceRequestListRelationFilter
+    reviewedRequests?: AbsenceRequestListRelationFilter
   }, "id" | "email" | "nis">
 
   export type UserOrderByWithAggregationInput = {
@@ -41550,6 +43996,186 @@ export namespace Prisma {
     pointsAwarded?: IntWithAggregatesFilter<"ExamAnswer"> | number
   }
 
+  export type BillingWhereInput = {
+    AND?: BillingWhereInput | BillingWhereInput[]
+    OR?: BillingWhereInput[]
+    NOT?: BillingWhereInput | BillingWhereInput[]
+    id?: StringFilter<"Billing"> | string
+    studentId?: StringFilter<"Billing"> | string
+    title?: StringFilter<"Billing"> | string
+    description?: StringNullableFilter<"Billing"> | string | null
+    amount?: IntFilter<"Billing"> | number
+    dueDate?: DateTimeFilter<"Billing"> | Date | string
+    status?: EnumBillingStatusFilter<"Billing"> | $Enums.BillingStatus
+    paymentMethod?: StringNullableFilter<"Billing"> | string | null
+    paymentDate?: DateTimeNullableFilter<"Billing"> | Date | string | null
+    proofUrl?: StringNullableFilter<"Billing"> | string | null
+    createdAt?: DateTimeFilter<"Billing"> | Date | string
+    updatedAt?: DateTimeFilter<"Billing"> | Date | string
+    student?: XOR<UserRelationFilter, UserWhereInput>
+  }
+
+  export type BillingOrderByWithRelationInput = {
+    id?: SortOrder
+    studentId?: SortOrder
+    title?: SortOrder
+    description?: SortOrderInput | SortOrder
+    amount?: SortOrder
+    dueDate?: SortOrder
+    status?: SortOrder
+    paymentMethod?: SortOrderInput | SortOrder
+    paymentDate?: SortOrderInput | SortOrder
+    proofUrl?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    student?: UserOrderByWithRelationInput
+  }
+
+  export type BillingWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: BillingWhereInput | BillingWhereInput[]
+    OR?: BillingWhereInput[]
+    NOT?: BillingWhereInput | BillingWhereInput[]
+    studentId?: StringFilter<"Billing"> | string
+    title?: StringFilter<"Billing"> | string
+    description?: StringNullableFilter<"Billing"> | string | null
+    amount?: IntFilter<"Billing"> | number
+    dueDate?: DateTimeFilter<"Billing"> | Date | string
+    status?: EnumBillingStatusFilter<"Billing"> | $Enums.BillingStatus
+    paymentMethod?: StringNullableFilter<"Billing"> | string | null
+    paymentDate?: DateTimeNullableFilter<"Billing"> | Date | string | null
+    proofUrl?: StringNullableFilter<"Billing"> | string | null
+    createdAt?: DateTimeFilter<"Billing"> | Date | string
+    updatedAt?: DateTimeFilter<"Billing"> | Date | string
+    student?: XOR<UserRelationFilter, UserWhereInput>
+  }, "id">
+
+  export type BillingOrderByWithAggregationInput = {
+    id?: SortOrder
+    studentId?: SortOrder
+    title?: SortOrder
+    description?: SortOrderInput | SortOrder
+    amount?: SortOrder
+    dueDate?: SortOrder
+    status?: SortOrder
+    paymentMethod?: SortOrderInput | SortOrder
+    paymentDate?: SortOrderInput | SortOrder
+    proofUrl?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: BillingCountOrderByAggregateInput
+    _avg?: BillingAvgOrderByAggregateInput
+    _max?: BillingMaxOrderByAggregateInput
+    _min?: BillingMinOrderByAggregateInput
+    _sum?: BillingSumOrderByAggregateInput
+  }
+
+  export type BillingScalarWhereWithAggregatesInput = {
+    AND?: BillingScalarWhereWithAggregatesInput | BillingScalarWhereWithAggregatesInput[]
+    OR?: BillingScalarWhereWithAggregatesInput[]
+    NOT?: BillingScalarWhereWithAggregatesInput | BillingScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Billing"> | string
+    studentId?: StringWithAggregatesFilter<"Billing"> | string
+    title?: StringWithAggregatesFilter<"Billing"> | string
+    description?: StringNullableWithAggregatesFilter<"Billing"> | string | null
+    amount?: IntWithAggregatesFilter<"Billing"> | number
+    dueDate?: DateTimeWithAggregatesFilter<"Billing"> | Date | string
+    status?: EnumBillingStatusWithAggregatesFilter<"Billing"> | $Enums.BillingStatus
+    paymentMethod?: StringNullableWithAggregatesFilter<"Billing"> | string | null
+    paymentDate?: DateTimeNullableWithAggregatesFilter<"Billing"> | Date | string | null
+    proofUrl?: StringNullableWithAggregatesFilter<"Billing"> | string | null
+    createdAt?: DateTimeWithAggregatesFilter<"Billing"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Billing"> | Date | string
+  }
+
+  export type AbsenceRequestWhereInput = {
+    AND?: AbsenceRequestWhereInput | AbsenceRequestWhereInput[]
+    OR?: AbsenceRequestWhereInput[]
+    NOT?: AbsenceRequestWhereInput | AbsenceRequestWhereInput[]
+    id?: StringFilter<"AbsenceRequest"> | string
+    studentId?: StringFilter<"AbsenceRequest"> | string
+    startDate?: DateTimeFilter<"AbsenceRequest"> | Date | string
+    endDate?: DateTimeFilter<"AbsenceRequest"> | Date | string
+    reason?: EnumAttendanceStatusFilter<"AbsenceRequest"> | $Enums.AttendanceStatus
+    description?: StringFilter<"AbsenceRequest"> | string
+    attachmentUrl?: StringNullableFilter<"AbsenceRequest"> | string | null
+    status?: EnumRequestStatusFilter<"AbsenceRequest"> | $Enums.RequestStatus
+    reviewedById?: StringNullableFilter<"AbsenceRequest"> | string | null
+    createdAt?: DateTimeFilter<"AbsenceRequest"> | Date | string
+    updatedAt?: DateTimeFilter<"AbsenceRequest"> | Date | string
+    student?: XOR<UserRelationFilter, UserWhereInput>
+    reviewer?: XOR<UserNullableRelationFilter, UserWhereInput> | null
+  }
+
+  export type AbsenceRequestOrderByWithRelationInput = {
+    id?: SortOrder
+    studentId?: SortOrder
+    startDate?: SortOrder
+    endDate?: SortOrder
+    reason?: SortOrder
+    description?: SortOrder
+    attachmentUrl?: SortOrderInput | SortOrder
+    status?: SortOrder
+    reviewedById?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    student?: UserOrderByWithRelationInput
+    reviewer?: UserOrderByWithRelationInput
+  }
+
+  export type AbsenceRequestWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: AbsenceRequestWhereInput | AbsenceRequestWhereInput[]
+    OR?: AbsenceRequestWhereInput[]
+    NOT?: AbsenceRequestWhereInput | AbsenceRequestWhereInput[]
+    studentId?: StringFilter<"AbsenceRequest"> | string
+    startDate?: DateTimeFilter<"AbsenceRequest"> | Date | string
+    endDate?: DateTimeFilter<"AbsenceRequest"> | Date | string
+    reason?: EnumAttendanceStatusFilter<"AbsenceRequest"> | $Enums.AttendanceStatus
+    description?: StringFilter<"AbsenceRequest"> | string
+    attachmentUrl?: StringNullableFilter<"AbsenceRequest"> | string | null
+    status?: EnumRequestStatusFilter<"AbsenceRequest"> | $Enums.RequestStatus
+    reviewedById?: StringNullableFilter<"AbsenceRequest"> | string | null
+    createdAt?: DateTimeFilter<"AbsenceRequest"> | Date | string
+    updatedAt?: DateTimeFilter<"AbsenceRequest"> | Date | string
+    student?: XOR<UserRelationFilter, UserWhereInput>
+    reviewer?: XOR<UserNullableRelationFilter, UserWhereInput> | null
+  }, "id">
+
+  export type AbsenceRequestOrderByWithAggregationInput = {
+    id?: SortOrder
+    studentId?: SortOrder
+    startDate?: SortOrder
+    endDate?: SortOrder
+    reason?: SortOrder
+    description?: SortOrder
+    attachmentUrl?: SortOrderInput | SortOrder
+    status?: SortOrder
+    reviewedById?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: AbsenceRequestCountOrderByAggregateInput
+    _max?: AbsenceRequestMaxOrderByAggregateInput
+    _min?: AbsenceRequestMinOrderByAggregateInput
+  }
+
+  export type AbsenceRequestScalarWhereWithAggregatesInput = {
+    AND?: AbsenceRequestScalarWhereWithAggregatesInput | AbsenceRequestScalarWhereWithAggregatesInput[]
+    OR?: AbsenceRequestScalarWhereWithAggregatesInput[]
+    NOT?: AbsenceRequestScalarWhereWithAggregatesInput | AbsenceRequestScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"AbsenceRequest"> | string
+    studentId?: StringWithAggregatesFilter<"AbsenceRequest"> | string
+    startDate?: DateTimeWithAggregatesFilter<"AbsenceRequest"> | Date | string
+    endDate?: DateTimeWithAggregatesFilter<"AbsenceRequest"> | Date | string
+    reason?: EnumAttendanceStatusWithAggregatesFilter<"AbsenceRequest"> | $Enums.AttendanceStatus
+    description?: StringWithAggregatesFilter<"AbsenceRequest"> | string
+    attachmentUrl?: StringNullableWithAggregatesFilter<"AbsenceRequest"> | string | null
+    status?: EnumRequestStatusWithAggregatesFilter<"AbsenceRequest"> | $Enums.RequestStatus
+    reviewedById?: StringNullableWithAggregatesFilter<"AbsenceRequest"> | string | null
+    createdAt?: DateTimeWithAggregatesFilter<"AbsenceRequest"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"AbsenceRequest"> | Date | string
+  }
+
   export type UserCreateInput = {
     id?: string
     name: string
@@ -41603,6 +44229,9 @@ export namespace Prisma {
     examAttempts?: ExamAttemptCreateNestedManyWithoutStudentInput
     parent?: UserCreateNestedOneWithoutChildrenInput
     children?: UserCreateNestedManyWithoutParentInput
+    billings?: BillingCreateNestedManyWithoutStudentInput
+    absenceRequests?: AbsenceRequestCreateNestedManyWithoutStudentInput
+    reviewedRequests?: AbsenceRequestCreateNestedManyWithoutReviewerInput
   }
 
   export type UserUncheckedCreateInput = {
@@ -41658,6 +44287,9 @@ export namespace Prisma {
     teacherExams?: ExamUncheckedCreateNestedManyWithoutTeacherInput
     examAttempts?: ExamAttemptUncheckedCreateNestedManyWithoutStudentInput
     children?: UserUncheckedCreateNestedManyWithoutParentInput
+    billings?: BillingUncheckedCreateNestedManyWithoutStudentInput
+    absenceRequests?: AbsenceRequestUncheckedCreateNestedManyWithoutStudentInput
+    reviewedRequests?: AbsenceRequestUncheckedCreateNestedManyWithoutReviewerInput
   }
 
   export type UserUpdateInput = {
@@ -41713,6 +44345,9 @@ export namespace Prisma {
     examAttempts?: ExamAttemptUpdateManyWithoutStudentNestedInput
     parent?: UserUpdateOneWithoutChildrenNestedInput
     children?: UserUpdateManyWithoutParentNestedInput
+    billings?: BillingUpdateManyWithoutStudentNestedInput
+    absenceRequests?: AbsenceRequestUpdateManyWithoutStudentNestedInput
+    reviewedRequests?: AbsenceRequestUpdateManyWithoutReviewerNestedInput
   }
 
   export type UserUncheckedUpdateInput = {
@@ -41768,6 +44403,9 @@ export namespace Prisma {
     teacherExams?: ExamUncheckedUpdateManyWithoutTeacherNestedInput
     examAttempts?: ExamAttemptUncheckedUpdateManyWithoutStudentNestedInput
     children?: UserUncheckedUpdateManyWithoutParentNestedInput
+    billings?: BillingUncheckedUpdateManyWithoutStudentNestedInput
+    absenceRequests?: AbsenceRequestUncheckedUpdateManyWithoutStudentNestedInput
+    reviewedRequests?: AbsenceRequestUncheckedUpdateManyWithoutReviewerNestedInput
   }
 
   export type UserCreateManyInput = {
@@ -44222,6 +46860,206 @@ export namespace Prisma {
     pointsAwarded?: IntFieldUpdateOperationsInput | number
   }
 
+  export type BillingCreateInput = {
+    id?: string
+    title: string
+    description?: string | null
+    amount: number
+    dueDate: Date | string
+    status?: $Enums.BillingStatus
+    paymentMethod?: string | null
+    paymentDate?: Date | string | null
+    proofUrl?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    student: UserCreateNestedOneWithoutBillingsInput
+  }
+
+  export type BillingUncheckedCreateInput = {
+    id?: string
+    studentId: string
+    title: string
+    description?: string | null
+    amount: number
+    dueDate: Date | string
+    status?: $Enums.BillingStatus
+    paymentMethod?: string | null
+    paymentDate?: Date | string | null
+    proofUrl?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type BillingUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    amount?: IntFieldUpdateOperationsInput | number
+    dueDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    status?: EnumBillingStatusFieldUpdateOperationsInput | $Enums.BillingStatus
+    paymentMethod?: NullableStringFieldUpdateOperationsInput | string | null
+    paymentDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    proofUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    student?: UserUpdateOneRequiredWithoutBillingsNestedInput
+  }
+
+  export type BillingUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    studentId?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    amount?: IntFieldUpdateOperationsInput | number
+    dueDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    status?: EnumBillingStatusFieldUpdateOperationsInput | $Enums.BillingStatus
+    paymentMethod?: NullableStringFieldUpdateOperationsInput | string | null
+    paymentDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    proofUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BillingCreateManyInput = {
+    id?: string
+    studentId: string
+    title: string
+    description?: string | null
+    amount: number
+    dueDate: Date | string
+    status?: $Enums.BillingStatus
+    paymentMethod?: string | null
+    paymentDate?: Date | string | null
+    proofUrl?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type BillingUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    amount?: IntFieldUpdateOperationsInput | number
+    dueDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    status?: EnumBillingStatusFieldUpdateOperationsInput | $Enums.BillingStatus
+    paymentMethod?: NullableStringFieldUpdateOperationsInput | string | null
+    paymentDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    proofUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BillingUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    studentId?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    amount?: IntFieldUpdateOperationsInput | number
+    dueDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    status?: EnumBillingStatusFieldUpdateOperationsInput | $Enums.BillingStatus
+    paymentMethod?: NullableStringFieldUpdateOperationsInput | string | null
+    paymentDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    proofUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type AbsenceRequestCreateInput = {
+    id?: string
+    startDate: Date | string
+    endDate: Date | string
+    reason: $Enums.AttendanceStatus
+    description: string
+    attachmentUrl?: string | null
+    status?: $Enums.RequestStatus
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    student: UserCreateNestedOneWithoutAbsenceRequestsInput
+    reviewer?: UserCreateNestedOneWithoutReviewedRequestsInput
+  }
+
+  export type AbsenceRequestUncheckedCreateInput = {
+    id?: string
+    studentId: string
+    startDate: Date | string
+    endDate: Date | string
+    reason: $Enums.AttendanceStatus
+    description: string
+    attachmentUrl?: string | null
+    status?: $Enums.RequestStatus
+    reviewedById?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type AbsenceRequestUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    endDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    reason?: EnumAttendanceStatusFieldUpdateOperationsInput | $Enums.AttendanceStatus
+    description?: StringFieldUpdateOperationsInput | string
+    attachmentUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: EnumRequestStatusFieldUpdateOperationsInput | $Enums.RequestStatus
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    student?: UserUpdateOneRequiredWithoutAbsenceRequestsNestedInput
+    reviewer?: UserUpdateOneWithoutReviewedRequestsNestedInput
+  }
+
+  export type AbsenceRequestUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    studentId?: StringFieldUpdateOperationsInput | string
+    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    endDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    reason?: EnumAttendanceStatusFieldUpdateOperationsInput | $Enums.AttendanceStatus
+    description?: StringFieldUpdateOperationsInput | string
+    attachmentUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: EnumRequestStatusFieldUpdateOperationsInput | $Enums.RequestStatus
+    reviewedById?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type AbsenceRequestCreateManyInput = {
+    id?: string
+    studentId: string
+    startDate: Date | string
+    endDate: Date | string
+    reason: $Enums.AttendanceStatus
+    description: string
+    attachmentUrl?: string | null
+    status?: $Enums.RequestStatus
+    reviewedById?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type AbsenceRequestUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    endDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    reason?: EnumAttendanceStatusFieldUpdateOperationsInput | $Enums.AttendanceStatus
+    description?: StringFieldUpdateOperationsInput | string
+    attachmentUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: EnumRequestStatusFieldUpdateOperationsInput | $Enums.RequestStatus
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type AbsenceRequestUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    studentId?: StringFieldUpdateOperationsInput | string
+    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    endDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    reason?: EnumAttendanceStatusFieldUpdateOperationsInput | $Enums.AttendanceStatus
+    description?: StringFieldUpdateOperationsInput | string
+    attachmentUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: EnumRequestStatusFieldUpdateOperationsInput | $Enums.RequestStatus
+    reviewedById?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
   export type StringFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[] | ListStringFieldRefInput<$PrismaModel>
@@ -44480,6 +47318,18 @@ export namespace Prisma {
     none?: UserWhereInput
   }
 
+  export type BillingListRelationFilter = {
+    every?: BillingWhereInput
+    some?: BillingWhereInput
+    none?: BillingWhereInput
+  }
+
+  export type AbsenceRequestListRelationFilter = {
+    every?: AbsenceRequestWhereInput
+    some?: AbsenceRequestWhereInput
+    none?: AbsenceRequestWhereInput
+  }
+
   export type SortOrderInput = {
     sort: SortOrder
     nulls?: NullsOrder
@@ -44574,6 +47424,14 @@ export namespace Prisma {
   }
 
   export type UserOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type BillingOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type AbsenceRequestOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -46217,6 +49075,135 @@ export namespace Prisma {
     pointsAwarded?: SortOrder
   }
 
+  export type EnumBillingStatusFilter<$PrismaModel = never> = {
+    equals?: $Enums.BillingStatus | EnumBillingStatusFieldRefInput<$PrismaModel>
+    in?: $Enums.BillingStatus[] | ListEnumBillingStatusFieldRefInput<$PrismaModel>
+    notIn?: $Enums.BillingStatus[] | ListEnumBillingStatusFieldRefInput<$PrismaModel>
+    not?: NestedEnumBillingStatusFilter<$PrismaModel> | $Enums.BillingStatus
+  }
+
+  export type BillingCountOrderByAggregateInput = {
+    id?: SortOrder
+    studentId?: SortOrder
+    title?: SortOrder
+    description?: SortOrder
+    amount?: SortOrder
+    dueDate?: SortOrder
+    status?: SortOrder
+    paymentMethod?: SortOrder
+    paymentDate?: SortOrder
+    proofUrl?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type BillingAvgOrderByAggregateInput = {
+    amount?: SortOrder
+  }
+
+  export type BillingMaxOrderByAggregateInput = {
+    id?: SortOrder
+    studentId?: SortOrder
+    title?: SortOrder
+    description?: SortOrder
+    amount?: SortOrder
+    dueDate?: SortOrder
+    status?: SortOrder
+    paymentMethod?: SortOrder
+    paymentDate?: SortOrder
+    proofUrl?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type BillingMinOrderByAggregateInput = {
+    id?: SortOrder
+    studentId?: SortOrder
+    title?: SortOrder
+    description?: SortOrder
+    amount?: SortOrder
+    dueDate?: SortOrder
+    status?: SortOrder
+    paymentMethod?: SortOrder
+    paymentDate?: SortOrder
+    proofUrl?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type BillingSumOrderByAggregateInput = {
+    amount?: SortOrder
+  }
+
+  export type EnumBillingStatusWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.BillingStatus | EnumBillingStatusFieldRefInput<$PrismaModel>
+    in?: $Enums.BillingStatus[] | ListEnumBillingStatusFieldRefInput<$PrismaModel>
+    notIn?: $Enums.BillingStatus[] | ListEnumBillingStatusFieldRefInput<$PrismaModel>
+    not?: NestedEnumBillingStatusWithAggregatesFilter<$PrismaModel> | $Enums.BillingStatus
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumBillingStatusFilter<$PrismaModel>
+    _max?: NestedEnumBillingStatusFilter<$PrismaModel>
+  }
+
+  export type EnumRequestStatusFilter<$PrismaModel = never> = {
+    equals?: $Enums.RequestStatus | EnumRequestStatusFieldRefInput<$PrismaModel>
+    in?: $Enums.RequestStatus[] | ListEnumRequestStatusFieldRefInput<$PrismaModel>
+    notIn?: $Enums.RequestStatus[] | ListEnumRequestStatusFieldRefInput<$PrismaModel>
+    not?: NestedEnumRequestStatusFilter<$PrismaModel> | $Enums.RequestStatus
+  }
+
+  export type AbsenceRequestCountOrderByAggregateInput = {
+    id?: SortOrder
+    studentId?: SortOrder
+    startDate?: SortOrder
+    endDate?: SortOrder
+    reason?: SortOrder
+    description?: SortOrder
+    attachmentUrl?: SortOrder
+    status?: SortOrder
+    reviewedById?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type AbsenceRequestMaxOrderByAggregateInput = {
+    id?: SortOrder
+    studentId?: SortOrder
+    startDate?: SortOrder
+    endDate?: SortOrder
+    reason?: SortOrder
+    description?: SortOrder
+    attachmentUrl?: SortOrder
+    status?: SortOrder
+    reviewedById?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type AbsenceRequestMinOrderByAggregateInput = {
+    id?: SortOrder
+    studentId?: SortOrder
+    startDate?: SortOrder
+    endDate?: SortOrder
+    reason?: SortOrder
+    description?: SortOrder
+    attachmentUrl?: SortOrder
+    status?: SortOrder
+    reviewedById?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type EnumRequestStatusWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.RequestStatus | EnumRequestStatusFieldRefInput<$PrismaModel>
+    in?: $Enums.RequestStatus[] | ListEnumRequestStatusFieldRefInput<$PrismaModel>
+    notIn?: $Enums.RequestStatus[] | ListEnumRequestStatusFieldRefInput<$PrismaModel>
+    not?: NestedEnumRequestStatusWithAggregatesFilter<$PrismaModel> | $Enums.RequestStatus
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumRequestStatusFilter<$PrismaModel>
+    _max?: NestedEnumRequestStatusFilter<$PrismaModel>
+  }
+
   export type UserCreateaffiliationsInput = {
     set: string[]
   }
@@ -46414,6 +49401,27 @@ export namespace Prisma {
     connect?: UserWhereUniqueInput | UserWhereUniqueInput[]
   }
 
+  export type BillingCreateNestedManyWithoutStudentInput = {
+    create?: XOR<BillingCreateWithoutStudentInput, BillingUncheckedCreateWithoutStudentInput> | BillingCreateWithoutStudentInput[] | BillingUncheckedCreateWithoutStudentInput[]
+    connectOrCreate?: BillingCreateOrConnectWithoutStudentInput | BillingCreateOrConnectWithoutStudentInput[]
+    createMany?: BillingCreateManyStudentInputEnvelope
+    connect?: BillingWhereUniqueInput | BillingWhereUniqueInput[]
+  }
+
+  export type AbsenceRequestCreateNestedManyWithoutStudentInput = {
+    create?: XOR<AbsenceRequestCreateWithoutStudentInput, AbsenceRequestUncheckedCreateWithoutStudentInput> | AbsenceRequestCreateWithoutStudentInput[] | AbsenceRequestUncheckedCreateWithoutStudentInput[]
+    connectOrCreate?: AbsenceRequestCreateOrConnectWithoutStudentInput | AbsenceRequestCreateOrConnectWithoutStudentInput[]
+    createMany?: AbsenceRequestCreateManyStudentInputEnvelope
+    connect?: AbsenceRequestWhereUniqueInput | AbsenceRequestWhereUniqueInput[]
+  }
+
+  export type AbsenceRequestCreateNestedManyWithoutReviewerInput = {
+    create?: XOR<AbsenceRequestCreateWithoutReviewerInput, AbsenceRequestUncheckedCreateWithoutReviewerInput> | AbsenceRequestCreateWithoutReviewerInput[] | AbsenceRequestUncheckedCreateWithoutReviewerInput[]
+    connectOrCreate?: AbsenceRequestCreateOrConnectWithoutReviewerInput | AbsenceRequestCreateOrConnectWithoutReviewerInput[]
+    createMany?: AbsenceRequestCreateManyReviewerInputEnvelope
+    connect?: AbsenceRequestWhereUniqueInput | AbsenceRequestWhereUniqueInput[]
+  }
+
   export type AccountUncheckedCreateNestedManyWithoutUserInput = {
     create?: XOR<AccountCreateWithoutUserInput, AccountUncheckedCreateWithoutUserInput> | AccountCreateWithoutUserInput[] | AccountUncheckedCreateWithoutUserInput[]
     connectOrCreate?: AccountCreateOrConnectWithoutUserInput | AccountCreateOrConnectWithoutUserInput[]
@@ -46593,6 +49601,27 @@ export namespace Prisma {
     connectOrCreate?: UserCreateOrConnectWithoutParentInput | UserCreateOrConnectWithoutParentInput[]
     createMany?: UserCreateManyParentInputEnvelope
     connect?: UserWhereUniqueInput | UserWhereUniqueInput[]
+  }
+
+  export type BillingUncheckedCreateNestedManyWithoutStudentInput = {
+    create?: XOR<BillingCreateWithoutStudentInput, BillingUncheckedCreateWithoutStudentInput> | BillingCreateWithoutStudentInput[] | BillingUncheckedCreateWithoutStudentInput[]
+    connectOrCreate?: BillingCreateOrConnectWithoutStudentInput | BillingCreateOrConnectWithoutStudentInput[]
+    createMany?: BillingCreateManyStudentInputEnvelope
+    connect?: BillingWhereUniqueInput | BillingWhereUniqueInput[]
+  }
+
+  export type AbsenceRequestUncheckedCreateNestedManyWithoutStudentInput = {
+    create?: XOR<AbsenceRequestCreateWithoutStudentInput, AbsenceRequestUncheckedCreateWithoutStudentInput> | AbsenceRequestCreateWithoutStudentInput[] | AbsenceRequestUncheckedCreateWithoutStudentInput[]
+    connectOrCreate?: AbsenceRequestCreateOrConnectWithoutStudentInput | AbsenceRequestCreateOrConnectWithoutStudentInput[]
+    createMany?: AbsenceRequestCreateManyStudentInputEnvelope
+    connect?: AbsenceRequestWhereUniqueInput | AbsenceRequestWhereUniqueInput[]
+  }
+
+  export type AbsenceRequestUncheckedCreateNestedManyWithoutReviewerInput = {
+    create?: XOR<AbsenceRequestCreateWithoutReviewerInput, AbsenceRequestUncheckedCreateWithoutReviewerInput> | AbsenceRequestCreateWithoutReviewerInput[] | AbsenceRequestUncheckedCreateWithoutReviewerInput[]
+    connectOrCreate?: AbsenceRequestCreateOrConnectWithoutReviewerInput | AbsenceRequestCreateOrConnectWithoutReviewerInput[]
+    createMany?: AbsenceRequestCreateManyReviewerInputEnvelope
+    connect?: AbsenceRequestWhereUniqueInput | AbsenceRequestWhereUniqueInput[]
   }
 
   export type StringFieldUpdateOperationsInput = {
@@ -47012,6 +50041,48 @@ export namespace Prisma {
     deleteMany?: UserScalarWhereInput | UserScalarWhereInput[]
   }
 
+  export type BillingUpdateManyWithoutStudentNestedInput = {
+    create?: XOR<BillingCreateWithoutStudentInput, BillingUncheckedCreateWithoutStudentInput> | BillingCreateWithoutStudentInput[] | BillingUncheckedCreateWithoutStudentInput[]
+    connectOrCreate?: BillingCreateOrConnectWithoutStudentInput | BillingCreateOrConnectWithoutStudentInput[]
+    upsert?: BillingUpsertWithWhereUniqueWithoutStudentInput | BillingUpsertWithWhereUniqueWithoutStudentInput[]
+    createMany?: BillingCreateManyStudentInputEnvelope
+    set?: BillingWhereUniqueInput | BillingWhereUniqueInput[]
+    disconnect?: BillingWhereUniqueInput | BillingWhereUniqueInput[]
+    delete?: BillingWhereUniqueInput | BillingWhereUniqueInput[]
+    connect?: BillingWhereUniqueInput | BillingWhereUniqueInput[]
+    update?: BillingUpdateWithWhereUniqueWithoutStudentInput | BillingUpdateWithWhereUniqueWithoutStudentInput[]
+    updateMany?: BillingUpdateManyWithWhereWithoutStudentInput | BillingUpdateManyWithWhereWithoutStudentInput[]
+    deleteMany?: BillingScalarWhereInput | BillingScalarWhereInput[]
+  }
+
+  export type AbsenceRequestUpdateManyWithoutStudentNestedInput = {
+    create?: XOR<AbsenceRequestCreateWithoutStudentInput, AbsenceRequestUncheckedCreateWithoutStudentInput> | AbsenceRequestCreateWithoutStudentInput[] | AbsenceRequestUncheckedCreateWithoutStudentInput[]
+    connectOrCreate?: AbsenceRequestCreateOrConnectWithoutStudentInput | AbsenceRequestCreateOrConnectWithoutStudentInput[]
+    upsert?: AbsenceRequestUpsertWithWhereUniqueWithoutStudentInput | AbsenceRequestUpsertWithWhereUniqueWithoutStudentInput[]
+    createMany?: AbsenceRequestCreateManyStudentInputEnvelope
+    set?: AbsenceRequestWhereUniqueInput | AbsenceRequestWhereUniqueInput[]
+    disconnect?: AbsenceRequestWhereUniqueInput | AbsenceRequestWhereUniqueInput[]
+    delete?: AbsenceRequestWhereUniqueInput | AbsenceRequestWhereUniqueInput[]
+    connect?: AbsenceRequestWhereUniqueInput | AbsenceRequestWhereUniqueInput[]
+    update?: AbsenceRequestUpdateWithWhereUniqueWithoutStudentInput | AbsenceRequestUpdateWithWhereUniqueWithoutStudentInput[]
+    updateMany?: AbsenceRequestUpdateManyWithWhereWithoutStudentInput | AbsenceRequestUpdateManyWithWhereWithoutStudentInput[]
+    deleteMany?: AbsenceRequestScalarWhereInput | AbsenceRequestScalarWhereInput[]
+  }
+
+  export type AbsenceRequestUpdateManyWithoutReviewerNestedInput = {
+    create?: XOR<AbsenceRequestCreateWithoutReviewerInput, AbsenceRequestUncheckedCreateWithoutReviewerInput> | AbsenceRequestCreateWithoutReviewerInput[] | AbsenceRequestUncheckedCreateWithoutReviewerInput[]
+    connectOrCreate?: AbsenceRequestCreateOrConnectWithoutReviewerInput | AbsenceRequestCreateOrConnectWithoutReviewerInput[]
+    upsert?: AbsenceRequestUpsertWithWhereUniqueWithoutReviewerInput | AbsenceRequestUpsertWithWhereUniqueWithoutReviewerInput[]
+    createMany?: AbsenceRequestCreateManyReviewerInputEnvelope
+    set?: AbsenceRequestWhereUniqueInput | AbsenceRequestWhereUniqueInput[]
+    disconnect?: AbsenceRequestWhereUniqueInput | AbsenceRequestWhereUniqueInput[]
+    delete?: AbsenceRequestWhereUniqueInput | AbsenceRequestWhereUniqueInput[]
+    connect?: AbsenceRequestWhereUniqueInput | AbsenceRequestWhereUniqueInput[]
+    update?: AbsenceRequestUpdateWithWhereUniqueWithoutReviewerInput | AbsenceRequestUpdateWithWhereUniqueWithoutReviewerInput[]
+    updateMany?: AbsenceRequestUpdateManyWithWhereWithoutReviewerInput | AbsenceRequestUpdateManyWithWhereWithoutReviewerInput[]
+    deleteMany?: AbsenceRequestScalarWhereInput | AbsenceRequestScalarWhereInput[]
+  }
+
   export type AccountUncheckedUpdateManyWithoutUserNestedInput = {
     create?: XOR<AccountCreateWithoutUserInput, AccountUncheckedCreateWithoutUserInput> | AccountCreateWithoutUserInput[] | AccountUncheckedCreateWithoutUserInput[]
     connectOrCreate?: AccountCreateOrConnectWithoutUserInput | AccountCreateOrConnectWithoutUserInput[]
@@ -47370,6 +50441,48 @@ export namespace Prisma {
     update?: UserUpdateWithWhereUniqueWithoutParentInput | UserUpdateWithWhereUniqueWithoutParentInput[]
     updateMany?: UserUpdateManyWithWhereWithoutParentInput | UserUpdateManyWithWhereWithoutParentInput[]
     deleteMany?: UserScalarWhereInput | UserScalarWhereInput[]
+  }
+
+  export type BillingUncheckedUpdateManyWithoutStudentNestedInput = {
+    create?: XOR<BillingCreateWithoutStudentInput, BillingUncheckedCreateWithoutStudentInput> | BillingCreateWithoutStudentInput[] | BillingUncheckedCreateWithoutStudentInput[]
+    connectOrCreate?: BillingCreateOrConnectWithoutStudentInput | BillingCreateOrConnectWithoutStudentInput[]
+    upsert?: BillingUpsertWithWhereUniqueWithoutStudentInput | BillingUpsertWithWhereUniqueWithoutStudentInput[]
+    createMany?: BillingCreateManyStudentInputEnvelope
+    set?: BillingWhereUniqueInput | BillingWhereUniqueInput[]
+    disconnect?: BillingWhereUniqueInput | BillingWhereUniqueInput[]
+    delete?: BillingWhereUniqueInput | BillingWhereUniqueInput[]
+    connect?: BillingWhereUniqueInput | BillingWhereUniqueInput[]
+    update?: BillingUpdateWithWhereUniqueWithoutStudentInput | BillingUpdateWithWhereUniqueWithoutStudentInput[]
+    updateMany?: BillingUpdateManyWithWhereWithoutStudentInput | BillingUpdateManyWithWhereWithoutStudentInput[]
+    deleteMany?: BillingScalarWhereInput | BillingScalarWhereInput[]
+  }
+
+  export type AbsenceRequestUncheckedUpdateManyWithoutStudentNestedInput = {
+    create?: XOR<AbsenceRequestCreateWithoutStudentInput, AbsenceRequestUncheckedCreateWithoutStudentInput> | AbsenceRequestCreateWithoutStudentInput[] | AbsenceRequestUncheckedCreateWithoutStudentInput[]
+    connectOrCreate?: AbsenceRequestCreateOrConnectWithoutStudentInput | AbsenceRequestCreateOrConnectWithoutStudentInput[]
+    upsert?: AbsenceRequestUpsertWithWhereUniqueWithoutStudentInput | AbsenceRequestUpsertWithWhereUniqueWithoutStudentInput[]
+    createMany?: AbsenceRequestCreateManyStudentInputEnvelope
+    set?: AbsenceRequestWhereUniqueInput | AbsenceRequestWhereUniqueInput[]
+    disconnect?: AbsenceRequestWhereUniqueInput | AbsenceRequestWhereUniqueInput[]
+    delete?: AbsenceRequestWhereUniqueInput | AbsenceRequestWhereUniqueInput[]
+    connect?: AbsenceRequestWhereUniqueInput | AbsenceRequestWhereUniqueInput[]
+    update?: AbsenceRequestUpdateWithWhereUniqueWithoutStudentInput | AbsenceRequestUpdateWithWhereUniqueWithoutStudentInput[]
+    updateMany?: AbsenceRequestUpdateManyWithWhereWithoutStudentInput | AbsenceRequestUpdateManyWithWhereWithoutStudentInput[]
+    deleteMany?: AbsenceRequestScalarWhereInput | AbsenceRequestScalarWhereInput[]
+  }
+
+  export type AbsenceRequestUncheckedUpdateManyWithoutReviewerNestedInput = {
+    create?: XOR<AbsenceRequestCreateWithoutReviewerInput, AbsenceRequestUncheckedCreateWithoutReviewerInput> | AbsenceRequestCreateWithoutReviewerInput[] | AbsenceRequestUncheckedCreateWithoutReviewerInput[]
+    connectOrCreate?: AbsenceRequestCreateOrConnectWithoutReviewerInput | AbsenceRequestCreateOrConnectWithoutReviewerInput[]
+    upsert?: AbsenceRequestUpsertWithWhereUniqueWithoutReviewerInput | AbsenceRequestUpsertWithWhereUniqueWithoutReviewerInput[]
+    createMany?: AbsenceRequestCreateManyReviewerInputEnvelope
+    set?: AbsenceRequestWhereUniqueInput | AbsenceRequestWhereUniqueInput[]
+    disconnect?: AbsenceRequestWhereUniqueInput | AbsenceRequestWhereUniqueInput[]
+    delete?: AbsenceRequestWhereUniqueInput | AbsenceRequestWhereUniqueInput[]
+    connect?: AbsenceRequestWhereUniqueInput | AbsenceRequestWhereUniqueInput[]
+    update?: AbsenceRequestUpdateWithWhereUniqueWithoutReviewerInput | AbsenceRequestUpdateWithWhereUniqueWithoutReviewerInput[]
+    updateMany?: AbsenceRequestUpdateManyWithWhereWithoutReviewerInput | AbsenceRequestUpdateManyWithWhereWithoutReviewerInput[]
+    deleteMany?: AbsenceRequestScalarWhereInput | AbsenceRequestScalarWhereInput[]
   }
 
   export type UserCreateNestedOneWithoutUserNotesInput = {
@@ -49272,6 +52385,58 @@ export namespace Prisma {
     update?: XOR<XOR<ExamQuestionUpdateToOneWithWhereWithoutAnswersInput, ExamQuestionUpdateWithoutAnswersInput>, ExamQuestionUncheckedUpdateWithoutAnswersInput>
   }
 
+  export type UserCreateNestedOneWithoutBillingsInput = {
+    create?: XOR<UserCreateWithoutBillingsInput, UserUncheckedCreateWithoutBillingsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutBillingsInput
+    connect?: UserWhereUniqueInput
+  }
+
+  export type EnumBillingStatusFieldUpdateOperationsInput = {
+    set?: $Enums.BillingStatus
+  }
+
+  export type UserUpdateOneRequiredWithoutBillingsNestedInput = {
+    create?: XOR<UserCreateWithoutBillingsInput, UserUncheckedCreateWithoutBillingsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutBillingsInput
+    upsert?: UserUpsertWithoutBillingsInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutBillingsInput, UserUpdateWithoutBillingsInput>, UserUncheckedUpdateWithoutBillingsInput>
+  }
+
+  export type UserCreateNestedOneWithoutAbsenceRequestsInput = {
+    create?: XOR<UserCreateWithoutAbsenceRequestsInput, UserUncheckedCreateWithoutAbsenceRequestsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutAbsenceRequestsInput
+    connect?: UserWhereUniqueInput
+  }
+
+  export type UserCreateNestedOneWithoutReviewedRequestsInput = {
+    create?: XOR<UserCreateWithoutReviewedRequestsInput, UserUncheckedCreateWithoutReviewedRequestsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutReviewedRequestsInput
+    connect?: UserWhereUniqueInput
+  }
+
+  export type EnumRequestStatusFieldUpdateOperationsInput = {
+    set?: $Enums.RequestStatus
+  }
+
+  export type UserUpdateOneRequiredWithoutAbsenceRequestsNestedInput = {
+    create?: XOR<UserCreateWithoutAbsenceRequestsInput, UserUncheckedCreateWithoutAbsenceRequestsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutAbsenceRequestsInput
+    upsert?: UserUpsertWithoutAbsenceRequestsInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutAbsenceRequestsInput, UserUpdateWithoutAbsenceRequestsInput>, UserUncheckedUpdateWithoutAbsenceRequestsInput>
+  }
+
+  export type UserUpdateOneWithoutReviewedRequestsNestedInput = {
+    create?: XOR<UserCreateWithoutReviewedRequestsInput, UserUncheckedCreateWithoutReviewedRequestsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutReviewedRequestsInput
+    upsert?: UserUpsertWithoutReviewedRequestsInput
+    disconnect?: UserWhereInput | boolean
+    delete?: UserWhereInput | boolean
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutReviewedRequestsInput, UserUpdateWithoutReviewedRequestsInput>, UserUncheckedUpdateWithoutReviewedRequestsInput>
+  }
+
   export type NestedStringFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[] | ListStringFieldRefInput<$PrismaModel>
@@ -49617,6 +52782,40 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedEnumAttemptStatusFilter<$PrismaModel>
     _max?: NestedEnumAttemptStatusFilter<$PrismaModel>
+  }
+
+  export type NestedEnumBillingStatusFilter<$PrismaModel = never> = {
+    equals?: $Enums.BillingStatus | EnumBillingStatusFieldRefInput<$PrismaModel>
+    in?: $Enums.BillingStatus[] | ListEnumBillingStatusFieldRefInput<$PrismaModel>
+    notIn?: $Enums.BillingStatus[] | ListEnumBillingStatusFieldRefInput<$PrismaModel>
+    not?: NestedEnumBillingStatusFilter<$PrismaModel> | $Enums.BillingStatus
+  }
+
+  export type NestedEnumBillingStatusWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.BillingStatus | EnumBillingStatusFieldRefInput<$PrismaModel>
+    in?: $Enums.BillingStatus[] | ListEnumBillingStatusFieldRefInput<$PrismaModel>
+    notIn?: $Enums.BillingStatus[] | ListEnumBillingStatusFieldRefInput<$PrismaModel>
+    not?: NestedEnumBillingStatusWithAggregatesFilter<$PrismaModel> | $Enums.BillingStatus
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumBillingStatusFilter<$PrismaModel>
+    _max?: NestedEnumBillingStatusFilter<$PrismaModel>
+  }
+
+  export type NestedEnumRequestStatusFilter<$PrismaModel = never> = {
+    equals?: $Enums.RequestStatus | EnumRequestStatusFieldRefInput<$PrismaModel>
+    in?: $Enums.RequestStatus[] | ListEnumRequestStatusFieldRefInput<$PrismaModel>
+    notIn?: $Enums.RequestStatus[] | ListEnumRequestStatusFieldRefInput<$PrismaModel>
+    not?: NestedEnumRequestStatusFilter<$PrismaModel> | $Enums.RequestStatus
+  }
+
+  export type NestedEnumRequestStatusWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.RequestStatus | EnumRequestStatusFieldRefInput<$PrismaModel>
+    in?: $Enums.RequestStatus[] | ListEnumRequestStatusFieldRefInput<$PrismaModel>
+    notIn?: $Enums.RequestStatus[] | ListEnumRequestStatusFieldRefInput<$PrismaModel>
+    not?: NestedEnumRequestStatusWithAggregatesFilter<$PrismaModel> | $Enums.RequestStatus
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumRequestStatusFilter<$PrismaModel>
+    _max?: NestedEnumRequestStatusFilter<$PrismaModel>
   }
 
   export type AccountCreateWithoutUserInput = {
@@ -50465,6 +53664,9 @@ export namespace Prisma {
     teacherExams?: ExamCreateNestedManyWithoutTeacherInput
     examAttempts?: ExamAttemptCreateNestedManyWithoutStudentInput
     parent?: UserCreateNestedOneWithoutChildrenInput
+    billings?: BillingCreateNestedManyWithoutStudentInput
+    absenceRequests?: AbsenceRequestCreateNestedManyWithoutStudentInput
+    reviewedRequests?: AbsenceRequestCreateNestedManyWithoutReviewerInput
   }
 
   export type UserUncheckedCreateWithoutChildrenInput = {
@@ -50519,6 +53721,9 @@ export namespace Prisma {
     discussionReplies?: DiscussionReplyUncheckedCreateNestedManyWithoutAuthorInput
     teacherExams?: ExamUncheckedCreateNestedManyWithoutTeacherInput
     examAttempts?: ExamAttemptUncheckedCreateNestedManyWithoutStudentInput
+    billings?: BillingUncheckedCreateNestedManyWithoutStudentInput
+    absenceRequests?: AbsenceRequestUncheckedCreateNestedManyWithoutStudentInput
+    reviewedRequests?: AbsenceRequestUncheckedCreateNestedManyWithoutReviewerInput
   }
 
   export type UserCreateOrConnectWithoutChildrenInput = {
@@ -50578,6 +53783,9 @@ export namespace Prisma {
     teacherExams?: ExamCreateNestedManyWithoutTeacherInput
     examAttempts?: ExamAttemptCreateNestedManyWithoutStudentInput
     children?: UserCreateNestedManyWithoutParentInput
+    billings?: BillingCreateNestedManyWithoutStudentInput
+    absenceRequests?: AbsenceRequestCreateNestedManyWithoutStudentInput
+    reviewedRequests?: AbsenceRequestCreateNestedManyWithoutReviewerInput
   }
 
   export type UserUncheckedCreateWithoutParentInput = {
@@ -50632,6 +53840,9 @@ export namespace Prisma {
     teacherExams?: ExamUncheckedCreateNestedManyWithoutTeacherInput
     examAttempts?: ExamAttemptUncheckedCreateNestedManyWithoutStudentInput
     children?: UserUncheckedCreateNestedManyWithoutParentInput
+    billings?: BillingUncheckedCreateNestedManyWithoutStudentInput
+    absenceRequests?: AbsenceRequestUncheckedCreateNestedManyWithoutStudentInput
+    reviewedRequests?: AbsenceRequestUncheckedCreateNestedManyWithoutReviewerInput
   }
 
   export type UserCreateOrConnectWithoutParentInput = {
@@ -50641,6 +53852,116 @@ export namespace Prisma {
 
   export type UserCreateManyParentInputEnvelope = {
     data: UserCreateManyParentInput | UserCreateManyParentInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type BillingCreateWithoutStudentInput = {
+    id?: string
+    title: string
+    description?: string | null
+    amount: number
+    dueDate: Date | string
+    status?: $Enums.BillingStatus
+    paymentMethod?: string | null
+    paymentDate?: Date | string | null
+    proofUrl?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type BillingUncheckedCreateWithoutStudentInput = {
+    id?: string
+    title: string
+    description?: string | null
+    amount: number
+    dueDate: Date | string
+    status?: $Enums.BillingStatus
+    paymentMethod?: string | null
+    paymentDate?: Date | string | null
+    proofUrl?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type BillingCreateOrConnectWithoutStudentInput = {
+    where: BillingWhereUniqueInput
+    create: XOR<BillingCreateWithoutStudentInput, BillingUncheckedCreateWithoutStudentInput>
+  }
+
+  export type BillingCreateManyStudentInputEnvelope = {
+    data: BillingCreateManyStudentInput | BillingCreateManyStudentInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type AbsenceRequestCreateWithoutStudentInput = {
+    id?: string
+    startDate: Date | string
+    endDate: Date | string
+    reason: $Enums.AttendanceStatus
+    description: string
+    attachmentUrl?: string | null
+    status?: $Enums.RequestStatus
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    reviewer?: UserCreateNestedOneWithoutReviewedRequestsInput
+  }
+
+  export type AbsenceRequestUncheckedCreateWithoutStudentInput = {
+    id?: string
+    startDate: Date | string
+    endDate: Date | string
+    reason: $Enums.AttendanceStatus
+    description: string
+    attachmentUrl?: string | null
+    status?: $Enums.RequestStatus
+    reviewedById?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type AbsenceRequestCreateOrConnectWithoutStudentInput = {
+    where: AbsenceRequestWhereUniqueInput
+    create: XOR<AbsenceRequestCreateWithoutStudentInput, AbsenceRequestUncheckedCreateWithoutStudentInput>
+  }
+
+  export type AbsenceRequestCreateManyStudentInputEnvelope = {
+    data: AbsenceRequestCreateManyStudentInput | AbsenceRequestCreateManyStudentInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type AbsenceRequestCreateWithoutReviewerInput = {
+    id?: string
+    startDate: Date | string
+    endDate: Date | string
+    reason: $Enums.AttendanceStatus
+    description: string
+    attachmentUrl?: string | null
+    status?: $Enums.RequestStatus
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    student: UserCreateNestedOneWithoutAbsenceRequestsInput
+  }
+
+  export type AbsenceRequestUncheckedCreateWithoutReviewerInput = {
+    id?: string
+    studentId: string
+    startDate: Date | string
+    endDate: Date | string
+    reason: $Enums.AttendanceStatus
+    description: string
+    attachmentUrl?: string | null
+    status?: $Enums.RequestStatus
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type AbsenceRequestCreateOrConnectWithoutReviewerInput = {
+    where: AbsenceRequestWhereUniqueInput
+    create: XOR<AbsenceRequestCreateWithoutReviewerInput, AbsenceRequestUncheckedCreateWithoutReviewerInput>
+  }
+
+  export type AbsenceRequestCreateManyReviewerInputEnvelope = {
+    data: AbsenceRequestCreateManyReviewerInput | AbsenceRequestCreateManyReviewerInput[]
     skipDuplicates?: boolean
   }
 
@@ -51457,6 +54778,9 @@ export namespace Prisma {
     teacherExams?: ExamUpdateManyWithoutTeacherNestedInput
     examAttempts?: ExamAttemptUpdateManyWithoutStudentNestedInput
     parent?: UserUpdateOneWithoutChildrenNestedInput
+    billings?: BillingUpdateManyWithoutStudentNestedInput
+    absenceRequests?: AbsenceRequestUpdateManyWithoutStudentNestedInput
+    reviewedRequests?: AbsenceRequestUpdateManyWithoutReviewerNestedInput
   }
 
   export type UserUncheckedUpdateWithoutChildrenInput = {
@@ -51511,6 +54835,9 @@ export namespace Prisma {
     discussionReplies?: DiscussionReplyUncheckedUpdateManyWithoutAuthorNestedInput
     teacherExams?: ExamUncheckedUpdateManyWithoutTeacherNestedInput
     examAttempts?: ExamAttemptUncheckedUpdateManyWithoutStudentNestedInput
+    billings?: BillingUncheckedUpdateManyWithoutStudentNestedInput
+    absenceRequests?: AbsenceRequestUncheckedUpdateManyWithoutStudentNestedInput
+    reviewedRequests?: AbsenceRequestUncheckedUpdateManyWithoutReviewerNestedInput
   }
 
   export type UserUpsertWithWhereUniqueWithoutParentInput = {
@@ -51559,6 +54886,89 @@ export namespace Prisma {
     canEditMaterials?: BoolFilter<"User"> | boolean
     canEditAssignments?: BoolFilter<"User"> | boolean
     parentId?: StringNullableFilter<"User"> | string | null
+  }
+
+  export type BillingUpsertWithWhereUniqueWithoutStudentInput = {
+    where: BillingWhereUniqueInput
+    update: XOR<BillingUpdateWithoutStudentInput, BillingUncheckedUpdateWithoutStudentInput>
+    create: XOR<BillingCreateWithoutStudentInput, BillingUncheckedCreateWithoutStudentInput>
+  }
+
+  export type BillingUpdateWithWhereUniqueWithoutStudentInput = {
+    where: BillingWhereUniqueInput
+    data: XOR<BillingUpdateWithoutStudentInput, BillingUncheckedUpdateWithoutStudentInput>
+  }
+
+  export type BillingUpdateManyWithWhereWithoutStudentInput = {
+    where: BillingScalarWhereInput
+    data: XOR<BillingUpdateManyMutationInput, BillingUncheckedUpdateManyWithoutStudentInput>
+  }
+
+  export type BillingScalarWhereInput = {
+    AND?: BillingScalarWhereInput | BillingScalarWhereInput[]
+    OR?: BillingScalarWhereInput[]
+    NOT?: BillingScalarWhereInput | BillingScalarWhereInput[]
+    id?: StringFilter<"Billing"> | string
+    studentId?: StringFilter<"Billing"> | string
+    title?: StringFilter<"Billing"> | string
+    description?: StringNullableFilter<"Billing"> | string | null
+    amount?: IntFilter<"Billing"> | number
+    dueDate?: DateTimeFilter<"Billing"> | Date | string
+    status?: EnumBillingStatusFilter<"Billing"> | $Enums.BillingStatus
+    paymentMethod?: StringNullableFilter<"Billing"> | string | null
+    paymentDate?: DateTimeNullableFilter<"Billing"> | Date | string | null
+    proofUrl?: StringNullableFilter<"Billing"> | string | null
+    createdAt?: DateTimeFilter<"Billing"> | Date | string
+    updatedAt?: DateTimeFilter<"Billing"> | Date | string
+  }
+
+  export type AbsenceRequestUpsertWithWhereUniqueWithoutStudentInput = {
+    where: AbsenceRequestWhereUniqueInput
+    update: XOR<AbsenceRequestUpdateWithoutStudentInput, AbsenceRequestUncheckedUpdateWithoutStudentInput>
+    create: XOR<AbsenceRequestCreateWithoutStudentInput, AbsenceRequestUncheckedCreateWithoutStudentInput>
+  }
+
+  export type AbsenceRequestUpdateWithWhereUniqueWithoutStudentInput = {
+    where: AbsenceRequestWhereUniqueInput
+    data: XOR<AbsenceRequestUpdateWithoutStudentInput, AbsenceRequestUncheckedUpdateWithoutStudentInput>
+  }
+
+  export type AbsenceRequestUpdateManyWithWhereWithoutStudentInput = {
+    where: AbsenceRequestScalarWhereInput
+    data: XOR<AbsenceRequestUpdateManyMutationInput, AbsenceRequestUncheckedUpdateManyWithoutStudentInput>
+  }
+
+  export type AbsenceRequestScalarWhereInput = {
+    AND?: AbsenceRequestScalarWhereInput | AbsenceRequestScalarWhereInput[]
+    OR?: AbsenceRequestScalarWhereInput[]
+    NOT?: AbsenceRequestScalarWhereInput | AbsenceRequestScalarWhereInput[]
+    id?: StringFilter<"AbsenceRequest"> | string
+    studentId?: StringFilter<"AbsenceRequest"> | string
+    startDate?: DateTimeFilter<"AbsenceRequest"> | Date | string
+    endDate?: DateTimeFilter<"AbsenceRequest"> | Date | string
+    reason?: EnumAttendanceStatusFilter<"AbsenceRequest"> | $Enums.AttendanceStatus
+    description?: StringFilter<"AbsenceRequest"> | string
+    attachmentUrl?: StringNullableFilter<"AbsenceRequest"> | string | null
+    status?: EnumRequestStatusFilter<"AbsenceRequest"> | $Enums.RequestStatus
+    reviewedById?: StringNullableFilter<"AbsenceRequest"> | string | null
+    createdAt?: DateTimeFilter<"AbsenceRequest"> | Date | string
+    updatedAt?: DateTimeFilter<"AbsenceRequest"> | Date | string
+  }
+
+  export type AbsenceRequestUpsertWithWhereUniqueWithoutReviewerInput = {
+    where: AbsenceRequestWhereUniqueInput
+    update: XOR<AbsenceRequestUpdateWithoutReviewerInput, AbsenceRequestUncheckedUpdateWithoutReviewerInput>
+    create: XOR<AbsenceRequestCreateWithoutReviewerInput, AbsenceRequestUncheckedCreateWithoutReviewerInput>
+  }
+
+  export type AbsenceRequestUpdateWithWhereUniqueWithoutReviewerInput = {
+    where: AbsenceRequestWhereUniqueInput
+    data: XOR<AbsenceRequestUpdateWithoutReviewerInput, AbsenceRequestUncheckedUpdateWithoutReviewerInput>
+  }
+
+  export type AbsenceRequestUpdateManyWithWhereWithoutReviewerInput = {
+    where: AbsenceRequestScalarWhereInput
+    data: XOR<AbsenceRequestUpdateManyMutationInput, AbsenceRequestUncheckedUpdateManyWithoutReviewerInput>
   }
 
   export type UserCreateWithoutUserNotesInput = {
@@ -51613,6 +55023,9 @@ export namespace Prisma {
     examAttempts?: ExamAttemptCreateNestedManyWithoutStudentInput
     parent?: UserCreateNestedOneWithoutChildrenInput
     children?: UserCreateNestedManyWithoutParentInput
+    billings?: BillingCreateNestedManyWithoutStudentInput
+    absenceRequests?: AbsenceRequestCreateNestedManyWithoutStudentInput
+    reviewedRequests?: AbsenceRequestCreateNestedManyWithoutReviewerInput
   }
 
   export type UserUncheckedCreateWithoutUserNotesInput = {
@@ -51667,6 +55080,9 @@ export namespace Prisma {
     teacherExams?: ExamUncheckedCreateNestedManyWithoutTeacherInput
     examAttempts?: ExamAttemptUncheckedCreateNestedManyWithoutStudentInput
     children?: UserUncheckedCreateNestedManyWithoutParentInput
+    billings?: BillingUncheckedCreateNestedManyWithoutStudentInput
+    absenceRequests?: AbsenceRequestUncheckedCreateNestedManyWithoutStudentInput
+    reviewedRequests?: AbsenceRequestUncheckedCreateNestedManyWithoutReviewerInput
   }
 
   export type UserCreateOrConnectWithoutUserNotesInput = {
@@ -51726,6 +55142,9 @@ export namespace Prisma {
     examAttempts?: ExamAttemptCreateNestedManyWithoutStudentInput
     parent?: UserCreateNestedOneWithoutChildrenInput
     children?: UserCreateNestedManyWithoutParentInput
+    billings?: BillingCreateNestedManyWithoutStudentInput
+    absenceRequests?: AbsenceRequestCreateNestedManyWithoutStudentInput
+    reviewedRequests?: AbsenceRequestCreateNestedManyWithoutReviewerInput
   }
 
   export type UserUncheckedCreateWithoutAuthoredNotesInput = {
@@ -51780,6 +55199,9 @@ export namespace Prisma {
     teacherExams?: ExamUncheckedCreateNestedManyWithoutTeacherInput
     examAttempts?: ExamAttemptUncheckedCreateNestedManyWithoutStudentInput
     children?: UserUncheckedCreateNestedManyWithoutParentInput
+    billings?: BillingUncheckedCreateNestedManyWithoutStudentInput
+    absenceRequests?: AbsenceRequestUncheckedCreateNestedManyWithoutStudentInput
+    reviewedRequests?: AbsenceRequestUncheckedCreateNestedManyWithoutReviewerInput
   }
 
   export type UserCreateOrConnectWithoutAuthoredNotesInput = {
@@ -51850,6 +55272,9 @@ export namespace Prisma {
     examAttempts?: ExamAttemptUpdateManyWithoutStudentNestedInput
     parent?: UserUpdateOneWithoutChildrenNestedInput
     children?: UserUpdateManyWithoutParentNestedInput
+    billings?: BillingUpdateManyWithoutStudentNestedInput
+    absenceRequests?: AbsenceRequestUpdateManyWithoutStudentNestedInput
+    reviewedRequests?: AbsenceRequestUpdateManyWithoutReviewerNestedInput
   }
 
   export type UserUncheckedUpdateWithoutUserNotesInput = {
@@ -51904,6 +55329,9 @@ export namespace Prisma {
     teacherExams?: ExamUncheckedUpdateManyWithoutTeacherNestedInput
     examAttempts?: ExamAttemptUncheckedUpdateManyWithoutStudentNestedInput
     children?: UserUncheckedUpdateManyWithoutParentNestedInput
+    billings?: BillingUncheckedUpdateManyWithoutStudentNestedInput
+    absenceRequests?: AbsenceRequestUncheckedUpdateManyWithoutStudentNestedInput
+    reviewedRequests?: AbsenceRequestUncheckedUpdateManyWithoutReviewerNestedInput
   }
 
   export type UserUpsertWithoutAuthoredNotesInput = {
@@ -51969,6 +55397,9 @@ export namespace Prisma {
     examAttempts?: ExamAttemptUpdateManyWithoutStudentNestedInput
     parent?: UserUpdateOneWithoutChildrenNestedInput
     children?: UserUpdateManyWithoutParentNestedInput
+    billings?: BillingUpdateManyWithoutStudentNestedInput
+    absenceRequests?: AbsenceRequestUpdateManyWithoutStudentNestedInput
+    reviewedRequests?: AbsenceRequestUpdateManyWithoutReviewerNestedInput
   }
 
   export type UserUncheckedUpdateWithoutAuthoredNotesInput = {
@@ -52023,6 +55454,9 @@ export namespace Prisma {
     teacherExams?: ExamUncheckedUpdateManyWithoutTeacherNestedInput
     examAttempts?: ExamAttemptUncheckedUpdateManyWithoutStudentNestedInput
     children?: UserUncheckedUpdateManyWithoutParentNestedInput
+    billings?: BillingUncheckedUpdateManyWithoutStudentNestedInput
+    absenceRequests?: AbsenceRequestUncheckedUpdateManyWithoutStudentNestedInput
+    reviewedRequests?: AbsenceRequestUncheckedUpdateManyWithoutReviewerNestedInput
   }
 
   export type UserCreateWithoutAttendancesInput = {
@@ -52077,6 +55511,9 @@ export namespace Prisma {
     examAttempts?: ExamAttemptCreateNestedManyWithoutStudentInput
     parent?: UserCreateNestedOneWithoutChildrenInput
     children?: UserCreateNestedManyWithoutParentInput
+    billings?: BillingCreateNestedManyWithoutStudentInput
+    absenceRequests?: AbsenceRequestCreateNestedManyWithoutStudentInput
+    reviewedRequests?: AbsenceRequestCreateNestedManyWithoutReviewerInput
   }
 
   export type UserUncheckedCreateWithoutAttendancesInput = {
@@ -52131,6 +55568,9 @@ export namespace Prisma {
     teacherExams?: ExamUncheckedCreateNestedManyWithoutTeacherInput
     examAttempts?: ExamAttemptUncheckedCreateNestedManyWithoutStudentInput
     children?: UserUncheckedCreateNestedManyWithoutParentInput
+    billings?: BillingUncheckedCreateNestedManyWithoutStudentInput
+    absenceRequests?: AbsenceRequestUncheckedCreateNestedManyWithoutStudentInput
+    reviewedRequests?: AbsenceRequestUncheckedCreateNestedManyWithoutReviewerInput
   }
 
   export type UserCreateOrConnectWithoutAttendancesInput = {
@@ -52201,6 +55641,9 @@ export namespace Prisma {
     examAttempts?: ExamAttemptUpdateManyWithoutStudentNestedInput
     parent?: UserUpdateOneWithoutChildrenNestedInput
     children?: UserUpdateManyWithoutParentNestedInput
+    billings?: BillingUpdateManyWithoutStudentNestedInput
+    absenceRequests?: AbsenceRequestUpdateManyWithoutStudentNestedInput
+    reviewedRequests?: AbsenceRequestUpdateManyWithoutReviewerNestedInput
   }
 
   export type UserUncheckedUpdateWithoutAttendancesInput = {
@@ -52255,6 +55698,9 @@ export namespace Prisma {
     teacherExams?: ExamUncheckedUpdateManyWithoutTeacherNestedInput
     examAttempts?: ExamAttemptUncheckedUpdateManyWithoutStudentNestedInput
     children?: UserUncheckedUpdateManyWithoutParentNestedInput
+    billings?: BillingUncheckedUpdateManyWithoutStudentNestedInput
+    absenceRequests?: AbsenceRequestUncheckedUpdateManyWithoutStudentNestedInput
+    reviewedRequests?: AbsenceRequestUncheckedUpdateManyWithoutReviewerNestedInput
   }
 
   export type AssignmentCreateWithoutClassInput = {
@@ -52389,6 +55835,9 @@ export namespace Prisma {
     examAttempts?: ExamAttemptCreateNestedManyWithoutStudentInput
     parent?: UserCreateNestedOneWithoutChildrenInput
     children?: UserCreateNestedManyWithoutParentInput
+    billings?: BillingCreateNestedManyWithoutStudentInput
+    absenceRequests?: AbsenceRequestCreateNestedManyWithoutStudentInput
+    reviewedRequests?: AbsenceRequestCreateNestedManyWithoutReviewerInput
   }
 
   export type UserUncheckedCreateWithoutClassInput = {
@@ -52443,6 +55892,9 @@ export namespace Prisma {
     teacherExams?: ExamUncheckedCreateNestedManyWithoutTeacherInput
     examAttempts?: ExamAttemptUncheckedCreateNestedManyWithoutStudentInput
     children?: UserUncheckedCreateNestedManyWithoutParentInput
+    billings?: BillingUncheckedCreateNestedManyWithoutStudentInput
+    absenceRequests?: AbsenceRequestUncheckedCreateNestedManyWithoutStudentInput
+    reviewedRequests?: AbsenceRequestUncheckedCreateNestedManyWithoutReviewerInput
   }
 
   export type UserCreateOrConnectWithoutClassInput = {
@@ -52791,6 +56243,9 @@ export namespace Prisma {
     examAttempts?: ExamAttemptCreateNestedManyWithoutStudentInput
     parent?: UserCreateNestedOneWithoutChildrenInput
     children?: UserCreateNestedManyWithoutParentInput
+    billings?: BillingCreateNestedManyWithoutStudentInput
+    absenceRequests?: AbsenceRequestCreateNestedManyWithoutStudentInput
+    reviewedRequests?: AbsenceRequestCreateNestedManyWithoutReviewerInput
   }
 
   export type UserUncheckedCreateWithoutTeacherSubjectsInput = {
@@ -52845,6 +56300,9 @@ export namespace Prisma {
     teacherExams?: ExamUncheckedCreateNestedManyWithoutTeacherInput
     examAttempts?: ExamAttemptUncheckedCreateNestedManyWithoutStudentInput
     children?: UserUncheckedCreateNestedManyWithoutParentInput
+    billings?: BillingUncheckedCreateNestedManyWithoutStudentInput
+    absenceRequests?: AbsenceRequestUncheckedCreateNestedManyWithoutStudentInput
+    reviewedRequests?: AbsenceRequestUncheckedCreateNestedManyWithoutReviewerInput
   }
 
   export type UserCreateOrConnectWithoutTeacherSubjectsInput = {
@@ -53083,6 +56541,9 @@ export namespace Prisma {
     examAttempts?: ExamAttemptUpdateManyWithoutStudentNestedInput
     parent?: UserUpdateOneWithoutChildrenNestedInput
     children?: UserUpdateManyWithoutParentNestedInput
+    billings?: BillingUpdateManyWithoutStudentNestedInput
+    absenceRequests?: AbsenceRequestUpdateManyWithoutStudentNestedInput
+    reviewedRequests?: AbsenceRequestUpdateManyWithoutReviewerNestedInput
   }
 
   export type UserUncheckedUpdateWithoutTeacherSubjectsInput = {
@@ -53137,6 +56598,9 @@ export namespace Prisma {
     teacherExams?: ExamUncheckedUpdateManyWithoutTeacherNestedInput
     examAttempts?: ExamAttemptUncheckedUpdateManyWithoutStudentNestedInput
     children?: UserUncheckedUpdateManyWithoutParentNestedInput
+    billings?: BillingUncheckedUpdateManyWithoutStudentNestedInput
+    absenceRequests?: AbsenceRequestUncheckedUpdateManyWithoutStudentNestedInput
+    reviewedRequests?: AbsenceRequestUncheckedUpdateManyWithoutReviewerNestedInput
   }
 
   export type TopicUpsertWithWhereUniqueWithoutSubjectInput = {
@@ -53487,6 +56951,9 @@ export namespace Prisma {
     examAttempts?: ExamAttemptCreateNestedManyWithoutStudentInput
     parent?: UserCreateNestedOneWithoutChildrenInput
     children?: UserCreateNestedManyWithoutParentInput
+    billings?: BillingCreateNestedManyWithoutStudentInput
+    absenceRequests?: AbsenceRequestCreateNestedManyWithoutStudentInput
+    reviewedRequests?: AbsenceRequestCreateNestedManyWithoutReviewerInput
   }
 
   export type UserUncheckedCreateWithoutProgressLogsInput = {
@@ -53541,6 +57008,9 @@ export namespace Prisma {
     teacherExams?: ExamUncheckedCreateNestedManyWithoutTeacherInput
     examAttempts?: ExamAttemptUncheckedCreateNestedManyWithoutStudentInput
     children?: UserUncheckedCreateNestedManyWithoutParentInput
+    billings?: BillingUncheckedCreateNestedManyWithoutStudentInput
+    absenceRequests?: AbsenceRequestUncheckedCreateNestedManyWithoutStudentInput
+    reviewedRequests?: AbsenceRequestUncheckedCreateNestedManyWithoutReviewerInput
   }
 
   export type UserCreateOrConnectWithoutProgressLogsInput = {
@@ -53648,6 +57118,9 @@ export namespace Prisma {
     examAttempts?: ExamAttemptUpdateManyWithoutStudentNestedInput
     parent?: UserUpdateOneWithoutChildrenNestedInput
     children?: UserUpdateManyWithoutParentNestedInput
+    billings?: BillingUpdateManyWithoutStudentNestedInput
+    absenceRequests?: AbsenceRequestUpdateManyWithoutStudentNestedInput
+    reviewedRequests?: AbsenceRequestUpdateManyWithoutReviewerNestedInput
   }
 
   export type UserUncheckedUpdateWithoutProgressLogsInput = {
@@ -53702,6 +57175,9 @@ export namespace Prisma {
     teacherExams?: ExamUncheckedUpdateManyWithoutTeacherNestedInput
     examAttempts?: ExamAttemptUncheckedUpdateManyWithoutStudentNestedInput
     children?: UserUncheckedUpdateManyWithoutParentNestedInput
+    billings?: BillingUncheckedUpdateManyWithoutStudentNestedInput
+    absenceRequests?: AbsenceRequestUncheckedUpdateManyWithoutStudentNestedInput
+    reviewedRequests?: AbsenceRequestUncheckedUpdateManyWithoutReviewerNestedInput
   }
 
   export type SubjectCreateWithoutUserSubjectsInput = {
@@ -53793,6 +57269,9 @@ export namespace Prisma {
     examAttempts?: ExamAttemptCreateNestedManyWithoutStudentInput
     parent?: UserCreateNestedOneWithoutChildrenInput
     children?: UserCreateNestedManyWithoutParentInput
+    billings?: BillingCreateNestedManyWithoutStudentInput
+    absenceRequests?: AbsenceRequestCreateNestedManyWithoutStudentInput
+    reviewedRequests?: AbsenceRequestCreateNestedManyWithoutReviewerInput
   }
 
   export type UserUncheckedCreateWithoutUserSubjectsInput = {
@@ -53847,6 +57326,9 @@ export namespace Prisma {
     teacherExams?: ExamUncheckedCreateNestedManyWithoutTeacherInput
     examAttempts?: ExamAttemptUncheckedCreateNestedManyWithoutStudentInput
     children?: UserUncheckedCreateNestedManyWithoutParentInput
+    billings?: BillingUncheckedCreateNestedManyWithoutStudentInput
+    absenceRequests?: AbsenceRequestUncheckedCreateNestedManyWithoutStudentInput
+    reviewedRequests?: AbsenceRequestUncheckedCreateNestedManyWithoutReviewerInput
   }
 
   export type UserCreateOrConnectWithoutUserSubjectsInput = {
@@ -53960,6 +57442,9 @@ export namespace Prisma {
     examAttempts?: ExamAttemptUpdateManyWithoutStudentNestedInput
     parent?: UserUpdateOneWithoutChildrenNestedInput
     children?: UserUpdateManyWithoutParentNestedInput
+    billings?: BillingUpdateManyWithoutStudentNestedInput
+    absenceRequests?: AbsenceRequestUpdateManyWithoutStudentNestedInput
+    reviewedRequests?: AbsenceRequestUpdateManyWithoutReviewerNestedInput
   }
 
   export type UserUncheckedUpdateWithoutUserSubjectsInput = {
@@ -54014,6 +57499,9 @@ export namespace Prisma {
     teacherExams?: ExamUncheckedUpdateManyWithoutTeacherNestedInput
     examAttempts?: ExamAttemptUncheckedUpdateManyWithoutStudentNestedInput
     children?: UserUncheckedUpdateManyWithoutParentNestedInput
+    billings?: BillingUncheckedUpdateManyWithoutStudentNestedInput
+    absenceRequests?: AbsenceRequestUncheckedUpdateManyWithoutStudentNestedInput
+    reviewedRequests?: AbsenceRequestUncheckedUpdateManyWithoutReviewerNestedInput
   }
 
   export type ClassCreateWithoutSchedulesInput = {
@@ -54136,6 +57624,9 @@ export namespace Prisma {
     examAttempts?: ExamAttemptCreateNestedManyWithoutStudentInput
     parent?: UserCreateNestedOneWithoutChildrenInput
     children?: UserCreateNestedManyWithoutParentInput
+    billings?: BillingCreateNestedManyWithoutStudentInput
+    absenceRequests?: AbsenceRequestCreateNestedManyWithoutStudentInput
+    reviewedRequests?: AbsenceRequestCreateNestedManyWithoutReviewerInput
   }
 
   export type UserUncheckedCreateWithoutTeacherSchedulesInput = {
@@ -54190,6 +57681,9 @@ export namespace Prisma {
     teacherExams?: ExamUncheckedCreateNestedManyWithoutTeacherInput
     examAttempts?: ExamAttemptUncheckedCreateNestedManyWithoutStudentInput
     children?: UserUncheckedCreateNestedManyWithoutParentInput
+    billings?: BillingUncheckedCreateNestedManyWithoutStudentInput
+    absenceRequests?: AbsenceRequestUncheckedCreateNestedManyWithoutStudentInput
+    reviewedRequests?: AbsenceRequestUncheckedCreateNestedManyWithoutReviewerInput
   }
 
   export type UserCreateOrConnectWithoutTeacherSchedulesInput = {
@@ -54340,6 +57834,9 @@ export namespace Prisma {
     examAttempts?: ExamAttemptUpdateManyWithoutStudentNestedInput
     parent?: UserUpdateOneWithoutChildrenNestedInput
     children?: UserUpdateManyWithoutParentNestedInput
+    billings?: BillingUpdateManyWithoutStudentNestedInput
+    absenceRequests?: AbsenceRequestUpdateManyWithoutStudentNestedInput
+    reviewedRequests?: AbsenceRequestUpdateManyWithoutReviewerNestedInput
   }
 
   export type UserUncheckedUpdateWithoutTeacherSchedulesInput = {
@@ -54394,6 +57891,9 @@ export namespace Prisma {
     teacherExams?: ExamUncheckedUpdateManyWithoutTeacherNestedInput
     examAttempts?: ExamAttemptUncheckedUpdateManyWithoutStudentNestedInput
     children?: UserUncheckedUpdateManyWithoutParentNestedInput
+    billings?: BillingUncheckedUpdateManyWithoutStudentNestedInput
+    absenceRequests?: AbsenceRequestUncheckedUpdateManyWithoutStudentNestedInput
+    reviewedRequests?: AbsenceRequestUncheckedUpdateManyWithoutReviewerNestedInput
   }
 
   export type ClassCreateWithoutMaterialsInput = {
@@ -54516,6 +58016,9 @@ export namespace Prisma {
     examAttempts?: ExamAttemptCreateNestedManyWithoutStudentInput
     parent?: UserCreateNestedOneWithoutChildrenInput
     children?: UserCreateNestedManyWithoutParentInput
+    billings?: BillingCreateNestedManyWithoutStudentInput
+    absenceRequests?: AbsenceRequestCreateNestedManyWithoutStudentInput
+    reviewedRequests?: AbsenceRequestCreateNestedManyWithoutReviewerInput
   }
 
   export type UserUncheckedCreateWithoutTeacherMaterialsInput = {
@@ -54570,6 +58073,9 @@ export namespace Prisma {
     teacherExams?: ExamUncheckedCreateNestedManyWithoutTeacherInput
     examAttempts?: ExamAttemptUncheckedCreateNestedManyWithoutStudentInput
     children?: UserUncheckedCreateNestedManyWithoutParentInput
+    billings?: BillingUncheckedCreateNestedManyWithoutStudentInput
+    absenceRequests?: AbsenceRequestUncheckedCreateNestedManyWithoutStudentInput
+    reviewedRequests?: AbsenceRequestUncheckedCreateNestedManyWithoutReviewerInput
   }
 
   export type UserCreateOrConnectWithoutTeacherMaterialsInput = {
@@ -54720,6 +58226,9 @@ export namespace Prisma {
     examAttempts?: ExamAttemptUpdateManyWithoutStudentNestedInput
     parent?: UserUpdateOneWithoutChildrenNestedInput
     children?: UserUpdateManyWithoutParentNestedInput
+    billings?: BillingUpdateManyWithoutStudentNestedInput
+    absenceRequests?: AbsenceRequestUpdateManyWithoutStudentNestedInput
+    reviewedRequests?: AbsenceRequestUpdateManyWithoutReviewerNestedInput
   }
 
   export type UserUncheckedUpdateWithoutTeacherMaterialsInput = {
@@ -54774,6 +58283,9 @@ export namespace Prisma {
     teacherExams?: ExamUncheckedUpdateManyWithoutTeacherNestedInput
     examAttempts?: ExamAttemptUncheckedUpdateManyWithoutStudentNestedInput
     children?: UserUncheckedUpdateManyWithoutParentNestedInput
+    billings?: BillingUncheckedUpdateManyWithoutStudentNestedInput
+    absenceRequests?: AbsenceRequestUncheckedUpdateManyWithoutStudentNestedInput
+    reviewedRequests?: AbsenceRequestUncheckedUpdateManyWithoutReviewerNestedInput
   }
 
   export type UserCreateWithoutEkskulLeaderInput = {
@@ -54828,6 +58340,9 @@ export namespace Prisma {
     examAttempts?: ExamAttemptCreateNestedManyWithoutStudentInput
     parent?: UserCreateNestedOneWithoutChildrenInput
     children?: UserCreateNestedManyWithoutParentInput
+    billings?: BillingCreateNestedManyWithoutStudentInput
+    absenceRequests?: AbsenceRequestCreateNestedManyWithoutStudentInput
+    reviewedRequests?: AbsenceRequestCreateNestedManyWithoutReviewerInput
   }
 
   export type UserUncheckedCreateWithoutEkskulLeaderInput = {
@@ -54882,6 +58397,9 @@ export namespace Prisma {
     teacherExams?: ExamUncheckedCreateNestedManyWithoutTeacherInput
     examAttempts?: ExamAttemptUncheckedCreateNestedManyWithoutStudentInput
     children?: UserUncheckedCreateNestedManyWithoutParentInput
+    billings?: BillingUncheckedCreateNestedManyWithoutStudentInput
+    absenceRequests?: AbsenceRequestUncheckedCreateNestedManyWithoutStudentInput
+    reviewedRequests?: AbsenceRequestUncheckedCreateNestedManyWithoutReviewerInput
   }
 
   export type UserCreateOrConnectWithoutEkskulLeaderInput = {
@@ -54941,6 +58459,9 @@ export namespace Prisma {
     examAttempts?: ExamAttemptCreateNestedManyWithoutStudentInput
     parent?: UserCreateNestedOneWithoutChildrenInput
     children?: UserCreateNestedManyWithoutParentInput
+    billings?: BillingCreateNestedManyWithoutStudentInput
+    absenceRequests?: AbsenceRequestCreateNestedManyWithoutStudentInput
+    reviewedRequests?: AbsenceRequestCreateNestedManyWithoutReviewerInput
   }
 
   export type UserUncheckedCreateWithoutEkskulCoachInput = {
@@ -54995,6 +58516,9 @@ export namespace Prisma {
     teacherExams?: ExamUncheckedCreateNestedManyWithoutTeacherInput
     examAttempts?: ExamAttemptUncheckedCreateNestedManyWithoutStudentInput
     children?: UserUncheckedCreateNestedManyWithoutParentInput
+    billings?: BillingUncheckedCreateNestedManyWithoutStudentInput
+    absenceRequests?: AbsenceRequestUncheckedCreateNestedManyWithoutStudentInput
+    reviewedRequests?: AbsenceRequestUncheckedCreateNestedManyWithoutReviewerInput
   }
 
   export type UserCreateOrConnectWithoutEkskulCoachInput = {
@@ -55117,6 +58641,9 @@ export namespace Prisma {
     examAttempts?: ExamAttemptUpdateManyWithoutStudentNestedInput
     parent?: UserUpdateOneWithoutChildrenNestedInput
     children?: UserUpdateManyWithoutParentNestedInput
+    billings?: BillingUpdateManyWithoutStudentNestedInput
+    absenceRequests?: AbsenceRequestUpdateManyWithoutStudentNestedInput
+    reviewedRequests?: AbsenceRequestUpdateManyWithoutReviewerNestedInput
   }
 
   export type UserUncheckedUpdateWithoutEkskulLeaderInput = {
@@ -55171,6 +58698,9 @@ export namespace Prisma {
     teacherExams?: ExamUncheckedUpdateManyWithoutTeacherNestedInput
     examAttempts?: ExamAttemptUncheckedUpdateManyWithoutStudentNestedInput
     children?: UserUncheckedUpdateManyWithoutParentNestedInput
+    billings?: BillingUncheckedUpdateManyWithoutStudentNestedInput
+    absenceRequests?: AbsenceRequestUncheckedUpdateManyWithoutStudentNestedInput
+    reviewedRequests?: AbsenceRequestUncheckedUpdateManyWithoutReviewerNestedInput
   }
 
   export type UserUpsertWithoutEkskulCoachInput = {
@@ -55236,6 +58766,9 @@ export namespace Prisma {
     examAttempts?: ExamAttemptUpdateManyWithoutStudentNestedInput
     parent?: UserUpdateOneWithoutChildrenNestedInput
     children?: UserUpdateManyWithoutParentNestedInput
+    billings?: BillingUpdateManyWithoutStudentNestedInput
+    absenceRequests?: AbsenceRequestUpdateManyWithoutStudentNestedInput
+    reviewedRequests?: AbsenceRequestUpdateManyWithoutReviewerNestedInput
   }
 
   export type UserUncheckedUpdateWithoutEkskulCoachInput = {
@@ -55290,6 +58823,9 @@ export namespace Prisma {
     teacherExams?: ExamUncheckedUpdateManyWithoutTeacherNestedInput
     examAttempts?: ExamAttemptUncheckedUpdateManyWithoutStudentNestedInput
     children?: UserUncheckedUpdateManyWithoutParentNestedInput
+    billings?: BillingUncheckedUpdateManyWithoutStudentNestedInput
+    absenceRequests?: AbsenceRequestUncheckedUpdateManyWithoutStudentNestedInput
+    reviewedRequests?: AbsenceRequestUncheckedUpdateManyWithoutReviewerNestedInput
   }
 
   export type ExtracurricularMemberUpsertWithWhereUniqueWithoutExtracurricularInput = {
@@ -55389,6 +58925,9 @@ export namespace Prisma {
     examAttempts?: ExamAttemptCreateNestedManyWithoutStudentInput
     parent?: UserCreateNestedOneWithoutChildrenInput
     children?: UserCreateNestedManyWithoutParentInput
+    billings?: BillingCreateNestedManyWithoutStudentInput
+    absenceRequests?: AbsenceRequestCreateNestedManyWithoutStudentInput
+    reviewedRequests?: AbsenceRequestCreateNestedManyWithoutReviewerInput
   }
 
   export type UserUncheckedCreateWithoutEkskulMembersInput = {
@@ -55443,6 +58982,9 @@ export namespace Prisma {
     teacherExams?: ExamUncheckedCreateNestedManyWithoutTeacherInput
     examAttempts?: ExamAttemptUncheckedCreateNestedManyWithoutStudentInput
     children?: UserUncheckedCreateNestedManyWithoutParentInput
+    billings?: BillingUncheckedCreateNestedManyWithoutStudentInput
+    absenceRequests?: AbsenceRequestUncheckedCreateNestedManyWithoutStudentInput
+    reviewedRequests?: AbsenceRequestUncheckedCreateNestedManyWithoutReviewerInput
   }
 
   export type UserCreateOrConnectWithoutEkskulMembersInput = {
@@ -55542,6 +59084,9 @@ export namespace Prisma {
     examAttempts?: ExamAttemptUpdateManyWithoutStudentNestedInput
     parent?: UserUpdateOneWithoutChildrenNestedInput
     children?: UserUpdateManyWithoutParentNestedInput
+    billings?: BillingUpdateManyWithoutStudentNestedInput
+    absenceRequests?: AbsenceRequestUpdateManyWithoutStudentNestedInput
+    reviewedRequests?: AbsenceRequestUpdateManyWithoutReviewerNestedInput
   }
 
   export type UserUncheckedUpdateWithoutEkskulMembersInput = {
@@ -55596,6 +59141,9 @@ export namespace Prisma {
     teacherExams?: ExamUncheckedUpdateManyWithoutTeacherNestedInput
     examAttempts?: ExamAttemptUncheckedUpdateManyWithoutStudentNestedInput
     children?: UserUncheckedUpdateManyWithoutParentNestedInput
+    billings?: BillingUncheckedUpdateManyWithoutStudentNestedInput
+    absenceRequests?: AbsenceRequestUncheckedUpdateManyWithoutStudentNestedInput
+    reviewedRequests?: AbsenceRequestUncheckedUpdateManyWithoutReviewerNestedInput
   }
 
   export type ExtracurricularUpsertWithoutMembersInput = {
@@ -55814,6 +59362,9 @@ export namespace Prisma {
     examAttempts?: ExamAttemptCreateNestedManyWithoutStudentInput
     parent?: UserCreateNestedOneWithoutChildrenInput
     children?: UserCreateNestedManyWithoutParentInput
+    billings?: BillingCreateNestedManyWithoutStudentInput
+    absenceRequests?: AbsenceRequestCreateNestedManyWithoutStudentInput
+    reviewedRequests?: AbsenceRequestCreateNestedManyWithoutReviewerInput
   }
 
   export type UserUncheckedCreateWithoutEkskulAttendancesInput = {
@@ -55868,6 +59419,9 @@ export namespace Prisma {
     teacherExams?: ExamUncheckedCreateNestedManyWithoutTeacherInput
     examAttempts?: ExamAttemptUncheckedCreateNestedManyWithoutStudentInput
     children?: UserUncheckedCreateNestedManyWithoutParentInput
+    billings?: BillingUncheckedCreateNestedManyWithoutStudentInput
+    absenceRequests?: AbsenceRequestUncheckedCreateNestedManyWithoutStudentInput
+    reviewedRequests?: AbsenceRequestUncheckedCreateNestedManyWithoutReviewerInput
   }
 
   export type UserCreateOrConnectWithoutEkskulAttendancesInput = {
@@ -55969,6 +59523,9 @@ export namespace Prisma {
     examAttempts?: ExamAttemptUpdateManyWithoutStudentNestedInput
     parent?: UserUpdateOneWithoutChildrenNestedInput
     children?: UserUpdateManyWithoutParentNestedInput
+    billings?: BillingUpdateManyWithoutStudentNestedInput
+    absenceRequests?: AbsenceRequestUpdateManyWithoutStudentNestedInput
+    reviewedRequests?: AbsenceRequestUpdateManyWithoutReviewerNestedInput
   }
 
   export type UserUncheckedUpdateWithoutEkskulAttendancesInput = {
@@ -56023,6 +59580,9 @@ export namespace Prisma {
     teacherExams?: ExamUncheckedUpdateManyWithoutTeacherNestedInput
     examAttempts?: ExamAttemptUncheckedUpdateManyWithoutStudentNestedInput
     children?: UserUncheckedUpdateManyWithoutParentNestedInput
+    billings?: BillingUncheckedUpdateManyWithoutStudentNestedInput
+    absenceRequests?: AbsenceRequestUncheckedUpdateManyWithoutStudentNestedInput
+    reviewedRequests?: AbsenceRequestUncheckedUpdateManyWithoutReviewerNestedInput
   }
 
   export type ClassCreateWithoutAssignmentsInput = {
@@ -56176,6 +59736,9 @@ export namespace Prisma {
     examAttempts?: ExamAttemptCreateNestedManyWithoutStudentInput
     parent?: UserCreateNestedOneWithoutChildrenInput
     children?: UserCreateNestedManyWithoutParentInput
+    billings?: BillingCreateNestedManyWithoutStudentInput
+    absenceRequests?: AbsenceRequestCreateNestedManyWithoutStudentInput
+    reviewedRequests?: AbsenceRequestCreateNestedManyWithoutReviewerInput
   }
 
   export type UserUncheckedCreateWithoutTeacherAssignmentsInput = {
@@ -56230,6 +59793,9 @@ export namespace Prisma {
     teacherExams?: ExamUncheckedCreateNestedManyWithoutTeacherInput
     examAttempts?: ExamAttemptUncheckedCreateNestedManyWithoutStudentInput
     children?: UserUncheckedCreateNestedManyWithoutParentInput
+    billings?: BillingUncheckedCreateNestedManyWithoutStudentInput
+    absenceRequests?: AbsenceRequestUncheckedCreateNestedManyWithoutStudentInput
+    reviewedRequests?: AbsenceRequestUncheckedCreateNestedManyWithoutReviewerInput
   }
 
   export type UserCreateOrConnectWithoutTeacherAssignmentsInput = {
@@ -56477,6 +60043,9 @@ export namespace Prisma {
     examAttempts?: ExamAttemptUpdateManyWithoutStudentNestedInput
     parent?: UserUpdateOneWithoutChildrenNestedInput
     children?: UserUpdateManyWithoutParentNestedInput
+    billings?: BillingUpdateManyWithoutStudentNestedInput
+    absenceRequests?: AbsenceRequestUpdateManyWithoutStudentNestedInput
+    reviewedRequests?: AbsenceRequestUpdateManyWithoutReviewerNestedInput
   }
 
   export type UserUncheckedUpdateWithoutTeacherAssignmentsInput = {
@@ -56531,6 +60100,9 @@ export namespace Prisma {
     teacherExams?: ExamUncheckedUpdateManyWithoutTeacherNestedInput
     examAttempts?: ExamAttemptUncheckedUpdateManyWithoutStudentNestedInput
     children?: UserUncheckedUpdateManyWithoutParentNestedInput
+    billings?: BillingUncheckedUpdateManyWithoutStudentNestedInput
+    absenceRequests?: AbsenceRequestUncheckedUpdateManyWithoutStudentNestedInput
+    reviewedRequests?: AbsenceRequestUncheckedUpdateManyWithoutReviewerNestedInput
   }
 
   export type AssignmentSubmissionUpsertWithWhereUniqueWithoutAssignmentInput = {
@@ -56658,6 +60230,9 @@ export namespace Prisma {
     examAttempts?: ExamAttemptCreateNestedManyWithoutStudentInput
     parent?: UserCreateNestedOneWithoutChildrenInput
     children?: UserCreateNestedManyWithoutParentInput
+    billings?: BillingCreateNestedManyWithoutStudentInput
+    absenceRequests?: AbsenceRequestCreateNestedManyWithoutStudentInput
+    reviewedRequests?: AbsenceRequestCreateNestedManyWithoutReviewerInput
   }
 
   export type UserUncheckedCreateWithoutStudentSubmissionsInput = {
@@ -56712,6 +60287,9 @@ export namespace Prisma {
     teacherExams?: ExamUncheckedCreateNestedManyWithoutTeacherInput
     examAttempts?: ExamAttemptUncheckedCreateNestedManyWithoutStudentInput
     children?: UserUncheckedCreateNestedManyWithoutParentInput
+    billings?: BillingUncheckedCreateNestedManyWithoutStudentInput
+    absenceRequests?: AbsenceRequestUncheckedCreateNestedManyWithoutStudentInput
+    reviewedRequests?: AbsenceRequestUncheckedCreateNestedManyWithoutReviewerInput
   }
 
   export type UserCreateOrConnectWithoutStudentSubmissionsInput = {
@@ -56855,6 +60433,9 @@ export namespace Prisma {
     examAttempts?: ExamAttemptUpdateManyWithoutStudentNestedInput
     parent?: UserUpdateOneWithoutChildrenNestedInput
     children?: UserUpdateManyWithoutParentNestedInput
+    billings?: BillingUpdateManyWithoutStudentNestedInput
+    absenceRequests?: AbsenceRequestUpdateManyWithoutStudentNestedInput
+    reviewedRequests?: AbsenceRequestUpdateManyWithoutReviewerNestedInput
   }
 
   export type UserUncheckedUpdateWithoutStudentSubmissionsInput = {
@@ -56909,6 +60490,9 @@ export namespace Prisma {
     teacherExams?: ExamUncheckedUpdateManyWithoutTeacherNestedInput
     examAttempts?: ExamAttemptUncheckedUpdateManyWithoutStudentNestedInput
     children?: UserUncheckedUpdateManyWithoutParentNestedInput
+    billings?: BillingUncheckedUpdateManyWithoutStudentNestedInput
+    absenceRequests?: AbsenceRequestUncheckedUpdateManyWithoutStudentNestedInput
+    reviewedRequests?: AbsenceRequestUncheckedUpdateManyWithoutReviewerNestedInput
   }
 
   export type CommentUpsertWithWhereUniqueWithoutSubmissionInput = {
@@ -56979,6 +60563,9 @@ export namespace Prisma {
     examAttempts?: ExamAttemptCreateNestedManyWithoutStudentInput
     parent?: UserCreateNestedOneWithoutChildrenInput
     children?: UserCreateNestedManyWithoutParentInput
+    billings?: BillingCreateNestedManyWithoutStudentInput
+    absenceRequests?: AbsenceRequestCreateNestedManyWithoutStudentInput
+    reviewedRequests?: AbsenceRequestCreateNestedManyWithoutReviewerInput
   }
 
   export type UserUncheckedCreateWithoutCommentsInput = {
@@ -57033,6 +60620,9 @@ export namespace Prisma {
     teacherExams?: ExamUncheckedCreateNestedManyWithoutTeacherInput
     examAttempts?: ExamAttemptUncheckedCreateNestedManyWithoutStudentInput
     children?: UserUncheckedCreateNestedManyWithoutParentInput
+    billings?: BillingUncheckedCreateNestedManyWithoutStudentInput
+    absenceRequests?: AbsenceRequestUncheckedCreateNestedManyWithoutStudentInput
+    reviewedRequests?: AbsenceRequestUncheckedCreateNestedManyWithoutReviewerInput
   }
 
   export type UserCreateOrConnectWithoutCommentsInput = {
@@ -57173,6 +60763,9 @@ export namespace Prisma {
     examAttempts?: ExamAttemptUpdateManyWithoutStudentNestedInput
     parent?: UserUpdateOneWithoutChildrenNestedInput
     children?: UserUpdateManyWithoutParentNestedInput
+    billings?: BillingUpdateManyWithoutStudentNestedInput
+    absenceRequests?: AbsenceRequestUpdateManyWithoutStudentNestedInput
+    reviewedRequests?: AbsenceRequestUpdateManyWithoutReviewerNestedInput
   }
 
   export type UserUncheckedUpdateWithoutCommentsInput = {
@@ -57227,6 +60820,9 @@ export namespace Prisma {
     teacherExams?: ExamUncheckedUpdateManyWithoutTeacherNestedInput
     examAttempts?: ExamAttemptUncheckedUpdateManyWithoutStudentNestedInput
     children?: UserUncheckedUpdateManyWithoutParentNestedInput
+    billings?: BillingUncheckedUpdateManyWithoutStudentNestedInput
+    absenceRequests?: AbsenceRequestUncheckedUpdateManyWithoutStudentNestedInput
+    reviewedRequests?: AbsenceRequestUncheckedUpdateManyWithoutReviewerNestedInput
   }
 
   export type AssignmentUpsertWithoutCommentsInput = {
@@ -57363,6 +60959,9 @@ export namespace Prisma {
     examAttempts?: ExamAttemptCreateNestedManyWithoutStudentInput
     parent?: UserCreateNestedOneWithoutChildrenInput
     children?: UserCreateNestedManyWithoutParentInput
+    billings?: BillingCreateNestedManyWithoutStudentInput
+    absenceRequests?: AbsenceRequestCreateNestedManyWithoutStudentInput
+    reviewedRequests?: AbsenceRequestCreateNestedManyWithoutReviewerInput
   }
 
   export type UserUncheckedCreateWithoutNotificationsInput = {
@@ -57417,6 +61016,9 @@ export namespace Prisma {
     teacherExams?: ExamUncheckedCreateNestedManyWithoutTeacherInput
     examAttempts?: ExamAttemptUncheckedCreateNestedManyWithoutStudentInput
     children?: UserUncheckedCreateNestedManyWithoutParentInput
+    billings?: BillingUncheckedCreateNestedManyWithoutStudentInput
+    absenceRequests?: AbsenceRequestUncheckedCreateNestedManyWithoutStudentInput
+    reviewedRequests?: AbsenceRequestUncheckedCreateNestedManyWithoutReviewerInput
   }
 
   export type UserCreateOrConnectWithoutNotificationsInput = {
@@ -57508,6 +61110,9 @@ export namespace Prisma {
     examAttempts?: ExamAttemptUpdateManyWithoutStudentNestedInput
     parent?: UserUpdateOneWithoutChildrenNestedInput
     children?: UserUpdateManyWithoutParentNestedInput
+    billings?: BillingUpdateManyWithoutStudentNestedInput
+    absenceRequests?: AbsenceRequestUpdateManyWithoutStudentNestedInput
+    reviewedRequests?: AbsenceRequestUpdateManyWithoutReviewerNestedInput
   }
 
   export type UserUncheckedUpdateWithoutNotificationsInput = {
@@ -57562,6 +61167,9 @@ export namespace Prisma {
     teacherExams?: ExamUncheckedUpdateManyWithoutTeacherNestedInput
     examAttempts?: ExamAttemptUncheckedUpdateManyWithoutStudentNestedInput
     children?: UserUncheckedUpdateManyWithoutParentNestedInput
+    billings?: BillingUncheckedUpdateManyWithoutStudentNestedInput
+    absenceRequests?: AbsenceRequestUncheckedUpdateManyWithoutStudentNestedInput
+    reviewedRequests?: AbsenceRequestUncheckedUpdateManyWithoutReviewerNestedInput
   }
 
   export type AnnouncementUpsertWithoutNotificationsInput = {
@@ -57689,6 +61297,9 @@ export namespace Prisma {
     examAttempts?: ExamAttemptCreateNestedManyWithoutStudentInput
     parent?: UserCreateNestedOneWithoutChildrenInput
     children?: UserCreateNestedManyWithoutParentInput
+    billings?: BillingCreateNestedManyWithoutStudentInput
+    absenceRequests?: AbsenceRequestCreateNestedManyWithoutStudentInput
+    reviewedRequests?: AbsenceRequestCreateNestedManyWithoutReviewerInput
   }
 
   export type UserUncheckedCreateWithoutOperatorInput = {
@@ -57743,6 +61354,9 @@ export namespace Prisma {
     teacherExams?: ExamUncheckedCreateNestedManyWithoutTeacherInput
     examAttempts?: ExamAttemptUncheckedCreateNestedManyWithoutStudentInput
     children?: UserUncheckedCreateNestedManyWithoutParentInput
+    billings?: BillingUncheckedCreateNestedManyWithoutStudentInput
+    absenceRequests?: AbsenceRequestUncheckedCreateNestedManyWithoutStudentInput
+    reviewedRequests?: AbsenceRequestUncheckedCreateNestedManyWithoutReviewerInput
   }
 
   export type UserCreateOrConnectWithoutOperatorInput = {
@@ -57813,6 +61427,9 @@ export namespace Prisma {
     examAttempts?: ExamAttemptUpdateManyWithoutStudentNestedInput
     parent?: UserUpdateOneWithoutChildrenNestedInput
     children?: UserUpdateManyWithoutParentNestedInput
+    billings?: BillingUpdateManyWithoutStudentNestedInput
+    absenceRequests?: AbsenceRequestUpdateManyWithoutStudentNestedInput
+    reviewedRequests?: AbsenceRequestUpdateManyWithoutReviewerNestedInput
   }
 
   export type UserUncheckedUpdateWithoutOperatorInput = {
@@ -57867,6 +61484,9 @@ export namespace Prisma {
     teacherExams?: ExamUncheckedUpdateManyWithoutTeacherNestedInput
     examAttempts?: ExamAttemptUncheckedUpdateManyWithoutStudentNestedInput
     children?: UserUncheckedUpdateManyWithoutParentNestedInput
+    billings?: BillingUncheckedUpdateManyWithoutStudentNestedInput
+    absenceRequests?: AbsenceRequestUncheckedUpdateManyWithoutStudentNestedInput
+    reviewedRequests?: AbsenceRequestUncheckedUpdateManyWithoutReviewerNestedInput
   }
 
   export type UserCreateWithoutAccountsInput = {
@@ -57921,6 +61541,9 @@ export namespace Prisma {
     examAttempts?: ExamAttemptCreateNestedManyWithoutStudentInput
     parent?: UserCreateNestedOneWithoutChildrenInput
     children?: UserCreateNestedManyWithoutParentInput
+    billings?: BillingCreateNestedManyWithoutStudentInput
+    absenceRequests?: AbsenceRequestCreateNestedManyWithoutStudentInput
+    reviewedRequests?: AbsenceRequestCreateNestedManyWithoutReviewerInput
   }
 
   export type UserUncheckedCreateWithoutAccountsInput = {
@@ -57975,6 +61598,9 @@ export namespace Prisma {
     teacherExams?: ExamUncheckedCreateNestedManyWithoutTeacherInput
     examAttempts?: ExamAttemptUncheckedCreateNestedManyWithoutStudentInput
     children?: UserUncheckedCreateNestedManyWithoutParentInput
+    billings?: BillingUncheckedCreateNestedManyWithoutStudentInput
+    absenceRequests?: AbsenceRequestUncheckedCreateNestedManyWithoutStudentInput
+    reviewedRequests?: AbsenceRequestUncheckedCreateNestedManyWithoutReviewerInput
   }
 
   export type UserCreateOrConnectWithoutAccountsInput = {
@@ -58045,6 +61671,9 @@ export namespace Prisma {
     examAttempts?: ExamAttemptUpdateManyWithoutStudentNestedInput
     parent?: UserUpdateOneWithoutChildrenNestedInput
     children?: UserUpdateManyWithoutParentNestedInput
+    billings?: BillingUpdateManyWithoutStudentNestedInput
+    absenceRequests?: AbsenceRequestUpdateManyWithoutStudentNestedInput
+    reviewedRequests?: AbsenceRequestUpdateManyWithoutReviewerNestedInput
   }
 
   export type UserUncheckedUpdateWithoutAccountsInput = {
@@ -58099,6 +61728,9 @@ export namespace Prisma {
     teacherExams?: ExamUncheckedUpdateManyWithoutTeacherNestedInput
     examAttempts?: ExamAttemptUncheckedUpdateManyWithoutStudentNestedInput
     children?: UserUncheckedUpdateManyWithoutParentNestedInput
+    billings?: BillingUncheckedUpdateManyWithoutStudentNestedInput
+    absenceRequests?: AbsenceRequestUncheckedUpdateManyWithoutStudentNestedInput
+    reviewedRequests?: AbsenceRequestUncheckedUpdateManyWithoutReviewerNestedInput
   }
 
   export type UserCreateWithoutSessionsInput = {
@@ -58153,6 +61785,9 @@ export namespace Prisma {
     examAttempts?: ExamAttemptCreateNestedManyWithoutStudentInput
     parent?: UserCreateNestedOneWithoutChildrenInput
     children?: UserCreateNestedManyWithoutParentInput
+    billings?: BillingCreateNestedManyWithoutStudentInput
+    absenceRequests?: AbsenceRequestCreateNestedManyWithoutStudentInput
+    reviewedRequests?: AbsenceRequestCreateNestedManyWithoutReviewerInput
   }
 
   export type UserUncheckedCreateWithoutSessionsInput = {
@@ -58207,6 +61842,9 @@ export namespace Prisma {
     teacherExams?: ExamUncheckedCreateNestedManyWithoutTeacherInput
     examAttempts?: ExamAttemptUncheckedCreateNestedManyWithoutStudentInput
     children?: UserUncheckedCreateNestedManyWithoutParentInput
+    billings?: BillingUncheckedCreateNestedManyWithoutStudentInput
+    absenceRequests?: AbsenceRequestUncheckedCreateNestedManyWithoutStudentInput
+    reviewedRequests?: AbsenceRequestUncheckedCreateNestedManyWithoutReviewerInput
   }
 
   export type UserCreateOrConnectWithoutSessionsInput = {
@@ -58277,6 +61915,9 @@ export namespace Prisma {
     examAttempts?: ExamAttemptUpdateManyWithoutStudentNestedInput
     parent?: UserUpdateOneWithoutChildrenNestedInput
     children?: UserUpdateManyWithoutParentNestedInput
+    billings?: BillingUpdateManyWithoutStudentNestedInput
+    absenceRequests?: AbsenceRequestUpdateManyWithoutStudentNestedInput
+    reviewedRequests?: AbsenceRequestUpdateManyWithoutReviewerNestedInput
   }
 
   export type UserUncheckedUpdateWithoutSessionsInput = {
@@ -58331,6 +61972,9 @@ export namespace Prisma {
     teacherExams?: ExamUncheckedUpdateManyWithoutTeacherNestedInput
     examAttempts?: ExamAttemptUncheckedUpdateManyWithoutStudentNestedInput
     children?: UserUncheckedUpdateManyWithoutParentNestedInput
+    billings?: BillingUncheckedUpdateManyWithoutStudentNestedInput
+    absenceRequests?: AbsenceRequestUncheckedUpdateManyWithoutStudentNestedInput
+    reviewedRequests?: AbsenceRequestUncheckedUpdateManyWithoutReviewerNestedInput
   }
 
   export type UserCreateWithoutCalendarRemindersInput = {
@@ -58385,6 +62029,9 @@ export namespace Prisma {
     examAttempts?: ExamAttemptCreateNestedManyWithoutStudentInput
     parent?: UserCreateNestedOneWithoutChildrenInput
     children?: UserCreateNestedManyWithoutParentInput
+    billings?: BillingCreateNestedManyWithoutStudentInput
+    absenceRequests?: AbsenceRequestCreateNestedManyWithoutStudentInput
+    reviewedRequests?: AbsenceRequestCreateNestedManyWithoutReviewerInput
   }
 
   export type UserUncheckedCreateWithoutCalendarRemindersInput = {
@@ -58439,6 +62086,9 @@ export namespace Prisma {
     teacherExams?: ExamUncheckedCreateNestedManyWithoutTeacherInput
     examAttempts?: ExamAttemptUncheckedCreateNestedManyWithoutStudentInput
     children?: UserUncheckedCreateNestedManyWithoutParentInput
+    billings?: BillingUncheckedCreateNestedManyWithoutStudentInput
+    absenceRequests?: AbsenceRequestUncheckedCreateNestedManyWithoutStudentInput
+    reviewedRequests?: AbsenceRequestUncheckedCreateNestedManyWithoutReviewerInput
   }
 
   export type UserCreateOrConnectWithoutCalendarRemindersInput = {
@@ -58509,6 +62159,9 @@ export namespace Prisma {
     examAttempts?: ExamAttemptUpdateManyWithoutStudentNestedInput
     parent?: UserUpdateOneWithoutChildrenNestedInput
     children?: UserUpdateManyWithoutParentNestedInput
+    billings?: BillingUpdateManyWithoutStudentNestedInput
+    absenceRequests?: AbsenceRequestUpdateManyWithoutStudentNestedInput
+    reviewedRequests?: AbsenceRequestUpdateManyWithoutReviewerNestedInput
   }
 
   export type UserUncheckedUpdateWithoutCalendarRemindersInput = {
@@ -58563,6 +62216,9 @@ export namespace Prisma {
     teacherExams?: ExamUncheckedUpdateManyWithoutTeacherNestedInput
     examAttempts?: ExamAttemptUncheckedUpdateManyWithoutStudentNestedInput
     children?: UserUncheckedUpdateManyWithoutParentNestedInput
+    billings?: BillingUncheckedUpdateManyWithoutStudentNestedInput
+    absenceRequests?: AbsenceRequestUncheckedUpdateManyWithoutStudentNestedInput
+    reviewedRequests?: AbsenceRequestUncheckedUpdateManyWithoutReviewerNestedInput
   }
 
   export type UserCreateWithoutDocumentsInput = {
@@ -58617,6 +62273,9 @@ export namespace Prisma {
     examAttempts?: ExamAttemptCreateNestedManyWithoutStudentInput
     parent?: UserCreateNestedOneWithoutChildrenInput
     children?: UserCreateNestedManyWithoutParentInput
+    billings?: BillingCreateNestedManyWithoutStudentInput
+    absenceRequests?: AbsenceRequestCreateNestedManyWithoutStudentInput
+    reviewedRequests?: AbsenceRequestCreateNestedManyWithoutReviewerInput
   }
 
   export type UserUncheckedCreateWithoutDocumentsInput = {
@@ -58671,6 +62330,9 @@ export namespace Prisma {
     teacherExams?: ExamUncheckedCreateNestedManyWithoutTeacherInput
     examAttempts?: ExamAttemptUncheckedCreateNestedManyWithoutStudentInput
     children?: UserUncheckedCreateNestedManyWithoutParentInput
+    billings?: BillingUncheckedCreateNestedManyWithoutStudentInput
+    absenceRequests?: AbsenceRequestUncheckedCreateNestedManyWithoutStudentInput
+    reviewedRequests?: AbsenceRequestUncheckedCreateNestedManyWithoutReviewerInput
   }
 
   export type UserCreateOrConnectWithoutDocumentsInput = {
@@ -58804,6 +62466,9 @@ export namespace Prisma {
     examAttempts?: ExamAttemptUpdateManyWithoutStudentNestedInput
     parent?: UserUpdateOneWithoutChildrenNestedInput
     children?: UserUpdateManyWithoutParentNestedInput
+    billings?: BillingUpdateManyWithoutStudentNestedInput
+    absenceRequests?: AbsenceRequestUpdateManyWithoutStudentNestedInput
+    reviewedRequests?: AbsenceRequestUpdateManyWithoutReviewerNestedInput
   }
 
   export type UserUncheckedUpdateWithoutDocumentsInput = {
@@ -58858,6 +62523,9 @@ export namespace Prisma {
     teacherExams?: ExamUncheckedUpdateManyWithoutTeacherNestedInput
     examAttempts?: ExamAttemptUncheckedUpdateManyWithoutStudentNestedInput
     children?: UserUncheckedUpdateManyWithoutParentNestedInput
+    billings?: BillingUncheckedUpdateManyWithoutStudentNestedInput
+    absenceRequests?: AbsenceRequestUncheckedUpdateManyWithoutStudentNestedInput
+    reviewedRequests?: AbsenceRequestUncheckedUpdateManyWithoutReviewerNestedInput
   }
 
   export type DocumentUpsertWithoutSubDocsInput = {
@@ -58963,6 +62631,9 @@ export namespace Prisma {
     examAttempts?: ExamAttemptCreateNestedManyWithoutStudentInput
     parent?: UserCreateNestedOneWithoutChildrenInput
     children?: UserCreateNestedManyWithoutParentInput
+    billings?: BillingCreateNestedManyWithoutStudentInput
+    absenceRequests?: AbsenceRequestCreateNestedManyWithoutStudentInput
+    reviewedRequests?: AbsenceRequestCreateNestedManyWithoutReviewerInput
   }
 
   export type UserUncheckedCreateWithoutDiscussionThreadsInput = {
@@ -59017,6 +62688,9 @@ export namespace Prisma {
     teacherExams?: ExamUncheckedCreateNestedManyWithoutTeacherInput
     examAttempts?: ExamAttemptUncheckedCreateNestedManyWithoutStudentInput
     children?: UserUncheckedCreateNestedManyWithoutParentInput
+    billings?: BillingUncheckedCreateNestedManyWithoutStudentInput
+    absenceRequests?: AbsenceRequestUncheckedCreateNestedManyWithoutStudentInput
+    reviewedRequests?: AbsenceRequestUncheckedCreateNestedManyWithoutReviewerInput
   }
 
   export type UserCreateOrConnectWithoutDiscussionThreadsInput = {
@@ -59144,6 +62818,9 @@ export namespace Prisma {
     examAttempts?: ExamAttemptUpdateManyWithoutStudentNestedInput
     parent?: UserUpdateOneWithoutChildrenNestedInput
     children?: UserUpdateManyWithoutParentNestedInput
+    billings?: BillingUpdateManyWithoutStudentNestedInput
+    absenceRequests?: AbsenceRequestUpdateManyWithoutStudentNestedInput
+    reviewedRequests?: AbsenceRequestUpdateManyWithoutReviewerNestedInput
   }
 
   export type UserUncheckedUpdateWithoutDiscussionThreadsInput = {
@@ -59198,6 +62875,9 @@ export namespace Prisma {
     teacherExams?: ExamUncheckedUpdateManyWithoutTeacherNestedInput
     examAttempts?: ExamAttemptUncheckedUpdateManyWithoutStudentNestedInput
     children?: UserUncheckedUpdateManyWithoutParentNestedInput
+    billings?: BillingUncheckedUpdateManyWithoutStudentNestedInput
+    absenceRequests?: AbsenceRequestUncheckedUpdateManyWithoutStudentNestedInput
+    reviewedRequests?: AbsenceRequestUncheckedUpdateManyWithoutReviewerNestedInput
   }
 
   export type ClassUpsertWithoutDiscussionThreadsInput = {
@@ -59330,6 +63010,9 @@ export namespace Prisma {
     examAttempts?: ExamAttemptCreateNestedManyWithoutStudentInput
     parent?: UserCreateNestedOneWithoutChildrenInput
     children?: UserCreateNestedManyWithoutParentInput
+    billings?: BillingCreateNestedManyWithoutStudentInput
+    absenceRequests?: AbsenceRequestCreateNestedManyWithoutStudentInput
+    reviewedRequests?: AbsenceRequestCreateNestedManyWithoutReviewerInput
   }
 
   export type UserUncheckedCreateWithoutDiscussionRepliesInput = {
@@ -59384,6 +63067,9 @@ export namespace Prisma {
     teacherExams?: ExamUncheckedCreateNestedManyWithoutTeacherInput
     examAttempts?: ExamAttemptUncheckedCreateNestedManyWithoutStudentInput
     children?: UserUncheckedCreateNestedManyWithoutParentInput
+    billings?: BillingUncheckedCreateNestedManyWithoutStudentInput
+    absenceRequests?: AbsenceRequestUncheckedCreateNestedManyWithoutStudentInput
+    reviewedRequests?: AbsenceRequestUncheckedCreateNestedManyWithoutReviewerInput
   }
 
   export type UserCreateOrConnectWithoutDiscussionRepliesInput = {
@@ -59485,6 +63171,9 @@ export namespace Prisma {
     examAttempts?: ExamAttemptUpdateManyWithoutStudentNestedInput
     parent?: UserUpdateOneWithoutChildrenNestedInput
     children?: UserUpdateManyWithoutParentNestedInput
+    billings?: BillingUpdateManyWithoutStudentNestedInput
+    absenceRequests?: AbsenceRequestUpdateManyWithoutStudentNestedInput
+    reviewedRequests?: AbsenceRequestUpdateManyWithoutReviewerNestedInput
   }
 
   export type UserUncheckedUpdateWithoutDiscussionRepliesInput = {
@@ -59539,6 +63228,9 @@ export namespace Prisma {
     teacherExams?: ExamUncheckedUpdateManyWithoutTeacherNestedInput
     examAttempts?: ExamAttemptUncheckedUpdateManyWithoutStudentNestedInput
     children?: UserUncheckedUpdateManyWithoutParentNestedInput
+    billings?: BillingUncheckedUpdateManyWithoutStudentNestedInput
+    absenceRequests?: AbsenceRequestUncheckedUpdateManyWithoutStudentNestedInput
+    reviewedRequests?: AbsenceRequestUncheckedUpdateManyWithoutReviewerNestedInput
   }
 
   export type ClassCreateWithoutExamsInput = {
@@ -59661,6 +63353,9 @@ export namespace Prisma {
     examAttempts?: ExamAttemptCreateNestedManyWithoutStudentInput
     parent?: UserCreateNestedOneWithoutChildrenInput
     children?: UserCreateNestedManyWithoutParentInput
+    billings?: BillingCreateNestedManyWithoutStudentInput
+    absenceRequests?: AbsenceRequestCreateNestedManyWithoutStudentInput
+    reviewedRequests?: AbsenceRequestCreateNestedManyWithoutReviewerInput
   }
 
   export type UserUncheckedCreateWithoutTeacherExamsInput = {
@@ -59715,6 +63410,9 @@ export namespace Prisma {
     discussionReplies?: DiscussionReplyUncheckedCreateNestedManyWithoutAuthorInput
     examAttempts?: ExamAttemptUncheckedCreateNestedManyWithoutStudentInput
     children?: UserUncheckedCreateNestedManyWithoutParentInput
+    billings?: BillingUncheckedCreateNestedManyWithoutStudentInput
+    absenceRequests?: AbsenceRequestUncheckedCreateNestedManyWithoutStudentInput
+    reviewedRequests?: AbsenceRequestUncheckedCreateNestedManyWithoutReviewerInput
   }
 
   export type UserCreateOrConnectWithoutTeacherExamsInput = {
@@ -59929,6 +63627,9 @@ export namespace Prisma {
     examAttempts?: ExamAttemptUpdateManyWithoutStudentNestedInput
     parent?: UserUpdateOneWithoutChildrenNestedInput
     children?: UserUpdateManyWithoutParentNestedInput
+    billings?: BillingUpdateManyWithoutStudentNestedInput
+    absenceRequests?: AbsenceRequestUpdateManyWithoutStudentNestedInput
+    reviewedRequests?: AbsenceRequestUpdateManyWithoutReviewerNestedInput
   }
 
   export type UserUncheckedUpdateWithoutTeacherExamsInput = {
@@ -59983,6 +63684,9 @@ export namespace Prisma {
     discussionReplies?: DiscussionReplyUncheckedUpdateManyWithoutAuthorNestedInput
     examAttempts?: ExamAttemptUncheckedUpdateManyWithoutStudentNestedInput
     children?: UserUncheckedUpdateManyWithoutParentNestedInput
+    billings?: BillingUncheckedUpdateManyWithoutStudentNestedInput
+    absenceRequests?: AbsenceRequestUncheckedUpdateManyWithoutStudentNestedInput
+    reviewedRequests?: AbsenceRequestUncheckedUpdateManyWithoutReviewerNestedInput
   }
 
   export type ExamQuestionUpsertWithWhereUniqueWithoutExamInput = {
@@ -60260,6 +63964,9 @@ export namespace Prisma {
     teacherExams?: ExamCreateNestedManyWithoutTeacherInput
     parent?: UserCreateNestedOneWithoutChildrenInput
     children?: UserCreateNestedManyWithoutParentInput
+    billings?: BillingCreateNestedManyWithoutStudentInput
+    absenceRequests?: AbsenceRequestCreateNestedManyWithoutStudentInput
+    reviewedRequests?: AbsenceRequestCreateNestedManyWithoutReviewerInput
   }
 
   export type UserUncheckedCreateWithoutExamAttemptsInput = {
@@ -60314,6 +64021,9 @@ export namespace Prisma {
     discussionReplies?: DiscussionReplyUncheckedCreateNestedManyWithoutAuthorInput
     teacherExams?: ExamUncheckedCreateNestedManyWithoutTeacherInput
     children?: UserUncheckedCreateNestedManyWithoutParentInput
+    billings?: BillingUncheckedCreateNestedManyWithoutStudentInput
+    absenceRequests?: AbsenceRequestUncheckedCreateNestedManyWithoutStudentInput
+    reviewedRequests?: AbsenceRequestUncheckedCreateNestedManyWithoutReviewerInput
   }
 
   export type UserCreateOrConnectWithoutExamAttemptsInput = {
@@ -60455,6 +64165,9 @@ export namespace Prisma {
     teacherExams?: ExamUpdateManyWithoutTeacherNestedInput
     parent?: UserUpdateOneWithoutChildrenNestedInput
     children?: UserUpdateManyWithoutParentNestedInput
+    billings?: BillingUpdateManyWithoutStudentNestedInput
+    absenceRequests?: AbsenceRequestUpdateManyWithoutStudentNestedInput
+    reviewedRequests?: AbsenceRequestUpdateManyWithoutReviewerNestedInput
   }
 
   export type UserUncheckedUpdateWithoutExamAttemptsInput = {
@@ -60509,6 +64222,9 @@ export namespace Prisma {
     discussionReplies?: DiscussionReplyUncheckedUpdateManyWithoutAuthorNestedInput
     teacherExams?: ExamUncheckedUpdateManyWithoutTeacherNestedInput
     children?: UserUncheckedUpdateManyWithoutParentNestedInput
+    billings?: BillingUncheckedUpdateManyWithoutStudentNestedInput
+    absenceRequests?: AbsenceRequestUncheckedUpdateManyWithoutStudentNestedInput
+    reviewedRequests?: AbsenceRequestUncheckedUpdateManyWithoutReviewerNestedInput
   }
 
   export type ExamAnswerUpsertWithWhereUniqueWithoutAttemptInput = {
@@ -60645,6 +64361,738 @@ export namespace Prisma {
     correctAnswer?: StringFieldUpdateOperationsInput | string
     points?: IntFieldUpdateOperationsInput | number
     order?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type UserCreateWithoutBillingsInput = {
+    id?: string
+    name: string
+    email: string
+    password?: string | null
+    role?: $Enums.Role
+    school?: string | null
+    isActive?: boolean
+    lastActiveAt?: Date | string | null
+    reminderTime?: string | null
+    notificationPrefs?: JsonNullValueInput | InputJsonValue
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    image?: string | null
+    nis?: string | null
+    noAbsen?: number | null
+    phone?: string | null
+    gender?: string | null
+    address?: string | null
+    emailVerified?: Date | string | null
+    parentPin?: string | null
+    position?: string | null
+    affiliations?: UserCreateaffiliationsInput | string[]
+    canEditMaterials?: boolean
+    canEditAssignments?: boolean
+    accounts?: AccountCreateNestedManyWithoutUserInput
+    sessions?: SessionCreateNestedManyWithoutUserInput
+    teacherAssignments?: AssignmentCreateNestedManyWithoutTeacherInput
+    studentSubmissions?: AssignmentSubmissionCreateNestedManyWithoutStudentInput
+    teacherSchedules?: ClassScheduleCreateNestedManyWithoutTeacherInput
+    notifications?: NotificationCreateNestedManyWithoutUserInput
+    operator?: OperatorCreateNestedOneWithoutUserInput
+    progressLogs?: ProgressLogCreateNestedManyWithoutUserInput
+    teacherSubjects?: SubjectCreateNestedManyWithoutTeacherInput
+    class?: ClassCreateNestedOneWithoutStudentsInput
+    userNotes?: UserNoteCreateNestedManyWithoutUserInput
+    authoredNotes?: UserNoteCreateNestedManyWithoutAuthorInput
+    attendances?: AttendanceCreateNestedManyWithoutUserInput
+    userSubjects?: UserSubjectCreateNestedManyWithoutUserInput
+    comments?: CommentCreateNestedManyWithoutAuthorInput
+    calendarReminders?: CalendarReminderCreateNestedManyWithoutUserInput
+    ekskulLeader?: ExtracurricularCreateNestedManyWithoutLeaderInput
+    ekskulCoach?: ExtracurricularCreateNestedManyWithoutCoachInput
+    ekskulMembers?: ExtracurricularMemberCreateNestedManyWithoutStudentInput
+    ekskulAttendances?: ExtracurricularAttendanceCreateNestedManyWithoutStudentInput
+    teacherMaterials?: MaterialCreateNestedManyWithoutTeacherInput
+    documents?: DocumentCreateNestedManyWithoutUserInput
+    discussionThreads?: DiscussionThreadCreateNestedManyWithoutAuthorInput
+    discussionReplies?: DiscussionReplyCreateNestedManyWithoutAuthorInput
+    teacherExams?: ExamCreateNestedManyWithoutTeacherInput
+    examAttempts?: ExamAttemptCreateNestedManyWithoutStudentInput
+    parent?: UserCreateNestedOneWithoutChildrenInput
+    children?: UserCreateNestedManyWithoutParentInput
+    absenceRequests?: AbsenceRequestCreateNestedManyWithoutStudentInput
+    reviewedRequests?: AbsenceRequestCreateNestedManyWithoutReviewerInput
+  }
+
+  export type UserUncheckedCreateWithoutBillingsInput = {
+    id?: string
+    name: string
+    email: string
+    password?: string | null
+    role?: $Enums.Role
+    school?: string | null
+    isActive?: boolean
+    lastActiveAt?: Date | string | null
+    reminderTime?: string | null
+    notificationPrefs?: JsonNullValueInput | InputJsonValue
+    classId?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    image?: string | null
+    nis?: string | null
+    noAbsen?: number | null
+    phone?: string | null
+    gender?: string | null
+    address?: string | null
+    emailVerified?: Date | string | null
+    parentPin?: string | null
+    position?: string | null
+    affiliations?: UserCreateaffiliationsInput | string[]
+    canEditMaterials?: boolean
+    canEditAssignments?: boolean
+    parentId?: string | null
+    accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
+    sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
+    teacherAssignments?: AssignmentUncheckedCreateNestedManyWithoutTeacherInput
+    studentSubmissions?: AssignmentSubmissionUncheckedCreateNestedManyWithoutStudentInput
+    teacherSchedules?: ClassScheduleUncheckedCreateNestedManyWithoutTeacherInput
+    notifications?: NotificationUncheckedCreateNestedManyWithoutUserInput
+    operator?: OperatorUncheckedCreateNestedOneWithoutUserInput
+    progressLogs?: ProgressLogUncheckedCreateNestedManyWithoutUserInput
+    teacherSubjects?: SubjectUncheckedCreateNestedManyWithoutTeacherInput
+    userNotes?: UserNoteUncheckedCreateNestedManyWithoutUserInput
+    authoredNotes?: UserNoteUncheckedCreateNestedManyWithoutAuthorInput
+    attendances?: AttendanceUncheckedCreateNestedManyWithoutUserInput
+    userSubjects?: UserSubjectUncheckedCreateNestedManyWithoutUserInput
+    comments?: CommentUncheckedCreateNestedManyWithoutAuthorInput
+    calendarReminders?: CalendarReminderUncheckedCreateNestedManyWithoutUserInput
+    ekskulLeader?: ExtracurricularUncheckedCreateNestedManyWithoutLeaderInput
+    ekskulCoach?: ExtracurricularUncheckedCreateNestedManyWithoutCoachInput
+    ekskulMembers?: ExtracurricularMemberUncheckedCreateNestedManyWithoutStudentInput
+    ekskulAttendances?: ExtracurricularAttendanceUncheckedCreateNestedManyWithoutStudentInput
+    teacherMaterials?: MaterialUncheckedCreateNestedManyWithoutTeacherInput
+    documents?: DocumentUncheckedCreateNestedManyWithoutUserInput
+    discussionThreads?: DiscussionThreadUncheckedCreateNestedManyWithoutAuthorInput
+    discussionReplies?: DiscussionReplyUncheckedCreateNestedManyWithoutAuthorInput
+    teacherExams?: ExamUncheckedCreateNestedManyWithoutTeacherInput
+    examAttempts?: ExamAttemptUncheckedCreateNestedManyWithoutStudentInput
+    children?: UserUncheckedCreateNestedManyWithoutParentInput
+    absenceRequests?: AbsenceRequestUncheckedCreateNestedManyWithoutStudentInput
+    reviewedRequests?: AbsenceRequestUncheckedCreateNestedManyWithoutReviewerInput
+  }
+
+  export type UserCreateOrConnectWithoutBillingsInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutBillingsInput, UserUncheckedCreateWithoutBillingsInput>
+  }
+
+  export type UserUpsertWithoutBillingsInput = {
+    update: XOR<UserUpdateWithoutBillingsInput, UserUncheckedUpdateWithoutBillingsInput>
+    create: XOR<UserCreateWithoutBillingsInput, UserUncheckedCreateWithoutBillingsInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutBillingsInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutBillingsInput, UserUncheckedUpdateWithoutBillingsInput>
+  }
+
+  export type UserUpdateWithoutBillingsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    password?: NullableStringFieldUpdateOperationsInput | string | null
+    role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
+    school?: NullableStringFieldUpdateOperationsInput | string | null
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    lastActiveAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    reminderTime?: NullableStringFieldUpdateOperationsInput | string | null
+    notificationPrefs?: JsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    nis?: NullableStringFieldUpdateOperationsInput | string | null
+    noAbsen?: NullableIntFieldUpdateOperationsInput | number | null
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    gender?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: NullableStringFieldUpdateOperationsInput | string | null
+    emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    parentPin?: NullableStringFieldUpdateOperationsInput | string | null
+    position?: NullableStringFieldUpdateOperationsInput | string | null
+    affiliations?: UserUpdateaffiliationsInput | string[]
+    canEditMaterials?: BoolFieldUpdateOperationsInput | boolean
+    canEditAssignments?: BoolFieldUpdateOperationsInput | boolean
+    accounts?: AccountUpdateManyWithoutUserNestedInput
+    sessions?: SessionUpdateManyWithoutUserNestedInput
+    teacherAssignments?: AssignmentUpdateManyWithoutTeacherNestedInput
+    studentSubmissions?: AssignmentSubmissionUpdateManyWithoutStudentNestedInput
+    teacherSchedules?: ClassScheduleUpdateManyWithoutTeacherNestedInput
+    notifications?: NotificationUpdateManyWithoutUserNestedInput
+    operator?: OperatorUpdateOneWithoutUserNestedInput
+    progressLogs?: ProgressLogUpdateManyWithoutUserNestedInput
+    teacherSubjects?: SubjectUpdateManyWithoutTeacherNestedInput
+    class?: ClassUpdateOneWithoutStudentsNestedInput
+    userNotes?: UserNoteUpdateManyWithoutUserNestedInput
+    authoredNotes?: UserNoteUpdateManyWithoutAuthorNestedInput
+    attendances?: AttendanceUpdateManyWithoutUserNestedInput
+    userSubjects?: UserSubjectUpdateManyWithoutUserNestedInput
+    comments?: CommentUpdateManyWithoutAuthorNestedInput
+    calendarReminders?: CalendarReminderUpdateManyWithoutUserNestedInput
+    ekskulLeader?: ExtracurricularUpdateManyWithoutLeaderNestedInput
+    ekskulCoach?: ExtracurricularUpdateManyWithoutCoachNestedInput
+    ekskulMembers?: ExtracurricularMemberUpdateManyWithoutStudentNestedInput
+    ekskulAttendances?: ExtracurricularAttendanceUpdateManyWithoutStudentNestedInput
+    teacherMaterials?: MaterialUpdateManyWithoutTeacherNestedInput
+    documents?: DocumentUpdateManyWithoutUserNestedInput
+    discussionThreads?: DiscussionThreadUpdateManyWithoutAuthorNestedInput
+    discussionReplies?: DiscussionReplyUpdateManyWithoutAuthorNestedInput
+    teacherExams?: ExamUpdateManyWithoutTeacherNestedInput
+    examAttempts?: ExamAttemptUpdateManyWithoutStudentNestedInput
+    parent?: UserUpdateOneWithoutChildrenNestedInput
+    children?: UserUpdateManyWithoutParentNestedInput
+    absenceRequests?: AbsenceRequestUpdateManyWithoutStudentNestedInput
+    reviewedRequests?: AbsenceRequestUpdateManyWithoutReviewerNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutBillingsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    password?: NullableStringFieldUpdateOperationsInput | string | null
+    role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
+    school?: NullableStringFieldUpdateOperationsInput | string | null
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    lastActiveAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    reminderTime?: NullableStringFieldUpdateOperationsInput | string | null
+    notificationPrefs?: JsonNullValueInput | InputJsonValue
+    classId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    nis?: NullableStringFieldUpdateOperationsInput | string | null
+    noAbsen?: NullableIntFieldUpdateOperationsInput | number | null
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    gender?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: NullableStringFieldUpdateOperationsInput | string | null
+    emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    parentPin?: NullableStringFieldUpdateOperationsInput | string | null
+    position?: NullableStringFieldUpdateOperationsInput | string | null
+    affiliations?: UserUpdateaffiliationsInput | string[]
+    canEditMaterials?: BoolFieldUpdateOperationsInput | boolean
+    canEditAssignments?: BoolFieldUpdateOperationsInput | boolean
+    parentId?: NullableStringFieldUpdateOperationsInput | string | null
+    accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
+    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
+    teacherAssignments?: AssignmentUncheckedUpdateManyWithoutTeacherNestedInput
+    studentSubmissions?: AssignmentSubmissionUncheckedUpdateManyWithoutStudentNestedInput
+    teacherSchedules?: ClassScheduleUncheckedUpdateManyWithoutTeacherNestedInput
+    notifications?: NotificationUncheckedUpdateManyWithoutUserNestedInput
+    operator?: OperatorUncheckedUpdateOneWithoutUserNestedInput
+    progressLogs?: ProgressLogUncheckedUpdateManyWithoutUserNestedInput
+    teacherSubjects?: SubjectUncheckedUpdateManyWithoutTeacherNestedInput
+    userNotes?: UserNoteUncheckedUpdateManyWithoutUserNestedInput
+    authoredNotes?: UserNoteUncheckedUpdateManyWithoutAuthorNestedInput
+    attendances?: AttendanceUncheckedUpdateManyWithoutUserNestedInput
+    userSubjects?: UserSubjectUncheckedUpdateManyWithoutUserNestedInput
+    comments?: CommentUncheckedUpdateManyWithoutAuthorNestedInput
+    calendarReminders?: CalendarReminderUncheckedUpdateManyWithoutUserNestedInput
+    ekskulLeader?: ExtracurricularUncheckedUpdateManyWithoutLeaderNestedInput
+    ekskulCoach?: ExtracurricularUncheckedUpdateManyWithoutCoachNestedInput
+    ekskulMembers?: ExtracurricularMemberUncheckedUpdateManyWithoutStudentNestedInput
+    ekskulAttendances?: ExtracurricularAttendanceUncheckedUpdateManyWithoutStudentNestedInput
+    teacherMaterials?: MaterialUncheckedUpdateManyWithoutTeacherNestedInput
+    documents?: DocumentUncheckedUpdateManyWithoutUserNestedInput
+    discussionThreads?: DiscussionThreadUncheckedUpdateManyWithoutAuthorNestedInput
+    discussionReplies?: DiscussionReplyUncheckedUpdateManyWithoutAuthorNestedInput
+    teacherExams?: ExamUncheckedUpdateManyWithoutTeacherNestedInput
+    examAttempts?: ExamAttemptUncheckedUpdateManyWithoutStudentNestedInput
+    children?: UserUncheckedUpdateManyWithoutParentNestedInput
+    absenceRequests?: AbsenceRequestUncheckedUpdateManyWithoutStudentNestedInput
+    reviewedRequests?: AbsenceRequestUncheckedUpdateManyWithoutReviewerNestedInput
+  }
+
+  export type UserCreateWithoutAbsenceRequestsInput = {
+    id?: string
+    name: string
+    email: string
+    password?: string | null
+    role?: $Enums.Role
+    school?: string | null
+    isActive?: boolean
+    lastActiveAt?: Date | string | null
+    reminderTime?: string | null
+    notificationPrefs?: JsonNullValueInput | InputJsonValue
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    image?: string | null
+    nis?: string | null
+    noAbsen?: number | null
+    phone?: string | null
+    gender?: string | null
+    address?: string | null
+    emailVerified?: Date | string | null
+    parentPin?: string | null
+    position?: string | null
+    affiliations?: UserCreateaffiliationsInput | string[]
+    canEditMaterials?: boolean
+    canEditAssignments?: boolean
+    accounts?: AccountCreateNestedManyWithoutUserInput
+    sessions?: SessionCreateNestedManyWithoutUserInput
+    teacherAssignments?: AssignmentCreateNestedManyWithoutTeacherInput
+    studentSubmissions?: AssignmentSubmissionCreateNestedManyWithoutStudentInput
+    teacherSchedules?: ClassScheduleCreateNestedManyWithoutTeacherInput
+    notifications?: NotificationCreateNestedManyWithoutUserInput
+    operator?: OperatorCreateNestedOneWithoutUserInput
+    progressLogs?: ProgressLogCreateNestedManyWithoutUserInput
+    teacherSubjects?: SubjectCreateNestedManyWithoutTeacherInput
+    class?: ClassCreateNestedOneWithoutStudentsInput
+    userNotes?: UserNoteCreateNestedManyWithoutUserInput
+    authoredNotes?: UserNoteCreateNestedManyWithoutAuthorInput
+    attendances?: AttendanceCreateNestedManyWithoutUserInput
+    userSubjects?: UserSubjectCreateNestedManyWithoutUserInput
+    comments?: CommentCreateNestedManyWithoutAuthorInput
+    calendarReminders?: CalendarReminderCreateNestedManyWithoutUserInput
+    ekskulLeader?: ExtracurricularCreateNestedManyWithoutLeaderInput
+    ekskulCoach?: ExtracurricularCreateNestedManyWithoutCoachInput
+    ekskulMembers?: ExtracurricularMemberCreateNestedManyWithoutStudentInput
+    ekskulAttendances?: ExtracurricularAttendanceCreateNestedManyWithoutStudentInput
+    teacherMaterials?: MaterialCreateNestedManyWithoutTeacherInput
+    documents?: DocumentCreateNestedManyWithoutUserInput
+    discussionThreads?: DiscussionThreadCreateNestedManyWithoutAuthorInput
+    discussionReplies?: DiscussionReplyCreateNestedManyWithoutAuthorInput
+    teacherExams?: ExamCreateNestedManyWithoutTeacherInput
+    examAttempts?: ExamAttemptCreateNestedManyWithoutStudentInput
+    parent?: UserCreateNestedOneWithoutChildrenInput
+    children?: UserCreateNestedManyWithoutParentInput
+    billings?: BillingCreateNestedManyWithoutStudentInput
+    reviewedRequests?: AbsenceRequestCreateNestedManyWithoutReviewerInput
+  }
+
+  export type UserUncheckedCreateWithoutAbsenceRequestsInput = {
+    id?: string
+    name: string
+    email: string
+    password?: string | null
+    role?: $Enums.Role
+    school?: string | null
+    isActive?: boolean
+    lastActiveAt?: Date | string | null
+    reminderTime?: string | null
+    notificationPrefs?: JsonNullValueInput | InputJsonValue
+    classId?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    image?: string | null
+    nis?: string | null
+    noAbsen?: number | null
+    phone?: string | null
+    gender?: string | null
+    address?: string | null
+    emailVerified?: Date | string | null
+    parentPin?: string | null
+    position?: string | null
+    affiliations?: UserCreateaffiliationsInput | string[]
+    canEditMaterials?: boolean
+    canEditAssignments?: boolean
+    parentId?: string | null
+    accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
+    sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
+    teacherAssignments?: AssignmentUncheckedCreateNestedManyWithoutTeacherInput
+    studentSubmissions?: AssignmentSubmissionUncheckedCreateNestedManyWithoutStudentInput
+    teacherSchedules?: ClassScheduleUncheckedCreateNestedManyWithoutTeacherInput
+    notifications?: NotificationUncheckedCreateNestedManyWithoutUserInput
+    operator?: OperatorUncheckedCreateNestedOneWithoutUserInput
+    progressLogs?: ProgressLogUncheckedCreateNestedManyWithoutUserInput
+    teacherSubjects?: SubjectUncheckedCreateNestedManyWithoutTeacherInput
+    userNotes?: UserNoteUncheckedCreateNestedManyWithoutUserInput
+    authoredNotes?: UserNoteUncheckedCreateNestedManyWithoutAuthorInput
+    attendances?: AttendanceUncheckedCreateNestedManyWithoutUserInput
+    userSubjects?: UserSubjectUncheckedCreateNestedManyWithoutUserInput
+    comments?: CommentUncheckedCreateNestedManyWithoutAuthorInput
+    calendarReminders?: CalendarReminderUncheckedCreateNestedManyWithoutUserInput
+    ekskulLeader?: ExtracurricularUncheckedCreateNestedManyWithoutLeaderInput
+    ekskulCoach?: ExtracurricularUncheckedCreateNestedManyWithoutCoachInput
+    ekskulMembers?: ExtracurricularMemberUncheckedCreateNestedManyWithoutStudentInput
+    ekskulAttendances?: ExtracurricularAttendanceUncheckedCreateNestedManyWithoutStudentInput
+    teacherMaterials?: MaterialUncheckedCreateNestedManyWithoutTeacherInput
+    documents?: DocumentUncheckedCreateNestedManyWithoutUserInput
+    discussionThreads?: DiscussionThreadUncheckedCreateNestedManyWithoutAuthorInput
+    discussionReplies?: DiscussionReplyUncheckedCreateNestedManyWithoutAuthorInput
+    teacherExams?: ExamUncheckedCreateNestedManyWithoutTeacherInput
+    examAttempts?: ExamAttemptUncheckedCreateNestedManyWithoutStudentInput
+    children?: UserUncheckedCreateNestedManyWithoutParentInput
+    billings?: BillingUncheckedCreateNestedManyWithoutStudentInput
+    reviewedRequests?: AbsenceRequestUncheckedCreateNestedManyWithoutReviewerInput
+  }
+
+  export type UserCreateOrConnectWithoutAbsenceRequestsInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutAbsenceRequestsInput, UserUncheckedCreateWithoutAbsenceRequestsInput>
+  }
+
+  export type UserCreateWithoutReviewedRequestsInput = {
+    id?: string
+    name: string
+    email: string
+    password?: string | null
+    role?: $Enums.Role
+    school?: string | null
+    isActive?: boolean
+    lastActiveAt?: Date | string | null
+    reminderTime?: string | null
+    notificationPrefs?: JsonNullValueInput | InputJsonValue
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    image?: string | null
+    nis?: string | null
+    noAbsen?: number | null
+    phone?: string | null
+    gender?: string | null
+    address?: string | null
+    emailVerified?: Date | string | null
+    parentPin?: string | null
+    position?: string | null
+    affiliations?: UserCreateaffiliationsInput | string[]
+    canEditMaterials?: boolean
+    canEditAssignments?: boolean
+    accounts?: AccountCreateNestedManyWithoutUserInput
+    sessions?: SessionCreateNestedManyWithoutUserInput
+    teacherAssignments?: AssignmentCreateNestedManyWithoutTeacherInput
+    studentSubmissions?: AssignmentSubmissionCreateNestedManyWithoutStudentInput
+    teacherSchedules?: ClassScheduleCreateNestedManyWithoutTeacherInput
+    notifications?: NotificationCreateNestedManyWithoutUserInput
+    operator?: OperatorCreateNestedOneWithoutUserInput
+    progressLogs?: ProgressLogCreateNestedManyWithoutUserInput
+    teacherSubjects?: SubjectCreateNestedManyWithoutTeacherInput
+    class?: ClassCreateNestedOneWithoutStudentsInput
+    userNotes?: UserNoteCreateNestedManyWithoutUserInput
+    authoredNotes?: UserNoteCreateNestedManyWithoutAuthorInput
+    attendances?: AttendanceCreateNestedManyWithoutUserInput
+    userSubjects?: UserSubjectCreateNestedManyWithoutUserInput
+    comments?: CommentCreateNestedManyWithoutAuthorInput
+    calendarReminders?: CalendarReminderCreateNestedManyWithoutUserInput
+    ekskulLeader?: ExtracurricularCreateNestedManyWithoutLeaderInput
+    ekskulCoach?: ExtracurricularCreateNestedManyWithoutCoachInput
+    ekskulMembers?: ExtracurricularMemberCreateNestedManyWithoutStudentInput
+    ekskulAttendances?: ExtracurricularAttendanceCreateNestedManyWithoutStudentInput
+    teacherMaterials?: MaterialCreateNestedManyWithoutTeacherInput
+    documents?: DocumentCreateNestedManyWithoutUserInput
+    discussionThreads?: DiscussionThreadCreateNestedManyWithoutAuthorInput
+    discussionReplies?: DiscussionReplyCreateNestedManyWithoutAuthorInput
+    teacherExams?: ExamCreateNestedManyWithoutTeacherInput
+    examAttempts?: ExamAttemptCreateNestedManyWithoutStudentInput
+    parent?: UserCreateNestedOneWithoutChildrenInput
+    children?: UserCreateNestedManyWithoutParentInput
+    billings?: BillingCreateNestedManyWithoutStudentInput
+    absenceRequests?: AbsenceRequestCreateNestedManyWithoutStudentInput
+  }
+
+  export type UserUncheckedCreateWithoutReviewedRequestsInput = {
+    id?: string
+    name: string
+    email: string
+    password?: string | null
+    role?: $Enums.Role
+    school?: string | null
+    isActive?: boolean
+    lastActiveAt?: Date | string | null
+    reminderTime?: string | null
+    notificationPrefs?: JsonNullValueInput | InputJsonValue
+    classId?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    image?: string | null
+    nis?: string | null
+    noAbsen?: number | null
+    phone?: string | null
+    gender?: string | null
+    address?: string | null
+    emailVerified?: Date | string | null
+    parentPin?: string | null
+    position?: string | null
+    affiliations?: UserCreateaffiliationsInput | string[]
+    canEditMaterials?: boolean
+    canEditAssignments?: boolean
+    parentId?: string | null
+    accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
+    sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
+    teacherAssignments?: AssignmentUncheckedCreateNestedManyWithoutTeacherInput
+    studentSubmissions?: AssignmentSubmissionUncheckedCreateNestedManyWithoutStudentInput
+    teacherSchedules?: ClassScheduleUncheckedCreateNestedManyWithoutTeacherInput
+    notifications?: NotificationUncheckedCreateNestedManyWithoutUserInput
+    operator?: OperatorUncheckedCreateNestedOneWithoutUserInput
+    progressLogs?: ProgressLogUncheckedCreateNestedManyWithoutUserInput
+    teacherSubjects?: SubjectUncheckedCreateNestedManyWithoutTeacherInput
+    userNotes?: UserNoteUncheckedCreateNestedManyWithoutUserInput
+    authoredNotes?: UserNoteUncheckedCreateNestedManyWithoutAuthorInput
+    attendances?: AttendanceUncheckedCreateNestedManyWithoutUserInput
+    userSubjects?: UserSubjectUncheckedCreateNestedManyWithoutUserInput
+    comments?: CommentUncheckedCreateNestedManyWithoutAuthorInput
+    calendarReminders?: CalendarReminderUncheckedCreateNestedManyWithoutUserInput
+    ekskulLeader?: ExtracurricularUncheckedCreateNestedManyWithoutLeaderInput
+    ekskulCoach?: ExtracurricularUncheckedCreateNestedManyWithoutCoachInput
+    ekskulMembers?: ExtracurricularMemberUncheckedCreateNestedManyWithoutStudentInput
+    ekskulAttendances?: ExtracurricularAttendanceUncheckedCreateNestedManyWithoutStudentInput
+    teacherMaterials?: MaterialUncheckedCreateNestedManyWithoutTeacherInput
+    documents?: DocumentUncheckedCreateNestedManyWithoutUserInput
+    discussionThreads?: DiscussionThreadUncheckedCreateNestedManyWithoutAuthorInput
+    discussionReplies?: DiscussionReplyUncheckedCreateNestedManyWithoutAuthorInput
+    teacherExams?: ExamUncheckedCreateNestedManyWithoutTeacherInput
+    examAttempts?: ExamAttemptUncheckedCreateNestedManyWithoutStudentInput
+    children?: UserUncheckedCreateNestedManyWithoutParentInput
+    billings?: BillingUncheckedCreateNestedManyWithoutStudentInput
+    absenceRequests?: AbsenceRequestUncheckedCreateNestedManyWithoutStudentInput
+  }
+
+  export type UserCreateOrConnectWithoutReviewedRequestsInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutReviewedRequestsInput, UserUncheckedCreateWithoutReviewedRequestsInput>
+  }
+
+  export type UserUpsertWithoutAbsenceRequestsInput = {
+    update: XOR<UserUpdateWithoutAbsenceRequestsInput, UserUncheckedUpdateWithoutAbsenceRequestsInput>
+    create: XOR<UserCreateWithoutAbsenceRequestsInput, UserUncheckedCreateWithoutAbsenceRequestsInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutAbsenceRequestsInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutAbsenceRequestsInput, UserUncheckedUpdateWithoutAbsenceRequestsInput>
+  }
+
+  export type UserUpdateWithoutAbsenceRequestsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    password?: NullableStringFieldUpdateOperationsInput | string | null
+    role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
+    school?: NullableStringFieldUpdateOperationsInput | string | null
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    lastActiveAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    reminderTime?: NullableStringFieldUpdateOperationsInput | string | null
+    notificationPrefs?: JsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    nis?: NullableStringFieldUpdateOperationsInput | string | null
+    noAbsen?: NullableIntFieldUpdateOperationsInput | number | null
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    gender?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: NullableStringFieldUpdateOperationsInput | string | null
+    emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    parentPin?: NullableStringFieldUpdateOperationsInput | string | null
+    position?: NullableStringFieldUpdateOperationsInput | string | null
+    affiliations?: UserUpdateaffiliationsInput | string[]
+    canEditMaterials?: BoolFieldUpdateOperationsInput | boolean
+    canEditAssignments?: BoolFieldUpdateOperationsInput | boolean
+    accounts?: AccountUpdateManyWithoutUserNestedInput
+    sessions?: SessionUpdateManyWithoutUserNestedInput
+    teacherAssignments?: AssignmentUpdateManyWithoutTeacherNestedInput
+    studentSubmissions?: AssignmentSubmissionUpdateManyWithoutStudentNestedInput
+    teacherSchedules?: ClassScheduleUpdateManyWithoutTeacherNestedInput
+    notifications?: NotificationUpdateManyWithoutUserNestedInput
+    operator?: OperatorUpdateOneWithoutUserNestedInput
+    progressLogs?: ProgressLogUpdateManyWithoutUserNestedInput
+    teacherSubjects?: SubjectUpdateManyWithoutTeacherNestedInput
+    class?: ClassUpdateOneWithoutStudentsNestedInput
+    userNotes?: UserNoteUpdateManyWithoutUserNestedInput
+    authoredNotes?: UserNoteUpdateManyWithoutAuthorNestedInput
+    attendances?: AttendanceUpdateManyWithoutUserNestedInput
+    userSubjects?: UserSubjectUpdateManyWithoutUserNestedInput
+    comments?: CommentUpdateManyWithoutAuthorNestedInput
+    calendarReminders?: CalendarReminderUpdateManyWithoutUserNestedInput
+    ekskulLeader?: ExtracurricularUpdateManyWithoutLeaderNestedInput
+    ekskulCoach?: ExtracurricularUpdateManyWithoutCoachNestedInput
+    ekskulMembers?: ExtracurricularMemberUpdateManyWithoutStudentNestedInput
+    ekskulAttendances?: ExtracurricularAttendanceUpdateManyWithoutStudentNestedInput
+    teacherMaterials?: MaterialUpdateManyWithoutTeacherNestedInput
+    documents?: DocumentUpdateManyWithoutUserNestedInput
+    discussionThreads?: DiscussionThreadUpdateManyWithoutAuthorNestedInput
+    discussionReplies?: DiscussionReplyUpdateManyWithoutAuthorNestedInput
+    teacherExams?: ExamUpdateManyWithoutTeacherNestedInput
+    examAttempts?: ExamAttemptUpdateManyWithoutStudentNestedInput
+    parent?: UserUpdateOneWithoutChildrenNestedInput
+    children?: UserUpdateManyWithoutParentNestedInput
+    billings?: BillingUpdateManyWithoutStudentNestedInput
+    reviewedRequests?: AbsenceRequestUpdateManyWithoutReviewerNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutAbsenceRequestsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    password?: NullableStringFieldUpdateOperationsInput | string | null
+    role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
+    school?: NullableStringFieldUpdateOperationsInput | string | null
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    lastActiveAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    reminderTime?: NullableStringFieldUpdateOperationsInput | string | null
+    notificationPrefs?: JsonNullValueInput | InputJsonValue
+    classId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    nis?: NullableStringFieldUpdateOperationsInput | string | null
+    noAbsen?: NullableIntFieldUpdateOperationsInput | number | null
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    gender?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: NullableStringFieldUpdateOperationsInput | string | null
+    emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    parentPin?: NullableStringFieldUpdateOperationsInput | string | null
+    position?: NullableStringFieldUpdateOperationsInput | string | null
+    affiliations?: UserUpdateaffiliationsInput | string[]
+    canEditMaterials?: BoolFieldUpdateOperationsInput | boolean
+    canEditAssignments?: BoolFieldUpdateOperationsInput | boolean
+    parentId?: NullableStringFieldUpdateOperationsInput | string | null
+    accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
+    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
+    teacherAssignments?: AssignmentUncheckedUpdateManyWithoutTeacherNestedInput
+    studentSubmissions?: AssignmentSubmissionUncheckedUpdateManyWithoutStudentNestedInput
+    teacherSchedules?: ClassScheduleUncheckedUpdateManyWithoutTeacherNestedInput
+    notifications?: NotificationUncheckedUpdateManyWithoutUserNestedInput
+    operator?: OperatorUncheckedUpdateOneWithoutUserNestedInput
+    progressLogs?: ProgressLogUncheckedUpdateManyWithoutUserNestedInput
+    teacherSubjects?: SubjectUncheckedUpdateManyWithoutTeacherNestedInput
+    userNotes?: UserNoteUncheckedUpdateManyWithoutUserNestedInput
+    authoredNotes?: UserNoteUncheckedUpdateManyWithoutAuthorNestedInput
+    attendances?: AttendanceUncheckedUpdateManyWithoutUserNestedInput
+    userSubjects?: UserSubjectUncheckedUpdateManyWithoutUserNestedInput
+    comments?: CommentUncheckedUpdateManyWithoutAuthorNestedInput
+    calendarReminders?: CalendarReminderUncheckedUpdateManyWithoutUserNestedInput
+    ekskulLeader?: ExtracurricularUncheckedUpdateManyWithoutLeaderNestedInput
+    ekskulCoach?: ExtracurricularUncheckedUpdateManyWithoutCoachNestedInput
+    ekskulMembers?: ExtracurricularMemberUncheckedUpdateManyWithoutStudentNestedInput
+    ekskulAttendances?: ExtracurricularAttendanceUncheckedUpdateManyWithoutStudentNestedInput
+    teacherMaterials?: MaterialUncheckedUpdateManyWithoutTeacherNestedInput
+    documents?: DocumentUncheckedUpdateManyWithoutUserNestedInput
+    discussionThreads?: DiscussionThreadUncheckedUpdateManyWithoutAuthorNestedInput
+    discussionReplies?: DiscussionReplyUncheckedUpdateManyWithoutAuthorNestedInput
+    teacherExams?: ExamUncheckedUpdateManyWithoutTeacherNestedInput
+    examAttempts?: ExamAttemptUncheckedUpdateManyWithoutStudentNestedInput
+    children?: UserUncheckedUpdateManyWithoutParentNestedInput
+    billings?: BillingUncheckedUpdateManyWithoutStudentNestedInput
+    reviewedRequests?: AbsenceRequestUncheckedUpdateManyWithoutReviewerNestedInput
+  }
+
+  export type UserUpsertWithoutReviewedRequestsInput = {
+    update: XOR<UserUpdateWithoutReviewedRequestsInput, UserUncheckedUpdateWithoutReviewedRequestsInput>
+    create: XOR<UserCreateWithoutReviewedRequestsInput, UserUncheckedCreateWithoutReviewedRequestsInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutReviewedRequestsInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutReviewedRequestsInput, UserUncheckedUpdateWithoutReviewedRequestsInput>
+  }
+
+  export type UserUpdateWithoutReviewedRequestsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    password?: NullableStringFieldUpdateOperationsInput | string | null
+    role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
+    school?: NullableStringFieldUpdateOperationsInput | string | null
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    lastActiveAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    reminderTime?: NullableStringFieldUpdateOperationsInput | string | null
+    notificationPrefs?: JsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    nis?: NullableStringFieldUpdateOperationsInput | string | null
+    noAbsen?: NullableIntFieldUpdateOperationsInput | number | null
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    gender?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: NullableStringFieldUpdateOperationsInput | string | null
+    emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    parentPin?: NullableStringFieldUpdateOperationsInput | string | null
+    position?: NullableStringFieldUpdateOperationsInput | string | null
+    affiliations?: UserUpdateaffiliationsInput | string[]
+    canEditMaterials?: BoolFieldUpdateOperationsInput | boolean
+    canEditAssignments?: BoolFieldUpdateOperationsInput | boolean
+    accounts?: AccountUpdateManyWithoutUserNestedInput
+    sessions?: SessionUpdateManyWithoutUserNestedInput
+    teacherAssignments?: AssignmentUpdateManyWithoutTeacherNestedInput
+    studentSubmissions?: AssignmentSubmissionUpdateManyWithoutStudentNestedInput
+    teacherSchedules?: ClassScheduleUpdateManyWithoutTeacherNestedInput
+    notifications?: NotificationUpdateManyWithoutUserNestedInput
+    operator?: OperatorUpdateOneWithoutUserNestedInput
+    progressLogs?: ProgressLogUpdateManyWithoutUserNestedInput
+    teacherSubjects?: SubjectUpdateManyWithoutTeacherNestedInput
+    class?: ClassUpdateOneWithoutStudentsNestedInput
+    userNotes?: UserNoteUpdateManyWithoutUserNestedInput
+    authoredNotes?: UserNoteUpdateManyWithoutAuthorNestedInput
+    attendances?: AttendanceUpdateManyWithoutUserNestedInput
+    userSubjects?: UserSubjectUpdateManyWithoutUserNestedInput
+    comments?: CommentUpdateManyWithoutAuthorNestedInput
+    calendarReminders?: CalendarReminderUpdateManyWithoutUserNestedInput
+    ekskulLeader?: ExtracurricularUpdateManyWithoutLeaderNestedInput
+    ekskulCoach?: ExtracurricularUpdateManyWithoutCoachNestedInput
+    ekskulMembers?: ExtracurricularMemberUpdateManyWithoutStudentNestedInput
+    ekskulAttendances?: ExtracurricularAttendanceUpdateManyWithoutStudentNestedInput
+    teacherMaterials?: MaterialUpdateManyWithoutTeacherNestedInput
+    documents?: DocumentUpdateManyWithoutUserNestedInput
+    discussionThreads?: DiscussionThreadUpdateManyWithoutAuthorNestedInput
+    discussionReplies?: DiscussionReplyUpdateManyWithoutAuthorNestedInput
+    teacherExams?: ExamUpdateManyWithoutTeacherNestedInput
+    examAttempts?: ExamAttemptUpdateManyWithoutStudentNestedInput
+    parent?: UserUpdateOneWithoutChildrenNestedInput
+    children?: UserUpdateManyWithoutParentNestedInput
+    billings?: BillingUpdateManyWithoutStudentNestedInput
+    absenceRequests?: AbsenceRequestUpdateManyWithoutStudentNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutReviewedRequestsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    password?: NullableStringFieldUpdateOperationsInput | string | null
+    role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
+    school?: NullableStringFieldUpdateOperationsInput | string | null
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    lastActiveAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    reminderTime?: NullableStringFieldUpdateOperationsInput | string | null
+    notificationPrefs?: JsonNullValueInput | InputJsonValue
+    classId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    nis?: NullableStringFieldUpdateOperationsInput | string | null
+    noAbsen?: NullableIntFieldUpdateOperationsInput | number | null
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    gender?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: NullableStringFieldUpdateOperationsInput | string | null
+    emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    parentPin?: NullableStringFieldUpdateOperationsInput | string | null
+    position?: NullableStringFieldUpdateOperationsInput | string | null
+    affiliations?: UserUpdateaffiliationsInput | string[]
+    canEditMaterials?: BoolFieldUpdateOperationsInput | boolean
+    canEditAssignments?: BoolFieldUpdateOperationsInput | boolean
+    parentId?: NullableStringFieldUpdateOperationsInput | string | null
+    accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
+    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
+    teacherAssignments?: AssignmentUncheckedUpdateManyWithoutTeacherNestedInput
+    studentSubmissions?: AssignmentSubmissionUncheckedUpdateManyWithoutStudentNestedInput
+    teacherSchedules?: ClassScheduleUncheckedUpdateManyWithoutTeacherNestedInput
+    notifications?: NotificationUncheckedUpdateManyWithoutUserNestedInput
+    operator?: OperatorUncheckedUpdateOneWithoutUserNestedInput
+    progressLogs?: ProgressLogUncheckedUpdateManyWithoutUserNestedInput
+    teacherSubjects?: SubjectUncheckedUpdateManyWithoutTeacherNestedInput
+    userNotes?: UserNoteUncheckedUpdateManyWithoutUserNestedInput
+    authoredNotes?: UserNoteUncheckedUpdateManyWithoutAuthorNestedInput
+    attendances?: AttendanceUncheckedUpdateManyWithoutUserNestedInput
+    userSubjects?: UserSubjectUncheckedUpdateManyWithoutUserNestedInput
+    comments?: CommentUncheckedUpdateManyWithoutAuthorNestedInput
+    calendarReminders?: CalendarReminderUncheckedUpdateManyWithoutUserNestedInput
+    ekskulLeader?: ExtracurricularUncheckedUpdateManyWithoutLeaderNestedInput
+    ekskulCoach?: ExtracurricularUncheckedUpdateManyWithoutCoachNestedInput
+    ekskulMembers?: ExtracurricularMemberUncheckedUpdateManyWithoutStudentNestedInput
+    ekskulAttendances?: ExtracurricularAttendanceUncheckedUpdateManyWithoutStudentNestedInput
+    teacherMaterials?: MaterialUncheckedUpdateManyWithoutTeacherNestedInput
+    documents?: DocumentUncheckedUpdateManyWithoutUserNestedInput
+    discussionThreads?: DiscussionThreadUncheckedUpdateManyWithoutAuthorNestedInput
+    discussionReplies?: DiscussionReplyUncheckedUpdateManyWithoutAuthorNestedInput
+    teacherExams?: ExamUncheckedUpdateManyWithoutTeacherNestedInput
+    examAttempts?: ExamAttemptUncheckedUpdateManyWithoutStudentNestedInput
+    children?: UserUncheckedUpdateManyWithoutParentNestedInput
+    billings?: BillingUncheckedUpdateManyWithoutStudentNestedInput
+    absenceRequests?: AbsenceRequestUncheckedUpdateManyWithoutStudentNestedInput
   }
 
   export type AccountCreateManyUserInput = {
@@ -60907,6 +65355,46 @@ export namespace Prisma {
     affiliations?: UserCreateaffiliationsInput | string[]
     canEditMaterials?: boolean
     canEditAssignments?: boolean
+  }
+
+  export type BillingCreateManyStudentInput = {
+    id?: string
+    title: string
+    description?: string | null
+    amount: number
+    dueDate: Date | string
+    status?: $Enums.BillingStatus
+    paymentMethod?: string | null
+    paymentDate?: Date | string | null
+    proofUrl?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type AbsenceRequestCreateManyStudentInput = {
+    id?: string
+    startDate: Date | string
+    endDate: Date | string
+    reason: $Enums.AttendanceStatus
+    description: string
+    attachmentUrl?: string | null
+    status?: $Enums.RequestStatus
+    reviewedById?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type AbsenceRequestCreateManyReviewerInput = {
+    id?: string
+    studentId: string
+    startDate: Date | string
+    endDate: Date | string
+    reason: $Enums.AttendanceStatus
+    description: string
+    attachmentUrl?: string | null
+    status?: $Enums.RequestStatus
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type AccountUpdateWithoutUserInput = {
@@ -61699,6 +66187,9 @@ export namespace Prisma {
     teacherExams?: ExamUpdateManyWithoutTeacherNestedInput
     examAttempts?: ExamAttemptUpdateManyWithoutStudentNestedInput
     children?: UserUpdateManyWithoutParentNestedInput
+    billings?: BillingUpdateManyWithoutStudentNestedInput
+    absenceRequests?: AbsenceRequestUpdateManyWithoutStudentNestedInput
+    reviewedRequests?: AbsenceRequestUpdateManyWithoutReviewerNestedInput
   }
 
   export type UserUncheckedUpdateWithoutParentInput = {
@@ -61753,6 +66244,9 @@ export namespace Prisma {
     teacherExams?: ExamUncheckedUpdateManyWithoutTeacherNestedInput
     examAttempts?: ExamAttemptUncheckedUpdateManyWithoutStudentNestedInput
     children?: UserUncheckedUpdateManyWithoutParentNestedInput
+    billings?: BillingUncheckedUpdateManyWithoutStudentNestedInput
+    absenceRequests?: AbsenceRequestUncheckedUpdateManyWithoutStudentNestedInput
+    reviewedRequests?: AbsenceRequestUncheckedUpdateManyWithoutReviewerNestedInput
   }
 
   export type UserUncheckedUpdateManyWithoutParentInput = {
@@ -61781,6 +66275,126 @@ export namespace Prisma {
     affiliations?: UserUpdateaffiliationsInput | string[]
     canEditMaterials?: BoolFieldUpdateOperationsInput | boolean
     canEditAssignments?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type BillingUpdateWithoutStudentInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    amount?: IntFieldUpdateOperationsInput | number
+    dueDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    status?: EnumBillingStatusFieldUpdateOperationsInput | $Enums.BillingStatus
+    paymentMethod?: NullableStringFieldUpdateOperationsInput | string | null
+    paymentDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    proofUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BillingUncheckedUpdateWithoutStudentInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    amount?: IntFieldUpdateOperationsInput | number
+    dueDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    status?: EnumBillingStatusFieldUpdateOperationsInput | $Enums.BillingStatus
+    paymentMethod?: NullableStringFieldUpdateOperationsInput | string | null
+    paymentDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    proofUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BillingUncheckedUpdateManyWithoutStudentInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    amount?: IntFieldUpdateOperationsInput | number
+    dueDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    status?: EnumBillingStatusFieldUpdateOperationsInput | $Enums.BillingStatus
+    paymentMethod?: NullableStringFieldUpdateOperationsInput | string | null
+    paymentDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    proofUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type AbsenceRequestUpdateWithoutStudentInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    endDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    reason?: EnumAttendanceStatusFieldUpdateOperationsInput | $Enums.AttendanceStatus
+    description?: StringFieldUpdateOperationsInput | string
+    attachmentUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: EnumRequestStatusFieldUpdateOperationsInput | $Enums.RequestStatus
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    reviewer?: UserUpdateOneWithoutReviewedRequestsNestedInput
+  }
+
+  export type AbsenceRequestUncheckedUpdateWithoutStudentInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    endDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    reason?: EnumAttendanceStatusFieldUpdateOperationsInput | $Enums.AttendanceStatus
+    description?: StringFieldUpdateOperationsInput | string
+    attachmentUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: EnumRequestStatusFieldUpdateOperationsInput | $Enums.RequestStatus
+    reviewedById?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type AbsenceRequestUncheckedUpdateManyWithoutStudentInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    endDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    reason?: EnumAttendanceStatusFieldUpdateOperationsInput | $Enums.AttendanceStatus
+    description?: StringFieldUpdateOperationsInput | string
+    attachmentUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: EnumRequestStatusFieldUpdateOperationsInput | $Enums.RequestStatus
+    reviewedById?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type AbsenceRequestUpdateWithoutReviewerInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    endDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    reason?: EnumAttendanceStatusFieldUpdateOperationsInput | $Enums.AttendanceStatus
+    description?: StringFieldUpdateOperationsInput | string
+    attachmentUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: EnumRequestStatusFieldUpdateOperationsInput | $Enums.RequestStatus
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    student?: UserUpdateOneRequiredWithoutAbsenceRequestsNestedInput
+  }
+
+  export type AbsenceRequestUncheckedUpdateWithoutReviewerInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    studentId?: StringFieldUpdateOperationsInput | string
+    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    endDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    reason?: EnumAttendanceStatusFieldUpdateOperationsInput | $Enums.AttendanceStatus
+    description?: StringFieldUpdateOperationsInput | string
+    attachmentUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: EnumRequestStatusFieldUpdateOperationsInput | $Enums.RequestStatus
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type AbsenceRequestUncheckedUpdateManyWithoutReviewerInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    studentId?: StringFieldUpdateOperationsInput | string
+    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    endDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    reason?: EnumAttendanceStatusFieldUpdateOperationsInput | $Enums.AttendanceStatus
+    description?: StringFieldUpdateOperationsInput | string
+    attachmentUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: EnumRequestStatusFieldUpdateOperationsInput | $Enums.RequestStatus
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type AssignmentCreateManyClassInput = {
@@ -62015,6 +66629,9 @@ export namespace Prisma {
     examAttempts?: ExamAttemptUpdateManyWithoutStudentNestedInput
     parent?: UserUpdateOneWithoutChildrenNestedInput
     children?: UserUpdateManyWithoutParentNestedInput
+    billings?: BillingUpdateManyWithoutStudentNestedInput
+    absenceRequests?: AbsenceRequestUpdateManyWithoutStudentNestedInput
+    reviewedRequests?: AbsenceRequestUpdateManyWithoutReviewerNestedInput
   }
 
   export type UserUncheckedUpdateWithoutClassInput = {
@@ -62069,6 +66686,9 @@ export namespace Prisma {
     teacherExams?: ExamUncheckedUpdateManyWithoutTeacherNestedInput
     examAttempts?: ExamAttemptUncheckedUpdateManyWithoutStudentNestedInput
     children?: UserUncheckedUpdateManyWithoutParentNestedInput
+    billings?: BillingUncheckedUpdateManyWithoutStudentNestedInput
+    absenceRequests?: AbsenceRequestUncheckedUpdateManyWithoutStudentNestedInput
+    reviewedRequests?: AbsenceRequestUncheckedUpdateManyWithoutReviewerNestedInput
   }
 
   export type UserUncheckedUpdateManyWithoutClassInput = {
@@ -63276,6 +67896,14 @@ export namespace Prisma {
      * @deprecated Use ExamAnswerDefaultArgs instead
      */
     export type ExamAnswerArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = ExamAnswerDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use BillingDefaultArgs instead
+     */
+    export type BillingArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = BillingDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use AbsenceRequestDefaultArgs instead
+     */
+    export type AbsenceRequestArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = AbsenceRequestDefaultArgs<ExtArgs>
 
   /**
    * Batch Payload for updateMany & deleteMany & createMany

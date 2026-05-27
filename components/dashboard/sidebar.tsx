@@ -21,7 +21,8 @@ import {
   LogOut,
   UserCheck,
   ChevronRight,
-  MessageSquare
+  MessageSquare,
+  Wallet
 } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
@@ -52,6 +53,7 @@ const sidebarLinks = {
     { label: 'Ekskul Saya', icon: Trophy, href: '/dashboard/ekskul-guru' },
     { label: 'Forum Diskusi', icon: MessageSquare, href: '/dashboard/discussions' },
     { label: 'Data Siswa', icon: Users, href: '/dashboard/siswa-guru' },
+    { label: 'Verifikasi Izin', icon: UserCheck, href: '/dashboard/teacher/requests' },
     { label: 'Jadwal Kelas', icon: ClipboardList, href: '/dashboard/schedule' },
     { label: 'Kalender', icon: Calendar, href: '/dashboard/calendar' },
     { label: 'Laporan', icon: FileBarChart, href: '/dashboard/reports' },
@@ -68,6 +70,8 @@ const sidebarLinks = {
     { label: 'Kelola Tugas', icon: ClipboardList, href: '/dashboard/kelola-tugas' },
     { label: 'Kelola Ekskul', icon: Trophy, href: '/dashboard/admin/extracurriculars' },
     { label: 'Kelola Jadwal', icon: ClipboardList, href: '/dashboard/admin/schedules' },
+    { label: 'Keuangan & SPP', icon: Wallet, href: '/dashboard/admin/billing' },
+    { label: 'Verifikasi Izin', icon: UserCheck, href: '/dashboard/teacher/requests' },
     { label: 'Kalender', icon: Calendar, href: '/dashboard/calendar' },
     { label: 'Pengumuman', icon: Megaphone, href: '/dashboard/admin/announcements' },
     { label: 'Forum Diskusi', icon: MessageSquare, href: '/dashboard/discussions' },
@@ -87,6 +91,12 @@ const sidebarLinks = {
   USER: [
     { label: 'Beranda', icon: LayoutDashboard, href: '/dashboard' },
     { label: 'Kalender', icon: Calendar, href: '/dashboard/calendar' },
+    { label: 'Notifikasi', icon: Bell, href: '/dashboard/notifications' },
+    { label: 'Bantuan', icon: HelpCircle, href: '/dashboard/help' },
+    { label: 'Pengaturan', icon: Settings, href: '/dashboard/settings' },
+  ],
+  PARENT: [
+    { label: 'Beranda Anak', icon: LayoutDashboard, href: '/dashboard/parent' },
     { label: 'Notifikasi', icon: Bell, href: '/dashboard/notifications' },
     { label: 'Bantuan', icon: HelpCircle, href: '/dashboard/help' },
     { label: 'Pengaturan', icon: Settings, href: '/dashboard/settings' },

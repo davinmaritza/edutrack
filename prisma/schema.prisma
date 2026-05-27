@@ -71,6 +71,11 @@ model User {
   parentId           String?
   parent             User?                  @relation("ParentChild", fields: [parentId], references: [id])
   children           User[]                 @relation("ParentChild")
+
+  // Billing & Requests
+  billings              Billing[]              @relation("StudentBillings")
+  absenceRequests       AbsenceRequest[]       @relation("StudentAbsenceRequests")
+  reviewedRequests      AbsenceRequest[]       @relation("ReviewedRequests")
 }
 
 model UserNote {
@@ -557,4 +562,54 @@ enum ExamStatus {
 enum AttemptStatus {
   ONGOING
   COMPLETED
+}
+
+// ==========================================
+// Billing & Absence Request Models
+// ==========================================
+
+enum BillingStatus {
+  UNPAID
+  PENDING
+  PAID
+}
+
+model Billing {
+  id            String   @id @default(cuid())
+  studentId     String
+  title         String
+  description   String?
+  amount        Int
+  dueDate       DateTime
+  status        BillingStatus @default(UNPAID)
+  paymentMethod String?
+  paymentDate   DateTime?
+  proofUrl      String?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  student       User     @relation("StudentBillings", fields: [studentId], references: [id], onDelete: Cascade)
+}
+
+enum RequestStatus {
+  PENDING
+  APPROVED
+  REJECTED
+}
+
+model AbsenceRequest {
+  id            String   @id @default(cuid())
+  studentId     String
+  startDate     DateTime
+  endDate       DateTime
+  reason        AttendanceStatus 
+  description   String
+  attachmentUrl String?
+  status        RequestStatus @default(PENDING)
+  reviewedById  String?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  student       User     @relation("StudentAbsenceRequests", fields: [studentId], references: [id], onDelete: Cascade)
+  reviewer      User?    @relation("ReviewedRequests", fields: [reviewedById], references: [id])
 }
