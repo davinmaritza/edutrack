@@ -101,7 +101,7 @@ export function NotificationDropdown() {
                   {!notif.read && <span className="w-2 h-2 bg-[#5483B3] rounded-full mt-1.5 flex-shrink-0" />}
                 </div>
                 <p className="text-xs text-[var(--muted-foreground)] line-clamp-2 leading-relaxed">
-                  {notif.message}
+                  {notif.message.replace(/<[^>]*>?/gm, '')}
                 </p>
                 <span className="text-[10px] text-[var(--muted-foreground)]/70 mt-1">
                   {formatDistanceToNow(new Date(notif.createdAt), { addSuffix: true, locale: id })}
