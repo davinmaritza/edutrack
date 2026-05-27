@@ -1,40 +1,44 @@
 export const RBAC = {
+  // Helper for case-insensitive check
+  check: (role: string | undefined, allowedRoles: string[]) => 
+    allowedRoles.includes((role || '').toUpperCase()),
+
   // 1. Super Admin Level (Absolute access)
-  isSuperAdmin: (role?: string) => ['SUPER_ADMIN'].includes(role || ''),
+  isSuperAdmin: (role?: string) => RBAC.check(role, ['SUPER_ADMIN']),
   
   // 2. Foundation / Management Level
-  isYayasanLevel: (role?: string) => ['SUPER_ADMIN', 'KETUA_YAYASAN', 'BENDAHARA_YAYASAN'].includes(role || ''),
+  isYayasanLevel: (role?: string) => RBAC.check(role, ['SUPER_ADMIN', 'KETUA_YAYASAN', 'BENDAHARA_YAYASAN']),
 
   // 3. School Leadership Level
-  isLeadershipLevel: (role?: string) => ['SUPER_ADMIN', 'KEPALA_SEKOLAH', 'WAKASEK_KURIKULUM', 'WAKASEK_KESISWAAN', 'WAKASEK_HUBIN', 'ADMIN'].includes(role || ''),
+  isLeadershipLevel: (role?: string) => RBAC.check(role, ['SUPER_ADMIN', 'KEPALA_SEKOLAH', 'WAKASEK_KURIKULUM', 'WAKASEK_KESISWAAN', 'WAKASEK_HUBIN', 'ADMIN']),
 
   // 4. Admin / Operational Level (Equivalent to legacy 'ADMIN')
-  isAdminLevel: (role?: string) => ['SUPER_ADMIN', 'KEPALA_SEKOLAH', 'TATA_USAHA', 'ADMIN'].includes(role || ''),
+  isAdminLevel: (role?: string) => RBAC.check(role, ['SUPER_ADMIN', 'KEPALA_SEKOLAH', 'TATA_USAHA', 'ADMIN']),
 
   // 5. Finance Level
-  isFinanceLevel: (role?: string) => ['SUPER_ADMIN', 'BENDAHARA_YAYASAN', 'BENDAHARA_SEKOLAH', 'ADMIN'].includes(role || ''),
+  isFinanceLevel: (role?: string) => RBAC.check(role, ['SUPER_ADMIN', 'BENDAHARA_YAYASAN', 'BENDAHARA_SEKOLAH', 'ADMIN']),
 
   // 6. Teacher / Academic Level (Equivalent to legacy 'TEACHER')
-  isTeacherLevel: (role?: string) => ['SUPER_ADMIN', 'KEPALA_SEKOLAH', 'WAKASEK_KURIKULUM', 'KAPROG', 'GURU_MAPEL', 'WALI_KELAS', 'GURU_BK', 'TEACHER', 'ADMIN'].includes(role || ''),
+  isTeacherLevel: (role?: string) => RBAC.check(role, ['SUPER_ADMIN', 'KEPALA_SEKOLAH', 'WAKASEK_KURIKULUM', 'KAPROG', 'GURU_MAPEL', 'WALI_KELAS', 'GURU_BK', 'TEACHER', 'ADMIN']),
 
   // 7. Support Staff Level
-  isSupportLevel: (role?: string) => ['KEPALA_LAB', 'PUSTAKAWAN', 'PETUGAS_UKS', 'STAF_SARPRAS'].includes(role || ''),
+  isSupportLevel: (role?: string) => RBAC.check(role, ['KEPALA_LAB', 'PUSTAKAWAN', 'PETUGAS_UKS', 'STAF_SARPRAS']),
 
   // 8. Student Level (Equivalent to legacy 'STUDENT')
-  isStudentLevel: (role?: string) => ['SISWA', 'STUDENT'].includes(role || ''),
+  isStudentLevel: (role?: string) => RBAC.check(role, ['SISWA', 'STUDENT']),
 
   // 9. Parent Level (Equivalent to legacy 'PARENT')
-  isParentLevel: (role?: string) => ['ORANG_TUA', 'PARENT'].includes(role || ''),
+  isParentLevel: (role?: string) => RBAC.check(role, ['ORANG_TUA', 'PARENT']),
 
   // 10. Alumni Level
-  isAlumniLevel: (role?: string) => ['ALUMNI'].includes(role || ''),
+  isAlumniLevel: (role?: string) => RBAC.check(role, ['ALUMNI']),
   
   // Legacy mappings for quick checks
-  canAccessAdminDashboard: (role?: string) => ['SUPER_ADMIN', 'KETUA_YAYASAN', 'KEPALA_SEKOLAH', 'WAKASEK_KURIKULUM', 'WAKASEK_KESISWAAN', 'WAKASEK_HUBIN', 'KAPROG', 'TATA_USAHA', 'BENDAHARA_YAYASAN', 'BENDAHARA_SEKOLAH', 'ADMIN'].includes(role || ''),
+  canAccessAdminDashboard: (role?: string) => RBAC.check(role, ['SUPER_ADMIN', 'KETUA_YAYASAN', 'KEPALA_SEKOLAH', 'WAKASEK_KURIKULUM', 'WAKASEK_KESISWAAN', 'WAKASEK_HUBIN', 'KAPROG', 'TATA_USAHA', 'BENDAHARA_YAYASAN', 'BENDAHARA_SEKOLAH', 'ADMIN']),
   
-  canManageUsers: (role?: string) => ['SUPER_ADMIN', 'TATA_USAHA', 'ADMIN'].includes(role || ''),
+  canManageUsers: (role?: string) => RBAC.check(role, ['SUPER_ADMIN', 'TATA_USAHA', 'ADMIN']),
   
-  canManageFinance: (role?: string) => ['SUPER_ADMIN', 'KETUA_YAYASAN', 'BENDAHARA_YAYASAN', 'BENDAHARA_SEKOLAH', 'ADMIN'].includes(role || ''),
+  canManageFinance: (role?: string) => RBAC.check(role, ['SUPER_ADMIN', 'KETUA_YAYASAN', 'BENDAHARA_YAYASAN', 'BENDAHARA_SEKOLAH', 'ADMIN']),
   
-  canManageAcademics: (role?: string) => ['SUPER_ADMIN', 'KEPALA_SEKOLAH', 'WAKASEK_KURIKULUM', 'KAPROG', 'TATA_USAHA', 'ADMIN'].includes(role || '')
+  canManageAcademics: (role?: string) => RBAC.check(role, ['SUPER_ADMIN', 'KEPALA_SEKOLAH', 'WAKASEK_KURIKULUM', 'KAPROG', 'TATA_USAHA', 'ADMIN'])
 };
