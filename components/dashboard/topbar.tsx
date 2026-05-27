@@ -221,7 +221,7 @@ export function Topbar() {
                       className="w-full flex items-center gap-3 px-4 py-3 hover:bg-[var(--muted)] transition-colors text-left group"
                     >
                       <div className="h-8 w-8 rounded-lg bg-[#5483B3]/10 flex items-center justify-center flex-shrink-0">
-                        {(() => { const Icon = item.icon; return <Icon className="h-4 w-4 text-[#5483B3]" / />; })()}
+                        {(() => { const Icon = item.icon; return <Icon className="h-4 w-4 text-[#5483B3]" />; })()}
                       </div>
                       <div>
                         <p className="text-sm font-semibold text-[var(--foreground)] group-hover:text-[#5483B3] transition-colors">{item.label}</p>

@@ -135,7 +135,7 @@ export function TeacherDashboard({ user, subjects, pendingGrades, students, acti
               <Card key={i} className="bg-[var(--card)] border-[var(--border)] rounded-3xl shadow-sm hover:shadow-md transition-all">
                 <CardContent className="p-5">
                   <div className="h-10 w-10 rounded-xl flex items-center justify-center mb-4" style={{ backgroundColor: stat.bgColor }}>
-                    {(() => { const Icon = stat.icon; return <Icon className="h-5 w-5" style={{ color: stat.color }} / />; })()}
+                    {(() => { const Icon = stat.icon; return <Icon className="h-5 w-5" style={{ color: stat.color }} />; })()}
                   </div>
                   <h3 className="text-3xl font-extrabold tracking-tight mb-1">{stat.value}</h3>
                   <p className="text-xs font-semibold text-[var(--muted-foreground)] uppercase tracking-wider">{stat.label}</p>

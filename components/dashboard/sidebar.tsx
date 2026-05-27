@@ -272,7 +272,7 @@ export function Sidebar({ isMobile, onClose }: SidebarProps = {}) {
               {(() => { const Icon = link.icon; return <Icon className={cn(
                 "h-[18px] w-[18px] flex-shrink-0 transition-colors",
                 isActive ? "text-[#5483B3]" : "text-[var(--muted-foreground)] group-hover:text-[var(--foreground)]"
-              )} / />; })()}
+              )} />; })()}
               <span>{link.label}</span>
             </Link>
           )
@@ -306,7 +306,7 @@ export function Sidebar({ isMobile, onClose }: SidebarProps = {}) {
               {(() => { const Icon = link.icon; return <Icon className={cn(
                 "h-[18px] w-[18px] flex-shrink-0",
                 isActive ? "text-[#5483B3]" : ""
-              )} / />; })()}
+              )} />; })()}
               <span>{link.label}</span>
             </Link>
           )

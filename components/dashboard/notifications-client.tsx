@@ -83,7 +83,7 @@ export function NotificationsClient({ notifications }: any) {
                 <CardContent className="p-5 md:p-6 pl-6 md:pl-7">
                   <div className="flex items-start gap-4 md:gap-5">
                     <div className={`h-12 w-12 rounded-2xl shrink-0 ${config.bg} flex items-center justify-center border border-[var(--border)]`}>
-                       {(() => { const Icon = config.icon; return <Icon className={`h-6 w-6 ${config.color}`} / />; })()}
+                       {(() => { const Icon = config.icon; return <Icon className={`h-6 w-6 ${config.color}`} />; })()}
                     </div>
                     
                     <div className="flex-1 space-y-1.5 min-w-0">

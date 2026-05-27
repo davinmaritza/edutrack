@@ -115,7 +115,7 @@ export function AdminSettingsClient({ initialSettings }: any) {
                       : "hover:bg-[var(--muted)] text-[var(--muted-foreground)] hover:text-[var(--foreground)]"
                   )}
                >
-                  {(() => { const Icon = item.icon; return <Icon className={cn("h-4 w-4", activeTab === item.id ? "text-white" : "text-[#5483B3] group-hover:text-[var(--foreground)]")} / />; })()}
+                  {(() => { const Icon = item.icon; return <Icon className={cn("h-4 w-4", activeTab === item.id ? "text-white" : "text-[#5483B3] group-hover:text-[var(--foreground)]")} />; })()}
                   <span>{item.label}</span>
                </button>
             ))}

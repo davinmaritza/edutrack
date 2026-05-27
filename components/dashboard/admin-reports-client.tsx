@@ -93,7 +93,7 @@ export function AdminReportsClient({ stats }: any) {
               <CardContent className="p-6">
                  <div className="flex justify-between items-center mb-4">
                     <div className={`h-12 w-12 rounded-xl flex items-center justify-center ${stat.bg}`}>
-                       {(() => { const Icon = stat.icon; return <Icon className={`h-6 w-6 ${stat.color}`} / />; })()}
+                       {(() => { const Icon = stat.icon; return <Icon className={`h-6 w-6 ${stat.color}`} />; })()}
                     </div>
                     <Activity className="h-4 w-4 text-[var(--muted-foreground)] opacity-50" />
                  </div>
