@@ -1,4 +1,4 @@
-import { PrismaClient } from "./prisma-client"
+import { PrismaClient } from "@prisma/client"
 // Forced reload to pick up new schema fields (notes, attendances, canEditMaterials)
 
 const prismaClientSingleton = () => {
