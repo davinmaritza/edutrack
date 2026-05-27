@@ -3,7 +3,7 @@ import { NextResponse } from "next/server"
 
 export const proxy = auth((req) => {
   const { nextUrl } = req
-  console.log("Proxy executing for:", nextUrl.pathname)
+  // console.log("Proxy executing for:", nextUrl.pathname)
   const isLoggedIn = !!req.auth
   const email = req.auth?.user?.email
   const role = (req.auth?.user as any)?.role
