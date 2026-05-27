@@ -14,8 +14,6 @@ import { Checkbox } from "@/components/ui/checkbox"
 import { toast } from "sonner"
 import { useRouter } from "next/navigation"
 import { Wallet, CheckCircle, XCircle, PlusCircle, Trash2, Edit, FileText, Download } from "lucide-react"
-import jsPDF from "jspdf"
-import autoTable from "jspdf-autotable"
 
 export function AdminBillingClient({ students, billings }: { students: any[], billings: any[] }) {
   const router = useRouter()
@@ -151,7 +149,10 @@ export function AdminBillingClient({ students, billings }: { students: any[], bi
   }
 
   // --- EXPORT PDF ---
-  const exportPDF = () => {
+  const exportPDF = async () => {
+    const { default: jsPDF } = await import("jspdf")
+    const { default: autoTable } = await import("jspdf-autotable")
+
     const doc = new jsPDF()
     doc.setFontSize(16)
     doc.text("Laporan Data SPP & Tagihan", 14, 20)
