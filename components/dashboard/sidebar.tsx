@@ -22,7 +22,7 @@ import {
   UserCheck,
   ChevronRight,
   MessageSquare,
-  Wallet
+  Wallet,
   Library,
   HeartPulse,
   GraduationCap
