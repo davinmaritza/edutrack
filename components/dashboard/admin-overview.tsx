@@ -39,14 +39,35 @@ export function AdminOverview({ stats, recentUsers, chartData }: any) {
     { name: 'Admin', count: stats.userCount - stats.studentCount - stats.teacherCount, fill: '#ef4444' }
   ]
 
-  const roleDistData = chartData ? chartData.map((d: any) => ({
-    name: d.name === 'STUDENT' ? 'Siswa' : 
-          d.name === 'TEACHER' ? 'Guru' : 
-          d.name === 'PARENT' ? 'Wali/Orang Tua' : 
-          d.name === 'COACH' ? 'Pelatih' : 
-          d.name === 'ADMIN' ? 'Admin' : 'Tamu',
-    count: d.value,
-    fill: d.fill
+  const aggregatedRoles: Record<string, { count: number, fill: string }> = {}
+
+  if (chartData) {
+    chartData.forEach((d: any) => {
+      let roleName = 'Tamu'
+      let fill = '#64748b'
+      
+      if (d.name === 'STUDENT') { roleName = 'Siswa'; fill = '#5483B3' }
+      else if (d.name === 'TEACHER') { roleName = 'Guru'; fill = '#22C55E' }
+      else if (d.name === 'PARENT') { roleName = 'Wali/Orang Tua'; fill = '#f59e0b' }
+      else if (d.name === 'COACH') { roleName = 'Pelatih'; fill = '#8b5cf6' }
+      else if (d.name === 'ADMIN') { roleName = 'Admin'; fill = '#ef4444' }
+      else if (d.name === 'SUPER_ADMIN') { roleName = 'Super Admin'; fill = '#dc2626' }
+      else {
+        // Show actual role name for the 21 roles, nicely formatted
+        roleName = d.name.split('_').map((word: string) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(' ')
+      }
+
+      if (!aggregatedRoles[roleName]) {
+        aggregatedRoles[roleName] = { count: 0, fill }
+      }
+      aggregatedRoles[roleName].count += d.value
+    })
+  }
+
+  const roleDistData = chartData ? Object.entries(aggregatedRoles).map(([name, data]) => ({
+    name,
+    count: data.count,
+    fill: data.fill
   })) : defaultRoleData;
 
   const baseUsers = Math.max(1, stats.userCount)
