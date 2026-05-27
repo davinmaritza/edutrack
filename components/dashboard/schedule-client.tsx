@@ -8,7 +8,8 @@ import {
   User,
   Users,
   ChevronLeft,
-  ChevronRight
+  ChevronRight,
+  Video
 } from 'lucide-react'
 import { Card, CardContent } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
@@ -83,6 +84,14 @@ export function ScheduleClient({ schedules, role }: any) {
                               )}
                            </div>
                         </div>
+                        {s.meetLink && (
+                          <div className="pt-2 border-t border-[var(--border)]">
+                            <a href={s.meetLink} target="_blank" rel="noreferrer" className="flex items-center justify-center gap-2 w-full py-2 bg-indigo-50 hover:bg-indigo-100 text-indigo-600 rounded-lg text-xs font-bold transition-colors">
+                              <Video className="h-3.5 w-3.5" />
+                              Gabung Kelas
+                            </a>
+                          </div>
+                        )}
                       </CardContent>
                     </Card>
                   </motion.div>

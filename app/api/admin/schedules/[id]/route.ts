@@ -14,7 +14,7 @@ export async function PATCH(
   try {
     const { id: scheduleId } = await params
     const body = await req.json()
-    const { classId, subjectId, teacherId, dayOfWeek, startTime, endTime, room } = body
+    const { classId, subjectId, teacherId, dayOfWeek, startTime, endTime, room, meetLink } = body
 
     if (!classId || !subjectId || !teacherId) {
       return new NextResponse("Missing required fields", { status: 400 })
@@ -29,7 +29,8 @@ export async function PATCH(
         dayOfWeek: typeof dayOfWeek === 'string' ? parseInt(dayOfWeek) : dayOfWeek,
         startTime,
         endTime,
-        room
+        room,
+        meetLink
       },
       include: {
         class: true,

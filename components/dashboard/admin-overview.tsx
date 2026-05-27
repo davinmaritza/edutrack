@@ -32,12 +32,22 @@ import {
 
 const DONUT_COLORS = ['#5483B3', '#22C55E', '#7DA0CA']
 
-export function AdminOverview({ stats, recentUsers }: any) {
-  const roleDistData = [
-    { name: 'Siswa', count: stats.studentCount },
-    { name: 'Guru', count: stats.teacherCount },
-    { name: 'Admin', count: stats.userCount - stats.studentCount - stats.teacherCount }
+export function AdminOverview({ stats, recentUsers, chartData }: any) {
+  const defaultRoleData = [
+    { name: 'Siswa', count: stats.studentCount, fill: '#5483B3' },
+    { name: 'Guru', count: stats.teacherCount, fill: '#22C55E' },
+    { name: 'Admin', count: stats.userCount - stats.studentCount - stats.teacherCount, fill: '#ef4444' }
   ]
+
+  const roleDistData = chartData ? chartData.map((d: any) => ({
+    name: d.name === 'STUDENT' ? 'Siswa' : 
+          d.name === 'TEACHER' ? 'Guru' : 
+          d.name === 'PARENT' ? 'Wali/Orang Tua' : 
+          d.name === 'COACH' ? 'Pelatih' : 
+          d.name === 'ADMIN' ? 'Admin' : 'Tamu',
+    count: d.value,
+    fill: d.fill
+  })) : defaultRoleData;
 
   const baseUsers = Math.max(1, stats.userCount)
   const growthData = [
@@ -49,11 +59,11 @@ export function AdminOverview({ stats, recentUsers }: any) {
     { month: 'Jun', Pengguna: baseUsers },
   ]
 
-  const donutData = [
-    { name: 'Siswa', value: stats.studentCount || 1 },
-    { name: 'Guru', value: stats.teacherCount || 1 },
-    { name: 'Admin', value: Math.max(stats.userCount - stats.studentCount - stats.teacherCount, 1) }
-  ]
+  const donutData = roleDistData.map((d: any) => ({
+    name: d.name,
+    value: d.count || 1,
+    fill: d.fill
+  }))
 
   const statCards = [
     { 
@@ -196,7 +206,13 @@ export function AdminOverview({ stats, recentUsers }: any) {
                       }}
                       cursor={{ fill: 'var(--muted)', radius: 8 }}
                     />
-                    <Bar dataKey="count" fill="#5483B3" radius={[8, 8, 0, 0]} />
+                    <Bar dataKey="count" radius={[8, 8, 0, 0]}>
+                      {
+                        roleDistData.map((entry: any, index: number) => (
+                          <Cell key={`cell-${index}`} fill={entry.fill} />
+                        ))
+                      }
+                    </Bar>
                   </BarChart>
                 </ResponsiveContainer>
               </CardContent>
@@ -225,8 +241,8 @@ export function AdminOverview({ stats, recentUsers }: any) {
                         dataKey="value"
                         strokeWidth={0}
                       >
-                        {donutData.map((_, index) => (
-                          <Cell key={`cell-${index}`} fill={DONUT_COLORS[index % DONUT_COLORS.length]} />
+                        {donutData.map((entry: any, index: number) => (
+                          <Cell key={`cell-${index}`} fill={entry.fill} />
                         ))}
                       </Pie>
                     </PieChart>
@@ -239,14 +255,10 @@ export function AdminOverview({ stats, recentUsers }: any) {
                   </div>
                 </div>
                 <div className="flex flex-wrap justify-center gap-4 mt-2">
-                  {[
-                    { label: 'Siswa', color: '#5483B3', count: stats.studentCount },
-                    { label: 'Guru', color: '#22C55E', count: stats.teacherCount },
-                    { label: 'Admin', color: '#7DA0CA', count: stats.userCount - stats.studentCount - stats.teacherCount },
-                  ].map((item, i) => (
+                  {roleDistData.map((item: any, i: number) => (
                     <div key={i} className="flex items-center gap-2">
-                      <div className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: item.color }} />
-                      <span className="text-xs text-[var(--muted-foreground)]">{item.label} ({item.count})</span>
+                      <div className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: item.fill }} />
+                      <span className="text-xs text-[var(--muted-foreground)]">{item.name} ({item.count})</span>
                     </div>
                   ))}
                 </div>

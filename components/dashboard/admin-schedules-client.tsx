@@ -56,7 +56,8 @@ export function AdminSchedulesClient({ initialSchedules, classes, subjects, teac
     dayOfWeek: 0,
     startTime: '08:00',
     endTime: '09:30',
-    room: ''
+    room: '',
+    meetLink: ''
   })
 
   const handleAddSchedule = async (e: React.FormEvent) => {
@@ -247,7 +248,8 @@ export function AdminSchedulesClient({ initialSchedules, classes, subjects, teac
       dayOfWeek: s.dayOfWeek,
       startTime: s.startTime,
       endTime: s.endTime,
-      room: s.room || ''
+      room: s.room || '',
+      meetLink: s.meetLink || ''
     })
     setIsEditOpen(true)
   }
@@ -367,6 +369,10 @@ export function AdminSchedulesClient({ initialSchedules, classes, subjects, teac
                       <Label className="text-xs font-bold text-[var(--foreground)]">Ruangan</Label>
                       <Input value={formData.room} onChange={(e) => setFormData({...formData, room: e.target.value})} className="bg-[var(--card)] border-[var(--border)] rounded-xl h-11 text-sm focus-visible:ring-[#5483B3]" placeholder="Lab RPL 1" />
                     </div>
+                  </div>
+                  <div className="space-y-2">
+                    <Label className="text-xs font-bold text-[var(--foreground)]">Link Video Conference (Opsional)</Label>
+                    <Input value={formData.meetLink} onChange={(e) => setFormData({...formData, meetLink: e.target.value})} className="bg-[var(--card)] border-[var(--border)] rounded-xl h-11 text-sm focus-visible:ring-[#5483B3]" placeholder="https://meet.google.com/xxx-xxxx-xxx" />
                   </div>
                   <div className="grid grid-cols-2 gap-5">
                     <div className="space-y-2">
@@ -526,6 +532,10 @@ export function AdminSchedulesClient({ initialSchedules, classes, subjects, teac
                 <Label className="text-xs font-bold text-[var(--foreground)]">Ruangan</Label>
                 <Input value={formData.room} onChange={(e) => setFormData({...formData, room: e.target.value})} className="bg-[var(--card)] border-[var(--border)] rounded-xl h-11 text-sm focus-visible:ring-[#5483B3]" />
               </div>
+            </div>
+            <div className="space-y-2">
+              <Label className="text-xs font-bold text-[var(--foreground)]">Link Video Conference (Opsional)</Label>
+              <Input value={formData.meetLink} onChange={(e) => setFormData({...formData, meetLink: e.target.value})} className="bg-[var(--card)] border-[var(--border)] rounded-xl h-11 text-sm focus-visible:ring-[#5483B3]" placeholder="https://meet.google.com/xxx-xxxx-xxx" />
             </div>
             <div className="grid grid-cols-2 gap-5">
               <div className="space-y-2">

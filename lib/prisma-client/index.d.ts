@@ -12866,6 +12866,7 @@ export namespace Prisma {
     startTime: string | null
     endTime: string | null
     room: string | null
+    meetLink: string | null
     createdAt: Date | null
   }
 
@@ -12878,6 +12879,7 @@ export namespace Prisma {
     startTime: string | null
     endTime: string | null
     room: string | null
+    meetLink: string | null
     createdAt: Date | null
   }
 
@@ -12890,6 +12892,7 @@ export namespace Prisma {
     startTime: number
     endTime: number
     room: number
+    meetLink: number
     createdAt: number
     _all: number
   }
@@ -12912,6 +12915,7 @@ export namespace Prisma {
     startTime?: true
     endTime?: true
     room?: true
+    meetLink?: true
     createdAt?: true
   }
 
@@ -12924,6 +12928,7 @@ export namespace Prisma {
     startTime?: true
     endTime?: true
     room?: true
+    meetLink?: true
     createdAt?: true
   }
 
@@ -12936,6 +12941,7 @@ export namespace Prisma {
     startTime?: true
     endTime?: true
     room?: true
+    meetLink?: true
     createdAt?: true
     _all?: true
   }
@@ -13035,6 +13041,7 @@ export namespace Prisma {
     startTime: string
     endTime: string
     room: string | null
+    meetLink: string | null
     createdAt: Date
     _count: ClassScheduleCountAggregateOutputType | null
     _avg: ClassScheduleAvgAggregateOutputType | null
@@ -13066,6 +13073,7 @@ export namespace Prisma {
     startTime?: boolean
     endTime?: boolean
     room?: boolean
+    meetLink?: boolean
     createdAt?: boolean
     class?: boolean | ClassDefaultArgs<ExtArgs>
     subject?: boolean | SubjectDefaultArgs<ExtArgs>
@@ -13081,6 +13089,7 @@ export namespace Prisma {
     startTime?: boolean
     endTime?: boolean
     room?: boolean
+    meetLink?: boolean
     createdAt?: boolean
     class?: boolean | ClassDefaultArgs<ExtArgs>
     subject?: boolean | SubjectDefaultArgs<ExtArgs>
@@ -13096,6 +13105,7 @@ export namespace Prisma {
     startTime?: boolean
     endTime?: boolean
     room?: boolean
+    meetLink?: boolean
     createdAt?: boolean
   }
 
@@ -13126,6 +13136,7 @@ export namespace Prisma {
       startTime: string
       endTime: string
       room: string | null
+      meetLink: string | null
       createdAt: Date
     }, ExtArgs["result"]["classSchedule"]>
     composites: {}
@@ -13531,6 +13542,7 @@ export namespace Prisma {
     readonly startTime: FieldRef<"ClassSchedule", 'String'>
     readonly endTime: FieldRef<"ClassSchedule", 'String'>
     readonly room: FieldRef<"ClassSchedule", 'String'>
+    readonly meetLink: FieldRef<"ClassSchedule", 'String'>
     readonly createdAt: FieldRef<"ClassSchedule", 'DateTime'>
   }
     
@@ -33589,6 +33601,7 @@ export namespace Prisma {
     startTime: 'startTime',
     endTime: 'endTime',
     room: 'room',
+    meetLink: 'meetLink',
     createdAt: 'createdAt'
   };
 
@@ -34775,6 +34788,7 @@ export namespace Prisma {
     startTime?: StringFilter<"ClassSchedule"> | string
     endTime?: StringFilter<"ClassSchedule"> | string
     room?: StringNullableFilter<"ClassSchedule"> | string | null
+    meetLink?: StringNullableFilter<"ClassSchedule"> | string | null
     createdAt?: DateTimeFilter<"ClassSchedule"> | Date | string
     class?: XOR<ClassRelationFilter, ClassWhereInput>
     subject?: XOR<SubjectRelationFilter, SubjectWhereInput>
@@ -34790,6 +34804,7 @@ export namespace Prisma {
     startTime?: SortOrder
     endTime?: SortOrder
     room?: SortOrderInput | SortOrder
+    meetLink?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     class?: ClassOrderByWithRelationInput
     subject?: SubjectOrderByWithRelationInput
@@ -34808,6 +34823,7 @@ export namespace Prisma {
     startTime?: StringFilter<"ClassSchedule"> | string
     endTime?: StringFilter<"ClassSchedule"> | string
     room?: StringNullableFilter<"ClassSchedule"> | string | null
+    meetLink?: StringNullableFilter<"ClassSchedule"> | string | null
     createdAt?: DateTimeFilter<"ClassSchedule"> | Date | string
     class?: XOR<ClassRelationFilter, ClassWhereInput>
     subject?: XOR<SubjectRelationFilter, SubjectWhereInput>
@@ -34823,6 +34839,7 @@ export namespace Prisma {
     startTime?: SortOrder
     endTime?: SortOrder
     room?: SortOrderInput | SortOrder
+    meetLink?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     _count?: ClassScheduleCountOrderByAggregateInput
     _avg?: ClassScheduleAvgOrderByAggregateInput
@@ -34843,6 +34860,7 @@ export namespace Prisma {
     startTime?: StringWithAggregatesFilter<"ClassSchedule"> | string
     endTime?: StringWithAggregatesFilter<"ClassSchedule"> | string
     room?: StringNullableWithAggregatesFilter<"ClassSchedule"> | string | null
+    meetLink?: StringNullableWithAggregatesFilter<"ClassSchedule"> | string | null
     createdAt?: DateTimeWithAggregatesFilter<"ClassSchedule"> | Date | string
   }
 
@@ -37038,6 +37056,7 @@ export namespace Prisma {
     startTime: string
     endTime: string
     room?: string | null
+    meetLink?: string | null
     createdAt?: Date | string
     class: ClassCreateNestedOneWithoutSchedulesInput
     subject: SubjectCreateNestedOneWithoutSchedulesInput
@@ -37053,6 +37072,7 @@ export namespace Prisma {
     startTime: string
     endTime: string
     room?: string | null
+    meetLink?: string | null
     createdAt?: Date | string
   }
 
@@ -37062,6 +37082,7 @@ export namespace Prisma {
     startTime?: StringFieldUpdateOperationsInput | string
     endTime?: StringFieldUpdateOperationsInput | string
     room?: NullableStringFieldUpdateOperationsInput | string | null
+    meetLink?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     class?: ClassUpdateOneRequiredWithoutSchedulesNestedInput
     subject?: SubjectUpdateOneRequiredWithoutSchedulesNestedInput
@@ -37077,6 +37098,7 @@ export namespace Prisma {
     startTime?: StringFieldUpdateOperationsInput | string
     endTime?: StringFieldUpdateOperationsInput | string
     room?: NullableStringFieldUpdateOperationsInput | string | null
+    meetLink?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -37089,6 +37111,7 @@ export namespace Prisma {
     startTime: string
     endTime: string
     room?: string | null
+    meetLink?: string | null
     createdAt?: Date | string
   }
 
@@ -37098,6 +37121,7 @@ export namespace Prisma {
     startTime?: StringFieldUpdateOperationsInput | string
     endTime?: StringFieldUpdateOperationsInput | string
     room?: NullableStringFieldUpdateOperationsInput | string | null
+    meetLink?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -37110,6 +37134,7 @@ export namespace Prisma {
     startTime?: StringFieldUpdateOperationsInput | string
     endTime?: StringFieldUpdateOperationsInput | string
     room?: NullableStringFieldUpdateOperationsInput | string | null
+    meetLink?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -39461,6 +39486,7 @@ export namespace Prisma {
     startTime?: SortOrder
     endTime?: SortOrder
     room?: SortOrder
+    meetLink?: SortOrder
     createdAt?: SortOrder
   }
 
@@ -39477,6 +39503,7 @@ export namespace Prisma {
     startTime?: SortOrder
     endTime?: SortOrder
     room?: SortOrder
+    meetLink?: SortOrder
     createdAt?: SortOrder
   }
 
@@ -39489,6 +39516,7 @@ export namespace Prisma {
     startTime?: SortOrder
     endTime?: SortOrder
     room?: SortOrder
+    meetLink?: SortOrder
     createdAt?: SortOrder
   }
 
@@ -43245,6 +43273,7 @@ export namespace Prisma {
     startTime: string
     endTime: string
     room?: string | null
+    meetLink?: string | null
     createdAt?: Date | string
     class: ClassCreateNestedOneWithoutSchedulesInput
     subject: SubjectCreateNestedOneWithoutSchedulesInput
@@ -43258,6 +43287,7 @@ export namespace Prisma {
     startTime: string
     endTime: string
     room?: string | null
+    meetLink?: string | null
     createdAt?: Date | string
   }
 
@@ -43966,6 +43996,7 @@ export namespace Prisma {
     startTime?: StringFilter<"ClassSchedule"> | string
     endTime?: StringFilter<"ClassSchedule"> | string
     room?: StringNullableFilter<"ClassSchedule"> | string | null
+    meetLink?: StringNullableFilter<"ClassSchedule"> | string | null
     createdAt?: DateTimeFilter<"ClassSchedule"> | Date | string
   }
 
@@ -45193,6 +45224,7 @@ export namespace Prisma {
     startTime: string
     endTime: string
     room?: string | null
+    meetLink?: string | null
     createdAt?: Date | string
     subject: SubjectCreateNestedOneWithoutSchedulesInput
     teacher: UserCreateNestedOneWithoutTeacherSchedulesInput
@@ -45206,6 +45238,7 @@ export namespace Prisma {
     startTime: string
     endTime: string
     room?: string | null
+    meetLink?: string | null
     createdAt?: Date | string
   }
 
@@ -45556,6 +45589,7 @@ export namespace Prisma {
     startTime: string
     endTime: string
     room?: string | null
+    meetLink?: string | null
     createdAt?: Date | string
     class: ClassCreateNestedOneWithoutSchedulesInput
     teacher: UserCreateNestedOneWithoutTeacherSchedulesInput
@@ -45569,6 +45603,7 @@ export namespace Prisma {
     startTime: string
     endTime: string
     room?: string | null
+    meetLink?: string | null
     createdAt?: Date | string
   }
 
@@ -52023,6 +52058,7 @@ export namespace Prisma {
     startTime: string
     endTime: string
     room?: string | null
+    meetLink?: string | null
     createdAt?: Date | string
   }
 
@@ -52329,6 +52365,7 @@ export namespace Prisma {
     startTime?: StringFieldUpdateOperationsInput | string
     endTime?: StringFieldUpdateOperationsInput | string
     room?: NullableStringFieldUpdateOperationsInput | string | null
+    meetLink?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     class?: ClassUpdateOneRequiredWithoutSchedulesNestedInput
     subject?: SubjectUpdateOneRequiredWithoutSchedulesNestedInput
@@ -52342,6 +52379,7 @@ export namespace Prisma {
     startTime?: StringFieldUpdateOperationsInput | string
     endTime?: StringFieldUpdateOperationsInput | string
     room?: NullableStringFieldUpdateOperationsInput | string | null
+    meetLink?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -52353,6 +52391,7 @@ export namespace Prisma {
     startTime?: StringFieldUpdateOperationsInput | string
     endTime?: StringFieldUpdateOperationsInput | string
     room?: NullableStringFieldUpdateOperationsInput | string | null
+    meetLink?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -52852,6 +52891,7 @@ export namespace Prisma {
     startTime: string
     endTime: string
     room?: string | null
+    meetLink?: string | null
     createdAt?: Date | string
   }
 
@@ -52961,6 +53001,7 @@ export namespace Prisma {
     startTime?: StringFieldUpdateOperationsInput | string
     endTime?: StringFieldUpdateOperationsInput | string
     room?: NullableStringFieldUpdateOperationsInput | string | null
+    meetLink?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     subject?: SubjectUpdateOneRequiredWithoutSchedulesNestedInput
     teacher?: UserUpdateOneRequiredWithoutTeacherSchedulesNestedInput
@@ -52974,6 +53015,7 @@ export namespace Prisma {
     startTime?: StringFieldUpdateOperationsInput | string
     endTime?: StringFieldUpdateOperationsInput | string
     room?: NullableStringFieldUpdateOperationsInput | string | null
+    meetLink?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -52985,6 +53027,7 @@ export namespace Prisma {
     startTime?: StringFieldUpdateOperationsInput | string
     endTime?: StringFieldUpdateOperationsInput | string
     room?: NullableStringFieldUpdateOperationsInput | string | null
+    meetLink?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -53204,6 +53247,7 @@ export namespace Prisma {
     startTime: string
     endTime: string
     room?: string | null
+    meetLink?: string | null
     createdAt?: Date | string
   }
 
@@ -53294,6 +53338,7 @@ export namespace Prisma {
     startTime?: StringFieldUpdateOperationsInput | string
     endTime?: StringFieldUpdateOperationsInput | string
     room?: NullableStringFieldUpdateOperationsInput | string | null
+    meetLink?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     class?: ClassUpdateOneRequiredWithoutSchedulesNestedInput
     teacher?: UserUpdateOneRequiredWithoutTeacherSchedulesNestedInput
@@ -53307,6 +53352,7 @@ export namespace Prisma {
     startTime?: StringFieldUpdateOperationsInput | string
     endTime?: StringFieldUpdateOperationsInput | string
     room?: NullableStringFieldUpdateOperationsInput | string | null
+    meetLink?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -53318,6 +53364,7 @@ export namespace Prisma {
     startTime?: StringFieldUpdateOperationsInput | string
     endTime?: StringFieldUpdateOperationsInput | string
     room?: NullableStringFieldUpdateOperationsInput | string | null
+    meetLink?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 

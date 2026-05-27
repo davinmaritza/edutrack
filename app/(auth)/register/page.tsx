@@ -20,6 +20,7 @@ export default function RegisterPage() {
     name: '',
     email: '',
     password: '',
+    gender: 'Laki-laki',
   })
 
   useEffect(() => {
@@ -247,6 +248,20 @@ export default function RegisterPage() {
                   {showPassword ? <EyeOff className="h-4.5 w-4.5" /> : <Eye className="h-4.5 w-4.5" />}
                 </button>
               </div>
+            </div>
+
+            <div className="space-y-2">
+              <Label htmlFor="gender" className="text-xs font-bold text-[#0F172A]">Jenis Kelamin</Label>
+              <select
+                id="gender"
+                className="w-full h-11 bg-[#F8FAFC] border-[#E2E8F0] border focus:bg-white focus:border-[#1E293B] focus:ring-2 focus:ring-[#1E293B]/5 rounded-xl transition-all text-xs px-3 text-[#0F172A] outline-none"
+                value={formData.gender}
+                onChange={(e) => setFormData({...formData, gender: e.target.value})}
+                required
+              >
+                <option value="Laki-laki">Laki-laki</option>
+                <option value="Perempuan">Perempuan</option>
+              </select>
             </div>
 
             <Button

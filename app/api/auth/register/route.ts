@@ -30,7 +30,7 @@ export async function POST(req: Request) {
     }
 
     const body = await req.json()
-    const { name, email, password, role, school, className, subject } = body
+    const { name, email, password, role, school, className, subject, gender } = body
 
     if (!email || !password || !name) {
       return new NextResponse("Missing information", { status: 400 })
@@ -69,6 +69,7 @@ export async function POST(req: Request) {
         email,
         password: hashedPassword,
         role: 'USER',
+        gender: gender || 'Laki-laki',
         school,
         classId,
         isActive: true

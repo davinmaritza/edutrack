@@ -16,7 +16,7 @@ export default async function Page() {
   }
 
   // Fetch Admin Stats
-  const [userCount, studentCount, teacherCount, subjectCount, classCount, recentUsers] = await Promise.all([
+  const [userCount, studentCount, teacherCount, subjectCount, classCount, recentUsers, roleDistribution] = await Promise.all([
     prisma.user.count(),
     prisma.user.count({ where: { role: 'STUDENT' } }),
     prisma.user.count({ where: { role: 'TEACHER' } }),
@@ -32,8 +32,23 @@ export default async function Page() {
         role: true,
         createdAt: true,
       }
+    }),
+    prisma.user.groupBy({
+      by: ['role'],
+      _count: { role: true }
     })
   ])
+
+  // Format chart data
+  const chartData = roleDistribution.map(item => ({
+    name: item.role,
+    value: item._count.role,
+    fill: item.role === 'STUDENT' ? '#3b82f6' : 
+          item.role === 'TEACHER' ? '#10b981' : 
+          item.role === 'PARENT' ? '#f59e0b' : 
+          item.role === 'COACH' ? '#8b5cf6' : 
+          item.role === 'ADMIN' ? '#ef4444' : '#64748b'
+  }))
 
   return (
     <AdminOverview 
@@ -45,6 +60,7 @@ export default async function Page() {
         classCount
       }}
       recentUsers={recentUsers}
+      chartData={chartData}
     />
   )
 }

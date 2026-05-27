@@ -10,7 +10,7 @@ export async function POST(req: Request) {
 
   try {
     const body = await req.json()
-    const { classId, subjectId, teacherId, dayOfWeek, startTime, endTime, room } = body
+    const { classId, subjectId, teacherId, dayOfWeek, startTime, endTime, room, meetLink } = body
 
     const newSchedule = await prisma.classSchedule.create({
       data: {
@@ -20,7 +20,8 @@ export async function POST(req: Request) {
         dayOfWeek: parseInt(dayOfWeek),
         startTime,
         endTime,
-        room
+        room,
+        meetLink
       },
       include: {
         class: true,
