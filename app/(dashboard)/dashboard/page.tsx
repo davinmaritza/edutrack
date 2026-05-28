@@ -45,7 +45,7 @@ export default async function Page() {
   }
 
   if (role === 'USER') {
-    return <GuestDashboard user={session.user} />
+    redirect("/dashboard/ppdb")
   }
 
   if (RBAC.isStudentLevel(role)) {

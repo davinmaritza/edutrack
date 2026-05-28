@@ -70,7 +70,7 @@ const sidebarLinks = {
     { label: 'Beranda', icon: LayoutDashboard, href: '/dashboard/admin' },
     { label: 'Kelola Pengguna', icon: Users, href: '/dashboard/admin/users' },
     { label: 'Kelola Siswa', icon: GraduationCap, href: '/dashboard/admin/students' },
-    { label: 'Kelola PPDB', icon: ClipboardList, href: '/dashboard/admin/students' },
+    { label: 'Kelola PPDB', icon: ClipboardList, href: '/dashboard/admin/ppdb' },
     { label: 'Kelola Kelas', icon: School, href: '/dashboard/admin/classes' },
     { label: 'Kelola Mapel', icon: BookOpen, href: '/dashboard/admin/subjects' },
     { label: 'Kelola Materi', icon: ClipboardList, href: '/dashboard/kelola-materi' },
@@ -178,7 +178,7 @@ const sidebarLinks = {
   ],
   PANITIA_PPDB: [
     { label: 'Beranda', icon: LayoutDashboard, href: '/dashboard/admin' },
-    { label: 'Kelola PPDB', icon: Users, href: '/dashboard/admin/students' },
+    { label: 'Kelola PPDB', icon: Users, href: '/dashboard/admin/ppdb' },
     { label: 'Jadwal Seleksi', icon: Calendar, href: '/dashboard/admin/schedules' },
     { label: 'Pengumuman', icon: Megaphone, href: '/dashboard/admin/announcements' },
     { label: 'Kalender', icon: Calendar, href: '/dashboard/calendar' },

@@ -1,6 +1,8 @@
 import prisma from "@/lib/prisma"
 import { NextResponse } from "next/server"
 import bcrypt from "bcryptjs"
+import { cookies } from "next/headers"
+import crypto from "crypto"
 
 export async function GET() {
   try {
@@ -30,7 +32,20 @@ export async function POST(req: Request) {
     }
 
     const body = await req.json()
-    const { name, email, password, role, school, className, subject, gender } = body
+    const { name, email, password, role, school, className, subject, gender, captcha } = body
+
+    if (captcha !== undefined) {
+      const cookieStore = await cookies()
+      const captchaHash = cookieStore.get('captcha_hash')?.value
+      if (!captchaHash) {
+        return NextResponse.json({ error: "Sesi CAPTCHA kedaluwarsa. Silakan muat ulang." }, { status: 400 })
+      }
+      const CAPTCHA_SECRET = process.env.NEXTAUTH_SECRET || 'fallback-secret-for-captcha'
+      const userHash = crypto.createHmac('sha256', CAPTCHA_SECRET).update(captcha.trim()).digest('hex')
+      if (userHash !== captchaHash) {
+        return NextResponse.json({ error: "Jawaban CAPTCHA salah. Silakan coba lagi." }, { status: 400 })
+      }
+    }
 
     if (!email || !password || !name) {
       return new NextResponse("Missing information", { status: 400 })

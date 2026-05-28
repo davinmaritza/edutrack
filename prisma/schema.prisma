@@ -81,6 +81,7 @@ model User {
   studentMedical        MedicalRecord[]        @relation("StudentMedical")
   staffMedical          MedicalRecord[]        @relation("StaffMedical")
   alumniProfile         AlumniProfile?         @relation("UserAlumniProfile")
+  ppdbRegistration      PpdbRegistration?
 }
 
 model UserNote {
@@ -755,4 +756,59 @@ model AbsenceRequest {
 
   student       User     @relation("StudentAbsenceRequests", fields: [studentId], references: [id], onDelete: Cascade)
   reviewer      User?    @relation("ReviewedRequests", fields: [reviewedById], references: [id])
+}
+
+model PpdbRegistration {
+  id                  String     @id @default(cuid())
+  userId              String     @unique
+  user                User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  // Calon Siswa Details
+  nisn                String?
+  nik                 String?
+  birthPlace          String?
+  birthDate           DateTime?
+  originSchool        String?
+  
+  // Parents Details
+  fatherName          String?
+  fatherOccupation    String?
+  fatherPhone         String?
+  motherName          String?
+  motherOccupation    String?
+  motherPhone         String?
+  
+  // Requirements & Verification
+  status              PpdbStatus @default(PENDING)
+  revisionNotes       String?
+  
+  // Documents
+  documentKk           String? // Kartu Keluarga
+  documentAkta         String? // Akta Kelahiran
+  documentKtpOrtu      String? // KTP Orang Tua
+  documentFoto         String? // Pas Foto
+  documentIjazah       String? // Ijazah / SKL
+  documentRapor        String? // Nilai Rapor (Semester 1-5)
+  documentPrestasi     String? // Sertifikat Prestasi (Optional)
+  documentPernyataan   String? // Surat Pernyataan
+  documentSehat        String? // Surat Sehat
+  documentBebasNarkoba String? // Bebas Narkoba
+  documentButaWarna    String? // Tidak Buta Warna (Optional)
+  
+  // Scoring & Exams
+  interviewScore      Float?
+  reportCardScore     Float?
+  cbtScore            Float?
+  finalScore          Float?
+  isPassed            Boolean?
+  
+  createdAt           DateTime   @default(now())
+  updatedAt           DateTime   @updatedAt
+}
+
+enum PpdbStatus {
+  PENDING      // Menunggu Peninjauan
+  VERIFIED     // Berkas Valid
+  REVISION     // Revisi Dokumen
+  REJECTED     // Ditolak
 }
