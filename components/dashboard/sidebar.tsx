@@ -174,6 +174,15 @@ const sidebarLinks = {
     { label: 'Kalender', icon: Calendar, href: '/dashboard/calendar' },
     { label: 'Bantuan', icon: HelpCircle, href: '/dashboard/help' },
     { label: 'Pengaturan', icon: Settings, href: '/dashboard/settings' },
+  ],
+  PANITIA_PPDB: [
+    { label: 'Beranda', icon: LayoutDashboard, href: '/dashboard/admin' },
+    { label: 'Pendaftar PPDB', icon: Users, href: '/dashboard/admin/students' },
+    { label: 'Jadwal Seleksi', icon: Calendar, href: '/dashboard/admin/schedules' },
+    { label: 'Pengumuman', icon: Megaphone, href: '/dashboard/admin/announcements' },
+    { label: 'Kalender', icon: Calendar, href: '/dashboard/calendar' },
+    { label: 'Bantuan', icon: HelpCircle, href: '/dashboard/help' },
+    { label: 'Pengaturan', icon: Settings, href: '/dashboard/admin/settings' },
   ]
 }
 
@@ -203,7 +212,8 @@ export function Sidebar({ isMobile, onClose }: SidebarProps = {}) {
   else if (rawRole === 'KEPALA_SEKOLAH') roleKey = 'LEADERSHIP'
   else if (rawRole === 'WAKASEK_KURIKULUM' || rawRole === 'WAKASEK_KESISWAAN' || rawRole === 'WAKASEK_HUBIN') roleKey = 'WAKASEK'
   else if (rawRole === 'BENDAHARA_SEKOLAH') roleKey = 'FINANCE'
-  else if (rawRole === 'TATA_USAHA' || rawRole === 'KAPROG' || rawRole === 'KEPALA_LAB' || rawRole === 'STAF_SARPRAS' || rawRole === 'PANITIA_PPDB') roleKey = 'OPERATIONAL'
+  else if (rawRole === 'PANITIA_PPDB') roleKey = 'PANITIA_PPDB'
+  else if (rawRole === 'TATA_USAHA' || rawRole === 'KAPROG' || rawRole === 'KEPALA_LAB' || rawRole === 'STAF_SARPRAS') roleKey = 'OPERATIONAL'
   else if (RBAC.canAccessAdminDashboard(rawRole)) roleKey = 'ADMIN'
   else if (RBAC.isTeacherLevel(rawRole)) roleKey = 'TEACHER'
   else if (RBAC.isStudentLevel(rawRole)) roleKey = 'STUDENT'
