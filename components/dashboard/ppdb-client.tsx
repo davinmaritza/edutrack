@@ -6,7 +6,8 @@ import { motion } from 'framer-motion'
 import { 
   User, FileText, Clipboard, UploadCloud, CheckCircle2, 
   AlertCircle, XCircle, Printer, Loader2, ArrowRight, 
-  ArrowLeft, Eye, CreditCard, ExternalLink, Calendar, HelpCircle 
+  ArrowLeft, Eye, CreditCard, ExternalLink, Calendar, HelpCircle,
+  Home, UserCheck, Camera, GraduationCap, TrendingUp, Heart, ShieldAlert, Trophy
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -68,17 +69,17 @@ export function PpdbDashboardClient({
 
   // Document definitions
   const documentList = [
-    { key: 'documentKk', label: 'Kartu Keluarga (KK)', required: true },
-    { key: 'documentAkta', label: 'Akta Kelahiran', required: true },
-    { key: 'documentKtpOrtu', label: 'KTP Orang Tua / Wali', required: true },
-    { key: 'documentFoto', label: 'Pas Foto Terbaru (Latar Merah/Biru)', required: true },
-    { key: 'documentIjazah', label: 'Ijazah atau Surat Keterangan Lulus (SKL)', required: true },
-    { key: 'documentRapor', label: 'Pindai Nilai Rapor Semester 1-5 (Legalisir)', required: true },
-    { key: 'documentPernyataan', label: 'Surat Pernyataan Orang Tua & Calon Siswa (Meterai)', required: true },
-    { key: 'documentSehat', label: 'Surat Keterangan Sehat Dokter', required: true },
-    { key: 'documentBebasNarkoba', label: 'Surat Bebas Narkoba', required: true },
-    { key: 'documentButaWarna', label: 'Surat Ket. Bebas Buta Warna (Khusus Rekayasa Perangkat Lunak / RPL)', required: false },
-    { key: 'documentPrestasi', label: 'Sertifikat Prestasi/Hafalan Quran (Optional)', required: false },
+    { key: 'documentKk', label: 'Kartu Keluarga (KK)', required: true, icon: Home },
+    { key: 'documentAkta', label: 'Akta Kelahiran', required: true, icon: FileText },
+    { key: 'documentKtpOrtu', label: 'KTP Orang Tua / Wali', required: true, icon: UserCheck },
+    { key: 'documentFoto', label: 'Pas Foto Terbaru (Latar Merah/Biru)', required: true, icon: Camera },
+    { key: 'documentIjazah', label: 'Ijazah atau Surat Keterangan Lulus (SKL)', required: true, icon: GraduationCap },
+    { key: 'documentRapor', label: 'Pindai Nilai Rapor Semester 1-5 (Legalisir)', required: true, icon: TrendingUp },
+    { key: 'documentPernyataan', label: 'Surat Pernyataan Orang Tua & Calon Siswa (Meterai)', required: true, icon: FileText },
+    { key: 'documentSehat', label: 'Surat Keterangan Sehat Dokter', required: true, icon: Heart },
+    { key: 'documentBebasNarkoba', label: 'Surat Bebas Narkoba', required: true, icon: ShieldAlert },
+    { key: 'documentButaWarna', label: 'Surat Ket. Bebas Buta Warna (Khusus Rekayasa Perangkat Lunak / RPL)', required: false, icon: Eye },
+    { key: 'documentPrestasi', label: 'Sertifikat Prestasi/Hafalan Quran (Optional)', required: false, icon: Trophy },
   ]
 
   const handleInputChange = (field: string, value: string) => {
@@ -473,62 +474,98 @@ export function PpdbDashboardClient({
                 <p className="text-xs text-[#64748B] font-semibold">Unggah dokumen digital berformat PDF atau Gambar (Maksimal 5MB per file).</p>
               </div>
 
-              <div className="space-y-4">
-                {documentList.map((doc) => (
-                  <div key={doc.key} className="flex flex-col md:flex-row md:items-center justify-between gap-4 p-4 border border-[#F1F5F9] hover:border-[#E2E8F0] rounded-2xl transition-all">
-                    <div className="space-y-1">
-                      <div className="flex items-center gap-2">
-                        <Label className="text-xs font-bold text-[#0F172A]">{doc.label}</Label>
-                        {doc.required ? (
-                          <span className="text-[9px] font-bold bg-rose-50 text-rose-600 px-2 py-0.5 rounded-full">Wajib</span>
-                        ) : (
-                          <span className="text-[9px] font-bold bg-slate-50 text-slate-500 px-2 py-0.5 rounded-full">Opsional</span>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {documentList.map((doc) => {
+                  const IconComponent = doc.icon
+                  const fileUrl = registration[doc.key]
+                  const isUploaded = !!fileUrl
+
+                  return (
+                    <div 
+                      key={doc.key} 
+                      className={`flex flex-col justify-between p-5 border rounded-2xl transition-all duration-300 relative group hover:shadow-lg hover:-translate-y-1 ${
+                        isUploaded 
+                          ? 'border-green-100 bg-green-50/10 hover:bg-green-50/20' 
+                          : 'border-slate-200 bg-white hover:border-[#5483B3]'
+                      }`}
+                    >
+                      <div className="space-y-4">
+                        <div className="flex items-start gap-4">
+                          <div className={`h-11 w-11 rounded-2xl flex items-center justify-center shrink-0 transition-all duration-300 ${
+                            isUploaded 
+                              ? 'bg-green-100 text-green-700' 
+                              : 'bg-slate-100 text-slate-500 group-hover:bg-[#5483B3]/10 group-hover:text-[#5483B3]'
+                          }`}>
+                            <IconComponent className="h-5 w-5" />
+                          </div>
+                          <div className="space-y-1 min-w-0 flex-1">
+                            <div className="flex flex-wrap items-center gap-2">
+                              <Label className="text-xs font-black text-slate-800 truncate block max-w-full">{doc.label}</Label>
+                              {doc.required ? (
+                                <span className="text-[9px] font-bold bg-rose-50 text-rose-600 px-2 py-0.5 rounded-full shrink-0">Wajib</span>
+                              ) : (
+                                <span className="text-[9px] font-bold bg-slate-100 text-slate-500 px-2 py-0.5 rounded-full shrink-0">Opsional</span>
+                              )}
+                            </div>
+                            <p className="text-[10px] text-slate-400 font-medium">Unggah berkas dalam format PDF/JPG/PNG (Maks 5MB)</p>
+                          </div>
+                        </div>
+
+                        {/* File status & display info */}
+                        {isUploaded && (
+                          <div className="flex items-center gap-2 bg-green-50/50 border border-green-100 p-2.5 rounded-xl text-green-700">
+                            <CheckCircle2 className="h-4 w-4 shrink-0 text-green-600" />
+                            <span className="text-[10px] font-bold truncate">Terunggah: {fileUrl.split('/').pop()?.substring(0, 20)}...</span>
+                          </div>
                         )}
                       </div>
-                      <p className="text-[10px] text-[#64748B]">Unduh file berkas scan dalam format PDF/JPG/PNG.</p>
-                    </div>
 
-                    <div className="flex items-center gap-3">
-                      {registration[doc.key] && (
-                        <Button asChild size="sm" variant="outline" className="border-slate-200 h-9 rounded-lg text-xs gap-1.5">
-                          <a href={registration[doc.key]} target="_blank" rel="noopener noreferrer">
-                            <Eye className="h-3.5 w-3.5" />
-                            Lihat
-                          </a>
-                        </Button>
-                      )}
+                      <div className="flex items-center justify-end gap-2.5 mt-4 pt-4 border-t border-slate-50">
+                        {isUploaded && (
+                          <Button asChild size="sm" variant="outline" className="border-slate-200 h-9 rounded-xl text-xs gap-1.5 px-3 bg-white hover:bg-slate-50">
+                            <a href={fileUrl} target="_blank" rel="noopener noreferrer">
+                              <Eye className="h-3.5 w-3.5" />
+                              Pratinjau
+                            </a>
+                          </Button>
+                        )}
 
-                      <div className="relative">
-                        <input 
-                          type="file" 
-                          id={`file-${doc.key}`}
-                          className="hidden" 
-                          accept="image/*,application/pdf"
-                          onChange={e => {
-                            const file = e.target.files?.[0]
-                            if (file) handleFileUpload(doc.key, file)
-                          }}
-                        />
-                        <Button 
-                          type="button"
-                          variant={registration[doc.key] ? "outline" : "default"}
-                          disabled={isUploading !== null}
-                          className={`h-9 rounded-lg text-xs gap-1 px-4 ${registration[doc.key] ? 'border-[#5483B3] text-[#5483B3] hover:bg-[#5483B3]/5' : 'bg-[#1E293B] hover:bg-[#0F172A]'}`}
-                          onClick={() => document.getElementById(`file-${doc.key}`)?.click()}
-                        >
-                          {isUploading === doc.key ? (
-                            <Loader2 className="h-3.5 w-3.5 animate-spin" />
-                          ) : (
-                            <>
-                              <UploadCloud className="h-3.5 w-3.5" />
-                              {registration[doc.key] ? "Ganti File" : "Unggah"}
-                            </>
-                          )}
-                        </Button>
+                        <div className="relative">
+                          <input 
+                            type="file" 
+                            id={`file-${doc.key}`}
+                            className="hidden" 
+                            accept="image/*,application/pdf"
+                            onChange={e => {
+                              const file = e.target.files?.[0]
+                              if (file) handleFileUpload(doc.key, file)
+                            }}
+                          />
+                          <Button 
+                            type="button"
+                            variant={isUploaded ? "outline" : "default"}
+                            disabled={isUploading !== null}
+                            className={`h-9 rounded-xl text-xs gap-1.5 px-4 font-bold transition-all ${
+                              isUploaded 
+                                ? 'border-[#5483B3] text-[#5483B3] hover:bg-[#5483B3]/5 bg-white' 
+                                : 'bg-[#1E293B] hover:bg-[#0F172A] text-white hover:shadow-md hover:shadow-slate-300'
+                            }`}
+                            onClick={() => document.getElementById(`file-${doc.key}`)?.click()}
+                          >
+                            {isUploading === doc.key ? (
+                              <Loader2 className="h-3.5 w-3.5 animate-spin" />
+                            ) : (
+                              <>
+                                <UploadCloud className="h-3.5 w-3.5" />
+                                {isUploaded ? "Ganti Berkas" : "Unggah Berkas"}
+                              </>
+                            )}
+                          </Button>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                ))}
+                  )
+                })}
               </div>
 
               <div className="flex justify-between pt-6 border-t border-[#F1F5F9]">
