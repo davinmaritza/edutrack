@@ -117,6 +117,11 @@ export default function LandingPage() {
 
           {/* Right Action */}
           <div className="flex items-center gap-4">
+            <Link href="/register-ppdb">
+              <Button className="bg-[#5483B3] hover:bg-[#4070A0] text-white font-bold text-xs h-10 px-5 rounded-full shadow-sm transition-all duration-300">
+                Pendaftaran PPDB
+              </Button>
+            </Link>
             {session ? (
               <div className="flex items-center gap-4">
                 <Link href="/dashboard">
@@ -179,14 +184,14 @@ export default function LandingPage() {
 
               {/* Actions */}
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-                <Link href={session ? "/dashboard" : "/register"} className="w-full sm:w-auto">
-                  <Button className="w-full sm:w-auto h-12 px-8 bg-[#1E293B] hover:bg-[#334155] text-white font-bold text-xs rounded-full shadow-md group transition-all">
-                    Daftar Sekarang <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1.5 transition-transform" />
+                <Link href="/register-ppdb" className="w-full sm:w-auto">
+                  <Button className="w-full sm:w-auto h-12 px-8 bg-[#5483B3] hover:bg-[#4070A0] text-white font-bold text-xs rounded-full shadow-md group transition-all">
+                    Daftar PPDB Baru <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1.5 transition-transform" />
                   </Button>
                 </Link>
-                <Link href="/docs" className="w-full sm:w-auto">
-                  <Button variant="outline" className="w-full sm:w-auto h-12 px-8 border-[#CBD5E1] bg-white hover:bg-[#F8FAFC] text-[#334155] font-bold text-xs rounded-full shadow-sm transition-all">
-                    Cara Kerja
+                <Link href="/dashboard/ppdb" className="w-full sm:w-auto">
+                  <Button variant="outline" className="w-full sm:w-auto h-12 px-8 border-[#1E293B] bg-white hover:bg-slate-50 text-[#1E293B] font-bold text-xs rounded-full shadow-sm transition-all">
+                    Portal Calon Siswa
                   </Button>
                 </Link>
               </div>
