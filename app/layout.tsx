@@ -68,6 +68,7 @@ export const metadata: Metadata = {
 import prisma from "@/lib/prisma"
 import { auth } from "@/lib/auth"
 import MaintenancePage from "./maintenance/page"
+import DatabaseOfflinePage from "@/components/database-offline"
 import { headers } from "next/headers"
 
 export default async function RootLayout({
@@ -75,19 +76,31 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
-  const session = await auth()
-  const role = (session?.user as any)?.role
+  let isDatabaseOffline = false
+  let session = null
+  let role = null
+  let settings = null
+
+  try {
+    session = await auth()
+    role = (session?.user as any)?.role
+  } catch (error) {
+    console.error('Database connection or auth error in RootLayout:', error)
+    isDatabaseOffline = true
+  }
+
   const headerList = await headers()
   const currentPath = headerList.get('x-url') || ''
   
-  // Fetch global settings with error handling
-  let settings = null
-  try {
-    settings = await prisma.settings.findUnique({
-      where: { id: 'global' }
-    })
-  } catch (error) {
-    console.error('Database connection error in RootLayout:', error)
+  if (!isDatabaseOffline) {
+    try {
+      settings = await prisma.settings.findUnique({
+        where: { id: 'global' }
+      })
+    } catch (error) {
+      console.error('Database connection error in RootLayout:', error)
+      isDatabaseOffline = true
+    }
   }
 
   const isMaintenance = settings?.maintenanceMode || false
@@ -100,7 +113,9 @@ export default async function RootLayout({
         className={`${inter.variable} ${geistSans.variable} ${geistMono.variable} font-sans antialiased`}
       >
         <Providers>
-          {isMaintenance && !isAdmin && !isAuthPage ? (
+          {isDatabaseOffline ? (
+            <DatabaseOfflinePage />
+          ) : isMaintenance && !isAdmin && !isAuthPage ? (
             <MaintenancePage />
           ) : (
             children
