@@ -184,5 +184,21 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
       },
     },
   },
-  secret: process.env.AUTH_SECRET || process.env.NEXTAUTH_SECRET
+  secret: process.env.AUTH_SECRET || process.env.NEXTAUTH_SECRET,
+  logger: {
+    error(code, ...message) {
+      const err = message[0]
+      const msg = err instanceof Error ? err.message : (err?.message || String(err))
+      if (
+        msg.includes("Can't reach database server") ||
+        msg.includes("PrismaClientInitializationError") ||
+        msg.includes("tenant/user") ||
+        msg.includes("FATAL")
+      ) {
+        console.warn(`\x1b[33m⚠️ [NextAuth Logger] Database offline: ${msg.split('\n')[0]}\x1b[0m`)
+      } else {
+        console.error(code, ...message)
+      }
+    }
+  }
 })
