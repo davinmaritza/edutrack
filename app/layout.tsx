@@ -85,7 +85,8 @@ export default async function RootLayout({
     session = await auth()
     role = (session?.user as any)?.role
   } catch (error: any) {
-    console.warn(`\x1b[33m⚠️ [RootLayout] Database/Auth offline: ${error.message?.split('\n')[0] || error}\x1b[0m`)
+    const msg = error?.message ? error.message.trim().split('\n')[0] : String(error)
+    console.warn(`\x1b[33m⚠️ [RootLayout] Database/Auth offline: ${msg}\x1b[0m`)
     isDatabaseOffline = true
   }
 
@@ -98,7 +99,8 @@ export default async function RootLayout({
         where: { id: 'global' }
       })
     } catch (error: any) {
-      console.warn(`\x1b[33m⚠️ [RootLayout] Settings query failed (Database offline): ${error.message?.split('\n')[0] || error}\x1b[0m`)
+      const msg = error?.message ? error.message.trim().split('\n')[0] : String(error)
+      console.warn(`\x1b[33m⚠️ [RootLayout] Settings query failed (Database offline): ${msg}\x1b[0m`)
       isDatabaseOffline = true
     }
   }

@@ -121,7 +121,8 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
 
         return true
       } catch (error: any) {
-        console.warn(`\x1b[33m⚠️ [Auth SignIn] Database offline: ${error.message?.split('\n')[0] || error}\x1b[0m`)
+        const msg = error?.message ? error.message.trim().split('\n')[0] : String(error)
+        console.warn(`\x1b[33m⚠️ [Auth SignIn] Database offline: ${msg}\x1b[0m`)
         return false
       }
     },
@@ -148,7 +149,8 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
             token.image = dbUser.image
           }
         } catch (error: any) {
-          console.warn(`\x1b[33m⚠️ [Auth JWT] Database offline: ${error.message?.split('\n')[0] || error}\x1b[0m`)
+          const msg = error?.message ? error.message.trim().split('\n')[0] : String(error)
+          console.warn(`\x1b[33m⚠️ [Auth JWT] Database offline: ${msg}\x1b[0m`)
         }
       }
       
@@ -195,7 +197,8 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
         msg.includes("tenant/user") ||
         msg.includes("FATAL")
       ) {
-        console.warn(`\x1b[33m⚠️ [NextAuth Logger] Database offline: ${msg.split('\n')[0]}\x1b[0m`)
+        const cleanMsg = msg.trim().split('\n')[0]
+        console.warn(`\x1b[33m⚠️ [NextAuth Logger] Database offline: ${cleanMsg}\x1b[0m`)
       } else {
         console.error(code, ...message)
       }
