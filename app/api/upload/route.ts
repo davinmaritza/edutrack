@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
-import { createServerClient } from "@supabase/ssr";
+import fs from "fs";
+import path from "path";
 
 export async function POST(req: NextRequest) {
   try {
@@ -13,40 +14,28 @@ export async function POST(req: NextRequest) {
     const bytes = await file.arrayBuffer();
     const buffer = Buffer.from(bytes);
 
-    // Initialize Supabase client
-    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
-    const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY!;
+    // Tentukan direktori penyimpanan lokal (public/uploads)
+    const uploadDir = path.join(process.cwd(), "public", "uploads");
     
-    // We create a generic client since we are only using it for Storage
-    const supabase = createServerClient(supabaseUrl, supabaseKey, {
-      cookies: {
-        getAll() { return [] },
-        setAll() {}
-      }
-    });
+    // Buat folder jika belum ada
+    if (!fs.existsSync(uploadDir)) {
+      fs.mkdirSync(uploadDir, { recursive: true });
+    }
 
     // Buat nama file unik
     const fileExt = file.name.split('.').pop();
     const filename = `${Date.now()}-${Math.random().toString(36).substring(7)}.${fileExt}`;
+    const filePath = path.join(uploadDir, filename);
 
-    const { data, error } = await supabase.storage
-      .from('uploads')
-      .upload(filename, buffer, {
-        contentType: file.type,
-        upsert: false
-      });
+    // Simpan file ke sistem penyimpanan lokal VPS/Komputer
+    fs.writeFileSync(filePath, buffer);
 
-    if (error) {
-      console.error("Supabase Storage Error:", error);
-      throw error;
-    }
-
-    // Get public URL
-    const { data: { publicUrl } } = supabase.storage.from('uploads').getPublicUrl(filename);
+    // URL publik akses file
+    const publicUrl = `/uploads/${filename}`;
 
     return NextResponse.json({ url: publicUrl, name: file.name });
   } catch (error) {
     console.error("Upload Error:", error);
-    return NextResponse.json({ error: "Gagal mengunggah file" }, { status: 500 });
+    return NextResponse.json({ error: "Gagal mengunggah file secara lokal" }, { status: 500 });
   }
 }
