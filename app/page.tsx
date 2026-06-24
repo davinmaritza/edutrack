@@ -52,7 +52,7 @@ export default function LandingPage() {
       <nav className="fixed top-0 w-full z-50 bg-[#FDFCF7]/80 backdrop-blur-xl border-b border-[#E2E8F0] h-20 transition-all duration-300">
         <div className="container mx-auto px-6 h-full flex items-center justify-between">
           <div className="flex items-center gap-6">
-            <Link href="/" className="flex items-center gap-2">
+            <Link href="/" className="flex items-center gap-2" aria-label="EduTrack Beranda">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 50" className="h-7 w-auto" fill="none">
                 <text x="0" y="40" fontFamily="Inter, system-ui, sans-serif" fontSize="42" fontWeight="800" letterSpacing="-2" fill="#1E293B">
                   Edu<tspan fontWeight="800" fill="#5483B3">track</tspan>
@@ -146,9 +146,11 @@ export default function LandingPage() {
         </div>
       </nav>
 
-      {/* Hero Section */}
-      <section className="relative pt-36 pb-0 overflow-hidden flex flex-col justify-between min-h-[92vh]">
-        <div className="container mx-auto px-6 relative z-10 text-center max-w-4xl pt-8">
+      {/* Main Landmark Wrapper */}
+      <main className="flex-1">
+        {/* Hero Section */}
+        <section className="relative pt-36 pb-0 overflow-hidden flex flex-col justify-between min-h-[92vh]">
+          <div className="container mx-auto px-6 relative z-10 text-center max-w-4xl pt-8">
           <AnimatePresence mode="wait">
             <motion.div
               key={activeTab}
@@ -206,13 +208,14 @@ export default function LandingPage() {
         <div className="relative w-full h-[320px] md:h-[450px] overflow-hidden select-none pointer-events-none mt-auto">
           {/* Subtle overlay gradient to blend bottom illustration */}
           <div className="absolute inset-0 bg-gradient-to-t from-[#FDFCF7]/0 via-[#FDFCF7]/60 to-[#FDFCF7] z-10" />
-          <img 
-            src="/canyon_bg.png" 
-            alt="Canyon Background Illustration" 
-            className="w-full h-full object-cover object-center animate-fade-in"
-          />
-        </div>
-      </section>
+            <img 
+              src="/canyon_bg.webp" 
+              alt="Canyon Background Illustration" 
+              fetchPriority="high"
+              className="w-full h-full object-cover object-center animate-fade-in"
+            />
+          </div>
+        </section>
 
       {/* Feature section */}
       <section id="features" className="py-24 bg-white border-y border-[#E2E8F0] relative z-20">
@@ -238,7 +241,7 @@ export default function LandingPage() {
                   <div className="h-12 w-12 rounded-2xl bg-[#E2E8F0]/50 flex items-center justify-center mb-6 group-hover:bg-[#1E293B] group-hover:text-white transition-colors duration-300 text-[#1E293B]">
                     <feature.icon className="h-5 w-5" />
                   </div>
-                  <h4 className="text-lg font-bold text-[#0F172A] mb-3">{feature.title}</h4>
+                  <h3 className="text-lg font-bold text-[#0F172A] mb-3">{feature.title}</h3>
                   <p className="text-xs text-[#64748B] font-semibold leading-relaxed">{feature.desc}</p>
                </div>
              ))}
@@ -264,7 +267,7 @@ export default function LandingPage() {
                            <CheckCircle2 className="h-4 w-4" />
                         </div>
                         <div>
-                           <h5 className="text-sm font-bold text-[#0F172A]">Pembatasan Akses Guru</h5>
+                           <h4 className="text-sm font-bold text-[#0F172A]">Pembatasan Akses Guru</h4>
                            <p className="text-xs text-[#64748B] mt-0.5">Guru hanya dapat melihat data siswa di kelas yang diajarkan saja untuk efisiensi.</p>
                         </div>
                      </div>
@@ -273,7 +276,7 @@ export default function LandingPage() {
                            <CheckCircle2 className="h-4 w-4" />
                         </div>
                         <div>
-                           <h5 className="text-sm font-bold text-[#0F172A]">Nomor Absensi Terintegrasi</h5>
+                           <h4 className="text-sm font-bold text-[#0F172A]">Nomor Absensi Terintegrasi</h4>
                            <p className="text-xs text-[#64748B] mt-0.5">Siswa terurut rapi berdasarkan nomor absen kelas untuk memudahkan guru saat entri nilai.</p>
                         </div>
                      </div>
@@ -315,7 +318,7 @@ export default function LandingPage() {
                                 <span>Progress</span>
                                 <span>{s.progress}%</span>
                              </div>
-                             <Progress value={s.progress} className="h-1.5 rounded-full bg-[#E2E8F0]" indicatorClassName="bg-[#5483B3]" />
+                             <Progress value={s.progress} className="h-1.5 rounded-full bg-[#E2E8F0]" indicatorClassName="bg-[#5483B3]" aria-label={`Progres belajar ${s.name}`} />
                           </div>
                        </div>
                      ))}
@@ -340,8 +343,8 @@ export default function LandingPage() {
                  { step: '03', title: 'Siswa Belajar & Submit', desc: 'Siswa memantau progres belajar mereka, mencatat notes, dan mengumpulkan tugas.' }
                ].map((item, idx) => (
                  <div key={idx} className="relative space-y-4">
-                    <span className="text-5xl font-black text-[#5483B3]/20 font-serif block">{item.step}</span>
-                    <h4 className="text-lg font-bold text-[#0F172A]">{item.title}</h4>
+                    <span className="text-5xl font-black text-[#5483B3]/40 font-serif block">{item.step}</span>
+                    <h3 className="text-lg font-bold text-[#0F172A]">{item.title}</h3>
                     <p className="text-xs text-[#64748B] font-semibold leading-relaxed">{item.desc}</p>
                  </div>
                ))}
@@ -383,7 +386,7 @@ export default function LandingPage() {
       </section>
 
       {/* Footer */}
-      <footer className="py-16 bg-[#1E293B] text-[#94A3B8] border-t border-[#334155] relative z-20">
+      <footer className="py-16 bg-[#1E293B] text-[#CBD5E1] border-t border-[#334155] relative z-20">
          <div className="container mx-auto px-6">
             <div className="flex flex-col md:flex-row justify-between gap-12 mb-16">
                <div className="space-y-6 max-w-sm">
@@ -418,14 +421,14 @@ export default function LandingPage() {
                   </div>
                   <div className="space-y-4">
                      <h5 className="text-[10px] font-black uppercase tracking-wider text-white">Ikuti Kami</h5>
-                     <div className="flex items-center gap-4 text-[#94A3B8]">
-                        <a href="https://github.com/davinmaritza" target="_blank" rel="noopener noreferrer">
+                     <div className="flex items-center gap-4 text-[#CBD5E1]">
+                        <a href="https://github.com/davinmaritza" target="_blank" rel="noopener noreferrer" aria-label="GitHub Davin Maritza">
                           <Github className="h-4.5 w-4.5 hover:text-white cursor-pointer transition-colors" />
                         </a>
-                        <a href="https://x.com/workwithsuzirz" target="_blank" rel="noopener noreferrer">
+                        <a href="https://x.com/workwithsuzirz" target="_blank" rel="noopener noreferrer" aria-label="Twitter Davin Maritza">
                           <Twitter className="h-4.5 w-4.5 hover:text-white cursor-pointer transition-colors" />
                         </a>
-                        <a href="https://instagram.com/davinmaritza" target="_blank" rel="noopener noreferrer">
+                        <a href="https://instagram.com/davinmaritza" target="_blank" rel="noopener noreferrer" aria-label="Instagram Davin Maritza">
                           <Instagram className="h-4.5 w-4.5 hover:text-white cursor-pointer transition-colors" />
                         </a>
                      </div>
@@ -434,8 +437,8 @@ export default function LandingPage() {
             </div>
             
             <div className="pt-8 border-t border-[#334155] flex flex-col sm:flex-row justify-between items-center gap-4">
-               <p className="text-xs font-semibold text-[#64748B]">© {new Date().getFullYear()} EduTrack Inc. Hak Cipta Dilindungi.</p>
-               <div className="text-xs font-semibold text-[#64748B]">
+               <p className="text-xs font-semibold text-[#8492A6]">© {new Date().getFullYear()} EduTrack Inc. Hak Cipta Dilindungi.</p>
+               <div className="text-xs font-semibold text-[#8492A6]">
                   Developed by <a href="https://davinn.net" target="_blank" rel="noopener noreferrer" className="text-white hover:underline font-bold">Davin Maritza</a>
                </div>
             </div>
