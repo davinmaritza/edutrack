@@ -69,7 +69,7 @@ import prisma from "@/lib/prisma"
 import { auth } from "@/lib/auth"
 import MaintenancePage from "./maintenance/page"
 import DatabaseOfflinePage from "@/components/database-offline"
-import { headers } from "next/headers"
+import { headers, cookies } from "next/headers"
 
 export default async function RootLayout({
   children,
@@ -87,6 +87,14 @@ export default async function RootLayout({
   } catch (error: any) {
     const msg = error?.message ? error.message.trim().split('\n')[0] : String(error)
     console.warn(`\x1b[33m⚠️ [RootLayout] Database/Auth offline: ${msg}\x1b[0m`)
+    
+    // Automatically clear invalid session cookies to self-heal JWE decryption crashes
+    try {
+      const cookieStore = await cookies()
+      cookieStore.delete("next-auth.session-token")
+      cookieStore.delete("__Secure-next-auth.session-token")
+    } catch (e) {}
+
     isDatabaseOffline = true
   }
 
