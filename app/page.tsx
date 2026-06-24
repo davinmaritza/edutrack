@@ -381,9 +381,10 @@ export default function LandingPage() {
                    )}
                 </div>
               ))}
-           </div>
-        </div>
-      </section>
+            </div>
+         </div>
+       </section>
+      </main>
 
       {/* Footer */}
       <footer className="py-16 bg-[#1E293B] text-[#CBD5E1] border-t border-[#334155] relative z-20">
