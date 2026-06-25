@@ -224,9 +224,13 @@ const FAQS = [
   },
   {
     q: 'Kalau sekolah kami mau pakai, mulainya dari mana?',
-    a: 'Daftar lewat halaman PPDB atau hubungi developer langsung. Proses setup biasanya tidak sampai sehari. Kami bantu konfigurasi awal sesuai struktur kelas dan kurikulum sekolah Anda.',
+    a: 'Daftar lewat halaman PPDB atau langsung DM kami di Instagram @davinmaritza. Proses setup biasanya tidak sampai sehari. Kami bantu konfigurasi awal sesuai struktur kelas dan kurikulum sekolah Anda.',
   },
 ]
+
+function scrollTo(id: string) {
+  document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+}
 
 export default function LandingPage() {
   const { data: session } = useSession()
@@ -251,10 +255,10 @@ export default function LandingPage() {
           </Link>
 
           <div className="hidden md:flex items-center gap-7 text-[13px] font-semibold text-slate-500">
-            <a href="#masalah" className="hover:text-slate-900 transition-colors">Kenapa EduTrack?</a>
-            <a href="#fitur" className="hover:text-slate-900 transition-colors">Fitur</a>
-            <a href="#cara-kerja" className="hover:text-slate-900 transition-colors">Cara Kerja</a>
-            <a href="#faq" className="hover:text-slate-900 transition-colors">FAQ</a>
+            <button onClick={() => scrollTo('masalah')} className="hover:text-slate-900 transition-colors">Kenapa EduTrack?</button>
+            <button onClick={() => scrollTo('fitur')} className="hover:text-slate-900 transition-colors">Fitur</button>
+            <button onClick={() => scrollTo('cara-kerja')} className="hover:text-slate-900 transition-colors">Cara Kerja</button>
+            <button onClick={() => scrollTo('faq')} className="hover:text-slate-900 transition-colors">FAQ</button>
           </div>
 
           <div className="flex items-center gap-3">
@@ -761,23 +765,23 @@ export default function LandingPage() {
             <div className="space-y-4">
               <h5 className="text-[10px] font-black uppercase tracking-[0.15em] text-white">Platform</h5>
               <nav className="flex flex-col gap-2.5 text-[12px] font-semibold text-slate-500">
-                <a href="#fitur" className="hover:text-white transition-colors">Fitur Lengkap</a>
-                <a href="#cara-kerja" className="hover:text-white transition-colors">Cara Kerja</a>
+                <button onClick={() => scrollTo('fitur')} className="text-left hover:text-white transition-colors">Fitur Lengkap</button>
+                <button onClick={() => scrollTo('cara-kerja')} className="text-left hover:text-white transition-colors">Cara Kerja</button>
                 <Link href="/register-ppdb" className="hover:text-white transition-colors">Daftar PPDB</Link>
                 <Link href="/dashboard" className="hover:text-white transition-colors">Dashboard</Link>
               </nav>
             </div>
 
             <div className="space-y-4">
-              <h5 className="text-[10px] font-black uppercase tracking-[0.15em] text-white">Bantuan</h5>
+              <h5 className="text-[10px] font-black uppercase tracking-[0.15em] text-white">Kontak & Bantuan</h5>
               <nav className="flex flex-col gap-2.5 text-[12px] font-semibold text-slate-500">
-                <a href="#faq" className="hover:text-white transition-colors">FAQ</a>
+                <button onClick={() => scrollTo('faq')} className="text-left hover:text-white transition-colors">FAQ</button>
+                <a href="https://instagram.com/davinmaritza" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors flex items-center gap-1">
+                  Instagram @davinmaritza <ExternalLink className="h-2.5 w-2.5" />
+                </a>
                 <Link href="/login" className="hover:text-white transition-colors">Masuk ke Akun</Link>
                 <a href="https://github.com/davinmaritza" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors flex items-center gap-1">
                   Source Code <ExternalLink className="h-2.5 w-2.5" />
-                </a>
-                <a href="https://davinn.net" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors flex items-center gap-1">
-                  davinn.net <ExternalLink className="h-2.5 w-2.5" />
                 </a>
               </nav>
             </div>

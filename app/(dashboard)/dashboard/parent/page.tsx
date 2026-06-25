@@ -85,6 +85,15 @@ export default async function ParentDashboardPage() {
       },
       absenceRequests: {
         orderBy: { createdAt: 'desc' }
+      },
+      examAttempts: {
+        where: { status: 'COMPLETED' },
+        include: {
+          exam: {
+            include: { subject: true }
+          }
+        },
+        orderBy: { endTime: 'desc' }
       }
     }
   })
@@ -147,14 +156,17 @@ export default async function ParentDashboardPage() {
       )}
 
       <Tabs defaultValue="academic" className="w-full">
-        <TabsList className="w-full justify-start border-b border-[var(--border)] rounded-none bg-transparent h-auto p-0 gap-6">
-          <TabsTrigger value="academic" className="data-[state=active]:border-b-2 data-[state=active]:border-[#5483B3] data-[state=active]:text-[#5483B3] data-[state=active]:shadow-none rounded-none px-2 py-3 bg-transparent font-bold text-[var(--muted-foreground)]">
+        <TabsList className="w-full justify-start border-b border-[var(--border)] rounded-none bg-transparent h-auto p-0 gap-6 overflow-x-auto">
+          <TabsTrigger value="academic" className="data-[state=active]:border-b-2 data-[state=active]:border-[#5483B3] data-[state=active]:text-[#5483B3] data-[state=active]:shadow-none rounded-none px-2 py-3 bg-transparent font-bold text-[var(--muted-foreground)] shrink-0">
             Ringkasan Akademik
           </TabsTrigger>
-          <TabsTrigger value="finance" className="data-[state=active]:border-b-2 data-[state=active]:border-[#5483B3] data-[state=active]:text-[#5483B3] data-[state=active]:shadow-none rounded-none px-2 py-3 bg-transparent font-bold text-[var(--muted-foreground)]">
+          <TabsTrigger value="nilai-ujian" className="data-[state=active]:border-b-2 data-[state=active]:border-[#5483B3] data-[state=active]:text-[#5483B3] data-[state=active]:shadow-none rounded-none px-2 py-3 bg-transparent font-bold text-[var(--muted-foreground)] shrink-0">
+            Nilai Ujian
+          </TabsTrigger>
+          <TabsTrigger value="finance" className="data-[state=active]:border-b-2 data-[state=active]:border-[#5483B3] data-[state=active]:text-[#5483B3] data-[state=active]:shadow-none rounded-none px-2 py-3 bg-transparent font-bold text-[var(--muted-foreground)] shrink-0">
             Keuangan & SPP
           </TabsTrigger>
-          <TabsTrigger value="absence" className="data-[state=active]:border-b-2 data-[state=active]:border-[#5483B3] data-[state=active]:text-[#5483B3] data-[state=active]:shadow-none rounded-none px-2 py-3 bg-transparent font-bold text-[var(--muted-foreground)]">
+          <TabsTrigger value="absence" className="data-[state=active]:border-b-2 data-[state=active]:border-[#5483B3] data-[state=active]:text-[#5483B3] data-[state=active]:shadow-none rounded-none px-2 py-3 bg-transparent font-bold text-[var(--muted-foreground)] shrink-0">
             Pengajuan Izin
           </TabsTrigger>
         </TabsList>
@@ -362,6 +374,46 @@ export default async function ParentDashboardPage() {
           </Card>
         </div>
         </div>
+      </TabsContent>
+
+      <TabsContent value="nilai-ujian" className="pt-6">
+        <Card className="bg-[var(--card)] border border-[var(--border)] rounded-2xl shadow-sm">
+          <CardHeader className="border-b border-[var(--border)] pb-4">
+            <CardTitle className="text-sm font-bold text-[var(--foreground)] flex items-center gap-2">
+              <TrendingUp className="h-4 w-4 text-[#5483B3]" /> Riwayat Nilai Ujian CBT
+            </CardTitle>
+          </CardHeader>
+          <CardContent className="p-0">
+            <div className="divide-y divide-[var(--border)]">
+              {(student as any).examAttempts?.map((attempt: any) => {
+                const passed = (attempt.score ?? 0) >= 70
+                return (
+                  <div key={attempt.id} className="flex items-center justify-between p-5 hover:bg-[var(--muted)]/50 transition-colors">
+                    <div>
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-[var(--muted-foreground)] mb-1 block">
+                        {attempt.exam.subject?.name} &mdash; {new Date(attempt.endTime).toLocaleDateString('id-ID', { day:'numeric', month:'long', year:'numeric' })}
+                      </span>
+                      <p className="text-sm font-bold text-[var(--foreground)]">{attempt.exam.title}</p>
+                    </div>
+                    <div className="text-right flex flex-col items-end gap-1">
+                      <p className={`text-2xl font-extrabold ${passed ? 'text-emerald-600' : 'text-red-500'}`}>
+                        {attempt.score ?? '-'}
+                      </p>
+                      <span className={`text-[9px] font-black px-2 py-0.5 rounded-full ${passed ? 'bg-emerald-50 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-400' : 'bg-red-50 text-red-600 dark:bg-red-950 dark:text-red-400'}`}>
+                        {passed ? 'LULUS' : 'TIDAK LULUS'}
+                      </span>
+                    </div>
+                  </div>
+                )
+              })}
+              {!(student as any).examAttempts?.length && (
+                <div className="text-center py-12 text-xs text-[var(--muted-foreground)]">
+                  Belum ada ujian yang diselesaikan.
+                </div>
+              )}
+            </div>
+          </CardContent>
+        </Card>
       </TabsContent>
 
       <TabsContent value="finance" className="pt-6">
