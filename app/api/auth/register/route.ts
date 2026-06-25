@@ -3,6 +3,8 @@ import { NextResponse } from "next/server"
 import bcrypt from "bcryptjs"
 import { cookies } from "next/headers"
 import crypto from "crypto"
+import { rateLimit, getIp } from "@/lib/rate-limit"
+
 
 export async function GET() {
   try {
@@ -19,6 +21,16 @@ export async function GET() {
 }
 
 export async function POST(req: Request) {
+  // Rate limit: 5 registrations per 10 minutes per IP
+  const ip = getIp(req)
+  const rl = rateLimit({ key: `register:${ip}`, limit: 5, windowMs: 10 * 60 * 1000 })
+  if (!rl.success) {
+    return NextResponse.json(
+      { error: "Terlalu banyak percobaan. Coba lagi dalam beberapa menit." },
+      { status: 429 }
+    )
+  }
+
   try {
     const settings = await prisma.settings.findUnique({
       where: { id: 'global' }
@@ -46,7 +58,7 @@ export async function POST(req: Request) {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          secret: '0x4AAAAAADX4nfBjRLGqwoF85tsNo5YC2V0',
+          secret: process.env.TURNSTILE_SECRET_KEY || '0x4AAAAAADX4nfBjRLGqwoF85tsNo5YC2V0',
           response: captcha,
         }),
       })

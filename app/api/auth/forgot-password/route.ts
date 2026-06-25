@@ -2,10 +2,22 @@ import { NextResponse } from "next/server"
 import prisma from "@/lib/prisma"
 import { sendPasswordResetEmail } from "@/lib/mail"
 import crypto from "crypto"
+import { rateLimit, getIp } from "@/lib/rate-limit"
 
 export async function POST(req: Request) {
+  // Rate limit: 3 requests per 15 minutes per IP
+  const ip = getIp(req)
+  const rl = rateLimit({ key: `forgot-pw:${ip}`, limit: 3, windowMs: 15 * 60 * 1000 })
+  if (!rl.success) {
+    return NextResponse.json(
+      { error: "Terlalu banyak permintaan. Tunggu sebentar sebelum mencoba lagi." },
+      { status: 429 }
+    )
+  }
+
   try {
     const { email } = await req.json()
+
 
     if (!email) {
       return NextResponse.json({ error: "Email is required" }, { status: 400 })
