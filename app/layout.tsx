@@ -23,34 +23,37 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   manifest: '/manifest.json',
   title: {
-    default: 'Fokuspad — Platform Monitoring Belajar Siswa',
+    default: 'Fokuspad — Sistem Informasi Akademik & Aplikasi CBT Sekolah',
     template: '%s | Fokuspad',
   },
   description:
-    'Platform monitoring kemajuan belajar siswa SMA/SMK secara real-time. Gratis, mudah, dan efektif untuk guru dan siswa Indonesia.',
+    'Fokuspad adalah sistem informasi akademik sekolah modern dan aplikasi ujian online CBT terintegrasi untuk memantau progress belajar siswa secara real-time.',
   keywords: [
-    'monitoring belajar',
-    'platform pendidikan',
-    'progress siswa',
-    'edu tech indonesia',
-    'aplikasi sekolah',
+    'Fokuspad',
+    'Fokuspad sekolah',
+    'aplikasi ujian CBT',
+    'sistem informasi akademik',
+    'platform sekolah digital',
+    'monitoring belajar siswa',
+    'rapor digital indonesia',
+    'aplikasi ujian online gratis'
   ],
   authors: [{ name: 'Fokuspad Team' }],
   creator: 'Fokuspad',
   openGraph: {
     type: 'website',
     locale: 'id_ID',
-    url: 'https://fokuspad.id',
-    title: 'Fokuspad — Platform Monitoring Belajar Siswa',
+    url: 'https://fokuspad.my.id',
+    title: 'Fokuspad — Sistem Informasi Akademik & Aplikasi CBT Sekolah',
     description:
-      'Monitor kemajuan belajar siswa secara real-time. Gratis untuk semua sekolah di Indonesia.',
+      'Platform monitoring kemajuan belajar siswa SMA/SMK dan ujian CBT online real-time. Gratis untuk seluruh sekolah di Indonesia.',
     siteName: 'Fokuspad',
     images: [{ url: '/og-image.png', width: 1200, height: 630 }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Fokuspad — Platform Monitoring Belajar Siswa',
-    description: 'Monitor kemajuan belajar siswa secara real-time.',
+    title: 'Fokuspad — Platform Sekolah & Ujian CBT Online',
+    description: 'Sistem akademik sekolah modern & ujian online CBT real-time.',
     images: ['/og-image.png'],
   },
   robots: {
