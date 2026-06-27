@@ -1,7 +1,3 @@
-<svg width="180" height="180" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="180" height="180" rx="40" fill="#0F172A"/>
-  <circle cx="90" cy="90" r="70" fill="#1E293B"/>
-  <!-- Huruf F bergaya modern dan dinamis -->
-  <path d="M65 50H115V68H83V82H110V100H83V130H65V50Z" fill="#5483B3"/>
-  <path d="M83 82H100V100H83V82Z" fill="#F1F5F9"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180" fill="none">
+  <image href="/logo-cube-transparent.png" x="0" y="0" width="180" height="180" />
 </svg>

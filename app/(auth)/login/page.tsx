@@ -12,6 +12,8 @@ import { Label } from '@/components/ui/label'
 import { Checkbox } from '@/components/ui/checkbox'
 import { toast } from 'sonner'
 
+import Image from 'next/image'
+
 export default function LoginPage() {
   const router = useRouter()
   const searchParams = useSearchParams()
@@ -88,11 +90,14 @@ export default function LoginPage() {
         <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.03] pointer-events-none" />
         
         <Link href="/" className="relative z-10 block transition-transform hover:scale-[1.02] active:scale-95 duration-300 w-max">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 50" className="h-9 w-auto" fill="none">
-            <text x="0" y="40" fontFamily="'Geist', 'Inter', system-ui, sans-serif" fontSize="42" fontWeight="800" letterSpacing="-2" fill="#F1F5F9">
-              Edu<tspan fontWeight="800" fill="#5483B3">track</tspan>
-            </text>
-          </svg>
+          <Image
+            src="/logo.svg"
+            alt="Fokuspad Logo"
+            width={160}
+            height={40}
+            className="h-9 w-auto brightness-0 invert"
+            priority
+          />
         </Link>
 
         <div className="relative z-10 space-y-10">

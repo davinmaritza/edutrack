@@ -2,6 +2,7 @@
 
 import { useState, useRef } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { motion, AnimatePresence, useInView } from 'framer-motion'
 import {
   GraduationCap,
@@ -252,12 +253,18 @@ export default function LandingPage() {
       {/* ── NAV ── */}
       <nav className="fixed top-0 w-full z-50 bg-[#F9F9F7]/92 backdrop-blur-xl border-b border-slate-200/50 h-[66px]">
         <div className="max-w-7xl mx-auto px-5 md:px-8 h-full flex items-center justify-between">
-          <Link href="/" aria-label="Fokuspad — Beranda">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 52" className="h-7 w-auto" fill="none">
-              <text x="0" y="42" fontFamily="'Geist', 'Inter', system-ui, sans-serif" fontSize="44" fontWeight="800" letterSpacing="-2" fill="#0F172A">
-                Fokus<tspan fill="#5483B3">pad</tspan>
-              </text>
-            </svg>
+          <Link href="/" aria-label="Fokuspad — Beranda" className="flex items-center gap-2.5 hover:opacity-90 transition-opacity">
+            <Image
+              src="/logo-cube-transparent.png"
+              alt="Fokuspad Logo"
+              width={34}
+              height={34}
+              className="h-8 w-8 object-contain"
+              priority
+            />
+            <span className="text-[21px] font-black tracking-tight text-[#0F172A] font-sans">
+              Fokus<span className="text-[#5483B3]">pad</span>
+            </span>
           </Link>
 
           <div className="hidden md:flex items-center gap-7 text-[13px] font-semibold text-slate-500">
@@ -383,7 +390,7 @@ export default function LandingPage() {
                   <div className="w-2.5 h-2.5 rounded-full bg-green-400/60" />
                   <div className="flex-1 mx-4">
                     <div className="h-5 max-w-[180px] mx-auto rounded-full bg-slate-100 flex items-center justify-center">
-                      <span className="text-[9.5px] text-slate-400 font-medium">fokuspad.davinn.net/dashboard</span>
+                      <span className="text-[9.5px] text-slate-400 font-medium">fokuspad.my.id/dashboard</span>
                     </div>
                   </div>
                 </div>
@@ -745,11 +752,18 @@ export default function LandingPage() {
         <div className="max-w-7xl mx-auto px-5 md:px-8 py-14">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
             <div className="md:col-span-2 space-y-4">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 52" className="h-7 w-auto" fill="none">
-                <text x="0" y="42" fontFamily="'Geist', 'Inter', system-ui, sans-serif" fontSize="44" fontWeight="800" letterSpacing="-2" fill="#F1F5F9">
-                  Fokus<tspan fill="#5483B3">pad</tspan>
-                </text>
-              </svg>
+              <div className="flex items-center gap-2.5">
+                <Image
+                  src="/logo-cube-transparent.png"
+                  alt="Fokuspad Logo"
+                  width={34}
+                  height={34}
+                  className="h-8 w-8 object-contain"
+                />
+                <span className="text-[21px] font-black tracking-tight text-white font-sans">
+                  Fokus<span className="text-[#5483B3]">pad</span>
+                </span>
+              </div>
               <p className="text-[12px] leading-relaxed font-medium max-w-xs text-slate-500">
                 Platform manajemen akademik sekolah yang menggantikan proses manual dengan sistem yang terhubung dan mudah dipakai semua pihak.
               </p>
