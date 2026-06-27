@@ -59,7 +59,7 @@ export function HelpClient({ role }: HelpClientProps) {
         </div>
         <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-[var(--foreground)]">Pusat Bantuan</h1>
         <p className="text-sm text-[var(--muted-foreground)] font-medium max-w-xl mx-auto leading-relaxed">
-          Temukan panduan lengkap dan tutorial penggunaan platform EduTrack yang disesuaikan dengan peran Anda sebagai <span className="text-[#5483B3] font-bold">{role}</span>.
+          Temukan panduan lengkap dan tutorial penggunaan platform Fokuspad yang disesuaikan dengan peran Anda sebagai <span className="text-[#5483B3] font-bold">{role}</span>.
         </p>
       </motion.div>
 
@@ -90,7 +90,7 @@ export function HelpClient({ role }: HelpClientProps) {
                     <div className="shrink-0 mt-0.5"><AlertCircle className="h-4 w-4 text-[#5483B3]" /></div>
                     <div>
                       <p className="font-bold text-[#5483B3] mb-1 text-xs uppercase tracking-wider">Pro Tip: Bulk Delete</p>
-                      <p className="text-xs">Centang kotak di header tabel untuk memilih semua user, lalu klik ikon tempat sampah merah yang muncul untuk menghapus massal dengan protokol keamanan EduTrack.</p>
+                      <p className="text-xs">Centang kotak di header tabel untuk memilih semua user, lalu klik ikon tempat sampah merah yang muncul untuk menghapus massal dengan protokol keamanan Fokuspad.</p>
                     </div>
                   </div>
                 </AccordionContent>
@@ -273,7 +273,7 @@ export function HelpClient({ role }: HelpClientProps) {
                   Supervisi Laporan & Ekspor PDF
                 </AccordionTrigger>
                 <AccordionContent className="text-[var(--muted-foreground)] leading-relaxed text-sm space-y-4 pb-5 pt-1">
-                  <p>Sebagai tim manajemen (Kepsek / Yayasan / Wakasek), Anda memiliki hak istimewa untuk mengekspor berbagai macam laporan sistem EduTrack ke format PDF dengan mengeklik tombol "Export PDF" di halaman pelaporan.</p>
+                  <p>Sebagai tim manajemen (Kepsek / Yayasan / Wakasek), Anda memiliki hak istimewa untuk mengekspor berbagai macam laporan sistem Fokuspad ke format PDF dengan mengeklik tombol "Export PDF" di halaman pelaporan.</p>
                 </AccordionContent>
               </AccordionItem>
             </Accordion>

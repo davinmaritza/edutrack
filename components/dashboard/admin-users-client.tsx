@@ -203,7 +203,7 @@ export function AdminUsersClient({ initialUsers, classes, subjects = [], fixedRo
     const encodedUri = encodeURI(csvContent)
     const link = document.createElement("a")
     link.setAttribute("href", encodedUri)
-    link.setAttribute("download", `edutrack_${fixedRole?.toLowerCase() || 'users'}_export.csv`)
+    link.setAttribute("download", `fokuspad_${fixedRole?.toLowerCase() || 'users'}_export.csv`)
     document.body.appendChild(link)
     link.click()
     document.body.removeChild(link)

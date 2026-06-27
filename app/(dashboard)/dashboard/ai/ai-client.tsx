@@ -55,7 +55,7 @@ export function AiDashboardClient({ context, user }: AiDashboardClientProps) {
 
   // Load API Key from local storage
   useEffect(() => {
-    const savedKey = localStorage.getItem('edutrack_gemini_api_key')
+    const savedKey = localStorage.getItem('fokuspad_gemini_api_key')
     if (savedKey) {
       setApiKey(savedKey)
     } else if (!context.isServerKeySet) {
@@ -66,7 +66,7 @@ export function AiDashboardClient({ context, user }: AiDashboardClientProps) {
     setChatMessages([
       {
         role: 'model',
-        text: `Halo **${user.name}**! Saya adalah **EduTrack AI Assistant**. Bagaimana saya bisa membantu Anda hari ini?\n\n${
+        text: `Halo **${user.name}**! Saya adalah **Fokuspad AI Assistant**. Bagaimana saya bisa membantu Anda hari ini?\n\n${
           user.role === 'TEACHER'
             ? 'Sebagai guru, Anda dapat meminta saya untuk menganalisis performa kelas, merancang draf materi, membuat kuis, atau masuk ke tab **Penilaian AI** untuk grading otomatis!'
             : 'Sebagai siswa, Anda dapat bertanya tentang materi pelajaran, berkonsultasi mengenai hambatan belajar Anda di tab **Analisis Progres**, atau mencoba kuis di tab **Kuis Mandiri AI**!'
@@ -82,14 +82,14 @@ export function AiDashboardClient({ context, user }: AiDashboardClientProps) {
   }, [chatMessages])
 
   const saveApiKey = (key: string) => {
-    localStorage.setItem('edutrack_gemini_api_key', key)
+    localStorage.setItem('fokuspad_gemini_api_key', key)
     setApiKey(key)
     setShowKeyInput(false)
     toast.success("API Key berhasil disimpan di browser Anda!")
   }
 
   const deleteApiKey = () => {
-    localStorage.removeItem('edutrack_gemini_api_key')
+    localStorage.removeItem('fokuspad_gemini_api_key')
     setApiKey('')
     setShowKeyInput(true)
     toast.success("API Key dihapus dari penyimpanan browser.")
@@ -560,7 +560,7 @@ Keluarkan HANYA teks JSON murni tanpa pembungkus markdown (\`\`\`json) agar dapa
                     <Bot className="h-5 w-5" />
                   </div>
                   <div>
-                    <h3 className="text-sm font-bold text-[var(--foreground)]">Asisten Pintar EduTrack</h3>
+                    <h3 className="text-sm font-bold text-[var(--foreground)]">Asisten Pintar Fokuspad</h3>
                     <p className="text-[10px] text-emerald-500 flex items-center gap-1">
                       <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-ping" />
                       Aktif & Siap membantu

@@ -7,7 +7,7 @@ import { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Kelola Mapel',
-  description: 'Manajemen kurikulum dan mata pelajaran EduTrack.',
+  description: 'Manajemen kurikulum dan mata pelajaran Fokuspad.',
 }
 
 export default async function AdminSubjectsPage() {

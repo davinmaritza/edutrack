@@ -4,7 +4,7 @@ import { redirect } from "next/navigation"
 import { AlumniClient } from "@/components/dashboard/alumni-client"
 
 export const metadata = {
-  title: "Portal Alumni | EduTrack",
+  title: "Portal Alumni | Fokuspad",
   description: "Portal Tracer Study dan Lowongan Kerja Alumni"
 }
 

@@ -4,7 +4,7 @@ import { redirect } from "next/navigation"
 import { UksClient } from "@/components/dashboard/uks-client"
 
 export const metadata = {
-  title: "Dashboard UKS | EduTrack",
+  title: "Dashboard UKS | Fokuspad",
   description: "Manajemen Unit Kesehatan Sekolah"
 }
 

@@ -209,7 +209,7 @@ const STATS = [
 
 const FAQS = [
   {
-    q: 'Apakah EduTrack benar-benar gratis?',
+    q: 'Apakah Fokuspad benar-benar gratis?',
     a: 'Ya, semua fitur inti — dashboard, absensi, tugas, penilaian, forum diskusi, dan kalender akademik — bisa dipakai tanpa biaya. Tidak ada kartu kredit yang dibutuhkan untuk mulai.',
   },
   {
@@ -218,7 +218,7 @@ const FAQS = [
   },
   {
     q: 'Bisa dipakai lewat HP?',
-    a: 'Bisa. EduTrack sudah dioptimalkan untuk layar mobile. Guru bisa nilai tugas, siswa bisa cek jadwal, dan orang tua bisa pantau absensi — semuanya dari HP tanpa perlu install aplikasi tambahan.',
+    a: 'Bisa. Fokuspad sudah dioptimalkan untuk layar mobile. Guru bisa nilai tugas, siswa bisa cek jadwal, dan orang tua bisa pantau absensi — semuanya dari HP tanpa perlu install aplikasi tambahan.',
   },
   {
     q: 'Bagaimana guru bisa lihat data kelas yang dia ajar saja?',
@@ -252,7 +252,7 @@ export default function LandingPage() {
       {/* ── NAV ── */}
       <nav className="fixed top-0 w-full z-50 bg-[#F9F9F7]/92 backdrop-blur-xl border-b border-slate-200/50 h-[66px]">
         <div className="max-w-7xl mx-auto px-5 md:px-8 h-full flex items-center justify-between">
-          <Link href="/" aria-label="EduTrack — Beranda">
+          <Link href="/" aria-label="Fokuspad — Beranda">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 52" className="h-7 w-auto" fill="none">
               <text x="0" y="42" fontFamily="'Geist', 'Inter', system-ui, sans-serif" fontSize="44" fontWeight="800" letterSpacing="-2" fill="#0F172A">
                 Edu<tspan fill="#5483B3">Track</tspan>
@@ -261,7 +261,7 @@ export default function LandingPage() {
           </Link>
 
           <div className="hidden md:flex items-center gap-7 text-[13px] font-semibold text-slate-500">
-            <button onClick={() => scrollTo('masalah')} className="hover:text-slate-900 transition-colors">Kenapa EduTrack?</button>
+            <button onClick={() => scrollTo('masalah')} className="hover:text-slate-900 transition-colors">Kenapa Fokuspad?</button>
             <button onClick={() => scrollTo('fitur')} className="hover:text-slate-900 transition-colors">Fitur</button>
             <button onClick={() => scrollTo('cara-kerja')} className="hover:text-slate-900 transition-colors">Cara Kerja</button>
             <button onClick={() => scrollTo('faq')} className="hover:text-slate-900 transition-colors">FAQ</button>
@@ -327,7 +327,7 @@ export default function LandingPage() {
               transition={{ duration: 0.65, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
               className="text-base md:text-[17px] text-slate-500 font-medium max-w-xl mx-auto leading-relaxed"
             >
-              EduTrack menggantikan tumpukan spreadsheet dan buku absensi fisik dengan satu platform yang rapi — dari nilai, jadwal, tugas, sampai komunikasi dengan orang tua.
+              Fokuspad menggantikan tumpukan spreadsheet dan buku absensi fisik dengan satu platform yang rapi — dari nilai, jadwal, tugas, sampai komunikasi dengan orang tua.
             </motion.p>
 
             <motion.div
@@ -383,7 +383,7 @@ export default function LandingPage() {
                   <div className="w-2.5 h-2.5 rounded-full bg-green-400/60" />
                   <div className="flex-1 mx-4">
                     <div className="h-5 max-w-[180px] mx-auto rounded-full bg-slate-100 flex items-center justify-center">
-                      <span className="text-[9.5px] text-slate-400 font-medium">edutrack.davinn.net/dashboard</span>
+                      <span className="text-[9.5px] text-slate-400 font-medium">fokuspad.davinn.net/dashboard</span>
                     </div>
                   </div>
                 </div>
@@ -395,7 +395,7 @@ export default function LandingPage() {
                       <div className="w-7 h-7 rounded-lg bg-[#5483B3] flex items-center justify-center">
                         <GraduationCap className="h-4 w-4 text-white" />
                       </div>
-                      <span className="text-[11px] font-bold text-white">EduTrack</span>
+                      <span className="text-[11px] font-bold text-white">Fokuspad</span>
                     </div>
                     {['Dashboard', 'Kelas Saya', 'Nilai', 'Absensi', 'Kalender'].map((item, i) => (
                       <div
@@ -492,7 +492,7 @@ export default function LandingPage() {
               <div className="h-px w-12 bg-gradient-to-r from-transparent via-slate-300 to-transparent" />
               <div className="flex items-center gap-2.5 text-sm font-bold text-[#5483B3]">
                 <Wand2 className="h-4 w-4" />
-                EduTrack dibuat untuk menyelesaikan ini semua
+                Fokuspad dibuat untuk menyelesaikan ini semua
                 <Wand2 className="h-4 w-4" />
               </div>
               <div className="h-px w-12 bg-gradient-to-r from-transparent via-slate-300 to-transparent" />
@@ -539,7 +539,7 @@ export default function LandingPage() {
                   Tahu persis siapa<br />yang perlu dibantu
                 </h2>
                 <p className="text-[13.5px] text-slate-500 font-medium leading-relaxed mb-8">
-                  Tidak perlu lagi nunggu ujian akhir buat tahu siswa mana yang tertinggal. EduTrack kasih gambar lengkap per kompetensi, per minggu — biar intervensi bisa dilakukan jauh lebih awal.
+                  Tidak perlu lagi nunggu ujian akhir buat tahu siswa mana yang tertinggal. Fokuspad kasih gambar lengkap per kompetensi, per minggu — biar intervensi bisa dilakukan jauh lebih awal.
                 </p>
                 <div className="space-y-4">
                   {[
@@ -795,7 +795,7 @@ export default function LandingPage() {
 
           <div className="pt-7 border-t border-white/6 flex flex-col sm:flex-row justify-between items-center gap-3">
             <p className="text-[11px] font-medium text-slate-600">
-              © {new Date().getFullYear()} EduTrack. Hak Cipta Dilindungi.
+              © {new Date().getFullYear()} Fokuspad. Hak Cipta Dilindungi.
             </p>
             <p className="text-[11px] font-medium text-slate-600">
               Built by{' '}

@@ -5,7 +5,7 @@ import { PustakawanClient } from "@/components/dashboard/pustakawan-client"
 import { RBAC } from "@/lib/rbac"
 
 export const metadata = {
-  title: "Dashboard Pustakawan | EduTrack",
+  title: "Dashboard Pustakawan | Fokuspad",
   description: "Manajemen Perpustakaan dan Sirkulasi Buku"
 }
 

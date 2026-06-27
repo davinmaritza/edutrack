@@ -5,7 +5,7 @@ import { AdminExtracurricularDetailClient } from '@/components/dashboard/admin-e
 import { RBAC } from '@/lib/rbac'
 
 export const metadata = {
-  title: 'Detail Ekstrakurikuler | Admin EduTrack',
+  title: 'Detail Ekstrakurikuler | Admin Fokuspad',
 }
 
 export default async function ExtracurricularDetailPage({ params }: { params: Promise<{ id: string }> }) {

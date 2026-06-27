@@ -59,9 +59,9 @@ export const ReportCardPDF = forwardRef<HTMLDivElement, ReportCardProps>(({ stud
       >
         {/* Header / Kop Surat */}
         <div style={{ textAlign: 'center', borderBottom: '3px solid #000', paddingBottom: '20px', marginBottom: '30px' }}>
-          <h1 style={{ margin: '0 0 10px 0', fontSize: '24px', fontWeight: 'bold' }}>EduTrack Academy</h1>
+          <h1 style={{ margin: '0 0 10px 0', fontSize: '24px', fontWeight: 'bold' }}>Fokuspad Academy</h1>
           <p style={{ margin: '0 0 5px 0', fontSize: '14px' }}>Jl. Pendidikan No. 123, Kota Pelajar, Indonesia 40123</p>
-          <p style={{ margin: 0, fontSize: '14px' }}>Telp: (022) 1234567 | Email: info@edutrack.com | Web: www.edutrack.com</p>
+          <p style={{ margin: 0, fontSize: '14px' }}>Telp: (022) 1234567 | Email: info@fokuspad.com | Web: www.fokuspad.com</p>
         </div>
 
         <h2 style={{ textAlign: 'center', fontSize: '18px', fontWeight: 'bold', margin: '0 0 30px 0', textDecoration: 'underline' }}>

@@ -165,7 +165,7 @@ export function AdminSchedulesClient({ initialSchedules, classes, subjects, teac
     const encodedUri = encodeURI(csvContent)
     const link = document.createElement("a")
     link.setAttribute("href", encodedUri)
-    link.setAttribute("download", "edutrack_schedules_export.csv")
+    link.setAttribute("download", "fokuspad_schedules_export.csv")
     document.body.appendChild(link)
     link.click()
     document.body.removeChild(link)

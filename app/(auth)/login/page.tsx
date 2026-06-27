@@ -135,7 +135,7 @@ export default function LoginPage() {
         >
           <div className="space-y-3 text-center lg:text-left">
             <h2 className="text-[32px] font-extrabold tracking-tight text-[#0F172A] font-serif leading-tight">Selamat Datang</h2>
-            <p className="text-[13px] text-slate-500 font-medium leading-relaxed">Masuk ke akun EduTrack Anda untuk melanjutkan aktivitas akademik.</p>
+            <p className="text-[13px] text-slate-500 font-medium leading-relaxed">Masuk ke akun Fokuspad Anda untuk melanjutkan aktivitas akademik.</p>
           </div>
 
           <div className="flex bg-slate-50 border border-slate-100 rounded-xl p-1 shadow-inner">

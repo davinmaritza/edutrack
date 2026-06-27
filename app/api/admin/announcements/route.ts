@@ -70,7 +70,7 @@ export async function POST(req: Request) {
           html: `<p>Halo, ada pengumuman baru dari Administrator.</p>
                  <p><strong>Topik:</strong> ${announcement.title}</p>
                  <p><strong>Pesan:</strong> ${announcement.message}</p>
-                 <p>Silakan login ke EduTrack untuk info lebih lanjut.</p>`
+                 <p>Silakan login ke Fokuspad untuk info lebih lanjut.</p>`
         });
       }
     } catch (emailError) {

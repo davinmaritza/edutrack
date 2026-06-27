@@ -1,6 +1,6 @@
-# 🎓 Panduan Pengguna EduTrack (Ultimate Guide)
+# 🎓 Panduan Pengguna Fokuspad (Ultimate Guide)
 
-Selamat datang di **EduTrack**, platform manajemen sekolah modern yang dirancang untuk efisiensi, transparansi, dan kemudahan akses. Panduan ini akan membantu Anda memahami seluruh fitur sistem dari berbagai peran (Admin, Guru, dan Siswa).
+Selamat datang di **Fokuspad**, platform manajemen sekolah modern yang dirancang untuk efisiensi, transparansi, dan kemudahan akses. Panduan ini akan membantu Anda memahami seluruh fitur sistem dari berbagai peran (Admin, Guru, dan Siswa).
 
 ---
 
@@ -94,4 +94,4 @@ Jika Anda menemukan error atau kendala teknis, pastikan:
 3.  Cek log server untuk melihat pesan error spesifik.
 
 ---
-*EduTrack v2.4 - Premium School Management Solution*
+*Fokuspad v2.4 - Premium School Management Solution*

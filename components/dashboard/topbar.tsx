@@ -155,14 +155,14 @@ export function Topbar() {
           </SheetTrigger>
           <SheetContent side="left" className="p-0 w-[256px] bg-[var(--sidebar-bg)] border-r border-[var(--border)]">
             <SheetTitle className="sr-only">Navigasi Sidebar</SheetTitle>
-            <SheetDescription className="sr-only">Menu navigasi platform EduTrack</SheetDescription>
+            <SheetDescription className="sr-only">Menu navigasi platform Fokuspad</SheetDescription>
             <Sidebar isMobile onClose={() => setIsMobileMenuOpen(false)} />
           </SheetContent>
         </Sheet>
         <Link href="/dashboard" className="flex items-center gap-2">
           <Image
             src="/logo.png"
-            alt="EduTrack Logo"
+            alt="Fokuspad Logo"
             width={120}
             height={28}
             className="h-7 w-auto"

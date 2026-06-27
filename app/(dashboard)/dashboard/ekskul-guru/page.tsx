@@ -4,7 +4,7 @@ import prisma from '@/lib/prisma'
 import { TeacherEkskulClient } from '@/components/dashboard/teacher-ekskul-client'
 
 export const metadata = {
-  title: 'Ekskul Saya | Guru EduTrack',
+  title: 'Ekskul Saya | Guru Fokuspad',
 }
 
 export default async function TeacherEkskulPage() {

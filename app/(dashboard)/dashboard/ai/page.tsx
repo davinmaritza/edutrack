@@ -4,7 +4,7 @@ import { getAiContext } from "./actions"
 import { AiDashboardClient } from "./ai-client"
 
 export const metadata = {
-  title: "Asisten AI - EduTrack",
+  title: "Asisten AI - Fokuspad",
   description: "Asisten AI pintar berbasis Google Gemini untuk siswa dan guru di SMKN 13 Bandung.",
 }
 
@@ -30,7 +30,7 @@ export default async function AiPage() {
             ✨ Powered by Gemini 2.5 Flash
           </div>
           <h1 className="text-3xl font-black tracking-tight bg-gradient-to-r from-white via-[#C1E8FF] to-[#7DA0CA] bg-clip-text text-transparent">
-            EduTrack AI Assistant
+            Fokuspad AI Assistant
           </h1>
           <p className="text-[#7DA0CA] text-sm max-w-2xl">
             Asisten pembelajaran & pengajaran pintar terintegrasi dengan database sekolah SMKN 13 Bandung. Memberikan rekomendasi, tanya-jawab mapel, dan penilaian otomatis secara instan.

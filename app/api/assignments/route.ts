@@ -55,7 +55,7 @@ export async function POST(req: Request) {
           html: `<p>Halo, ada tugas baru dari guru Anda yang harus dikerjakan.</p>
                  <p><strong>Judul:</strong> ${assignment.title}</p>
                  <p><strong>Tenggat Waktu:</strong> ${new Date(deadline).toLocaleString('id-ID')}</p>
-                 <p>Silakan login ke EduTrack untuk mengumpulkan tugas Anda.</p>`
+                 <p>Silakan login ke Fokuspad untuk mengumpulkan tugas Anda.</p>`
         });
       }
     } catch (emailError) {

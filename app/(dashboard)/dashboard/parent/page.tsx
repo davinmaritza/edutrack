@@ -137,7 +137,7 @@ export default async function ParentDashboardPage() {
           <p className="text-xs font-bold uppercase tracking-widest text-[#B3C8E3]">Portal Wali Murid</p>
           <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight">Selamat Datang, Bapak/Ibu Wali</h1>
           <p className="text-sm text-[#E2ECF6] max-w-xl">
-            Pantau perkembangan akademis, aktivitas belajar mandiri, dan kehadiran putra/putri Anda secara langsung di platform EduTrack.
+            Pantau perkembangan akademis, aktivitas belajar mandiri, dan kehadiran putra/putri Anda secara langsung di platform Fokuspad.
           </p>
         </div>
         <div className="absolute right-0 top-0 h-full w-1/3 bg-white/5 skew-x-12 translate-x-10 pointer-events-none" />

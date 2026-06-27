@@ -23,8 +23,8 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   manifest: '/manifest.json',
   title: {
-    default: 'EduTrack — Platform Monitoring Belajar Siswa',
-    template: '%s | EduTrack',
+    default: 'Fokuspad — Platform Monitoring Belajar Siswa',
+    template: '%s | Fokuspad',
   },
   description:
     'Platform monitoring kemajuan belajar siswa SMA/SMK secara real-time. Gratis, mudah, dan efektif untuk guru dan siswa Indonesia.',
@@ -35,21 +35,21 @@ export const metadata: Metadata = {
     'edu tech indonesia',
     'aplikasi sekolah',
   ],
-  authors: [{ name: 'EduTrack Team' }],
-  creator: 'EduTrack',
+  authors: [{ name: 'Fokuspad Team' }],
+  creator: 'Fokuspad',
   openGraph: {
     type: 'website',
     locale: 'id_ID',
-    url: 'https://edutrack.id',
-    title: 'EduTrack — Platform Monitoring Belajar Siswa',
+    url: 'https://fokuspad.id',
+    title: 'Fokuspad — Platform Monitoring Belajar Siswa',
     description:
       'Monitor kemajuan belajar siswa secara real-time. Gratis untuk semua sekolah di Indonesia.',
-    siteName: 'EduTrack',
+    siteName: 'Fokuspad',
     images: [{ url: '/og-image.png', width: 1200, height: 630 }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'EduTrack — Platform Monitoring Belajar Siswa',
+    title: 'Fokuspad — Platform Monitoring Belajar Siswa',
     description: 'Monitor kemajuan belajar siswa secara real-time.',
     images: ['/og-image.png'],
   },

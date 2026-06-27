@@ -71,7 +71,7 @@ export default function MaintenancePage() {
             Akses masuk saat ini dibatasi hanya untuk Administrator. Sistem akan kembali online untuk Guru, Siswa, dan Pelatih setelah proses sinkronisasi database selesai.
           </p>
           <div className="pt-2 flex justify-between items-center text-[10px] font-black uppercase tracking-widest text-[#94A3B8]">
-            <span>EduTrack Core v2.4.0</span>
+            <span>Fokuspad Core v2.4.0</span>
             <span>Est. Selesai: Hari ini</span>
           </div>
         </motion.div>

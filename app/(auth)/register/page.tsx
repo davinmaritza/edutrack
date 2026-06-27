@@ -206,7 +206,7 @@ export default function RegisterPage() {
         >
           <div className="space-y-3 text-center lg:text-left">
             <h2 className="text-[32px] font-extrabold tracking-tight text-[#0F172A] font-serif leading-tight">Buat Akun Baru</h2>
-            <p className="text-[13px] text-slate-500 font-medium leading-relaxed">Lengkapi data di bawah ini untuk bergabung dengan EduTrack.</p>
+            <p className="text-[13px] text-slate-500 font-medium leading-relaxed">Lengkapi data di bawah ini untuk bergabung dengan Fokuspad.</p>
           </div>
 
           <form onSubmit={handleRegister} className="space-y-5">

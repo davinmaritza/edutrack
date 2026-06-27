@@ -53,7 +53,7 @@ export async function PATCH(req: Request) {
     const settings = await prisma.settings.upsert({
       where: { id: 'global' },
       update: { 
-        appName: 'EduTrack', 
+        appName: 'Fokuspad', 
         school, 
         timezone, 
         maintenanceMode, 
@@ -73,7 +73,7 @@ export async function PATCH(req: Request) {
       },
       create: { 
         id: 'global', 
-        appName: 'EduTrack', 
+        appName: 'Fokuspad', 
         school, 
         timezone, 
         maintenanceMode, 

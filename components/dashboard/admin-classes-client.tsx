@@ -388,7 +388,7 @@ export function AdminClassesClient({ initialClasses, role, subjects, unassignedS
     const encodedUri = encodeURI(csvContent)
     const link = document.createElement("a")
     link.setAttribute("href", encodedUri)
-    link.setAttribute("download", "edutrack_classes_export.csv")
+    link.setAttribute("download", "fokuspad_classes_export.csv")
     document.body.appendChild(link)
     link.click()
     document.body.removeChild(link)

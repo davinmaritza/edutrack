@@ -89,7 +89,7 @@ export function GuestDashboard({ user }: any) {
               Selamat Datang, {user?.name || 'Pengguna'}! 👋
             </h1>
             <p className="text-base md:text-lg text-white/80 font-medium max-w-2xl leading-relaxed">
-              Akun Anda berhasil terdaftar di EduTrack. Saat ini Anda masuk sebagai <span className="text-white font-bold">Tamu</span>. 
+              Akun Anda berhasil terdaftar di Fokuspad. Saat ini Anda masuk sebagai <span className="text-white font-bold">Tamu</span>. 
               Hubungi administrator sekolah untuk mendapatkan peran sebagai Siswa atau Guru agar dapat mengakses seluruh fitur platform.
             </p>
           </div>

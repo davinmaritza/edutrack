@@ -142,7 +142,7 @@ export function AdminAnnouncementsClient() {
           Communication Center
         </p>
         <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight text-[var(--foreground)]">Pengumuman</h1>
-        <p className="text-sm font-medium text-[var(--muted-foreground)] mt-2">Kirim pesan siaran ke seluruh civitas EduTrack.</p>
+        <p className="text-sm font-medium text-[var(--muted-foreground)] mt-2">Kirim pesan siaran ke seluruh civitas Fokuspad.</p>
       </motion.div>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">

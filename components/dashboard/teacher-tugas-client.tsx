@@ -551,7 +551,7 @@ export function TeacherTugasClient({ assignments, subjects, classes }: any) {
             Classroom Management
           </p>
           <h1 className="text-7xl font-black uppercase italic tracking-tighter leading-none">Kelola Tugas.</h1>
-          <p className="text-zinc-500 font-medium mt-4">Platform interaksi belajar-mengajar terpadu EduTrack.</p>
+          <p className="text-zinc-500 font-medium mt-4">Platform interaksi belajar-mengajar terpadu Fokuspad.</p>
         </motion.div>
         
         <Dialog open={isAddModalOpen} onOpenChange={setIsAddModalOpen}>

@@ -65,7 +65,7 @@ export function AdminReportsClient({ stats }: any) {
             Platform Analytics
           </p>
           <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight text-[var(--foreground)]">Laporan Sistem</h1>
-          <p className="text-sm font-medium text-[var(--muted-foreground)] mt-2">Visualisasi data dan performa ekosistem EduTrack.</p>
+          <p className="text-sm font-medium text-[var(--muted-foreground)] mt-2">Visualisasi data dan performa ekosistem Fokuspad.</p>
         </div>
         
         <Button 

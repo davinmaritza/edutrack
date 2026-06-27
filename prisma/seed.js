@@ -58,7 +58,7 @@ async function main() {
 
   const haziq = await prisma.user.create({
     data: {
-      name: 'Haziq', email: 'haziq@edutrack.com',
+      name: 'Haziq', email: 'haziq@fokuspad.com',
       password: defaultPass, role: 'STUDENT', school: 'SMKN 13 Bandung',
       classId: xrpl1.id,
     },
@@ -275,8 +275,8 @@ async function main() {
       },
       {
         userId: haziq.id, type: 'SYSTEM',
-        title: 'Selamat Datang di EduTrack',
-        message: 'Hai Haziq! Selamat datang di EduTrack. Atur jadwal belajarmu dan mulai tracking progress!',
+        title: 'Selamat Datang di Fokuspad',
+        message: 'Hai Haziq! Selamat datang di Fokuspad. Atur jadwal belajarmu dan mulai tracking progress!',
         read: true,
         createdAt: new Date(now.getTime() - 14 * 86400000),
       },
@@ -305,7 +305,7 @@ async function main() {
 
   // ── Settings ──
   await prisma.settings.create({
-    data: { id: 'global', appName: 'EduTrack', school: 'SMKN 13 Bandung', timezone: 'Asia/Jakarta' },
+    data: { id: 'global', appName: 'Fokuspad', school: 'SMKN 13 Bandung', timezone: 'Asia/Jakarta' },
   })
   console.log('⚙️  Settings created')
 
@@ -327,7 +327,7 @@ async function main() {
   console.log('    Password: password123')
   console.log('')
   console.log('  SISWA:')
-  console.log('    Email:    haziq@edutrack.com')
+  console.log('    Email:    haziq@fokuspad.com')
   console.log('    Password: password123')
   console.log('')
   console.log('═══════════════════════════════════════')

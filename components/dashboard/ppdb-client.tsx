@@ -217,7 +217,7 @@ export function PpdbDashboardClient({
     
     doc.setFont("helvetica", "bold")
     doc.setFontSize(10)
-    doc.text("Panitia PPDB EduTrack", 140, y + 25)
+    doc.text("Panitia PPDB Fokuspad", 140, y + 25)
     doc.setFont("helvetica", "normal")
     doc.text("TTD & Cap Basah", 140, y + 38)
     

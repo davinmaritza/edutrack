@@ -34,7 +34,7 @@ export const useAppStore = create<AppState>()(
       unreadNotificationCount: () => get().notifications.filter(n => !n.read).length,
     }),
     {
-      name: 'edutrack-storage',
+      name: 'fokuspad-storage',
     }
   )
 )

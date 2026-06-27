@@ -83,7 +83,7 @@ function ResetPasswordForm() {
     <form onSubmit={handleSubmit} className="space-y-8">
       <div className="text-center">
         <div className="inline-block mb-10 group">
-          <Image src="/logo.png" alt="EduTrack Logo" width={200} height={50} className="h-12 w-auto brightness-0 dark:invert transition-transform group-hover:scale-105" />
+          <Image src="/logo.png" alt="Fokuspad Logo" width={200} height={50} className="h-12 w-auto brightness-0 dark:invert transition-transform group-hover:scale-105" />
         </div>
         <h2 className="text-3xl md:text-4xl font-extrabold text-[var(--foreground)] tracking-tight">Reset Password</h2>
         <p className="text-[var(--muted-foreground)] font-medium mt-2 text-sm">Buat password baru yang kuat untuk mengamankan akun Anda.</p>

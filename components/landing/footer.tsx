@@ -41,7 +41,7 @@ export function Footer() {
                 <GraduationCap className="h-5 w-5 text-primary-foreground" />
               </div>
               <span className="text-xl font-semibold text-foreground">
-                EduTrack
+                Fokuspad
               </span>
             </Link>
             <p className="text-body-sm text-muted-foreground max-w-xs">
@@ -124,7 +124,7 @@ export function Footer() {
         {/* Bottom bar */}
         <div className="mt-12 pt-8 border-t border-border flex flex-col sm:flex-row justify-between items-center gap-4">
           <p className="text-caption text-muted-foreground">
-            © {new Date().getFullYear()} EduTrack. Hak cipta dilindungi.
+            © {new Date().getFullYear()} Fokuspad. Hak cipta dilindungi.
           </p>
           <p className="text-caption text-muted-foreground">
             Dibuat dengan cinta di Indonesia

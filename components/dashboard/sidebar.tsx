@@ -242,7 +242,7 @@ export function Sidebar({ isMobile, onClose }: SidebarProps = {}) {
         >
           <Image
             src="/logo.png"
-            alt="EduTrack Logo"
+            alt="Fokuspad Logo"
             width={140}
             height={36}
             className="h-9 w-auto"

@@ -2,7 +2,7 @@ import { PrismaClient } from '@prisma/client'
 const prisma = new PrismaClient()
 
 async function main() {
-  const teacher = await prisma.user.findFirst({ where: { email: 'guru@edutrack.com' } })
+  const teacher = await prisma.user.findFirst({ where: { email: 'guru@fokuspad.com' } })
   const subject = await prisma.subject.findFirst({ where: { name: 'Matematika' } })
   
   if (teacher && subject) {

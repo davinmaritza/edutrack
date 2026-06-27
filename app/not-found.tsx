@@ -26,7 +26,7 @@ export default function NotFound() {
             <div className="h-12 w-12 bg-[#5483B3] rounded-2xl flex items-center justify-center shadow-lg shadow-[#5483B3]/20 group-hover:scale-105 transition-transform">
               <GraduationCap className="h-7 w-7 text-white" />
             </div>
-            <span className="text-3xl font-bold tracking-tight text-[#0F172A]">EduTrack</span>
+            <span className="text-3xl font-bold tracking-tight text-[#0F172A]">Fokuspad</span>
           </Link>
         </motion.div>
 

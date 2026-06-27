@@ -7,7 +7,7 @@ import { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Kelola Pengguna',
-  description: 'Manajemen basis data pengguna EduTrack: Siswa, Guru, dan Administrator.',
+  description: 'Manajemen basis data pengguna Fokuspad: Siswa, Guru, dan Administrator.',
 }
 
 export const dynamic = 'force-dynamic'

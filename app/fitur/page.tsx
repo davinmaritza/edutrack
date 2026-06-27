@@ -85,7 +85,7 @@ export default function FiturPage() {
         >
           <span className="text-xs font-black uppercase tracking-widest text-[#5483B3]">EKSPLORASI FITUR</span>
           <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight text-[#0F172A] font-serif leading-[1.1]">
-            Fitur Utama EduTrack
+            Fitur Utama Fokuspad
           </h1>
           <p className="text-sm md:text-base text-[#64748B] font-medium max-w-xl mx-auto leading-relaxed">
             Didesain khusus untuk menyederhanakan administrasi akademik dan meningkatkan produktivitas belajar mengajar di sekolah.
@@ -121,7 +121,7 @@ export default function FiturPage() {
           className="mt-24 p-8 md:p-12 rounded-3xl bg-[#1E293B] text-white text-center space-y-6 relative overflow-hidden"
         >
           <div className="relative z-10 space-y-3">
-            <h2 className="text-2xl md:text-4xl font-bold font-serif">Siap Mencoba EduTrack?</h2>
+            <h2 className="text-2xl md:text-4xl font-bold font-serif">Siap Mencoba Fokuspad?</h2>
             <p className="text-xs md:text-sm text-slate-300 font-medium max-w-md mx-auto">
               Dapatkan akses langsung ke seluruh fitur tanpa biaya. Mulai tingkatkan efisiensi pembelajaran sekarang.
             </p>

@@ -24,12 +24,12 @@ export async function sendPasswordResetEmail(email: string, token: string) {
   }
 
   await transporter.sendMail({
-    from: process.env.EMAIL_FROM || '"EduTrack" <noreply@edutrack.com>',
+    from: process.env.EMAIL_FROM || '"Fokuspad" <noreply@fokuspad.com>',
     to: email,
-    subject: "Kode Verifikasi Reset Password - EduTrack",
+    subject: "Kode Verifikasi Reset Password - Fokuspad",
     html: `
       <div style="font-family: sans-serif; max-width: 600px; margin: auto; padding: 20px; border: 1px solid #e5e7eb; border-radius: 12px;">
-        <h2 style="color: #0A84FF; text-transform: uppercase; font-style: italic; font-weight: 900;">EduTrack</h2>
+        <h2 style="color: #0A84FF; text-transform: uppercase; font-style: italic; font-weight: 900;">Fokuspad</h2>
         <p>Anda menerima email ini karena kami menerima permintaan reset password untuk akun Anda.</p>
         <p>Gunakan kode verifikasi di bawah ini untuk mengatur ulang password Anda:</p>
         <div style="margin: 32px 0; text-align: center;">

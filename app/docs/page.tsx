@@ -115,10 +115,10 @@ export default function DocsPage() {
             <section id="overview" className="space-y-6 scroll-mt-32">
               <div className="space-y-3">
                 <span className="text-xs font-black uppercase tracking-widest text-[#5483B3] block">MEMULAI</span>
-                <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-[#0F172A] font-serif">Cara Kerja Ekosistem EduTrack</h1>
+                <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-[#0F172A] font-serif">Cara Kerja Ekosistem Fokuspad</h1>
               </div>
               <p className="text-sm text-[#64748B] leading-relaxed">
-                EduTrack adalah platform monitoring kemajuan akademik sekolah terintegrasi. Sistem ini menjembatani interaksi administrasi antara Administrator, Guru Mata Pelajaran, serta Siswa dengan metode kolaboratif terstruktur.
+                Fokuspad adalah platform monitoring kemajuan akademik sekolah terintegrasi. Sistem ini menjembatani interaksi administrasi antara Administrator, Guru Mata Pelajaran, serta Siswa dengan metode kolaboratif terstruktur.
               </p>
 
               <div className="bg-[#1E293B] text-white rounded-3xl p-8 relative overflow-hidden shadow-md">
@@ -310,7 +310,7 @@ export default function DocsPage() {
                   <div className="space-y-1.5">
                     <h4 className="text-sm font-bold text-[#0F172A]">Papan Peringkat Belajar (Leaderboard)</h4>
                     <p className="text-xs text-[#64748B] leading-relaxed">
-                      Guna meningkatkan antusiasme, EduTrack menyusun Papan Peringkat sekolah secara otomatis berdasarkan total durasi jam belajar mandiri yang diinput secara valid oleh para siswa di Progress Tracker.
+                      Guna meningkatkan antusiasme, Fokuspad menyusun Papan Peringkat sekolah secara otomatis berdasarkan total durasi jam belajar mandiri yang diinput secara valid oleh para siswa di Progress Tracker.
                     </p>
                   </div>
                 </div>
@@ -341,7 +341,7 @@ export default function DocsPage() {
 
       {/* Footer */}
       <footer className="py-8 bg-[#1E293B] text-[#94A3B8] border-t border-[#334155] text-center text-xs">
-        <p>© {new Date().getFullYear()} EduTrack — Dikembangkan oleh Davin Maritza. Hak Cipta Dilindungi.</p>
+        <p>© {new Date().getFullYear()} Fokuspad — Dikembangkan oleh Davin Maritza. Hak Cipta Dilindungi.</p>
       </footer>
     </motion.div>
   )

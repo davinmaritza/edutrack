@@ -1,6 +1,6 @@
 {
-  "name": "EduTrack LMS",
-  "short_name": "EduTrack",
+  "name": "Fokuspad LMS",
+  "short_name": "Fokuspad",
   "description": "Learning Management System Terpadu",
   "start_url": "/dashboard",
   "display": "standalone",

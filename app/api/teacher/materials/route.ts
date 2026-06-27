@@ -49,7 +49,7 @@ export async function POST(req: Request) {
           html: `<p>Halo, ada materi baru yang diunggah oleh guru Anda.</p>
                  <p><strong>Judul:</strong> ${material.title}</p>
                  <p><strong>Deskripsi:</strong> ${material.description}</p>
-                 <p>Silakan login ke EduTrack untuk melihat materi selengkapnya.</p>`
+                 <p>Silakan login ke Fokuspad untuk melihat materi selengkapnya.</p>`
         });
       }
     } catch (emailError) {

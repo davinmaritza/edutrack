@@ -15,18 +15,18 @@ export function AdminSettingsClient({ initialSettings }: any) {
   const [activeTab, setActiveTab] = useState('general')
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [formData, setFormData] = useState({
-    appName: initialSettings?.appName || 'EduTrack',
+    appName: initialSettings?.appName || 'Fokuspad',
     school: initialSettings?.school || '',
     timezone: initialSettings?.timezone || 'Asia/Jakarta',
     maintenanceMode: initialSettings?.maintenanceMode || false,
     disableRegistration: initialSettings?.disableRegistration || false,
     loginMaintenance: initialSettings?.loginMaintenance || false,
-    supportEmail: initialSettings?.supportEmail || 'support@edutrack.id',
+    supportEmail: initialSettings?.supportEmail || 'support@fokuspad.id',
     backupEnabled: initialSettings?.backupEnabled ?? true,
     securityLog: initialSettings?.securityLog ?? true,
     bankName: initialSettings?.bankName || 'BCA',
     bankAccount: initialSettings?.bankAccount || '1234567890',
-    bankAccountName: initialSettings?.bankAccountName || 'EduTrack Academy',
+    bankAccountName: initialSettings?.bankAccountName || 'Fokuspad Academy',
     ppdbOpen: initialSettings?.ppdbOpen ?? true,
     enableLibrary: initialSettings?.enableLibrary ?? true,
     enableSarpras: initialSettings?.enableSarpras ?? true,
@@ -42,10 +42,10 @@ export function AdminSettingsClient({ initialSettings }: any) {
       toast.success('SQL Database berhasil diekspor!');
       const element = document.createElement("a");
       const file = new Blob([
-        `-- EduTrack SQL Dump\n-- Generated on ${new Date().toISOString()}\n-- School: ${formData.school}\n\nSELECT * FROM "User";\n`
+        `-- Fokuspad SQL Dump\n-- Generated on ${new Date().toISOString()}\n-- School: ${formData.school}\n\nSELECT * FROM "User";\n`
       ], {type: 'text/plain'});
       element.href = URL.createObjectURL(file);
-      element.download = `edutrack_${formData.school.toLowerCase().replace(/\s+/g, '_')}_backup.sql`;
+      element.download = `fokuspad_${formData.school.toLowerCase().replace(/\s+/g, '_')}_backup.sql`;
       document.body.appendChild(element);
       element.click();
       document.body.removeChild(element);
@@ -140,11 +140,11 @@ export function AdminSettingsClient({ initialSettings }: any) {
                               <School className="h-4 w-4 text-[#5483B3]" /> Nama Aplikasi
                            </Label>
                            <Input 
-                              value="EduTrack" 
+                              value="Fokuspad" 
                               disabled
                               className="bg-[var(--background)] border-[var(--border)] rounded-xl h-12 focus-visible:ring-[#5483B3] font-bold shadow-sm opacity-60 cursor-not-allowed"
                            />
-                           <p className="text-[10px] text-[var(--muted-foreground)]">Nama aplikasi default EduTrack bersifat tetap.</p>
+                           <p className="text-[10px] text-[var(--muted-foreground)]">Nama aplikasi default Fokuspad bersifat tetap.</p>
                         </div>
                         <div className="space-y-2">
                            <Label className="text-xs font-bold text-[var(--foreground)]">Nama Sekolah / Institusi</Label>
@@ -305,7 +305,7 @@ export function AdminSettingsClient({ initialSettings }: any) {
                               value={formData.bankAccountName} 
                               onChange={(e) => setFormData({...formData, bankAccountName: e.target.value})} 
                               className="bg-[var(--background)] border-[var(--border)] rounded-xl h-12 focus-visible:ring-[#5483B3] shadow-sm"
-                              placeholder="Contoh: EduTrack Academy"
+                              placeholder="Contoh: Fokuspad Academy"
                            />
                         </div>
                         <div className="p-6 bg-[#5483B3]/5 border border-[#5483B3]/20 rounded-xl flex items-center gap-4">
@@ -373,7 +373,7 @@ export function AdminSettingsClient({ initialSettings }: any) {
                               value={formData.supportEmail} 
                               onChange={(e) => setFormData({...formData, supportEmail: e.target.value})} 
                               className="bg-[var(--background)] border-[var(--border)] rounded-xl h-12 focus-visible:ring-[#5483B3] font-bold shadow-sm"
-                              placeholder="support@edutrack.id"
+                              placeholder="support@fokuspad.id"
                            />
                         </div>
                         <div className="flex items-center justify-between p-4 border border-[var(--border)] bg-[var(--background)] rounded-xl shadow-sm">

@@ -324,7 +324,7 @@ export function AdminSubjectsClient({ initialSubjects, teachers, classes }: any)
     const encodedUri = encodeURI(csvContent)
     const link = document.createElement("a")
     link.setAttribute("href", encodedUri)
-    link.setAttribute("download", "edutrack_subjects_export.csv")
+    link.setAttribute("download", "fokuspad_subjects_export.csv")
     document.body.appendChild(link)
     link.click()
     document.body.removeChild(link)
@@ -561,7 +561,7 @@ export function AdminSubjectsClient({ initialSubjects, teachers, classes }: any)
         <div>
           <p className="text-[#5483B3] font-bold uppercase tracking-wider text-xs mb-2">Subject Management</p>
           <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight text-[var(--foreground)]">Kelola Mapel</h1>
-          <p className="text-sm text-[var(--muted-foreground)] mt-2 font-medium">Daftar seluruh mata pelajaran di sistem EduTrack.</p>
+          <p className="text-sm text-[var(--muted-foreground)] mt-2 font-medium">Daftar seluruh mata pelajaran di sistem Fokuspad.</p>
         </div>
         
         <div className="flex flex-wrap items-center gap-3">
@@ -610,7 +610,7 @@ export function AdminSubjectsClient({ initialSubjects, teachers, classes }: any)
               <DialogContent className="bg-[var(--card)] border-[var(--border)] text-[var(--foreground)] max-w-md rounded-2xl shadow-xl">
                 <DialogHeader>
                   <DialogTitle className="text-2xl font-extrabold tracking-tight">Tambah Mapel Baru</DialogTitle>
-                  <DialogDescription className="text-sm font-medium text-[var(--muted-foreground)]">Daftarkan mata pelajaran baru ke dalam kurikulum EduTrack.</DialogDescription>
+                  <DialogDescription className="text-sm font-medium text-[var(--muted-foreground)]">Daftarkan mata pelajaran baru ke dalam kurikulum Fokuspad.</DialogDescription>
                 </DialogHeader>
                 <form onSubmit={handleAddSubject} className="space-y-5 py-4">
                   <div className="space-y-2">

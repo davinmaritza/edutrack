@@ -6,7 +6,7 @@ import { AdminUsersClient } from "@/components/dashboard/admin-users-client"
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Kelola Siswa | EduTrack',
+  title: 'Kelola Siswa | Fokuspad',
   description: 'Manajemen basis data siswa: NIS, kelas, dan informasi profil.',
 }
 

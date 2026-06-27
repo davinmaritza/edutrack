@@ -35,7 +35,7 @@ export async function sendEmail({
     });
 
     const info = await transporter.sendMail({
-      from: `"EduTrack LMS" <${smtpUser}>`,
+      from: `"Fokuspad LMS" <${smtpUser}>`,
       to: Array.isArray(to) ? to.join(', ') : to,
       subject,
       html,

@@ -83,7 +83,7 @@ export function SettingsClient({ user }: any) {
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
         <div>
           <h1 className="text-3xl font-extrabold tracking-tight text-[var(--foreground)]">Pengaturan Akun</h1>
-          <p className="text-sm text-[var(--muted-foreground)] mt-2 font-medium">Personalisasi dan kelola informasi akun EduTrack Anda.</p>
+          <p className="text-sm text-[var(--muted-foreground)] mt-2 font-medium">Personalisasi dan kelola informasi akun Fokuspad Anda.</p>
         </div>
       </div>
 

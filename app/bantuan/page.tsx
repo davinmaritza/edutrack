@@ -19,7 +19,7 @@ export default function BantuanPage() {
   const faqs = [
     { 
       q: "Apakah platform ini gratis digunakan?", 
-      a: "Ya! EduTrack dirancang untuk membantu sekolah, guru, dan siswa di Indonesia dalam menunjang pembelajaran terstruktur tanpa biaya registrasi dasar." 
+      a: "Ya! Fokuspad dirancang untuk membantu sekolah, guru, dan siswa di Indonesia dalam menunjang pembelajaran terstruktur tanpa biaya registrasi dasar." 
     },
     { 
       q: "Bagaimana cara guru menyaring siswa di kelasnya saja?", 
@@ -76,7 +76,7 @@ export default function BantuanPage() {
             Bantuan & FAQ
           </h1>
           <p className="text-sm md:text-base text-[#64748B] font-medium max-w-xl mx-auto leading-relaxed">
-            Punya pertanyaan mengenai cara penggunaan EduTrack? Temukan jawabannya di bawah ini.
+            Punya pertanyaan mengenai cara penggunaan Fokuspad? Temukan jawabannya di bawah ini.
           </p>
         </motion.div>
 

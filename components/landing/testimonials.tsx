@@ -7,7 +7,7 @@ import { Star } from 'lucide-react'
 const testimonials = [
   {
     quote:
-      'EduTrack membantu saya memantau progress 200+ siswa dengan mudah. Sekarang saya bisa fokus pada siswa yang benar-benar butuh bantuan.',
+      'Fokuspad membantu saya memantau progress 200+ siswa dengan mudah. Sekarang saya bisa fokus pada siswa yang benar-benar butuh bantuan.',
     name: 'Bu Siti Rahayu',
     role: 'Guru Matematika, SMAN 1 Jakarta',
     avatar: 'SR',
@@ -23,7 +23,7 @@ const testimonials = [
   },
   {
     quote:
-      'Platform yang sangat intuitif. Sekolah kami mengadopsi EduTrack untuk semua kelas dan hasilnya sangat positif.',
+      'Platform yang sangat intuitif. Sekolah kami mengadopsi Fokuspad untuk semua kelas dan hasilnya sangat positif.',
     name: 'Pak Budi Santoso',
     role: 'Kepala Sekolah, SMA Negeri 3 Surabaya',
     avatar: 'BS',

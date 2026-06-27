@@ -153,7 +153,7 @@ export function ParentBillingClient({ billings, bankSettings }: { billings: any[
                             <hr className="my-3 border-[var(--border)]" />
                             <p className="text-xs text-[var(--muted-foreground)] leading-relaxed">
                               Silakan transfer ke rekening berikut:<br/>
-                              <strong>{bankSettings?.bankName || "BCA"} {bankSettings?.bankAccount || "1234567890"} a.n {bankSettings?.bankAccountName || "EduTrack Academy"}</strong>
+                              <strong>{bankSettings?.bankName || "BCA"} {bankSettings?.bankAccount || "1234567890"} a.n {bankSettings?.bankAccountName || "Fokuspad Academy"}</strong>
                             </p>
                           </div>
                           

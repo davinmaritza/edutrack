@@ -67,7 +67,7 @@ export default function CaraKerjaPage() {
         >
           <span className="text-xs font-black uppercase tracking-widest text-[#5483B3]">ALUR KERJA</span>
           <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight text-[#0F172A] font-serif leading-[1.1]">
-            Bagaimana EduTrack Bekerja?
+            Bagaimana Fokuspad Bekerja?
           </h1>
           <p className="text-sm md:text-base text-[#64748B] font-medium max-w-xl mx-auto leading-relaxed">
             Menyediakan sistem kolaborasi yang mudah dipahami demi kelancaran proses pembelajaran.

@@ -36,7 +36,7 @@ export function AdminDashboard({ stats, recentUsers }: any) {
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
           <h1 className="text-4xl font-bold tracking-tight text-white">Admin Panel</h1>
-          <p className="text-white/50 text-lg mt-1">Kelola seluruh ekosistem EduTrack sekolahmu.</p>
+          <p className="text-white/50 text-lg mt-1">Kelola seluruh ekosistem Fokuspad sekolahmu.</p>
         </motion.div>
         <div className="flex gap-3">
           <Button variant="outline" className="rounded-xl border-white/10 hover:bg-white/5">

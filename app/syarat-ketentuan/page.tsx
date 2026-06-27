@@ -122,13 +122,13 @@ export default function TermsAndConditionsPage() {
                 <HelpCircle className="h-4 w-4" /> Ada Pertanyaan?
               </h4>
               <p className="text-[11px] text-[var(--muted-foreground)] leading-relaxed">
-                Jika Anda memiliki pertanyaan mengenai penggunaan platform EduTrack sekolah Anda, silakan hubungi tim dukungan operasional kami.
+                Jika Anda memiliki pertanyaan mengenai penggunaan platform Fokuspad sekolah Anda, silakan hubungi tim dukungan operasional kami.
               </p>
               <a 
-                href="mailto:support@edutrack.id" 
+                href="mailto:support@fokuspad.id" 
                 className="inline-flex items-center gap-1.5 text-xs font-bold text-[#5483B3] hover:underline pt-1"
               >
-                <Mail className="h-3.5 w-3.5" /> support@edutrack.id
+                <Mail className="h-3.5 w-3.5" /> support@fokuspad.id
               </a>
             </div>
           </div>
@@ -137,7 +137,7 @@ export default function TermsAndConditionsPage() {
           <div className="lg:col-span-3 space-y-8">
             <div className="glass border border-[var(--border)] p-8 rounded-3xl shadow-sm leading-relaxed text-sm md:text-base text-[var(--muted-foreground)] space-y-6">
               <p className="text-[var(--foreground)] font-medium">
-                Selamat datang di platform EduTrack. Syarat & Ketentuan Layanan ini mengatur penggunaan Anda atas platform administrasi dan kelas digital kami. Harap membaca ketentuan ini dengan saksama sebelum mulai mengakses layanan.
+                Selamat datang di platform Fokuspad. Syarat & Ketentuan Layanan ini mengatur penggunaan Anda atas platform administrasi dan kelas digital kami. Harap membaca ketentuan ini dengan saksama sebelum mulai mengakses layanan.
               </p>
             </div>
 
@@ -158,7 +158,7 @@ export default function TermsAndConditionsPage() {
                   <h2 className="text-xl font-extrabold text-[var(--foreground)]">1. Persetujuan Layanan</h2>
                 </div>
                 <div className="text-sm text-[var(--muted-foreground)] leading-relaxed space-y-3 pl-1">
-                  <p>Dengan mengakses, mendaftarkan diri, atau menggunakan platform EduTrack, Anda mengakui bahwa Anda telah membaca, memahami, dan menyetujui untuk terikat oleh ketentuan di dalam Syarat & Ketentuan ini.</p>
+                  <p>Dengan mengakses, mendaftarkan diri, atau menggunakan platform Fokuspad, Anda mengakui bahwa Anda telah membaca, memahami, dan menyetujui untuk terikat oleh ketentuan di dalam Syarat & Ketentuan ini.</p>
                   <p>Ketentuan ini berlaku bagi seluruh klasifikasi pengguna, termasuk siswa, pendidik (guru), pelatih ekskul, admin sekolah, maupun orang tua yang mengakses portal ini.</p>
                 </div>
               </motion.div>
@@ -178,7 +178,7 @@ export default function TermsAndConditionsPage() {
                   <h2 className="text-xl font-extrabold text-[var(--foreground)]">2. Penggunaan yang Diizinkan</h2>
                 </div>
                 <div className="text-sm text-[var(--muted-foreground)] leading-relaxed space-y-3 pl-1">
-                  <p>Anda setuju untuk menggunakan platform EduTrack hanya untuk tujuan akademis, pendidikan, penugasan, dan operasional administrasi sekolah yang sah. Anda dilarang keras untuk:</p>
+                  <p>Anda setuju untuk menggunakan platform Fokuspad hanya untuk tujuan akademis, pendidikan, penugasan, dan operasional administrasi sekolah yang sah. Anda dilarang keras untuk:</p>
                   <ul className="list-disc pl-5 space-y-2">
                     <li>Menggunakan platform untuk mengunggah materi yang melanggar hak cipta, bermuatan asusila, mengandung kebencian, atau melanggar hukum.</li>
                     <li>Melakukan tindakan sabotase teknis seperti penyebaran malware, virus, atau upaya pemindaian kerentanan sistem (penetration testing) tanpa izin resmi tertulis.</li>
@@ -205,7 +205,7 @@ export default function TermsAndConditionsPage() {
                 <div className="text-sm text-[var(--muted-foreground)] leading-relaxed space-y-3 pl-1">
                   <p>Keamanan akun Anda sangat bergantung pada kerahasiaan informasi login Anda sendiri:</p>
                   <ul className="list-disc pl-5 space-y-2">
-                    <li>Anda bertanggung jawab penuh untuk menjaga kerahasiaan kata sandi dan kredensial login akun EduTrack Anda.</li>
+                    <li>Anda bertanggung jawab penuh untuk menjaga kerahasiaan kata sandi dan kredensial login akun Fokuspad Anda.</li>
                     <li>Anda setuju untuk segera memberitahukan Administrator sekolah jika mencurigai adanya penyalahgunaan atau akses tidak sah terhadap akun Anda.</li>
                     <li>Sekolah melalui Administrator memiliki hak penuh untuk menangguhkan atau menghapus akun yang terbukti melanggar kode etik sekolah atau membagikan kredensial ke pihak luar.</li>
                   </ul>
@@ -227,10 +227,10 @@ export default function TermsAndConditionsPage() {
                   <h2 className="text-xl font-extrabold text-[var(--foreground)]">4. Ketersediaan Layanan & Batasan Tanggung Jawab</h2>
                 </div>
                 <div className="text-sm text-[var(--muted-foreground)] leading-relaxed space-y-3 pl-1">
-                  <p>Kami berkomitmen untuk menjaga keandalan platform EduTrack agar dapat diakses kapan saja demi kelancaran kegiatan belajar mengajar:</p>
+                  <p>Kami berkomitmen untuk menjaga keandalan platform Fokuspad agar dapat diakses kapan saja demi kelancaran kegiatan belajar mengajar:</p>
                   <ul className="list-disc pl-5 space-y-2">
                     <li>Ketersediaan layanan dapat terganggu oleh jadwal pemeliharaan server berkala (maintenance), pembaruan sistem, atau kendala jaringan internet di luar kendali teknis kami.</li>
-                    <li>EduTrack tidak bertanggung jawab atas kegagalan pengumpulan tugas atau absensi siswa yang disebabkan oleh gangguan penyedia jasa internet (ISP) pengguna atau perangkat keras personal yang tidak kompatibel.</li>
+                    <li>Fokuspad tidak bertanggung jawab atas kegagalan pengumpulan tugas atau absensi siswa yang disebabkan oleh gangguan penyedia jasa internet (ISP) pengguna atau perangkat keras personal yang tidak kompatibel.</li>
                   </ul>
                 </div>
               </motion.div>
@@ -262,13 +262,13 @@ export default function TermsAndConditionsPage() {
                 <HelpCircle className="h-4 w-4" /> Ada Pertanyaan?
               </h4>
               <p className="text-xs text-[var(--muted-foreground)] leading-relaxed">
-                Jika Anda memiliki pertanyaan mengenai penggunaan platform EduTrack sekolah Anda, silakan hubungi tim dukungan operasional kami.
+                Jika Anda memiliki pertanyaan mengenai penggunaan platform Fokuspad sekolah Anda, silakan hubungi tim dukungan operasional kami.
               </p>
               <a 
-                href="mailto:support@edutrack.id" 
+                href="mailto:support@fokuspad.id" 
                 className="inline-flex items-center gap-1.5 text-xs font-bold text-[#5483B3] hover:underline"
               >
-                <Mail className="h-3.5 w-3.5" /> support@edutrack.id
+                <Mail className="h-3.5 w-3.5" /> support@fokuspad.id
               </a>
             </div>
           </div>

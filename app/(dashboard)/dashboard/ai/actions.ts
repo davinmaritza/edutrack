@@ -184,7 +184,7 @@ export async function chatWithAi(params: {
   const role = (user as any).role
   const userId = (user as any).id
 
-  let systemInstruction = `Kamu adalah EduTrack AI, asisten kecerdasan buatan terintegrasi untuk platform manajemen pembelajaran EduTrack di SMKN 13 Bandung. 
+  let systemInstruction = `Kamu adalah Fokuspad AI, asisten kecerdasan buatan terintegrasi untuk platform manajemen pembelajaran Fokuspad di SMKN 13 Bandung. 
 Tanggapi pengguna dengan bahasa Indonesia yang santun, ramah, dan profesional.
 Selalu bantu pengguna (Siswa atau Guru) dalam memahami pelajaran, tugas, progres belajar, atau pembuatan materi.`
 
@@ -277,7 +277,7 @@ export async function generateFeedbackAndScore(params: {
 
   if (!submission) throw new Error("Submission tidak ditemukan.")
 
-  const systemInstruction = `Kamu adalah EduTrack AI Grading Assistant. Tugasmu membantu guru SMKN 13 Bandung menilai tugas siswa secara objektif dan konstruktif.
+  const systemInstruction = `Kamu adalah Fokuspad AI Grading Assistant. Tugasmu membantu guru SMKN 13 Bandung menilai tugas siswa secara objektif dan konstruktif.
 Berikan keluaran dalam format JSON yang valid dengan key sebagai berikut:
 - "score": (number) Rekomendasi nilai numerik berkisar antara 0 sampai ${submission.assignment.maxScore}.
 - "strengths": (string) Kelebihan/kekuatan utama dari tugas siswa ini (dalam Bahasa Indonesia).

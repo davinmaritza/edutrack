@@ -123,13 +123,13 @@ export default function PrivacyPolicyPage() {
                 <HelpCircle className="h-4 w-4" /> Butuh Bantuan?
               </h4>
               <p className="text-[11px] text-[var(--muted-foreground)] leading-relaxed">
-                Jika Anda memiliki pertanyaan seputar privasi data Anda di platform EduTrack, hubungi DPO (Data Protection Officer) kami di bawah.
+                Jika Anda memiliki pertanyaan seputar privasi data Anda di platform Fokuspad, hubungi DPO (Data Protection Officer) kami di bawah.
               </p>
               <a 
-                href="mailto:privacy@edutrack.id" 
+                href="mailto:privacy@fokuspad.id" 
                 className="inline-flex items-center gap-1.5 text-xs font-bold text-[#5483B3] hover:underline pt-1"
               >
-                <Mail className="h-3.5 w-3.5" /> privacy@edutrack.id
+                <Mail className="h-3.5 w-3.5" /> privacy@fokuspad.id
               </a>
             </div>
           </div>
@@ -138,7 +138,7 @@ export default function PrivacyPolicyPage() {
           <div className="lg:col-span-3 space-y-8">
             <div className="glass border border-[var(--border)] p-8 rounded-3xl shadow-sm leading-relaxed text-sm md:text-base text-[var(--muted-foreground)] space-y-6">
               <p className="text-[var(--foreground)] font-medium">
-                EduTrack berkomitmen penuh untuk melindungi privasi data pribadi seluruh pengguna platform kami—baik Siswa, Guru, Orang Tua, maupun Staf Administrasi. Kebijakan ini menjelaskan bagaimana data Anda dikumpulkan, digunakan, dilindungi, dan dikelola secara aman.
+                Fokuspad berkomitmen penuh untuk melindungi privasi data pribadi seluruh pengguna platform kami—baik Siswa, Guru, Orang Tua, maupun Staf Administrasi. Kebijakan ini menjelaskan bagaimana data Anda dikumpulkan, digunakan, dilindungi, dan dikelola secara aman.
               </p>
             </div>
 
@@ -210,7 +210,7 @@ export default function PrivacyPolicyPage() {
                   <h2 className="text-xl font-extrabold text-[var(--foreground)]">3. Perlindungan & Keamanan Data</h2>
                 </div>
                 <div className="text-sm text-[var(--muted-foreground)] leading-relaxed space-y-3 pl-1">
-                  <p>EduTrack menempatkan keamanan siber di tingkat prioritas tertinggi dengan mengadopsi standar industri terdepan:</p>
+                  <p>Fokuspad menempatkan keamanan siber di tingkat prioritas tertinggi dengan mengadopsi standar industri terdepan:</p>
                   <ul className="list-disc pl-5 space-y-2">
                     <li><strong>Enkripsi Sandi:</strong> Semua kata sandi akun dienkripsi menggunakan algoritma hash satu arah yang kuat (bcrypt).</li>
                     <li><strong>Transmisi Data Aman:</strong> Seluruh komunikasi data dilindungi protokol Secure Socket Layer (HTTPS) untuk mencegah penyadapan.</li>
@@ -235,7 +235,7 @@ export default function PrivacyPolicyPage() {
                   <h2 className="text-xl font-extrabold text-[var(--foreground)]">4. Kebijakan Pembagian Data</h2>
                 </div>
                 <div className="text-sm text-[var(--muted-foreground)] leading-relaxed space-y-3 pl-1">
-                  <p><strong>EduTrack TIDAK PERNAH menjual, menyewakan, membagikan, atau menukar data pribadi Anda dengan pengiklan atau pihak ketiga komersial mana pun.</strong></p>
+                  <p><strong>Fokuspad TIDAK PERNAH menjual, menyewakan, membagikan, atau menukar data pribadi Anda dengan pengiklan atau pihak ketiga komersial mana pun.</strong></p>
                   <p>Data hanya dibagikan dalam kondisi berikut:</p>
                   <ul className="list-disc pl-5 space-y-2">
                     <li>Kepada pendidik dan staf resmi sekolah Anda sebagai bagian dari operasional akademik harian.</li>
@@ -276,13 +276,13 @@ export default function PrivacyPolicyPage() {
                 <HelpCircle className="h-4 w-4" /> Butuh Bantuan?
               </h4>
               <p className="text-xs text-[var(--muted-foreground)] leading-relaxed">
-                Jika Anda memiliki pertanyaan seputar privasi data Anda di platform EduTrack, hubungi DPO (Data Protection Officer) kami.
+                Jika Anda memiliki pertanyaan seputar privasi data Anda di platform Fokuspad, hubungi DPO (Data Protection Officer) kami.
               </p>
               <a 
-                href="mailto:privacy@edutrack.id" 
+                href="mailto:privacy@fokuspad.id" 
                 className="inline-flex items-center gap-1.5 text-xs font-bold text-[#5483B3] hover:underline"
               >
-                <Mail className="h-3.5 w-3.5" /> privacy@edutrack.id
+                <Mail className="h-3.5 w-3.5" /> privacy@fokuspad.id
               </a>
             </div>
           </div>

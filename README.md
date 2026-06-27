@@ -1,6 +1,6 @@
-# EduTrack
+# Fokuspad
 
-EduTrack adalah platform edukasi modern yang dirancang untuk mempermudah pemantauan kemajuan belajar siswa (progress tracking), manajemen kelas, dan administrasi sekolah secara terpadu. Dibangun dengan Next.js 15, React 19, Tailwind CSS, dan Prisma ORM, EduTrack menawarkan antarmuka yang cepat, responsif, dan mudah digunakan oleh Siswa, Guru, maupun Administrator.
+Fokuspad adalah platform edukasi modern yang dirancang untuk mempermudah pemantauan kemajuan belajar siswa (progress tracking), manajemen kelas, dan administrasi sekolah secara terpadu. Dibangun dengan Next.js 15, React 19, Tailwind CSS, dan Prisma ORM, Fokuspad menawarkan antarmuka yang cepat, responsif, dan mudah digunakan oleh Siswa, Guru, maupun Administrator.
 
 ## Fitur Utama
 
@@ -47,8 +47,8 @@ Sebelum menjalankan proyek ini, pastikan Anda telah menginstal:
 
 1. **Clone repositori ini:**
    ```bash
-   git clone https://github.com/davinmaritza/edutrack.git
-   cd edutrack
+   git clone https://github.com/davinmaritza/fokuspad.git
+   cd fokuspad
    ```
 
 2. **Instal dependensi:**
@@ -63,8 +63,8 @@ Sebelum menjalankan proyek ini, pastikan Anda telah menginstal:
 3. **Atur variabel lingkungan (Environment Variables):**
    Buat file `.env` di folder root, lalu sesuaikan dengan konfigurasi database Anda. Contoh:
    ```env
-   DATABASE_URL="postgresql://user:password@localhost:5432/edutrack?schema=public"
-   DIRECT_URL="postgresql://user:password@localhost:5432/edutrack?schema=public"
+   DATABASE_URL="postgresql://user:password@localhost:5432/fokuspad?schema=public"
+   DIRECT_URL="postgresql://user:password@localhost:5432/fokuspad?schema=public"
    NEXTAUTH_URL="http://localhost:3000"
    AUTH_SECRET="rahasia_super_aman_anda"
    AUTH_TRUST_HOST=true
@@ -99,12 +99,12 @@ Sebelum menjalankan proyek ini, pastikan Anda telah menginstal:
 
 ## Deploy ke Vercel (Production)
 
-Untuk mendeploy EduTrack ke Vercel sebagai aplikasi siap pakai (production), ikuti langkah berikut:
+Untuk mendeploy Fokuspad ke Vercel sebagai aplikasi siap pakai (production), ikuti langkah berikut:
 1. Hubungkan repositori GitHub Anda ke Vercel.
 2. Di Vercel Dashboard, masuk ke menu **Environment Variables** dan tambahkan variabel-variabel lingkungan berikut:
    * `DATABASE_URL` (Gunakan URL database PostgreSQL VPS Anda atau cloud database)
    * `DIRECT_URL` (Sama dengan DATABASE_URL)
-   * `NEXTAUTH_URL` (Gunakan domain production Vercel Anda, misal: `https://edutrack.id`)
+   * `NEXTAUTH_URL` (Gunakan domain production Vercel Anda, misal: `https://fokuspad.id`)
    * `AUTH_SECRET` (String rahasia untuk enkripsi token NextAuth)
    * `AUTH_TRUST_HOST` (`true`)
    * `GOOGLE_CLIENT_ID` & `GOOGLE_CLIENT_SECRET` (Kredensial Google OAuth)

@@ -5,7 +5,7 @@ import { AdminExtracurricularsClient } from '@/components/dashboard/admin-extrac
 import { RBAC } from '@/lib/rbac'
 
 export const metadata = {
-  title: 'Kelola Ekstrakurikuler | Admin EduTrack',
+  title: 'Kelola Ekstrakurikuler | Admin Fokuspad',
   description: 'Kelola data ekstrakurikuler sekolah',
 }
 

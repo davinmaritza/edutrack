@@ -1,6 +1,6 @@
-# 🚀 Ultimate UI/UX Frontend Prompt: EduTrack System
+# 🚀 Ultimate UI/UX Frontend Prompt: Fokuspad System
 
-Gunakan prompt ini untuk menghasilkan atau mengembangkan UI/UX EduTrack yang premium, aman, dan berperforma tinggi.
+Gunakan prompt ini untuk menghasilkan atau mengembangkan UI/UX Fokuspad yang premium, aman, dan berperforma tinggi.
 
 ---
 
@@ -53,7 +53,7 @@ Aman berarti konsisten dan terlindungi:
 ---
 
 ## 📝 Contoh Prompt Singkat untuk AI Generator:
-> "Build a premium Next.js 15 dashboard for a school system called EduTrack. Use zinc-950 dark theme, sharp-edged components (rounded-none), and high-contrast typography (Black Italic Uppercase headers). Ensure backend safety by implementing RBAC, Prisma singleton, and parallel data fetching. Use Framer Motion for smooth UI transitions and Shadcn UI for core components. Focus on speed and security."
+> "Build a premium Next.js 15 dashboard for a school system called Fokuspad. Use zinc-950 dark theme, sharp-edged components (rounded-none), and high-contrast typography (Black Italic Uppercase headers). Ensure backend safety by implementing RBAC, Prisma singleton, and parallel data fetching. Use Framer Motion for smooth UI transitions and Shadcn UI for core components. Focus on speed and security."
 
 ---
-*EduTrack Safety Protocol v2.4 - Optimization & Security First.*
+*Fokuspad Safety Protocol v2.4 - Optimization & Security First.*

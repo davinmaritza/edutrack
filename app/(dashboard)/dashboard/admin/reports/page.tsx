@@ -7,7 +7,7 @@ import { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Laporan Akademik',
-  description: 'Statistik dan ringkasan kemajuan belajar siswa EduTrack.',
+  description: 'Statistik dan ringkasan kemajuan belajar siswa Fokuspad.',
 }
 
 export default async function AdminReportsPage() {

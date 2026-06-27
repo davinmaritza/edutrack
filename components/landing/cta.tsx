@@ -22,7 +22,7 @@ export function CTA() {
           </h2>
           <p className="mt-6 text-body md:text-xl text-background/70 dark:text-muted-foreground max-w-2xl mx-auto">
             Bergabung dengan ribuan sekolah lainnya yang sudah menggunakan
-            EduTrack untuk memantau progress belajar siswa.
+            Fokuspad untuk memantau progress belajar siswa.
           </p>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
