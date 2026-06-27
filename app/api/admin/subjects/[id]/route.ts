@@ -9,8 +9,9 @@ export async function PATCH(
 ) {
   const { id: subjectId } = await params
   const session = await auth()
-  if (!session || !RBAC.isAdminLevel((session.user as any).role)) {
-    return new NextResponse("Unauthorized", { status: 401 })
+  const role = (session?.user as any)?.role
+  if (!session || (!RBAC.isAdminLevel(role) && !RBAC.isTeacherLevel(role))) {
+    return new NextResponse("Forbidden", { status: 403 })
   }
 
   try {
@@ -44,8 +45,9 @@ export async function DELETE(
 ) {
   const { id: subjectId } = await params
   const session = await auth()
-  if (!session || !RBAC.isAdminLevel((session.user as any).role)) {
-    return new NextResponse("Unauthorized", { status: 401 })
+  const role = (session?.user as any)?.role
+  if (!session || (!RBAC.isAdminLevel(role) && !RBAC.isTeacherLevel(role))) {
+    return new NextResponse("Forbidden", { status: 403 })
   }
 
   try {

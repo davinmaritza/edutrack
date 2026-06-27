@@ -2,12 +2,13 @@ import { auth } from "@/lib/auth"
 import prisma from "@/lib/prisma"
 import { redirect } from "next/navigation"
 import { AdminBillingClient } from "@/components/dashboard/admin-billing-client"
+import { RBAC } from "@/lib/rbac"
 
 export const dynamic = 'force-dynamic'
 
 export default async function AdminBillingPage() {
   const session = await auth()
-  if (!session || (session.user as any).role !== "ADMIN") {
+  if (!session || !RBAC.canManageFinance((session.user as any).role)) {
     redirect("/login")
   }
 

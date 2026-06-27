@@ -5,8 +5,10 @@ import { NextResponse } from "next/server"
 
 export async function POST(req: Request) {
   const session = await auth()
-  if (!session || !RBAC.isAdminLevel((session.user as any).role)) {
-    return new NextResponse("Unauthorized", { status: 401 })
+  const role = (session?.user as any)?.role
+  // Guru dan admin boleh membuat mata pelajaran
+  if (!session || (!RBAC.isAdminLevel(role) && !RBAC.isTeacherLevel(role))) {
+    return new NextResponse("Forbidden", { status: 403 })
   }
 
   try {

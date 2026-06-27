@@ -171,6 +171,12 @@ const FEATURES = [
     desc: 'Rapor semester bisa dibagikan ke orang tua lewat platform — aman, bisa diunduh, tidak bisa dipalsukan.',
     color: 'bg-sky-50 text-sky-600',
   },
+  {
+    icon: ShieldCheck,
+    title: 'Ujian Online (CBT)',
+    desc: 'Sistem ujian komprehensif dengan fitur anti-cheat (deteksi pindah tab), analitik per soal, dan nilai langsung terhubung ke orang tua.',
+    color: 'bg-indigo-50 text-indigo-600',
+  },
 ]
 
 const HOW = [
@@ -195,7 +201,7 @@ const HOW = [
 ]
 
 const STATS = [
-  { value: '12+', label: 'Fitur akademik' },
+  { value: '13+', label: 'Fitur akademik' },
   { value: '4', label: 'Peran pengguna' },
   { value: 'Gratis', label: 'Untuk mulai' },
   { value: 'Real-time', label: 'Update data' },

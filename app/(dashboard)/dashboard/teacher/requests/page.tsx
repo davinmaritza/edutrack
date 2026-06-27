@@ -9,7 +9,7 @@ export default async function TeacherRequestsPage() {
   const session = await auth()
   const role = (session?.user as any)?.role
 
-  if (!session || (role !== "TEACHER" && role !== "ADMIN")) {
+  if (!session || !session) {
     redirect("/login")
   }
 
@@ -25,3 +25,5 @@ export default async function TeacherRequestsPage() {
 
   return <TeacherRequestsClient requests={requests} />
 }
+
+// force rebuild

@@ -10,7 +10,7 @@ export const metadata = {
 export default async function TeacherEkskulPage() {
   const session = await auth()
   
-  if (!session || (session.user as any)?.role !== 'TEACHER') {
+  if (!session || (session.user as any)?.role !== 'TEACHER' && (session.user as any)?.role !== 'COACH') {
     redirect('/login')
   }
 
