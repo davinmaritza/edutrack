@@ -11,8 +11,9 @@ import {
   ClipboardList, 
   BookOpen, 
   Calendar, 
-  FileBarChart, 
+  FileBarChart,
   Trophy, 
+  MonitorPlay,
   Bell, 
   Settings, 
   Users, 
@@ -47,11 +48,13 @@ const sidebarLinks: Record<string, SidebarLink[]> = {
     { label: 'Notifikasi', icon: Bell, href: '/dashboard/notifications', category: 'Utama' },
     
     { label: 'Tugas', icon: ClipboardList, href: '/dashboard/assignments', category: 'Akademik' },
-    { label: 'Ujian Online', icon: ClipboardList, href: '/dashboard/student/exams', category: 'Akademik' },
+    { label: 'Ujian Online (CBT)', icon: MonitorPlay, href: '/dashboard/student/exams', category: 'Akademik' },
     { label: 'Mata Pelajaran', icon: BookOpen, href: '/dashboard/subjects', category: 'Akademik' },
     { label: 'Jadwal Kelas', icon: ClipboardList, href: '/dashboard/schedule', category: 'Akademik' },
     { label: 'Kalender', icon: Calendar, href: '/dashboard/calendar', category: 'Akademik' },
     
+    { label: 'Tagihan SPP', icon: Wallet, href: '/dashboard/student/finance', category: 'Layanan' },
+    { label: 'Perpustakaan', icon: Library, href: '/dashboard/student/library', category: 'Layanan' },
     { label: 'Forum Diskusi', icon: MessageSquare, href: '/dashboard/discussions', category: 'Layanan' },
     { label: 'Laporan', icon: FileBarChart, href: '/dashboard/reports', category: 'Layanan' },
     
