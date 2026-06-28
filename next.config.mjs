@@ -16,6 +16,21 @@ const nextConfig = {
   },
   logging: false,
 
+  async redirects() {
+    return [
+      {
+        source: '/docs',
+        destination: 'https://docs.fokuspad.my.id',
+        permanent: true,
+      },
+      {
+        source: '/docs/:path*',
+        destination: 'https://docs.fokuspad.my.id/:path*',
+        permanent: true,
+      }
+    ]
+  },
+
   // Security headers
   async headers() {
     return [
