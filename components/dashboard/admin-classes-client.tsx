@@ -508,12 +508,12 @@ export function AdminClassesClient({ initialClasses, role, subjects, unassignedS
           <p className="text-[var(--muted-foreground)] font-medium mt-3">Pilih kelas untuk mengelola siswa dan membagikan tugas.</p>
         </motion.div>
         
-        <div className="flex items-center gap-3">
-           <div className="relative group">
+        <div className="flex flex-wrap items-center gap-3 w-full md:w-auto">
+           <div className="relative group w-full sm:w-auto flex-1 sm:flex-none">
               <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-[var(--muted-foreground)] focus-within:text-[#5483B3] transition-colors" />
               <Input 
                 placeholder="Cari nama kelas..." 
-                className="bg-[var(--card)] border-[var(--border)] pl-10 h-11 text-sm rounded-xl w-64 focus-visible:ring-[#5483B3] transition-all shadow-sm"
+                className="bg-[var(--card)] border-[var(--border)] pl-10 h-11 text-sm rounded-xl w-full sm:w-64 focus-visible:ring-[#5483B3] transition-all shadow-sm"
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
               />
