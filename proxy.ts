@@ -1,5 +1,6 @@
 import { auth } from "@/lib/auth"
 import { NextResponse } from "next/server"
+import { RBAC } from "@/lib/rbac"
 
 export const proxy = auth((req) => {
   const { nextUrl } = req
@@ -38,15 +39,15 @@ export const proxy = auth((req) => {
       return NextResponse.redirect(new URL("/login", nextUrl))
     }
 
-    const adminRoles = ['SUPER_ADMIN', 'KETUA_YAYASAN', 'KEPALA_SEKOLAH', 'WAKASEK_KURIKULUM', 'WAKASEK_KESISWAAN', 'WAKASEK_HUBIN', 'KAPROG', 'KEPALA_LAB', 'TATA_USAHA', 'BENDAHARA_YAYASAN', 'BENDAHARA_SEKOLAH', 'PANITIA_PPDB', 'STAF_SARPRAS', 'WALI_KELAS', 'GURU_BK', 'ADMIN']
     const normalizedRole = role ? String(role).toUpperCase().replace(/[\s\-]/g, '_') : ''
-    const isAuthorizedAdmin = adminRoles.includes(normalizedRole)
+    const isAuthorizedAdmin = RBAC.canAccessAdminDashboard(normalizedRole)
+    const isTeacher = RBAC.isTeacherLevel(normalizedRole)
 
     // Admin dashboard routes protection (Allow TEACHER for classes)
     if (nextUrl.pathname.startsWith("/dashboard/admin")) {
       const isAllowedForTeacher = nextUrl.pathname === "/dashboard/admin/classes" || nextUrl.pathname.startsWith("/dashboard/admin/classes/")
       
-      if (!isAuthorizedAdmin && !(role === "TEACHER" && isAllowedForTeacher)) {
+      if (!isAuthorizedAdmin && !(isTeacher && isAllowedForTeacher)) {
         return NextResponse.redirect(new URL("/dashboard", nextUrl))
       }
     }
@@ -59,9 +60,9 @@ export const proxy = auth((req) => {
     }
     
     // Teacher routes protection
-    const teacherRoutes = ["/dashboard/materi", "/dashboard/tugas-guru", "/dashboard/siswa-guru"]
+    const teacherRoutes = ["/dashboard/materi", "/dashboard/kelola-materi", "/dashboard/kelola-tugas", "/dashboard/teacher", "/dashboard/siswa-guru", "/dashboard/ekskul-guru", "/dashboard/teacher/"]
     if (teacherRoutes.some(route => nextUrl.pathname.startsWith(route))) {
-      if (role !== "TEACHER" && role !== "ADMIN") {
+      if (!isTeacher && !RBAC.isAdminLevel(normalizedRole)) {
         return NextResponse.redirect(new URL("/dashboard", nextUrl))
       }
     }
