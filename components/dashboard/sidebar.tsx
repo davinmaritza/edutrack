@@ -299,6 +299,7 @@ export function Sidebar({ isMobile, onClose }: SidebarProps = {}) {
             width={130}
             height={32}
             className="h-8 w-auto dark:invert transition-transform hover:scale-105 duration-200"
+            style={{ width: 'auto', height: 'auto' }}
             priority
           />
         </Link>
