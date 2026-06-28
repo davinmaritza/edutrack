@@ -131,34 +131,35 @@ export default function LoginPage() {
       </motion.div>
 
       {/* Right side - Login Form */}
-      <div className="w-full lg:w-[55%] flex items-center justify-center p-6 md:p-12 bg-white">
+      <div className="w-full lg:w-[55%] flex items-center justify-center p-4 sm:p-6 md:p-12 bg-[#FDFCF7]">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-          className="w-full max-w-[420px] space-y-8"
+          className="w-full max-w-[420px] space-y-8 double-bezel shadow-[0_20px_40px_-10px_rgba(0,0,0,0.03)] bg-white/50"
         >
-          <div className="space-y-3 text-center lg:text-left">
-            <h2 className="text-[32px] font-extrabold tracking-tight text-[#0F172A] font-serif leading-tight">Selamat Datang</h2>
-            <p className="text-[13px] text-slate-500 font-medium leading-relaxed">Masuk ke akun Fokuspad Anda untuk melanjutkan aktivitas akademik.</p>
-          </div>
+          <div className="double-bezel-inner p-8 sm:p-10 bg-white">
+            <div className="space-y-3 text-center sm:text-left mb-8">
+              <h2 className="text-[28px] sm:text-[32px] font-extrabold tracking-tight text-[#0F172A] font-serif leading-tight">Selamat Datang</h2>
+              <p className="text-[13px] text-slate-500 font-medium leading-relaxed">Masuk ke akun Fokuspad Anda untuk melanjutkan aktivitas akademik.</p>
+            </div>
 
-          <div className="flex bg-slate-50 border border-slate-100 rounded-xl p-1 shadow-inner">
-            <button 
-              type="button"
-              onClick={() => { setLoginType('user'); setEmail(''); setPassword(''); }}
-              className={`flex-1 text-[11px] font-bold py-2 rounded-lg transition-all duration-300 ${loginType === 'user' ? 'bg-white text-slate-900 shadow-sm ring-1 ring-slate-200' : 'text-slate-500 hover:text-slate-900'}`}
-            >
-              Akun Sekolah
-            </button>
-            <button 
-              type="button"
-              onClick={() => { setLoginType('parent'); setEmail(''); setPassword(''); }}
-              className={`flex-1 text-[11px] font-bold py-2 rounded-lg transition-all duration-300 ${loginType === 'parent' ? 'bg-white text-slate-900 shadow-sm ring-1 ring-slate-200' : 'text-slate-500 hover:text-slate-900'}`}
-            >
-              Wali Murid
-            </button>
-          </div>
+            <div className="flex bg-slate-50/80 border border-slate-100 rounded-2xl p-1.5 shadow-[inset_0_2px_4px_rgba(0,0,0,0.02)] mb-8">
+              <button 
+                type="button"
+                onClick={() => { setLoginType('user'); setEmail(''); setPassword(''); }}
+                className={`flex-1 text-[11px] font-bold py-2.5 rounded-xl transition-all duration-300 ${loginType === 'user' ? 'bg-white text-slate-900 shadow-sm ring-1 ring-slate-200/50' : 'text-slate-500 hover:text-slate-900'}`}
+              >
+                Akun Sekolah
+              </button>
+              <button 
+                type="button"
+                onClick={() => { setLoginType('parent'); setEmail(''); setPassword(''); }}
+                className={`flex-1 text-[11px] font-bold py-2.5 rounded-xl transition-all duration-300 ${loginType === 'parent' ? 'bg-white text-slate-900 shadow-sm ring-1 ring-slate-200/50' : 'text-slate-500 hover:text-slate-900'}`}
+              >
+                Wali Murid
+              </button>
+            </div>
 
           <form onSubmit={handleLogin} className="space-y-6">
             {isLoginMaintenance && (
@@ -225,20 +226,22 @@ export default function LoginPage() {
               <label htmlFor="remember" className="text-[12px] font-semibold text-slate-500 cursor-pointer select-none">Ingat saya untuk 30 hari</label>
             </div>
 
-            <Button
-              type="submit"
-              disabled={isLoading}
-              className="w-full h-12 bg-[#0F172A] hover:bg-[#1E293B] text-white font-bold rounded-xl transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-[#0F172A]/20 active:scale-[0.98] group text-[13px] gap-2"
-            >
-              {isLoading ? (
-                <Loader2 className="h-4 w-4 animate-spin" />
-              ) : (
-                <>
-                  Masuk Sekarang
-                  <ArrowRight className="h-4 w-4 opacity-70 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
-                </>
-              )}
-            </Button>
+              <Button
+                type="submit"
+                disabled={isLoading}
+                className="w-full h-14 bg-[#0F172A] hover:bg-[#1E293B] text-white font-bold rounded-2xl transition-all duration-300 hover:scale-[0.98] hover:shadow-xl hover:shadow-[#0F172A]/15 active:scale-[0.96] group text-[13px] flex items-center justify-between px-6"
+              >
+                {isLoading ? (
+                  <Loader2 className="h-4 w-4 animate-spin mx-auto" />
+                ) : (
+                  <>
+                    <span className="uppercase tracking-widest text-[11px] font-black">Masuk Sekarang</span>
+                    <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center group-hover:translate-x-1 transition-transform duration-300">
+                      <ArrowRight className="h-3.5 w-3.5 opacity-90" />
+                    </div>
+                  </>
+                )}
+              </Button>
 
             <div className="relative my-6">
               <div className="absolute inset-0 flex items-center">
@@ -284,7 +287,8 @@ export default function LoginPage() {
             <p className="text-center text-[12px] font-semibold text-slate-500 mt-8">
               Belum punya akun? <Link href="/register" className="font-bold text-[#0F172A] hover:text-[#5483B3] transition-colors hover:underline underline-offset-2">Daftar sekarang</Link>
             </p>
-          </form>
+            </form>
+          </div>
         </motion.div>
       </div>
     </motion.div>

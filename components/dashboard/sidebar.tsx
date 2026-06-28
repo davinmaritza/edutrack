@@ -279,10 +279,10 @@ export function Sidebar({ isMobile, onClose }: SidebarProps = {}) {
 
   return (
     <aside className={cn(
-      "flex flex-col transition-colors duration-300 h-full w-full select-none",
+      "flex flex-col transition-colors duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] h-full w-full select-none",
       isMobile 
-        ? "bg-[var(--sidebar-bg)]" 
-        : "fixed left-0 top-0 h-screen w-[256px] bg-[var(--sidebar-bg)] border-r border-[var(--border)] z-50 hidden lg:flex"
+        ? "bg-[var(--sidebar-bg)]/95 backdrop-blur-2xl" 
+        : "fixed left-0 top-0 h-[100dvh] w-[256px] bg-[var(--sidebar-bg)]/90 backdrop-blur-2xl border-r border-slate-200/50 shadow-[4px_0_24px_-12px_rgba(0,0,0,0.05)] z-50 hidden lg:flex"
     )}>
       {/* Logo Section */}
       <div className="px-5 py-5 flex items-center justify-between shrink-0 border-b border-[var(--border)] bg-[var(--sidebar-bg)]/80 backdrop-blur-md sticky top-0 z-10">
